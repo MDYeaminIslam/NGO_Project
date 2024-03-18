@@ -2,7 +2,7 @@
 const SideNavbar = () => {
     return (
         <div>
-            <div className="h-full min-h-screen p-3 space-y-2 w-52 bg-gray-300 text-gray-800">
+            <div className="h-full min-h-screen p-3 space-y-2 w-60 bg-gray-300 text-gray-800">
                 <div className="flex items-center p-2 space-x-4">
                     <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="w-12 h-12 rounded-full bg-gray-500" />
                     <div>
