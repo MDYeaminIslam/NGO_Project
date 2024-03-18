@@ -2,7 +2,7 @@
 const SideNavbar = () => {
     return (
         <div>
-            <div className="h-full min-h-screen p-3 space-y-2 w-60 bg-gray-50 text-gray-800">
+            <div className="h-full min-h-screen p-3 space-y-2 w-52 bg-gray-300 text-gray-800">
                 <div className="flex items-center p-2 space-x-4">
                     <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="w-12 h-12 rounded-full bg-gray-500" />
                     <div>
@@ -13,7 +13,7 @@ const SideNavbar = () => {
                     </div>
                 </div>
                 <div className="divide-y divide-gray-300">
-                    <ul className="pt-2 pb-4 space-y-1 text-sm font-medium text-gray-900 ">
+                    <ul className="pt-2 pb-4 space-y-3 text-sm font-medium text-gray-900 ">
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
                             <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current text-gray-600">
@@ -24,13 +24,13 @@ const SideNavbar = () => {
                         </li>
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
                             <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                                <img className="w-4" src="/public/NGO Dashboard icon/Member.png" alt="" />
+                                <img className="w-4" src="/NGO Dashboard icon/Member.png" alt="" />
                                 <span>Members</span>
                             </a>
                         </li>
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
                             <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                                <img className="w-4" src="/public/NGO Dashboard icon/Saving account.png" alt="" />
+                                <img className="w-4" src="/NGO Dashboard icon/Saving account.png" alt="" />
                                 <span>Saving Account</span>
                             </a>
                         </li>
@@ -46,37 +46,37 @@ const SideNavbar = () => {
                         </li>
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
                             <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                                <img className="w-4" src="/public/NGO Dashboard icon/payroll.png" alt="" />
+                                <img className="w-4" src="/NGO Dashboard icon/payroll.png" alt="" />
                                 <span>Payroll</span>
                             </a>
                         </li>
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
                             <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                                <img className="w-4" src="/public/NGO Dashboard icon/expense.png" alt="" />
+                                <img className="w-4" src="/NGO Dashboard icon/expense.png" alt="" />
                                 <span>Expense</span>
                             </a>
                         </li>
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
                             <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                                <img className="w-4" src="/public/NGO Dashboard icon/employee.png" alt="" />
+                                <img className="w-4" src="/NGO Dashboard icon/employee.png" alt="" />
                                 <span>Employee</span>
                             </a>
                         </li>
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
                             <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                                <img className="w-4" src="/public/NGO Dashboard icon/income.png" alt="" />
+                                <img className="w-4" src="/NGO Dashboard icon/income.png" alt="" />
                                 <span>Income</span>
                             </a>
                         </li>
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
                             <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                                <img className="w-4" src="/public/NGO Dashboard icon/bank-building.png" alt="" />
+                                <img className="w-4" src="/NGO Dashboard icon/bank-building.png" alt="" />
                                 <span>Bank</span>
                             </a>
                         </li>
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
                             <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                                <img className="w-4" src="/public/NGO Dashboard icon/hrm.png" alt="" />
+                                <img className="w-4" src="/NGO Dashboard icon/hrm.png" alt="" />
                                 <span>HRM</span>
                             </a>
                         </li>
@@ -88,7 +88,7 @@ const SideNavbar = () => {
                         </li>
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
                             <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                                <img className="w-4" src="/public/NGO Dashboard icon/report.png" alt="" />
+                                <img className="w-4" src="/NGO Dashboard icon/report.png" alt="" />
                                 <span>Report</span>
                             </a>
                         </li>
