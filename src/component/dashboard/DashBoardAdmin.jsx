@@ -2,8 +2,18 @@
 
 const DashBoardAdmin = () => {
     return (
-        <div className="flex justify-center items-center   bg-gray-100 rounded-md  mx-10 ">
-            <section className="grid grid-cols-4 gap-6 w-fit mx-auto p-10 min-w-full ">
+        <div className="flex justify-center items-center   bg-gray-100 md:py-10    ">
+            <section className="grid grid-cols-2 md:grid-cols-4 md:gap-4 gap-2 w-fit   ">
+                {/* card */}
+                <div className="bg-sky-600 text-white p-4 rounded-md md:col-span-2 ">
+                    <div>
+                        <img className="w-10" src="/Admin Dashboard icon/Total capital.png" alt="" />
+                    </div>
+                    <div>
+                        <p className="font-light">Total Capital</p>
+                        <h2 className="text-2xl font">4,70,000 Tk</h2>
+                    </div>
+                </div>
                 {/* card */}
                 <div className="bg-sky-600 text-white p-4 rounded-md">
                     <div>
@@ -84,16 +94,7 @@ const DashBoardAdmin = () => {
                         <h2 className="text-2xl font">4,000 Tk</h2>
                     </div>
                 </div>
-                {/* card */}
-                <div className="bg-sky-600 text-white p-4 rounded-md">
-                    <div>
-                        <img className="w-10" src="/Admin Dashboard icon/Total capital.png" alt="" />
-                    </div>
-                    <div>
-                        <p className="font-light">Total Capital</p>
-                        <h2 className="text-2xl font">4,70,000 Tk</h2>
-                    </div>
-                </div>
+
             </section>
         </div>
     );

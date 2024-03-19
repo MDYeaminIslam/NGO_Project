@@ -9,13 +9,13 @@ function App() {
 
   return (
     <>
-      <div className=' flex '>
-        <div className='min-h-screen h-screen overflow-y-scroll'>
+      <div className=' flex flex-col md:flex-row w-full  '>
+        <div className='min-h-screen h-screen overflow-y-scroll w-1/5'>
           <SideNavbar />
         </div>
-        <div>
+        <div className='w-4/5'>
           <div><DashBoardNav /></div>
-          <div className=''>
+          <div className=' '>
             <Outlet />
           </div>
         </div>

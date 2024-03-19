@@ -1,8 +1,8 @@
 
 const SideNavbar = () => {
     return (
-        <div>
-            <div className="h-full min-h-screen p-3 space-y-2 w-60 bg-gray-300 text-gray-800">
+        <div className="">
+            <div className="h-full w-full min-h-screen p-3 space-y-2  bg-gray-300 text-gray-800">
                 <div className="flex items-center p-2 space-x-4">
                     <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="w-12 h-12 rounded-full bg-gray-500" />
                     <div>
@@ -13,7 +13,7 @@ const SideNavbar = () => {
                     </div>
                 </div>
                 <div className="divide-y divide-gray-300">
-                    <ul className="pt-2 pb-4 space-y-3 text-sm font-medium text-gray-900 ">
+                    <ul className="pt-2 pb-4 space-y-3 text-sm font-medium text-black ">
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
                             <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current text-gray-600">
