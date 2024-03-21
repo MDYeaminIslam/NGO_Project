@@ -5,8 +5,6 @@ import SideNavbar from './component/sidebar/SideNavbar'
 import DashBoardNav from './component/dashboard/DashBoardNav'
 
 function App() {
-
-
   return (
     <>
       <div className=' flex flex-col md:flex-row w-full  '>
