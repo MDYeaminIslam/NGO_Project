@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const SideNavbar = () => {
     return (
@@ -23,10 +24,13 @@ const SideNavbar = () => {
                             </a>
                         </li>
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
-                            <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                                <img className="w-4" src="/NGO Dashboard icon/Member.png" alt="" />
-                                <span>Members</span>
-                            </a>
+
+                            <Link to={'add_member'}>
+                                <p className="flex items-center p-2 space-x-3 rounded-md">
+                                    <img className="w-4" src="/NGO Dashboard icon/Member.png" alt="" />
+                                    <span>Members</span>
+                                </p>
+                            </Link>
                         </li>
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
                             <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
