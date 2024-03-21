@@ -51,6 +51,7 @@ const router = createBrowserRouter([
                 path: '/',
                 element: <DashBoardAdmin />
             },
+<<<<<<< HEAD
             {
                 path: 'add_member',
                 element: <AddMember/>
@@ -237,6 +238,8 @@ const router = createBrowserRouter([
 
 
 
+=======
+>>>>>>> 686d229d84d70fb01eb70a00f485eb7f742a63c3
         ]
     },
 ]);

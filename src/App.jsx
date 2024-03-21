@@ -3,10 +3,9 @@ import { Outlet } from 'react-router-dom'
 import './App.css'
 import SideNavbar from './component/sidebar/SideNavbar'
 import DashBoardNav from './component/dashboard/DashBoardNav'
+import DynamicNavbar from './component/Navbar/DynamicNavbar'
 
 function App() {
-
-
   return (
     <>
       <div className=' flex flex-col md:flex-row w-full  '>
@@ -15,6 +14,7 @@ function App() {
         </div>
         <div className='w-4/5'>
           <div><DashBoardNav /></div>
+          <div><DynamicNavbar/></div>
           <div className=' '>
             <Outlet />
           </div>
