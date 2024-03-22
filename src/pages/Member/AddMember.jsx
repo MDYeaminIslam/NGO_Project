@@ -8,7 +8,7 @@ const AddMember = () => {
         <MemberNav />
       </section>
       <section className="m-4">
-        <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">New Member Adding  From </h1>
+        <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">New Member Adding  Form </h1>
         <form className="my-8" action="">
           <section className=" grid grid-cols-3 max-w-5xl mx-auto gap-4 ">
 
