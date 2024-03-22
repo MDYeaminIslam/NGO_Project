@@ -13,8 +13,13 @@ function App() {
           <SideNavbar />
         </div>
         <div className='w-4/5'>
+<<<<<<< HEAD
           {/* <div><DashBoardNav /></div> */}
           {/* <div><DynamicNavbar /></div> */}
+=======
+          {/* <div><DashBoardNav /></div>
+          <div><DynamicNavbar/></div> */}
+>>>>>>> 207d787b32bfaa7a519a52623742d6df3282ec36
           <div className=' '>
             <Outlet />
           </div>

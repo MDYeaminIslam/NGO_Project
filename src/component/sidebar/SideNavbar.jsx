@@ -33,6 +33,12 @@ const SideNavbar = () => {
                             </Link>
                         </li>
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
+                            <a className="flex items-center p-2 space-x-3 rounded-md">
+                                <img className="w-4" src="/NGO Dashboard icon/branch.png" alt="" />
+                                <span>Branches</span>
+                            </a>
+                        </li>
+                        <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
                             <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
                                 <img className="w-4" src="/NGO Dashboard icon/Saving account.png" alt="" />
                                 <span>Saving Account</span>
@@ -45,15 +51,17 @@ const SideNavbar = () => {
                                     <path d="M418.125,191h-36.25L304,355.4v27.042l4.234,4.595a124.347,124.347,0,0,0,91.224,39.982h.42a124.343,124.343,0,0,0,91.369-40.607L496,381.185V355.4ZM464,368.608a90.924,90.924,0,0,1-64.231,26.413h-.33A90.907,90.907,0,0,1,336,369.667V362.6l64-135.112L464,362.6Z"></path>
                                     <path d="M272,196.659A56.223,56.223,0,0,0,309.659,159H416V127H309.659a55.991,55.991,0,0,0-107.318,0H96v32H202.341A56.223,56.223,0,0,0,240,196.659V463H136v32H376V463H272ZM232,143a24,24,0,1,1,24,24A24,24,0,0,1,232,143Z"></path>
                                 </svg>
-                                <span>Loan Handling</span>
+                                <span>Loan Management</span>
                             </a>
                         </li>
-                        <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
+
+                        {/* <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
                             <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
                                 <img className="w-4" src="/NGO Dashboard icon/payroll.png" alt="" />
                                 <span>Payroll</span>
                             </a>
-                        </li>
+                        </li> */}
+
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
                             <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
                                 <img className="w-4" src="/NGO Dashboard icon/expense.png" alt="" />
@@ -74,10 +82,30 @@ const SideNavbar = () => {
                         </li>
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
                             <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
+                                <img className="w-4" src="/public/NGO Dashboard icon/manage-drawer-cash.png" alt="" />
+                                <span>Manage Drawer Cash</span>
+                            </a>
+                        </li>
+                        <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
+                            <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
+                                <img className="w-4" src="/NGO Dashboard icon/manage-bank-cash.png" alt="" />
+                                <span>Manage Bank Cash</span>
+                            </a>
+                        </li>
+                        <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
+                            <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
+                                <img className="w-4" src="/NGO Dashboard icon/user-maintenance.png" alt="" />
+                                <span>User Maintenance</span>
+                            </a>
+                        </li>
+
+                        {/* <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
+                            <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
                                 <img className="w-4" src="/NGO Dashboard icon/bank-building.png" alt="" />
                                 <span>Bank</span>
                             </a>
-                        </li>
+                        </li> */}
+
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
                             <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
                                 <img className="w-4" src="/NGO Dashboard icon/hrm.png" alt="" />
@@ -88,6 +116,12 @@ const SideNavbar = () => {
                             <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
                                 <img className="w-4" src="/NGO Dashboard icon/asset.png" alt="" />
                                 <span>Assets</span>
+                            </a>
+                        </li>
+                        <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
+                            <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
+                                <img className="w-4" src="/NGO Dashboard icon/liability.png" alt="" />
+                                <span>Liabilities</span>
                             </a>
                         </li>
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
