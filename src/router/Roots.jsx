@@ -47,10 +47,12 @@ const router = createBrowserRouter([
         path: "/",
         element: <App />,
         children: [
+            //admin dashboard
             {
                 path: '/',
                 element: <DashBoardAdmin />
             },
+            // members routs
             {
                 path: 'add_member',
                 element: <AddMember />
@@ -69,7 +71,7 @@ const router = createBrowserRouter([
             },
 
 
-
+            // Accounts routs
             {
                 path: 'close_saving_account',
                 element: <CloseSavingAccount />
@@ -88,7 +90,7 @@ const router = createBrowserRouter([
             },
 
 
-
+            // loan handling routs
             {
                 path: 'add_loan_plan',
                 element: <AddLoanPlan />
@@ -127,13 +129,7 @@ const router = createBrowserRouter([
             },
 
 
-
-
-
-
-
-
-
+            // Expense routs
             {
                 path: 'all_expense',
                 element: <AllExpense />
@@ -148,8 +144,7 @@ const router = createBrowserRouter([
             },
 
 
-
-
+            //Employee routs
             {
                 path: 'employee_add',
                 element: <EmployeeAdd />
@@ -165,7 +160,7 @@ const router = createBrowserRouter([
 
 
 
-
+            //  Income routs
             {
                 path: 'any_charges',
                 element: <AnyCharges />
@@ -188,13 +183,7 @@ const router = createBrowserRouter([
             },
 
 
-
-
-
-
-
-
-
+            //HRM routs
             {
                 path: 'advance',
                 element: <Advance />
@@ -231,10 +220,6 @@ const router = createBrowserRouter([
                 path: 'salary_sheet',
                 element: <SalarySheet />
             },
-
-
-
-
 
 
         ]

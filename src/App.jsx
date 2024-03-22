@@ -14,7 +14,7 @@ function App() {
 
         <div className='w-4/5'>
 
-          <div className=' '>
+          <div className='h-screen overflow-y-scroll '>
             <Outlet />
           </div>
         </div>
