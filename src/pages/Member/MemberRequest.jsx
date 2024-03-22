@@ -6,12 +6,12 @@ const MemberRequest = () => {
       <section>
         <MemberNav />
       </section>
-     
-      <section className="m-4">
+
+      <section className="p-4 max-w-5xl mx-auto">
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 mb-10">Member Request</h1>
 
         <p className="mb-3">You have 4 Member request pending!!</p>
-        
+
         <div className="flex flex-col">
           <div className="-m-1.5 overflow-x-auto">
             <div className="p-1.5 min-w-full inline-block align-middle">
@@ -24,7 +24,6 @@ const MemberRequest = () => {
 
                     <tr>
                       <th scope="col" className="px-6 py-3 text-start text-xs font-bold text-white uppercase">Name</th>
-                      
                       <th scope="col" className="px-6 py-3 text-start text-xs font-bold text-white uppercase">ID</th>
                       <th scope="col" className="px-6 py-3 text-center text-xs font-bold text-white uppercase">Action</th>
                     </tr>
@@ -73,7 +72,7 @@ const MemberRequest = () => {
               </div>
             </div>
           </div>
-       </div>
+        </div>
 
       </section>
     </div>

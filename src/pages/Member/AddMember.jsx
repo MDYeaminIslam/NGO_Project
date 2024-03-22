@@ -108,7 +108,7 @@ const AddMember = () => {
 
             </section>
           </section>
-          <div className="w-full flex  pl-3 mt-8">
+          <div className="w-full flex justify-center  mt-8">
             <input className="bg-sky-500 hover:bg-sky-600 px-20 py-2 rounded font-medium     text-white" type="submit" />
           </div>
         </form>
