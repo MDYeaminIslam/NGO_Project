@@ -81,38 +81,39 @@ const AddMember = () => {
             </div>
 
           </section>
+          {/* nominee section */}
+          <section>
+            <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">Nominee Section</h1>
+            <section className=" grid grid-cols-2 max-w-5xl mx-auto gap-4 my-8" >
+
+              <div className="flex flex-col gap-1">
+                <label className="font-medium" htmlFor="name"  >Name: </label>
+                <input className="border-2 hover:border-black rounded " id="name" type="text" />
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label className="font-medium" htmlFor="relation_with_member"  >Relation with Member: </label>
+                <input className="border-2 hover:border-black rounded " id="relation_with_member" type="text" />
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label className="font-medium" htmlFor="share"  >Share % </label>
+                <input className="border-2 hover:border-black rounded " id="share" type="number" />
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label className="font-medium" htmlFor="occupation">Occupation:</label>
+                <input className="border-2 hover:border-black rounded " id="occupation" type="text" />
+              </div>
+
+            </section>
+          </section>
           <div className="w-full flex  pl-3 mt-8">
             <input className="bg-sky-500 hover:bg-sky-600 px-20 py-2 rounded font-medium     text-white" type="submit" />
           </div>
         </form>
 
-        {/* nominee section */}
-        <section>
-          <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">Nominee Section</h1>
-          <section className=" grid grid-cols-2 max-w-5xl mx-auto gap-4 my-8" >
 
-            <div className="flex flex-col gap-1">
-              <label className="font-medium" htmlFor="name"  >Name: </label>
-              <input className="border-2 hover:border-black rounded " id="name" type="text" />
-            </div>
-
-            <div className="flex flex-col gap-1">
-              <label className="font-medium" htmlFor="relation_with_member"  >Relation with Member: </label>
-              <input className="border-2 hover:border-black rounded " id="relation_with_member" type="text" />
-            </div>
-
-            <div className="flex flex-col gap-1">
-              <label className="font-medium" htmlFor="share"  >Share % </label>
-              <input className="border-2 hover:border-black rounded " id="share" type="number" />
-            </div>
-
-            <div className="flex flex-col gap-1">
-              <label className="font-medium" htmlFor="occupation">Occupation:</label>
-              <input className="border-2 hover:border-black rounded " id="occupation" type="text" />
-            </div>
-
-          </section>
-        </section>
       </section>
 
     </div>
