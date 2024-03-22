@@ -86,7 +86,7 @@ const SideNavbar = () => {
                         </li>
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
                             <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                                <img className="w-4" src="/public/NGO Dashboard icon/asset.png" alt="" />
+                                <img className="w-4" src="/NGO Dashboard icon/asset.png" alt="" />
                                 <span>Assets</span>
                             </a>
                         </li>

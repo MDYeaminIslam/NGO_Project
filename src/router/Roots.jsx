@@ -48,104 +48,103 @@ const router = createBrowserRouter([
         element: <App />,
         children: [
             {
-                path: '/',
+                path: 'dash',
                 element: <DashBoardAdmin />
             },
-<<<<<<< HEAD
             {
                 path: 'add_member',
-                element: <AddMember/>
+                element: <AddMember />
             },
             {
                 path: 'members_list',
-                element: <MembersList/>
+                element: <MembersList />
             },
             {
                 path: 'member_closing',
-                element: <MemberClosing/>
+                element: <MemberClosing />
             },
             {
                 path: 'member_request',
-                element: <MemberRequest/>
+                element: <MemberRequest />
             },
 
 
 
             {
                 path: 'close_saving_account',
-                element: <CloseSavingAccount/>
+                element: <CloseSavingAccount />
             },
             {
                 path: 'deposit',
-                element: <Deposit/>
+                element: <Deposit />
             },
             {
                 path: 'saving_account_request',
-                element: <SavingAccountRequest/>
+                element: <SavingAccountRequest />
             },
             {
                 path: 'withdraw_money',
-                element: <WithdrawMoney/>
+                element: <WithdrawMoney />
             },
 
 
 
             {
                 path: 'add_loan_plan',
-                element: <AddLoanPlan/>
+                element: <AddLoanPlan />
             },
             {
                 path: 'all_collection',
-                element: <AllCollection/>
+                element: <AllCollection />
             },
             {
                 path: 'all_loan',
-                element: <AllLoan/>
+                element: <AllLoan />
             },
             {
                 path: 'apply_loan',
-                element: <ApplyLoan/>
+                element: <ApplyLoan />
             },
             {
                 path: 'loan_collection',
-                element: <LoanCollection/>
+                element: <LoanCollection />
             },
             {
                 path: 'loan_evaluation',
-                element: <LoanEvaluation/>
+                element: <LoanEvaluation />
             },
             {
                 path: 'loan_request',
-                element: <LoanRequest/>
+                element: <LoanRequest />
             },
             {
                 path: 'paid_loan',
-                element: <PaidLoan/>
+                element: <PaidLoan />
             },
             {
                 path: 'running_loan',
-                element: <RunningLoan/>
+                element: <RunningLoan />
             },
 
 
 
 
-            
+
 
 
 
 
             {
                 path: 'all_expense',
-                element: <AllExpense/>
+                element: <AllExpense />
             },
             {
                 path: 'monthly_expense',
-                element: <MonthlyExpense/>
+                element: <MonthlyExpense />
             },
             {
                 path: 'purchase',
-                element: <Purchase/>
+                element: <Purchase />
             },
 
 
@@ -153,15 +152,15 @@ const router = createBrowserRouter([
 
             {
                 path: 'employee_add',
-                element: <EmployeeAdd/>
+                element: <EmployeeAdd />
             },
             {
                 path: 'employee_list',
-                element: <EmployeeList/>
+                element: <EmployeeList />
             },
             {
                 path: 'employee_posting',
-                element: <EmployeePosting/>
+                element: <EmployeePosting />
             },
 
 
@@ -169,68 +168,68 @@ const router = createBrowserRouter([
 
             {
                 path: 'any_charges',
-                element: <AnyCharges/>
+                element: <AnyCharges />
             },
             {
                 path: 'category_wise_income',
-                element: <CategoryWiseIncome/>
+                element: <CategoryWiseIncome />
             },
             {
                 path: 'loan_profit',
-                element: <LoanProfit/>
+                element: <LoanProfit />
             },
             {
                 path: 'member_fees',
-                element: <Memberfees/>
+                element: <Memberfees />
             },
             {
                 path: 'penalty',
-                element: <Penalty/>
+                element: <Penalty />
             },
 
 
 
 
-            
+
 
 
 
 
             {
                 path: 'advance',
-                element: <Advance/>
+                element: <Advance />
             },
             {
                 path: 'attendence',
-                element: <Attendance/>
+                element: <Attendance />
             },
             {
                 path: 'extra_bill',
-                element: <ExtraBill/>
+                element: <ExtraBill />
             },
             {
                 path: 'fixation',
-                element: <Fixation/>
+                element: <Fixation />
             },
             {
                 path: 'leave_application',
-                element: <LeaveApplication/>
+                element: <LeaveApplication />
             },
             {
                 path: 'pay_slip',
-                element: <PaySlip/>
+                element: <PaySlip />
             },
             {
                 path: 'profile',
-                element: <Profile/>
+                element: <Profile />
             },
             {
                 path: 'salary_posting',
-                element: <SalaryPosting/>
+                element: <SalaryPosting />
             },
             {
                 path: 'salary_sheet',
-                element: <SalarySheet/>
+                element: <SalarySheet />
             },
 
 
@@ -238,8 +237,6 @@ const router = createBrowserRouter([
 
 
 
-=======
->>>>>>> 686d229d84d70fb01eb70a00f485eb7f742a63c3
         ]
     },
 ]);
