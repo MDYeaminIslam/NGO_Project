@@ -9,11 +9,11 @@ const MemberNav = () => {
           <div className="hidden sm:block sm:ml-6">
             <div className="flex space-x-4">
               
-              <Link>
+              <Link to={'add_member'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Add Member</p>
               </Link>
 
-              <Link>
+              <Link to={'add_member/member_closing'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Member Closing</p>
               </Link>
 
