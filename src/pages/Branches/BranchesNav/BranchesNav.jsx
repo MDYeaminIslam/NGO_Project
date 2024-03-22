@@ -9,19 +9,19 @@ const BranchesNav = () => {
           <div className="hidden sm:block sm:ml-6">
             <div className="flex space-x-4">
               
-              <Link>
+              <Link to={'/add_new_branch'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Add New Branch</p>
               </Link>
 
-              <Link>
+              <Link to={'/add_new_samity'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Add New Samity</p>
               </Link>
 
-              <Link>
-              <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Brnch List</p>
+              <Link to={'/branch_list'}>
+              <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Branch List</p>
               </Link>
 
-              <Link>
+              <Link to={'/samity_list'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Samity List</p>
               </Link>
 

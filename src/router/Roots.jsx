@@ -40,6 +40,28 @@ import PaySlip from "../pages/HRM/PaySlip";
 import Profile from "../pages/HRM/Profile";
 import SalaryPosting from "../pages/HRM/SalaryPosting";
 import SalarySheet from "../pages/HRM/SalarySheet";
+import AddNewBranch from "../pages/Branches/AddNewBranch";
+import AddNewSamity from "../pages/Branches/AddNewSamity";
+import BranchList from "../pages/Branches/BranchList";
+import BranchSubNavbar from "../pages/Branches/BranchSubNavbar";
+import SamityList from "../pages/Branches/SamityList";
+import DrawerCash from "../pages/Manage Drawer Cash/DrawerCash";
+import DrawerCashtoBank from "../pages/Manage Drawer Cash/DrawerCashtoBank";
+import BankCash from "../pages/Manage Bank Cash/BankCash";
+import BankCashtoDrawer from "../pages/Manage Bank Cash/BankCashtoDrawer";
+import AddNewUser from "../pages/User Maintenance/AddNewUser";
+import AddNewUserType from "../pages/User Maintenance/AddNewUserType";
+import UserList from "../pages/User Maintenance/UserList";
+import UserType from "../pages/User Maintenance/UserType";
+import Upcoming from "../pages/Liabilities/Upcoming";
+import Asset from "../pages/Report/Asset";
+import BalanceSheet from "../pages/Report/BalanceSheet";
+import Credit from "../pages/Report/Credit";
+import Debit from "../pages/Report/Debit";
+import DebitvsCredit from "../pages/Report/DebitvsCredit";
+import Liabilities from "../pages/Report/Liabilities";
+import TdsTaxVat from "../pages/Report/TdsTaxVat";
+import GeneralSettings from "../pages/Setting General/GeneralSettings";
 
 
 const router = createBrowserRouter([
@@ -52,7 +74,7 @@ const router = createBrowserRouter([
                 path: '/',
                 element: <DashBoardAdmin />
             },
-            // members routs
+            // members routes
             {
                 path: 'add_member',
                 element: <AddMember />
@@ -70,8 +92,31 @@ const router = createBrowserRouter([
                 element: <MemberRequest />
             },
 
+            //Branches routes
+            {
+                path: 'add_new_branch',
+                element: <AddNewBranch/>
+            },
+            {
+                path: 'add_new_samity',
+                element: <AddNewSamity/>
+            },
+            {
+                path: 'branch_list',
+                element: <BranchList/>
+            },
+            {
+                path: 'branch_sub_navbar',
+                element: <BranchSubNavbar/>
+            },
+            {
+                path: 'samity_list',
+                element: <SamityList/>
+            },
 
-            // Accounts routs
+
+
+            // Accounts routes
             {
                 path: 'close_saving_account',
                 element: <CloseSavingAccount />
@@ -90,7 +135,7 @@ const router = createBrowserRouter([
             },
 
 
-            // loan handling routs
+            // loan handling routes
             {
                 path: 'add_loan_plan',
                 element: <AddLoanPlan />
@@ -129,7 +174,7 @@ const router = createBrowserRouter([
             },
 
 
-            // Expense routs
+            // Expense routes
             {
                 path: 'all_expense',
                 element: <AllExpense />
@@ -160,7 +205,7 @@ const router = createBrowserRouter([
 
 
 
-            //  Income routs
+            //  Income routes
             {
                 path: 'any_charges',
                 element: <AnyCharges />
@@ -182,6 +227,46 @@ const router = createBrowserRouter([
                 element: <Penalty />
             },
 
+            //manage drawer cash routes
+            {
+                path: 'drawer_cash',
+                element: <DrawerCash/>
+            },
+            {
+                path: 'drawer_cash_to_bank',
+                element: <DrawerCashtoBank/>
+            },
+
+
+            //manage bank cash routes
+            {
+                path: 'bank_cash',
+                element: <BankCash/>
+            },
+            {
+                path: 'bank_cash_to_drawer',
+                element: <BankCashtoDrawer/>
+            },
+
+
+            //user maintenance routes
+            {
+                path: 'add_new_user',
+                element: <AddNewUser/>
+            },
+            {
+                path:'add_new_user_type',
+                element: <AddNewUserType/>
+            },
+            {
+                path: 'user_list',
+                element: <UserList/>
+            },
+            {
+                path: 'user_type',
+                element: <UserType/>
+            },
+
 
             //HRM routs
             {
@@ -189,7 +274,7 @@ const router = createBrowserRouter([
                 element: <Advance />
             },
             {
-                path: 'attendence',
+                path: 'attendance',
                 element: <Attendance />
             },
             {
@@ -220,6 +305,54 @@ const router = createBrowserRouter([
                 path: 'salary_sheet',
                 element: <SalarySheet />
             },
+
+            //Assets routes
+
+
+
+            //Liabilities routes
+            {
+                path: 'upcoming',
+                element: <Upcoming/>
+            },
+
+
+            //Report routes
+            {
+                path: 'asset',
+                element: <Asset/>
+            },
+            {
+                path: 'balance_sheet',
+                element: <BalanceSheet/>
+            },
+            {
+                path: 'credit',
+                element: <Credit/>
+            },
+            {
+                path: 'debit',
+                element: <Debit/>
+            },
+            {
+                path: 'debit_vs_credit',
+                element: <DebitvsCredit/>
+            },
+            {
+                path: 'liabilities',
+                element: <Liabilities/>
+            },
+            {
+                path: 'tds_tax_vat',
+                element: <TdsTaxVat/>
+            },
+
+            //settings routes
+            {
+                path: 'settings',
+                element: <GeneralSettings/>
+
+            }
 
 
         ]

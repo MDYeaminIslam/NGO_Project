@@ -9,23 +9,23 @@ const IncomeNav = () => {
           <div className="hidden sm:block sm:ml-6">
             <div className="flex space-x-4">
               
-              <Link>
+              <Link to={'/any_charges'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Any Charges</p>
               </Link>
 
-              <Link>
+              <Link to={'/category_wise_income'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Catagory Wise Income</p>
               </Link>
 
-              <Link>
+              <Link to={'/loan_profit'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Loan Profit</p>
               </Link>
 
-              <Link>
+              <Link to={'/member_fees'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Member Fees</p>
               </Link>
 
-              <Link>
+              <Link to={'/penalty'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Penalty</p>
               </Link>
 

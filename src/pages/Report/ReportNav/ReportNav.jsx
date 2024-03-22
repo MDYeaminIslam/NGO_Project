@@ -9,31 +9,31 @@ const ReportNav = () => {
           <div className="hidden sm:block sm:ml-6">
             <div className="flex space-x-4">
               
-              <Link>
+              <Link to={'/asset'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Asset</p>
               </Link>
 
-              <Link>
+              <Link to={'/balance_sheet'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Balance Sheet</p>
               </Link>
 
-              <Link>
+              <Link to={'/credit'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Credit</p>
               </Link>
 
-              <Link>
+              <Link to={'/debit'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Debit</p>
               </Link>
 
-              <Link>
+              <Link to={'/debit_vs_credit'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Debit vs Credit</p>
               </Link>
 
-              <Link>
+              <Link to={'/liabilities'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Liabilities</p>
               </Link>
 
-              <Link>
+              <Link to={'/tds_tax_vat'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">TDX, TAX, VAT</p>
               </Link>
 

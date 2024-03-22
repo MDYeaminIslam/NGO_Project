@@ -9,19 +9,19 @@ const UserMaintanaceNav = () => {
           <div className="hidden sm:block sm:ml-6">
             <div className="flex space-x-4">
               
-              <Link>
+              <Link to={'/add_new_user'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Add New User</p>
               </Link>
 
-              <Link>
+              <Link to={'/add_new_user_type'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Add New User Type</p>
               </Link>
 
-              <Link>
+              <Link to={'/user_list'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">User List</p>
               </Link>
 
-              <Link>
+              <Link to={'/user_type'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">User Type</p>
               </Link>
 

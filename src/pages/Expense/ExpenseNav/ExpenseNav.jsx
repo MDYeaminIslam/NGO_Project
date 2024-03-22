@@ -8,15 +8,15 @@ const ExpenseNav = () => {
           <div className="hidden sm:block sm:ml-6">
             <div className="flex space-x-4">
               
-              <Link>
+              <Link to={'/all_expense'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">All Expense</p>
               </Link>
 
-              <Link>
+              <Link to={'/monthly_expense'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Monthly Expense</p>
               </Link>
 
-              <Link>
+              <Link to={'/purchase'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Purchase</p>
               </Link>
 

@@ -9,11 +9,11 @@ const ManageDrawerCashNav = () => {
           <div className="hidden sm:block sm:ml-6">
             <div className="flex space-x-4">
               
-              <Link>
+              <Link to={'/drawer_cash'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Drawer Cash</p>
               </Link>
 
-              <Link>
+              <Link to={'/drawer_cash_to_bank'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Drawer Cash to Bank</p>
               </Link>
 

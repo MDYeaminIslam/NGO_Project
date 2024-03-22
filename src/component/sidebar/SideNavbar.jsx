@@ -34,11 +34,16 @@ const SideNavbar = () => {
                                 </p>
                             </Link>
                         </li>
+
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
-                            <a className="flex items-center p-2 space-x-3 rounded-md">
-                                <img className="w-4" src="/NGO Dashboard icon/branch.png" alt="" />
-                                <span>Branches</span>
-                            </a>
+
+                            <Link to={'/add_new_branch'}>
+                                <p className="flex items-center p-2 space-x-3 rounded-md">
+                                    <img className="w-4" src="/NGO Dashboard icon/branch.png" alt="" />
+                                    <span>Branches</span>
+                                </p>
+                            </Link>
+
                         </li>
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
                             <Link to={'/deposit'}>
@@ -49,14 +54,17 @@ const SideNavbar = () => {
                             </Link>
                         </li>
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
-                            <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current text-black">
-                                    <path d="M203.247,386.414,208,381.185V355.4L130.125,191H93.875L16,355.4v27.042l4.234,4.595a124.347,124.347,0,0,0,91.224,39.982h.42A124.343,124.343,0,0,0,203.247,386.414ZM176,368.608a90.924,90.924,0,0,1-64.231,26.413h-.33A90.907,90.907,0,0,1,48,369.667V362.6l64-135.112L176,362.6Z"></path>
-                                    <path d="M418.125,191h-36.25L304,355.4v27.042l4.234,4.595a124.347,124.347,0,0,0,91.224,39.982h.42a124.343,124.343,0,0,0,91.369-40.607L496,381.185V355.4ZM464,368.608a90.924,90.924,0,0,1-64.231,26.413h-.33A90.907,90.907,0,0,1,336,369.667V362.6l64-135.112L464,362.6Z"></path>
-                                    <path d="M272,196.659A56.223,56.223,0,0,0,309.659,159H416V127H309.659a55.991,55.991,0,0,0-107.318,0H96v32H202.341A56.223,56.223,0,0,0,240,196.659V463H136v32H376V463H272ZM232,143a24,24,0,1,1,24,24A24,24,0,0,1,232,143Z"></path>
-                                </svg>
-                                <span>Loan Management</span>
-                            </a>
+                            <Link to={'/add_loan_plan'}>
+                                <p className="flex items-center p-2 space-x-3 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current text-black">
+                                        <path d="M203.247,386.414,208,381.185V355.4L130.125,191H93.875L16,355.4v27.042l4.234,4.595a124.347,124.347,0,0,0,91.224,39.982h.42A124.343,124.343,0,0,0,203.247,386.414ZM176,368.608a90.924,90.924,0,0,1-64.231,26.413h-.33A90.907,90.907,0,0,1,48,369.667V362.6l64-135.112L176,362.6Z"></path>
+                                        <path d="M418.125,191h-36.25L304,355.4v27.042l4.234,4.595a124.347,124.347,0,0,0,91.224,39.982h.42a124.343,124.343,0,0,0,91.369-40.607L496,381.185V355.4ZM464,368.608a90.924,90.924,0,0,1-64.231,26.413h-.33A90.907,90.907,0,0,1,336,369.667V362.6l64-135.112L464,362.6Z"></path>
+                                        <path d="M272,196.659A56.223,56.223,0,0,0,309.659,159H416V127H309.659a55.991,55.991,0,0,0-107.318,0H96v32H202.341A56.223,56.223,0,0,0,240,196.659V463H136v32H376V463H272ZM232,143a24,24,0,1,1,24,24A24,24,0,0,1,232,143Z"></path>
+                                    </svg>
+                                    <span>Loan Management</span>
+                                </p>
+                            </Link>
+
                         </li>
 
                         {/* <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
@@ -67,40 +75,58 @@ const SideNavbar = () => {
                         </li> */}
 
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
-                            <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                                <img className="w-4" src="/NGO Dashboard icon/expense.png" alt="" />
-                                <span>Expense</span>
-                            </a>
+                            <Link to={'/all_expense'}>
+                                <p className="flex items-center p-2 space-x-3 rounded-md">
+                                    <img className="w-4" src="/NGO Dashboard icon/expense.png" alt="" />
+                                    <span>Expense</span>
+                                </p>
+                            </Link>
+
                         </li>
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
-                            <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                                <img className="w-4" src="/NGO Dashboard icon/employee.png" alt="" />
-                                <span>Employee</span>
-                            </a>
+                            <Link to={'/employee_add'}>
+                                <p className="flex items-center p-2 space-x-3 rounded-md">
+                                    <img className="w-4" src="/NGO Dashboard icon/employee.png" alt="" />
+                                    <span>Employee</span>
+                                </p>
+                            </Link>
+
                         </li>
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
-                            <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                                <img className="w-4" src="/NGO Dashboard icon/income.png" alt="" />
-                                <span>Income</span>
-                            </a>
+                            <Link to={'/any_charges'}>
+                                <a className="flex items-center p-2 space-x-3 rounded-md">
+                                    <img className="w-4" src="/NGO Dashboard icon/income.png" alt="" />
+                                    <span>Income</span>
+                                </a>
+                            </Link>
+
                         </li>
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
-                            <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                                <img className="w-4" src="/NGO Dashboard icon/manage-drawer-cash.png" alt="" />
-                                <span>Manage Drawer Cash</span>
-                            </a>
+                            <Link to={'/drawer_cash'}>
+                                <p className="flex items-center p-2 space-x-3 rounded-md">
+                                    <img className="w-4" src="/NGO Dashboard icon/manage-drawer-cash.png" alt="" />
+                                    <span>Manage Drawer Cash</span>
+                                </p>
+                            </Link>
+
                         </li>
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
-                            <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                                <img className="w-4" src="/NGO Dashboard icon/manage-bank-cash.png" alt="" />
-                                <span>Manage Bank Cash</span>
-                            </a>
+                            <Link to={'/bank_cash'}>
+                                <a className="flex items-center p-2 space-x-3 rounded-md">
+                                    <img className="w-4" src="/NGO Dashboard icon/manage-bank-cash.png" alt="" />
+                                    <span>Manage Bank Cash</span>
+                                </a>
+                            </Link>
+
                         </li>
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
-                            <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                                <img className="w-4" src="/NGO Dashboard icon/user-maintenance.png" alt="" />
-                                <span>User Maintenance</span>
-                            </a>
+                            <Link to={'/add_new_user'}>
+                                <a className="flex items-center p-2 space-x-3 rounded-md">
+                                    <img className="w-4" src="/NGO Dashboard icon/user-maintenance.png" alt="" />
+                                    <span>User Maintenance</span>
+                                </a>
+                            </Link>
+
                         </li>
 
                         {/* <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
@@ -111,28 +137,37 @@ const SideNavbar = () => {
                         </li> */}
 
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
-                            <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                                <img className="w-4" src="/NGO Dashboard icon/hrm.png" alt="" />
-                                <span>HRM</span>
-                            </a>
+                            <Link to={'/advance'}>
+                                <p className="flex items-center p-2 space-x-3 rounded-md">
+                                    <img className="w-4" src="/NGO Dashboard icon/hrm.png" alt="" />
+                                    <span>HRM</span>
+                                </p>
+                            </Link>
+
                         </li>
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
-                            <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
+                            <p rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
                                 <img className="w-4" src="/NGO Dashboard icon/asset.png" alt="" />
                                 <span>Assets</span>
-                            </a>
+                            </p>
                         </li>
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
-                            <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                                <img className="w-4" src="/NGO Dashboard icon/liability.png" alt="" />
-                                <span>Liabilities</span>
-                            </a>
+                            <Link to={'/upcoming'}>
+                                <p className="flex items-center p-2 space-x-3 rounded-md">
+                                    <img className="w-4" src="/NGO Dashboard icon/liability.png" alt="" />
+                                    <span>Liabilities</span>
+                                </p>
+                            </Link>
+
                         </li>
                         <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
-                            <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                                <img className="w-4" src="/NGO Dashboard icon/report.png" alt="" />
-                                <span>Report</span>
-                            </a>
+                            <Link to={'/asset'}>
+                                <p className="flex items-center p-2 space-x-3 rounded-md">
+                                    <img className="w-4" src="/NGO Dashboard icon/report.png" alt="" />
+                                    <span>Report</span>
+                                </p>
+                            </Link>
+
                         </li>
                     </ul>
                     <ul className="pt-4 pb-2 space-y-1 text-sm">

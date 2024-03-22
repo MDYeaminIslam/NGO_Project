@@ -8,15 +8,15 @@ const EmployeeNav = () => {
           <div className="hidden sm:block sm:ml-6">
             <div className="flex space-x-4">
               
-              <Link>
+              <Link to={'/employee_add'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Employee Add</p>
               </Link>
 
-              <Link>
+              <Link to={'/employee_list'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Employee List</p>
               </Link>
 
-              <Link>
+              <Link to={'/employee_posting'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Employee Posting</p>
               </Link>
 
