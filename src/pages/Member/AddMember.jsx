@@ -71,6 +71,14 @@ const AddMember = () => {
               <label className="font-medium" htmlFor="emergency_number">Emergency Contact Number:</label>
               <input className="border-2 hover:border-black rounded " id="emergency_number" type="text" />
             </div>
+            <div className="flex flex-col gap-1">
+              <label className="font-medium" htmlFor="membership_fee ">Membership Fee:</label>
+              <input className="border-2 hover:border-black rounded " id="membership_fee " type="number" />
+            </div>
+            <div className="flex flex-col gap-1">
+              <label className="font-medium" htmlFor="Attach_Photo ">Attach Photo</label>
+              <input className="border-2 hover:border-black rounded " id="Attach_Photo " type="file" />
+            </div>
 
           </section>
           <div className="w-full flex  pl-3 mt-8">
