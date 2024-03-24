@@ -11,17 +11,17 @@ const MemberClosing = () => {
 
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="member_id"  >Member Id: </label>
-              <input placeholder="Enter member id here" className="border-2 hover:border-black rounded p-1 " id="member_id" type="text" />
+              <input placeholder="Enter member id here" className="border-2 hover:border-teal-500 rounded p-1 " id="member_id" type="text" />
             </div>
 
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="closing_date">Closing Date:</label>
-              <input className="border-2 hover:border-black rounded p-1 " id="closing_date" type="date" />
+              <input className="border-2 hover:border-teal-500 rounded p-1 " id="closing_date" type="date" />
             </div>
 
             <div className="flex flex-col gap-1 col-span-2">
               <label className="font-medium" htmlFor="closing_reason">Closing Reason:</label>
-              <textarea placeholder="Explain your reason" id="closing_reason" cols="10" rows="2" className="border-2 hover:border-black rounded "></textarea>
+              <textarea placeholder="Explain your reason" id="closing_reason" cols="10" rows="2" className="border-2 hover:border-teal-500 rounded p-1 "></textarea>
             </div>
           </section>
 
