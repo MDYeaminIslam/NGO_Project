@@ -2,10 +2,10 @@
 
 const DashBoardAdmin = () => {
     return (
-        <div className="flex justify-center items-center   bg-gray-100 md:py-10    ">
-            <section className="grid grid-cols-2 md:grid-cols-4 md:gap-4 gap-2 w-fit   ">
+        <div className="flex justify-center items-center   bg-gray-100 md:py-10 min-h-screen   ">
+            <section className="grid grid-cols-2 md:grid-cols-4 md:gap-4 gap-2 w-fit    ">
                 {/* card */}
-                <div className="bg-sky-600 text-white p-4 rounded-md md:col-span-2 ">
+                <div className="bg-teal-700 text-white p-4 rounded-md md:col-span-2 ">
                     <div>
                         <img className="w-10" src="/Admin Dashboard icon/Total capital.png" alt="" />
                     </div>
@@ -15,7 +15,7 @@ const DashBoardAdmin = () => {
                     </div>
                 </div>
                 {/* card */}
-                <div className="bg-sky-600 text-white p-4 rounded-md">
+                <div className="bg-teal-700 text-white p-4 rounded-md">
                     <div>
                         <img className="w-10" src="/Admin Dashboard icon/Number of center.png  " alt="" />
                     </div>
@@ -25,7 +25,7 @@ const DashBoardAdmin = () => {
                     </div>
                 </div>
                 {/* card */}
-                <div className="bg-sky-600 text-white p-4 rounded-md">
+                <div className="bg-teal-700 text-white p-4 rounded-md">
                     <div>
                         <img className="w-10" src="/Admin Dashboard icon/Loan in field.png  " alt="" />
                     </div>
@@ -35,7 +35,7 @@ const DashBoardAdmin = () => {
                     </div>
                 </div>
                 {/* card */}
-                <div className="bg-sky-600 text-white p-4 rounded-md">
+                <div className="bg-teal-700 text-white p-4 rounded-md">
                     <div>
                         <img className="w-10" src="/Admin Dashboard icon/Total collection.png " alt="" />
                     </div>
@@ -45,7 +45,7 @@ const DashBoardAdmin = () => {
                     </div>
                 </div>
                 {/* card */}
-                <div className="bg-sky-600 text-white p-4 rounded-md">
+                <div className="bg-teal-700 text-white p-4 rounded-md">
                     <div>
                         <img className="w-10" src="/Admin Dashboard icon/Total members.png  " alt="" />
                     </div>
@@ -55,7 +55,7 @@ const DashBoardAdmin = () => {
                     </div>
                 </div>
                 {/* card */}
-                <div className="bg-sky-600 text-white p-4 rounded-md">
+                <div className="bg-teal-700 text-white p-4 rounded-md">
                     <div>
                         <img className="w-10" src="/Admin Dashboard icon/Balance in bank.png  " alt="" />
                     </div>
@@ -65,7 +65,7 @@ const DashBoardAdmin = () => {
                     </div>
                 </div>
                 {/* card */}
-                <div className="bg-sky-600 text-white p-4 rounded-md">
+                <div className="bg-teal-700 text-white p-4 rounded-md">
                     <div>
                         <img className="w-10" src="/Admin Dashboard icon/drawer cash.png " alt="" />
                     </div>
@@ -75,7 +75,7 @@ const DashBoardAdmin = () => {
                     </div>
                 </div>
                 {/* card */}
-                <div className="bg-sky-600 text-white p-4 rounded-md">
+                <div className="bg-teal-700 text-white p-4 rounded-md">
                     <div>
                         <img className="w-10" src="/Admin Dashboard icon/Regular loan.png " alt="" />
                     </div>
@@ -85,7 +85,7 @@ const DashBoardAdmin = () => {
                     </div>
                 </div>
                 {/* card */}
-                <div className="bg-sky-600 text-white p-4 rounded-md">
+                <div className="bg-teal-700 text-white p-4 rounded-md">
                     <div>
                         <img className="w-10" src="/Admin Dashboard icon/Irregular loan.png " alt="" />
                     </div>

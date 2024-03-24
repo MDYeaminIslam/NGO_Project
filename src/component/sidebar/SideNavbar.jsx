@@ -15,7 +15,7 @@ const SideNavbar = () => {
                 </div>
                 <div className="divide-y divide-gray-300">
                     <ul className="pt-2 pb-4 space-y-3 text-sm font-medium text-black ">
-                        <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
+                        <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             <Link to={'/'}>
                                 <p className="flex items-center p-2 space-x-3 rounded-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current text-gray-600">
@@ -25,7 +25,7 @@ const SideNavbar = () => {
                                 </p>
                             </Link>
                         </li>
-                        <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
+                        <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
 
                             <Link to={'/add_member'}>
                                 <p className="flex items-center p-2 space-x-3 rounded-md">
@@ -35,7 +35,7 @@ const SideNavbar = () => {
                             </Link>
                         </li>
 
-                        <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
+                        <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
 
                             <Link to={'/add_new_branch'}>
                                 <p className="flex items-center p-2 space-x-3 rounded-md">
@@ -45,7 +45,7 @@ const SideNavbar = () => {
                             </Link>
 
                         </li>
-                        <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
+                        <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             <Link to={'/deposit'}>
                                 <p className="flex items-center p-2 space-x-3 rounded-md">
                                     <img className="w-4" src="/NGO Dashboard icon/Saving account.png" alt="" />
@@ -53,7 +53,7 @@ const SideNavbar = () => {
                                 </p>
                             </Link>
                         </li>
-                        <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
+                        <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             <Link to={'/add_loan_plan'}>
                                 <p className="flex items-center p-2 space-x-3 rounded-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current text-black">
@@ -74,7 +74,7 @@ const SideNavbar = () => {
                             </a>
                         </li> */}
 
-                        <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
+                        <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             <Link to={'/all_expense'}>
                                 <p className="flex items-center p-2 space-x-3 rounded-md">
                                     <img className="w-4" src="/NGO Dashboard icon/expense.png" alt="" />
@@ -83,7 +83,7 @@ const SideNavbar = () => {
                             </Link>
 
                         </li>
-                        <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
+                        <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             <Link to={'/employee_add'}>
                                 <p className="flex items-center p-2 space-x-3 rounded-md">
                                     <img className="w-4" src="/NGO Dashboard icon/employee.png" alt="" />
@@ -92,7 +92,7 @@ const SideNavbar = () => {
                             </Link>
 
                         </li>
-                        <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
+                        <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             <Link to={'/any_charges'}>
                                 <a className="flex items-center p-2 space-x-3 rounded-md">
                                     <img className="w-4" src="/NGO Dashboard icon/income.png" alt="" />
@@ -101,7 +101,7 @@ const SideNavbar = () => {
                             </Link>
 
                         </li>
-                        <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
+                        <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             <Link to={'/drawer_cash'}>
                                 <p className="flex items-center p-2 space-x-3 rounded-md">
                                     <img className="w-4" src="/NGO Dashboard icon/manage-drawer-cash.png" alt="" />
@@ -110,7 +110,7 @@ const SideNavbar = () => {
                             </Link>
 
                         </li>
-                        <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
+                        <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             <Link to={'/bank_cash'}>
                                 <a className="flex items-center p-2 space-x-3 rounded-md">
                                     <img className="w-4" src="/NGO Dashboard icon/manage-bank-cash.png" alt="" />
@@ -119,7 +119,7 @@ const SideNavbar = () => {
                             </Link>
 
                         </li>
-                        <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
+                        <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             <Link to={'/add_new_user'}>
                                 <a className="flex items-center p-2 space-x-3 rounded-md">
                                     <img className="w-4" src="/NGO Dashboard icon/user-maintenance.png" alt="" />
@@ -136,7 +136,7 @@ const SideNavbar = () => {
                             </a>
                         </li> */}
 
-                        <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
+                        <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             <Link to={'/advance'}>
                                 <p className="flex items-center p-2 space-x-3 rounded-md">
                                     <img className="w-4" src="/NGO Dashboard icon/hrm.png" alt="" />
@@ -145,13 +145,13 @@ const SideNavbar = () => {
                             </Link>
 
                         </li>
-                        <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
+                        <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             <p rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
                                 <img className="w-4" src="/NGO Dashboard icon/asset.png" alt="" />
                                 <span>Assets</span>
                             </p>
                         </li>
-                        <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
+                        <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             <Link to={'/upcoming'}>
                                 <p className="flex items-center p-2 space-x-3 rounded-md">
                                     <img className="w-4" src="/NGO Dashboard icon/liability.png" alt="" />
@@ -160,7 +160,7 @@ const SideNavbar = () => {
                             </Link>
 
                         </li>
-                        <li className="  bg-gray-100 hover:bg-sky-400 hover:text-white rounded-md">
+                        <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             <Link to={'/asset'}>
                                 <p className="flex items-center p-2 space-x-3 rounded-md">
                                     <img className="w-4" src="/NGO Dashboard icon/report.png" alt="" />
