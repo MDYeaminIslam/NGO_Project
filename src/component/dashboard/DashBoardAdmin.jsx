@@ -2,7 +2,7 @@
 
 const DashBoardAdmin = () => {
     return (
-        <div className="flex justify-center items-center   bg-gray-100 md:py-10 min-h-screen   ">
+        <div className="flex justify-center items-center   bg-gray-100 md:py-10 min-h-screen no-scrollbar   ">
             <section className="grid grid-cols-2 md:grid-cols-4 md:gap-4 gap-2 w-fit    ">
                 {/* card */}
                 <div className="bg-teal-700 text-white p-4 rounded-md md:col-span-2 ">
