@@ -6,7 +6,7 @@ const WithdrawMoney = () => {
       <section>
         <SavingAccountNav />
       </section>
-      <h1>Withdraw Money</h1>
+      <h1 className=" ">Withdraw Money</h1>
     </div>
   );
 };
