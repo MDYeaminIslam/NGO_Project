@@ -62,6 +62,11 @@ import DebitvsCredit from "../pages/Report/DebitvsCredit";
 import Liabilities from "../pages/Report/Liabilities";
 import TdsTaxVat from "../pages/Report/TdsTaxVat";
 import GeneralSettings from "../pages/Setting General/GeneralSettings";
+import TransactionnPosting from "../pages/Saving Account/TransactionnPosting";
+import AccountClosing from "../pages/Saving Account/AccountClosing";
+import ClosingAccountRequest from "../pages/Saving Account/ClosingAccountRequest";
+
+
 
 
 const router = createBrowserRouter([
@@ -116,7 +121,7 @@ const router = createBrowserRouter([
 
 
 
-            // Accounts routes
+            //Saving Accounts routes
             {
                 path: 'close_saving_account',
                 element: <CloseSavingAccount />
@@ -125,13 +130,27 @@ const router = createBrowserRouter([
                 path: 'deposit',
                 element: <Deposit />
             },
+            
+            {
+                path: 'withdraw_money',
+                element: <WithdrawMoney />
+            },
+            {
+               path: 'transactionn_posting',
+               element: <TransactionnPosting/>
+
+            },
+            {
+                path: 'account_closing',
+                element: <AccountClosing/>
+            },
             {
                 path: 'saving_account_request',
                 element: <SavingAccountRequest />
             },
             {
-                path: 'withdraw_money',
-                element: <WithdrawMoney />
+                path:'closing_account_request',
+                element: <ClosingAccountRequest/>
             },
 
 
