@@ -13,32 +13,32 @@ const AddNewSamity = () => {
 
           <div className="flex flex-col gap-1">
             <label className="font-medium" htmlFor="name"  >Branch Name: </label>
-            <input className="border-2 hover:border-black rounded " id="name" type="text" />
+            <input className="border-2 hover:border-teal-500 rounded " id="name" type="text" />
           </div>
 
           <div className="flex flex-col gap-1">
             <label className="font-medium" htmlFor="relation_with_member"  >Branch Code: </label>
-            <input className="border-2 hover:border-black rounded " id="relation_with_member" type="text" />
+            <input className="border-2 hover:border-teal-500 rounded " id="relation_with_member" type="text" />
           </div>
 
           <div className="flex flex-col gap-1">
             <label className="font-medium" htmlFor="name"  >Samity Name: </label>
-            <input className="border-2 hover:border-black rounded " id="name" type="text" />
+            <input className="border-2 hover:border-teal-500 rounded " id="name" type="text" />
           </div>
 
           <div className="flex flex-col gap-1">
             <label className="font-medium" htmlFor="relation_with_member"  >Samity Code: </label>
-            <input className="border-2 hover:border-black rounded " id="relation_with_member" type="text" />
+            <input className="border-2 hover:border-teal-500 rounded " id="relation_with_member" type="text" />
           </div>
 
           <div className="flex flex-col gap-1">
             <label className="font-medium" htmlFor="share"  >Address: </label>
-            <input className="border-2 hover:border-black rounded " id="share" type="text" />
+            <input className="border-2 hover:border-teal-500 rounded " id="share" type="text" />
           </div>
 
           <div className="flex flex-col gap-1">
             <label className="font-medium" htmlFor="occupation">Status:</label>
-            <select className="border-2 hover:border-black" >
+            <select className="border-2 hover:border-teal-500" >
               <option>Active</option>
               <option >Deactive</option>
             </select>
@@ -47,7 +47,7 @@ const AddNewSamity = () => {
 
         </div>
 
-        <div className="w-full flex justify-center  mt-8">
+        <div className="w-full flex justify-center  mt-12">
           <input className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium     text-white" type="submit" />
         </div>
       </section>
