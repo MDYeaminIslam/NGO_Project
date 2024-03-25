@@ -32,13 +32,12 @@ const AddNewBranch = () => {
               <option>Active</option>
               <option >Deactive</option>
             </select>
-           
+
           </div>
 
           <div>
-          <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/>
-          <label className="font-medium ml-2" htmlFor="occupation">Host Branch</label>
-
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
+            <label className="font-medium ml-2" htmlFor="occupation">Host Branch</label>
           </div>
 
 
