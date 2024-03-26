@@ -4,9 +4,12 @@ const LoanEvaluation = () => {
   return (
     <div>
       <section>
-        <LoanManagementNav/>
+        <LoanManagementNav />
       </section>
-      <h1>Loan Evaluation</h1>
+      <section>
+        <h1>Loan Evaluation</h1>
+
+      </section>
     </div>
   );
 };

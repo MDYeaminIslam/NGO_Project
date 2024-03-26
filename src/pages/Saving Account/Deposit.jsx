@@ -6,6 +6,7 @@ const Deposit = () => {
       <section>
         <SavingAccountNav />
       </section>
+
       <section>
         {/* input container */}
         <section className="m-4">
@@ -23,12 +24,12 @@ const Deposit = () => {
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="acc_id">Account ID:</label>
+                <label className="font-medium" htmlFor="acc_id">Account ID :</label>
                 <input className="input input-bordered input-sm  hover:border-teal-500  " id="acc_id" type="number" placeholder="Account id" />
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="font-medium " htmlFor="occupation">Status:</label>
+                <label className="font-medium " htmlFor="occupation">Status :</label>
                 <select className=" input input-bordered input-sm hover:border-teal-500 " >
                   <option>Daily</option>
                   <option >Weekly</option>
@@ -41,12 +42,12 @@ const Deposit = () => {
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="period_of_time">Period of time:</label>
+                <label className="font-medium" htmlFor="period_of_time">Period of time :</label>
                 <input className="input input-bordered input-sm  hover:border-teal-500  " id="period_of_time" type="text" placeholder="In months" />
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="per_installment">Per installment:</label>
+                <label className="font-medium" htmlFor="per_installment">Per installment :</label>
                 <input className="input input-bordered input-sm  hover:border-teal-500  " id="per_installment" type="number" placeholder="money amount" />
               </div>
 
@@ -66,12 +67,12 @@ const Deposit = () => {
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="mature_date">Mature Date:</label>
+                <label className="font-medium" htmlFor="mature_date">Mature Date :</label>
                 <input className="input input-bordered input-sm  hover:border-teal-500  " id="mature_date" type="date" placeholder="" />
               </div>
 
               <div className="flex flex-col gap-1 col-span-3">
-                <label className="font-medium" htmlFor="first_due_date"> First Due Date:</label>
+                <label className="font-medium" htmlFor="first_due_date"> First Due Date :</label>
                 <input className="input input-bordered input-sm  hover:border-teal-500  " id="first_due_date" type="date" placeholder="" />
               </div>
 

@@ -65,6 +65,12 @@ import GeneralSettings from "../pages/Setting General/GeneralSettings";
 import TransactionnPosting from "../pages/Saving Account/TransactionnPosting";
 import AccountClosing from "../pages/Saving Account/AccountClosing";
 import ClosingAccountRequest from "../pages/Saving Account/ClosingAccountRequest";
+import OpenLoanAccount from "../pages/Loan Management/OpenLoanAccount";
+import LoanAccountList from "../pages/Loan Management/LoanAccountList";
+import Loan_transaction_posting from "../pages/Loan Management/Loan_transaction_posting";
+import LoanAccountClosing from "../pages/Loan Management/LoanAccountClosing";
+import LoanAccountRequest from "../pages/Loan Management/LoanAccountRequest";
+import LoanClosingAccountRequest from "../pages/Loan Management/LoanClosingAccountRequest";
 
 
 
@@ -156,6 +162,36 @@ const router = createBrowserRouter([
 
             // loan handling routes
             {
+                path: 'open_loan_account',
+                element: <OpenLoanAccount/>
+            },
+            {
+                path: 'loan_account_list',
+                element: <LoanAccountList/>
+            },
+            {
+                path: 'loan_evaluation',
+                element: <LoanEvaluation />
+            },
+            {
+                path: 'loan_transaction_posting',
+                element: <Loan_transaction_posting/>
+            },
+            {
+                path: 'loan_account_closing',
+                element: <LoanAccountClosing/>
+            },
+            {
+                path: 'loan_account_request',
+                element: <LoanAccountRequest/>
+            },
+            {
+                path: 'loan_closing_account_request',
+                element: <LoanClosingAccountRequest/>
+            },
+            
+
+            {
                 path: 'add_loan_plan',
                 element: <AddLoanPlan />
             },
@@ -175,10 +211,7 @@ const router = createBrowserRouter([
                 path: 'loan_collection',
                 element: <LoanCollection />
             },
-            {
-                path: 'loan_evaluation',
-                element: <LoanEvaluation />
-            },
+            
             {
                 path: 'loan_request',
                 element: <LoanRequest />
