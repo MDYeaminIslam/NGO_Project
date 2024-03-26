@@ -27,24 +27,19 @@ const ClosingAccountRequest = () => {
                                 <input className="input input-bordered input-sm  hover:border-teal-500  " id="account_id" type="text" placeholder="" />
                             </div>
 
-                            <div className="flex  gap-1 col-span-2">
+                            <div className="flex  gap-1 ">
                                 <label className="font-medium pt-10" htmlFor="account_id">Action:</label>
 
                                 <div className="w-full flex justify-center  mt-8">
-                                    <input className="bg-green-500 hover:bg-green-700 px-20 py-2 rounded font-medium     text-white" type="submit" value="Approve" />
+                                    <input className="bg-green-500 hover:bg-green-700 px-10 py-2 rounded font-medium     text-white" type="submit" value="Approve" />
                                 </div>
 
                                 <div className="w-full flex justify-center  mt-8">
-                                    <input className="bg-red-500 hover:bg-red-700 px-20 py-2 rounded font-medium     text-white" type="submit" value="Reject" />
+                                    <input className="bg-red-500 hover:bg-red-700 px-10 py-2 rounded font-medium     text-white" type="submit" value="Reject" />
                                 </div>
-
-
                             </div>
-
-
-
-
                         </section>
+
 
                     </form>
                 </section>
