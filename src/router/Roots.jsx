@@ -406,7 +406,6 @@ const router = createBrowserRouter([
 
             }
 
-
         ]
     },
 ]);

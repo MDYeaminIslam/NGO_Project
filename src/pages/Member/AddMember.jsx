@@ -80,33 +80,30 @@ const AddMember = () => {
               <input className="border-2 hover:border-teal-500 rounded " id="Attach_Photo " type="file" />
             </div>
 
-            <div class="flex flex-col gap-1">
-              <label class="font-medium" for="name">Status</label>
-              <select class="border-2 rounded hover:border-teal-500" id="status" name="status">
+            <div className="flex flex-col gap-1">
+              <label className="font-medium" htmlFor="status">Status</label>
+              <select className="border-2 rounded hover:border-teal-500" id="status" name="status">
                 <option value="option1">Active</option>
                 <option value="option2">Deactive</option>
               </select>
             </div>
 
-            <div class="flex flex-col gap-1">
-              <label class="font-medium" for="name">Branch Name: </label>
-              <select class="border-2 rounded hover:border-teal-500" id="Branch_name" name="name">
+            <div className="flex flex-col gap-1">
+              <label className="font-medium" htmlFor="name">Branch Name: </label>
+              <select className="border-2 rounded hover:border-teal-500" id="Branch_name" >
                 <option value="option1">Branch 1</option>
                 <option value="option2">Branch 2</option>
                 <option value="option3">Branch 3</option>
               </select>
             </div>
-            <div class="flex flex-col gap-1">
-              <label class="font-medium" for="name">Samity Name: </label>
-              <select class="border-2 rounded hover:border-teal-500" id="Samity_name" name="name">
+            <div className="flex flex-col gap-1">
+              <label className="font-medium" htmlFor="name">Samity Name: </label>
+              <select className="border-2 rounded hover:border-teal-500" id="Samity_name" >
                 <option value="option1">Samity 1</option>
                 <option value="option2">Samity 2</option>
                 <option value="option3">Samity 3</option>
               </select>
             </div>
-
-            
-
           </section>
           {/* nominee section */}
           <section>
@@ -136,7 +133,7 @@ const AddMember = () => {
             </section>
           </section>
 
-          
+
           <div className="w-full flex justify-center  mt-8">
             <input className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium     text-white" type="submit" />
           </div>
