@@ -6,3 +6,13 @@ export async function addBranch(data) {
   const response = await axiosAdmin.post(`${url}/branch/add`, data);
   return response.data;
 }
+//Get all branches
+export async function getAllBranches() {
+  const response = await axiosAdmin.get(`${url}/branch/all`);
+  return response.data.data;
+}
+//Add Samity
+export async function addSamity(data) {
+  const response = await axiosAdmin.post(`${url}/samity/add`, data);
+  return response.data;
+}

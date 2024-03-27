@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useMutationAdmin from "../../../hooks/useMutationHook";
+import useMutationHook from "../../../hooks/useMutationHook";
 import BranchesNav from "./BranchesNav/BranchesNav";
 import { addBranch } from "../../../api/admin";
 const initialState = {
@@ -11,7 +11,7 @@ const initialState = {
 };
 const AddNewBranch = () => {
   const { mutate, isSuccess, isError, errorMessage, isPending } =
-    useMutationAdmin(addBranch, {
+    useMutationHook(addBranch, {
       key: ["branches"],
     });
   const [formData, setFormData] = useState(initialState);
