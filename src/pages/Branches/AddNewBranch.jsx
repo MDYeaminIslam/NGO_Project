@@ -107,12 +107,6 @@ const AddNewBranch = () => {
           </button>
         </div>
       </section>
-<<<<<<< HEAD
-      
-      
-      
-=======
->>>>>>> aa1d637e03d30816f4e916a0fbd1d5eca5b6e702
     </div>
   );
 };

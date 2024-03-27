@@ -7,9 +7,6 @@ const AddNewSamity = () => {
         <BranchesNav/>
       </section>
       
-<<<<<<< HEAD
-      
-=======
       <section className="m-4 ">
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">Add New Samity</h1>
         <div className="grid grid-cols-2 max-w-5xl mx-auto gap-4 my-8">
@@ -54,7 +51,6 @@ const AddNewSamity = () => {
           <input className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium     text-white" type="submit" />
         </div>
       </section>
->>>>>>> aa1d637e03d30816f4e916a0fbd1d5eca5b6e702
     </div>
   );
 };
