@@ -13,6 +13,7 @@ const useMutationHook = (mutationFn, config = {}) => {
       config.onError && config.onError(error, variables, context);
     },
   });
+  //asif
   return {
     ...mutation,
     isSuccess: mutation.isSuccess && mutation.data?.status === 200,
