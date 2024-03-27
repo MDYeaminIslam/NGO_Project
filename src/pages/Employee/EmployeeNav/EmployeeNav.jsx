@@ -13,8 +13,8 @@ const EmployeeNav = () => {
               </Link>
 
               
-              <Link to={'/employee_posting'}>
-              <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Employee Posting</p>
+              <Link to={'/employee_login_credentials'}>
+              <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Employee Login Credentials</p>
               </Link>
 
               <Link to={'/employee_list'}>
