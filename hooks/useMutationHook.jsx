@@ -1,4 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+
 const useMutationAdmin = (mutationFn, config = {}) => {
   const queryClient = useQueryClient();
   const mutation = useMutation({
