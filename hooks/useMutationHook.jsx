@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-const useMutationAdmin = (mutationFn, config = {}) => {
+const useMutationHook = (mutationFn, config = {}) => {
   const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: mutationFn,
@@ -22,4 +22,4 @@ const useMutationAdmin = (mutationFn, config = {}) => {
   };
 };
 
-export default useMutationAdmin;
+export default useMutationHook;
