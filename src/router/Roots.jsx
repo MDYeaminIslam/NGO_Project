@@ -62,6 +62,17 @@ import DebitvsCredit from "../pages/Report/DebitvsCredit";
 import Liabilities from "../pages/Report/Liabilities";
 import TdsTaxVat from "../pages/Report/TdsTaxVat";
 import GeneralSettings from "../pages/Setting General/GeneralSettings";
+import TransactionnPosting from "../pages/Saving Account/TransactionnPosting";
+import AccountClosing from "../pages/Saving Account/AccountClosing";
+import ClosingAccountRequest from "../pages/Saving Account/ClosingAccountRequest";
+import OpenLoanAccount from "../pages/Loan Management/OpenLoanAccount";
+import LoanAccountList from "../pages/Loan Management/LoanAccountList";
+import Loan_transaction_posting from "../pages/Loan Management/Loan_transaction_posting";
+import LoanAccountClosing from "../pages/Loan Management/LoanAccountClosing";
+import LoanAccountRequest from "../pages/Loan Management/LoanAccountRequest";
+import LoanClosingAccountRequest from "../pages/Loan Management/LoanClosingAccountRequest";
+
+
 
 
 const router = createBrowserRouter([
@@ -95,28 +106,28 @@ const router = createBrowserRouter([
             //Branches routes
             {
                 path: 'add_new_branch',
-                element: <AddNewBranch/>
+                element: <AddNewBranch />
             },
             {
                 path: 'add_new_samity',
-                element: <AddNewSamity/>
+                element: <AddNewSamity />
             },
             {
                 path: 'branch_list',
-                element: <BranchList/>
+                element: <BranchList />
             },
             {
                 path: 'branch_sub_navbar',
-                element: <BranchSubNavbar/>
+                element: <BranchSubNavbar />
             },
             {
                 path: 'samity_list',
-                element: <SamityList/>
+                element: <SamityList />
             },
 
 
 
-            // Accounts routes
+            //Saving Accounts routes
             {
                 path: 'close_saving_account',
                 element: <CloseSavingAccount />
@@ -125,17 +136,61 @@ const router = createBrowserRouter([
                 path: 'deposit',
                 element: <Deposit />
             },
+
+            {
+                path: 'withdraw_money',
+                element: <WithdrawMoney />
+            },
+            {
+                path: 'transactionn_posting',
+                element: <TransactionnPosting />
+
+            },
+            {
+                path: 'account_closing',
+                element: <AccountClosing />
+            },
             {
                 path: 'saving_account_request',
                 element: <SavingAccountRequest />
             },
             {
-                path: 'withdraw_money',
-                element: <WithdrawMoney />
+                path: 'closing_account_request',
+                element: <ClosingAccountRequest />
             },
 
 
             // loan handling routes
+            {
+                path: 'open_loan_account',
+                element: <OpenLoanAccount/>
+            },
+            {
+                path: 'loan_account_list',
+                element: <LoanAccountList/>
+            },
+            {
+                path: 'loan_evaluation',
+                element: <LoanEvaluation />
+            },
+            {
+                path: 'loan_transaction_posting',
+                element: <Loan_transaction_posting/>
+            },
+            {
+                path: 'loan_account_closing',
+                element: <LoanAccountClosing/>
+            },
+            {
+                path: 'loan_account_request',
+                element: <LoanAccountRequest/>
+            },
+            {
+                path: 'loan_closing_account_request',
+                element: <LoanClosingAccountRequest/>
+            },
+            
+
             {
                 path: 'add_loan_plan',
                 element: <AddLoanPlan />
@@ -156,10 +211,7 @@ const router = createBrowserRouter([
                 path: 'loan_collection',
                 element: <LoanCollection />
             },
-            {
-                path: 'loan_evaluation',
-                element: <LoanEvaluation />
-            },
+            
             {
                 path: 'loan_request',
                 element: <LoanRequest />
@@ -230,41 +282,41 @@ const router = createBrowserRouter([
             //manage drawer cash routes
             {
                 path: 'drawer_cash',
-                element: <DrawerCash/>
+                element: <DrawerCash />
             },
             {
                 path: 'drawer_cash_to_bank',
-                element: <DrawerCashtoBank/>
+                element: <DrawerCashtoBank />
             },
 
 
             //manage bank cash routes
             {
                 path: 'bank_cash',
-                element: <BankCash/>
+                element: <BankCash />
             },
             {
                 path: 'bank_cash_to_drawer',
-                element: <BankCashtoDrawer/>
+                element: <BankCashtoDrawer />
             },
 
 
             //user maintenance routes
             {
                 path: 'add_new_user',
-                element: <AddNewUser/>
+                element: <AddNewUser />
             },
             {
-                path:'add_new_user_type',
-                element: <AddNewUserType/>
+                path: 'add_new_user_type',
+                element: <AddNewUserType />
             },
             {
                 path: 'user_list',
-                element: <UserList/>
+                element: <UserList />
             },
             {
                 path: 'user_type',
-                element: <UserType/>
+                element: <UserType />
             },
 
 
@@ -313,47 +365,46 @@ const router = createBrowserRouter([
             //Liabilities routes
             {
                 path: 'upcoming',
-                element: <Upcoming/>
+                element: <Upcoming />
             },
 
 
             //Report routes
             {
                 path: 'asset',
-                element: <Asset/>
+                element: <Asset />
             },
             {
                 path: 'balance_sheet',
-                element: <BalanceSheet/>
+                element: <BalanceSheet />
             },
             {
                 path: 'credit',
-                element: <Credit/>
+                element: <Credit />
             },
             {
                 path: 'debit',
-                element: <Debit/>
+                element: <Debit />
             },
             {
                 path: 'debit_vs_credit',
-                element: <DebitvsCredit/>
+                element: <DebitvsCredit />
             },
             {
                 path: 'liabilities',
-                element: <Liabilities/>
+                element: <Liabilities />
             },
             {
                 path: 'tds_tax_vat',
-                element: <TdsTaxVat/>
+                element: <TdsTaxVat />
             },
 
             //settings routes
             {
                 path: 'settings',
-                element: <GeneralSettings/>
+                element: <GeneralSettings />
 
             }
-
 
         ]
     },
