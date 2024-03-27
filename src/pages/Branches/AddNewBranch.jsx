@@ -6,7 +6,8 @@ const AddNewBranch = () => {
       <section>
         <BranchesNav/>
       </section>
-      <h1>Add New Branch</h1>
+      
+      
       
     </div>
   );
