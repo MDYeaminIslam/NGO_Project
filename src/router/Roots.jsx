@@ -71,6 +71,7 @@ import Loan_transaction_posting from "../pages/Loan Management/Loan_transaction_
 import LoanAccountClosing from "../pages/Loan Management/LoanAccountClosing";
 import LoanAccountRequest from "../pages/Loan Management/LoanAccountRequest";
 import LoanClosingAccountRequest from "../pages/Loan Management/LoanClosingAccountRequest";
+import EmployeeLoginCredentials from "../pages/Employee/EmployeeLoginCredentials";
 
 
 
@@ -245,6 +246,10 @@ const router = createBrowserRouter([
             {
                 path: 'employee_add',
                 element: <EmployeeAdd />
+            },
+            {
+                path: 'employee_login_credentials',
+                element: <EmployeeLoginCredentials/>
             },
             {
                 path: 'employee_list',
