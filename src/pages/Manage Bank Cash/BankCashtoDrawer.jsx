@@ -14,12 +14,12 @@ const BankCashtoDrawer = () => {
 
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="cash_in_amount">Cash In Amount :</label>
-              <input className="input input-bordered input-sm  hover:border-teal-500  " id="cash_in_amount" type="text" placeholder="enter cash in amount" />
+              <input className="input input-bordered input-sm  hover:border-teal-500  " id="cash_in_amount" type="number" placeholder="enter cash in amount" />
             </div>
 
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="cash_out_amount">Cash Out Amount :</label>
-              <input className="input input-bordered input-sm  hover:border-teal-500  " id="cash_out_amount" type="text" placeholder="enter cash out amount" />
+              <input className="input input-bordered input-sm  hover:border-teal-500  " id="cash_out_amount" type="number" placeholder="enter cash out amount" />
             </div>
 
             <div className="flex flex-col gap-1">
