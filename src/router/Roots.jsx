@@ -72,6 +72,12 @@ import LoanAccountClosing from "../pages/Loan Management/LoanAccountClosing";
 import LoanAccountRequest from "../pages/Loan Management/LoanAccountRequest";
 import LoanClosingAccountRequest from "../pages/Loan Management/LoanClosingAccountRequest";
 import EmployeeLoginCredentials from "../pages/Employee/EmployeeLoginCredentials";
+import EditFixedAsset from "../pages/Assets/Fixed Asset/EditFixedAsset";
+import RemoveWastedAsset from "../pages/Assets/Fixed Asset/RemoveWastedAsset";
+import FixedAssetList from "../pages/Assets/Fixed Asset/FixedAssetList";
+import AddNewFixedAsset from "../pages/Assets/Fixed Asset/AddNewFixedAsset";
+import FixedAssetItem from "../pages/Assets/Fixed Asset/FixedAssetItem";
+import FixedAssetTypes from "../pages/Assets/Fixed Asset/FixedAssetTypes";
 
 
 
@@ -364,7 +370,30 @@ const router = createBrowserRouter([
             },
 
             //Assets routes
-
+            {
+                path: 'edit_fixed_asset',
+                element: <EditFixedAsset/>
+            },
+            {
+                path: 'remove_wasted_asset',
+                element: <RemoveWastedAsset/>
+            },
+            {
+                path:'fixed_asset_list',
+                element: <FixedAssetList/>
+            },
+            {
+                path: 'add_new_fixed_asset',
+                element: <AddNewFixedAsset/>
+            },
+            {
+                path: 'fixed_asset_item',
+                element: <FixedAssetItem/>
+            },
+            {
+                path: 'fixed_asset_types',
+                element: <FixedAssetTypes/>
+            },
 
 
             //Liabilities routes
