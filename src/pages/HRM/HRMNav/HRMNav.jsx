@@ -45,6 +45,10 @@ const HRMNav = () => {
               <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Salary Sheet</p>
               </Link>
 
+              <Link to={'/paying_amount_application'}>
+              <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Paying Amount Application</p>
+              </Link>
+
             </div>
           </div>
         </div>

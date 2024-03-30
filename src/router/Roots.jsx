@@ -78,6 +78,7 @@ import FixedAssetList from "../pages/Assets/Fixed Asset/FixedAssetList";
 import AddNewFixedAsset from "../pages/Assets/Fixed Asset/AddNewFixedAsset";
 import FixedAssetItem from "../pages/Assets/Fixed Asset/FixedAssetItem";
 import FixedAssetTypes from "../pages/Assets/Fixed Asset/FixedAssetTypes";
+import PayingAmountApplication from "../pages/HRM/PayingAmountApplication";
 
 
 
@@ -367,6 +368,10 @@ const router = createBrowserRouter([
             {
                 path: 'salary_sheet',
                 element: <SalarySheet />
+            },
+            {
+                path: 'paying_amount_application',
+                element: <PayingAmountApplication/>
             },
 
             //Assets routes
