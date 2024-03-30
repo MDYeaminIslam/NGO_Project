@@ -63,7 +63,7 @@ const AllExpense = () => {
           <div className="flex gap-6 justify-center items-center mt-6   ">
             {/* <label className="font-medium pt-10" htmlFor="account_id">Action:</label> */}
             <div className="flex w-fit mt-8">
-              <input className="bg-green-500 hover:bg-green-700 px-10 py-2 rounded font-medium     text-white" type="submit" value="Approve" />
+            <button className="bg-green-500 hover:bg-green-700 px-10 py-2 rounded font-medium     text-white" >Accept</button>
             </div>
             <div className=" flex w-fit  mt-8">
               <button className="bg-red-500 hover:bg-red-700 px-10 py-2 rounded font-medium     text-white" >Reject</button>
