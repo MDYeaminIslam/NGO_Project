@@ -79,8 +79,14 @@ import AddNewFixedAsset from "../pages/Assets/Fixed Asset/AddNewFixedAsset";
 import FixedAssetItem from "../pages/Assets/Fixed Asset/FixedAssetItem";
 import FixedAssetTypes from "../pages/Assets/Fixed Asset/FixedAssetTypes";
 import PayingAmountApplication from "../pages/HRM/PayingAmountApplication";
+import AddNewTemporaryAsset from "../pages/Assets/Temporary Asset/AddNewTemporaryAsset";
+import EditTemporaryAsset from "../pages/Assets/Temporary Asset/EditTemporaryAsset";
+import RemoveWastedTemporaryAsset from "../pages/Assets/Temporary Asset/RemoveWastedTemporaryAsset";
+import TemporaryAssetItem from "../pages/Assets/Temporary Asset/TemporaryAssetItem";
+import TemporaryAssetList from "../pages/Assets/Temporary Asset/TemporaryAssetList";
+import TemporaryAssetTypes from "../pages/Assets/Temporary Asset/TemporaryAssetTypes";
+import LoanReceivedMoney from "../pages/Loan Management/LoanReceivedMoney";
 import IMWFundCollection from "../pages/Branches/IMWFundCollection";
-
 
 
 
@@ -176,11 +182,11 @@ const router = createBrowserRouter([
             // loan handling routes
             {
                 path: 'open_loan_account',
-                element: <OpenLoanAccount/>
+                element: <OpenLoanAccount />
             },
             {
                 path: 'loan_account_list',
-                element: <LoanAccountList/>
+                element: <LoanAccountList />
             },
             {
                 path: 'loan_evaluation',
@@ -188,21 +194,26 @@ const router = createBrowserRouter([
             },
             {
                 path: 'loan_transaction_posting',
-                element: <Loan_transaction_posting/>
+                element: <Loan_transaction_posting />
             },
             {
                 path: 'loan_account_closing',
-                element: <LoanAccountClosing/>
+                element: <LoanAccountClosing />
             },
             {
+                path: 'loan_received_money',
+                element: <LoanReceivedMoney/>
+            },
+
+            {
                 path: 'loan_account_request',
-                element: <LoanAccountRequest/>
+                element: <LoanAccountRequest />
             },
             {
                 path: 'loan_closing_account_request',
-                element: <LoanClosingAccountRequest/>
+                element: <LoanClosingAccountRequest />
             },
-            
+
 
             {
                 path: 'add_loan_plan',
@@ -224,7 +235,7 @@ const router = createBrowserRouter([
                 path: 'loan_collection',
                 element: <LoanCollection />
             },
-            
+
             {
                 path: 'loan_request',
                 element: <LoanRequest />
@@ -261,7 +272,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'employee_login_credentials',
-                element: <EmployeeLoginCredentials/>
+                element: <EmployeeLoginCredentials />
             },
             {
                 path: 'employee_list',
@@ -376,33 +387,59 @@ const router = createBrowserRouter([
             },
             {
                 path: 'paying_amount_application',
-                element: <PayingAmountApplication/>
+                element: <PayingAmountApplication />
             },
 
             //Assets routes
             {
                 path: 'edit_fixed_asset',
-                element: <EditFixedAsset/>
+                element: <EditFixedAsset />
             },
             {
                 path: 'remove_wasted_asset',
-                element: <RemoveWastedAsset/>
+                element: <RemoveWastedAsset />
             },
             {
-                path:'fixed_asset_list',
-                element: <FixedAssetList/>
+                path: 'fixed_asset_list',
+                element: <FixedAssetList />
             },
             {
                 path: 'add_new_fixed_asset',
-                element: <AddNewFixedAsset/>
+                element: <AddNewFixedAsset />
             },
             {
                 path: 'fixed_asset_item',
-                element: <FixedAssetItem/>
+                element: <FixedAssetItem />
             },
             {
                 path: 'fixed_asset_types',
-                element: <FixedAssetTypes/>
+                element: <FixedAssetTypes />
+            },
+            // temporary asset
+            {
+                path: 'add_new_temporary_asset',
+                element: <AddNewTemporaryAsset />
+            },
+            {
+                path: 'edit_temporary_asset',
+                element: <EditTemporaryAsset />
+            },
+            {
+                path: 'remove_wasted_temporary_asset',
+                element: <RemoveWastedTemporaryAsset />
+
+            },
+            {
+                path: 'temporary_asset_item',
+                element: <TemporaryAssetItem />
+            },
+            {
+                path: 'temporary_asset_list',
+                element: <TemporaryAssetList />
+            },
+            {
+                path: 'temporary_asset_types',
+                element: <TemporaryAssetTypes />
             },
 
 

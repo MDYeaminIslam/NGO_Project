@@ -154,6 +154,16 @@ const SideNavbar = () => {
                             </Link>
 
                         </li>
+
+                        <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
+                            <Link to={'/add_new_temporary_asset'}>
+                                <p rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
+                                    <img className="w-4" src="/NGO Dashboard icon/asset.png" alt="" />
+                                    <span>Temporary Assets</span>
+                                </p>
+                            </Link>
+
+                        </li>
                         <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             <Link to={'/upcoming'}>
                                 <p className="flex items-center p-2 space-x-3 rounded-md">

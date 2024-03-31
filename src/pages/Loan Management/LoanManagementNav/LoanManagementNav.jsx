@@ -29,6 +29,10 @@ const LoanManagementNav = () => {
                   <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">Account Closing</p>
                 </Link>
 
+                <Link to={'/loan_received_money'}>
+                  <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">Loan Received Money</p>
+                </Link>
+
                 <Link to={'/loan_account_request'}>
                   <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">Loan Account Request</p>
                 </Link>
