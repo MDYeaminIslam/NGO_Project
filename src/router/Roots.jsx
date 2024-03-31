@@ -79,6 +79,7 @@ import AddNewFixedAsset from "../pages/Assets/Fixed Asset/AddNewFixedAsset";
 import FixedAssetItem from "../pages/Assets/Fixed Asset/FixedAssetItem";
 import FixedAssetTypes from "../pages/Assets/Fixed Asset/FixedAssetTypes";
 import PayingAmountApplication from "../pages/HRM/PayingAmountApplication";
+import LoanReceivedMoney from "../pages/Loan Management/LoanReceivedMoney";
 
 
 
@@ -189,6 +190,11 @@ const router = createBrowserRouter([
                 path: 'loan_account_closing',
                 element: <LoanAccountClosing/>
             },
+            {
+                path: 'loan_received_money',
+                element: <LoanReceivedMoney/>
+            },
+
             {
                 path: 'loan_account_request',
                 element: <LoanAccountRequest/>
