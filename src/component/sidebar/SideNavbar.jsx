@@ -145,25 +145,46 @@ const SideNavbar = () => {
                             </Link>
 
                         </li>
-                        <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
-                            <Link to={'/edit_fixed_asset'}>
-                                <p rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                                    <img className="w-4" src="/NGO Dashboard icon/asset.png" alt="" />
-                                    <span>Assets</span>
+                        <li className="w-full bg-gray-100 hover:bg-teal-500  rounded-md ">
+                            <div className="dropdown w-full">
+                                <p tabIndex={0} role="button" className="p-2 w-full flex gap-2">
+                                    <img className="w-5 object-fill" src="/NGO Dashboard icon/asset.png" alt="" />
+                                    <span className="hover:text-white">
+                                        Asset Section
+                                    </span>
                                 </p>
-                            </Link>
-
+                                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded w-full flex gap-2">
+                                    {/* <li><a>Item 1</a></li>
+                                    <li><a>Item 2</a></li> */}
+                                    <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
+                                        <Link to={'/edit_fixed_asset'}>
+                                            <p className="flex items-center p-2 space-x-3 rounded-md">
+                                                <img className="w-4" src="/NGO Dashboard icon/asset.png" alt="" />
+                                                <span>Fixed Assets</span>
+                                            </p>
+                                        </Link>
+                                    </li>
+                                    <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
+                                        <Link to={'/add_new_temporary_asset'}>
+                                            <p rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
+                                                <img className="w-4" src="/NGO Dashboard icon/asset.png" alt="" />
+                                                <span>Temporary Assets</span>
+                                            </p>
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
 
-                        <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
+
+                        {/* <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             <Link to={'/add_new_temporary_asset'}>
                                 <p rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
                                     <img className="w-4" src="/NGO Dashboard icon/asset.png" alt="" />
                                     <span>Temporary Assets</span>
                                 </p>
                             </Link>
-
-                        </li>
+                        </li> */}
                         <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             <Link to={'/upcoming'}>
                                 <p className="flex items-center p-2 space-x-3 rounded-md">

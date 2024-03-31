@@ -79,17 +79,14 @@ import AddNewFixedAsset from "../pages/Assets/Fixed Asset/AddNewFixedAsset";
 import FixedAssetItem from "../pages/Assets/Fixed Asset/FixedAssetItem";
 import FixedAssetTypes from "../pages/Assets/Fixed Asset/FixedAssetTypes";
 import PayingAmountApplication from "../pages/HRM/PayingAmountApplication";
-<<<<<<< HEAD
 import LoanReceivedMoney from "../pages/Loan Management/LoanReceivedMoney";
 
-=======
 import AddNewTemporaryAsset from "../pages/Assets/Temporary Asset/AddNewTemporaryAsset";
 import EditTemporaryAsset from "../pages/Assets/Temporary Asset/EditTemporaryAsset";
 import RemoveWastedTemporaryAsset from "../pages/Assets/Temporary Asset/RemoveWastedTemporaryAsset";
 import TemporaryAssetItem from "../pages/Assets/Temporary Asset/TemporaryAssetItem";
 import TemporaryAssetList from "../pages/Assets/Temporary Asset/TemporaryAssetList";
 import TemporaryAssetTypes from "../pages/Assets/Temporary Asset/TemporaryAssetTypes";
->>>>>>> 7229fbe8d22c5500986b10ac92aca7072a3e82de
 
 
 
@@ -201,7 +198,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'loan_received_money',
-                element: <LoanReceivedMoney/>
+                element: <LoanReceivedMoney />
             },
 
             {
