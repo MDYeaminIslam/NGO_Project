@@ -61,7 +61,7 @@ const EditFixedAsset = () => {
 
         </form>
 
-        <div className="w-full flex justify-center  m-8">
+        <div className="w-fit mx-auto  m-8">
           <input className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white" type="submit" />
         </div>
       </section>
