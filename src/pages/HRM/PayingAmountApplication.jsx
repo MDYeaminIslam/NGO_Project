@@ -1,14 +1,14 @@
 import HRMNav from "./HRMNav/HRMNav";
 
-const ExtraBill = () => {
+const PayingAmountApplication = () => {
   return (
     <div>
       <section>
         <HRMNav/>
       </section>
-
+      
       <section className="m-4">
-        <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">Extra Bill</h1>
+        <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">Paying Amount Application</h1>
         <form className="my-8" action="">
           <section className="grid grid-cols-3 max-w-5xl mx-auto gap-4">
 
@@ -28,39 +28,29 @@ const ExtraBill = () => {
           </div>
 
           <div className="flex flex-col gap-1">
-              <label className="font-medium " htmlFor="reason">Reason:</label>
-              <select id="reason" className=" input input-bordered input-sm hover:border-teal-500 " >
-                <option>--Select--</option>
-                <option>Tour Bill</option>
-                <option>Overtime</option>
-                <option>Special Award</option>
-                <option>Bonus</option>
-                <option>Others</option>
-              </select>
-            </div>
+                <label className="font-medium" htmlFor="reason">Reason:</label>
+                <textarea className="input input-bordered hover:border-teal-500 " id="reason" cols="10" rows="1"></textarea>
+          </div>
 
-            <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="grant_amount">Grant Amount:</label>
               <input className="input input-bordered input-sm  hover:border-teal-500" id="grant_amount" type="number" placeholder="Enter your total amount"/>
-            </div>
+          </div>
 
-            <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="adjustment_duration">Adjustment Duration:</label>
               <input className="input input-bordered input-sm  hover:border-teal-500  " id="adjustment_duration" type="date" placeholder=""/>
-            </div>
+          </div>
 
-            <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="adjustment_amount">Adjustment Amount:</label>
               <input className="input input-bordered input-sm  hover:border-teal-500" id="adjustment_amount" type="number" placeholder="Enter your amount"/>
-            </div>
+          </div>
 
-            <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="starting_month">Starting Month:</label>
               <input className="input input-bordered input-sm  hover:border-teal-500" id="starting_month" type="date" placeholder=""/>
-            </div>
-
-            
-
+          </div>
 
           </section>
           
@@ -71,9 +61,8 @@ const ExtraBill = () => {
         </div>
 
       </section>
-      
     </div>
   );
 };
 
-export default ExtraBill;
+export default PayingAmountApplication;
