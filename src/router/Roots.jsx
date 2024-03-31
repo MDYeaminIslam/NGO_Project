@@ -79,6 +79,7 @@ import AddNewFixedAsset from "../pages/Assets/Fixed Asset/AddNewFixedAsset";
 import FixedAssetItem from "../pages/Assets/Fixed Asset/FixedAssetItem";
 import FixedAssetTypes from "../pages/Assets/Fixed Asset/FixedAssetTypes";
 import PayingAmountApplication from "../pages/HRM/PayingAmountApplication";
+import IMWFundCollection from "../pages/Branches/IMWFundCollection";
 
 
 
@@ -131,6 +132,10 @@ const router = createBrowserRouter([
             {
                 path: 'samity_list',
                 element: <SamityList />
+            },
+            {
+                path: 'imw_fund_collection',
+                element: <IMWFundCollection/>
             },
 
 

@@ -25,6 +25,10 @@ const BranchesNav = () => {
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Samity List</p>
                 </Link>
 
+                <Link to={'/imw_fund_collection'}>
+                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">IMW Fund Collection</p>
+                </Link>
+
               </div>
             </div>
           </div>
