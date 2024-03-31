@@ -9,10 +9,6 @@ const TemporaryAssetNav = () => {
                         <div className=" ">
                             <div className="flex flex-wrap space-x-2 ">
 
-                                <Link to={'/add_new_temporary_asset'}>
-                                    <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Add Temporary Asset</p>
-                                </Link>
-
                                 <Link to={'/edit_temporary_asset'}>
                                     <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Edit Temporary Asset</p>
                                 </Link>
@@ -21,13 +17,18 @@ const TemporaryAssetNav = () => {
                                     <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Remove Wasted Temp Asset </p>
                                 </Link>
 
+                                <Link to={'/temporary_asset_list'}>
+                                    <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Temporary Asset List</p>
+                                </Link>
+
+                                <Link to={'/add_new_temporary_asset'}>
+                                    <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Add New Temporary Asset</p>
+                                </Link>
+
                                 <Link to={'/temporary_asset_item'}>
                                     <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Temporary Asset Item</p>
                                 </Link>
 
-                                <Link to={'/temporary_asset_list'}>
-                                    <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Temporary Asset List</p>
-                                </Link>
                                 <Link to={'/temporary_asset_types'}>
                                     <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Temporary Asset Types</p>
                                 </Link>
