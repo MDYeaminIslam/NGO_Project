@@ -80,13 +80,13 @@ import FixedAssetItem from "../pages/Assets/Fixed Asset/FixedAssetItem";
 import FixedAssetTypes from "../pages/Assets/Fixed Asset/FixedAssetTypes";
 import PayingAmountApplication from "../pages/HRM/PayingAmountApplication";
 import LoanReceivedMoney from "../pages/Loan Management/LoanReceivedMoney";
-
 import AddNewTemporaryAsset from "../pages/Assets/Temporary Asset/AddNewTemporaryAsset";
 import EditTemporaryAsset from "../pages/Assets/Temporary Asset/EditTemporaryAsset";
 import RemoveWastedTemporaryAsset from "../pages/Assets/Temporary Asset/RemoveWastedTemporaryAsset";
 import TemporaryAssetItem from "../pages/Assets/Temporary Asset/TemporaryAssetItem";
 import TemporaryAssetList from "../pages/Assets/Temporary Asset/TemporaryAssetList";
 import TemporaryAssetTypes from "../pages/Assets/Temporary Asset/TemporaryAssetTypes";
+import IMWFundCollection from "../pages/Branches/IMWFundCollection";
 
 
 
