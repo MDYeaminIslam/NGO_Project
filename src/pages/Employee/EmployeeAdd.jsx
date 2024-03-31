@@ -174,12 +174,12 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="branch_name">Branch Name :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="branch_name" type="text" placeholder="" />
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="branch_name" type="text" placeholder="Enter your branch name" />
               </div>
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="samity_name">Samity Name :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="samity_name" type="text" placeholder="" />
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="samity_name" type="text" placeholder="Enter your samity name" />
               </div>
 
               <div className="flex flex-col gap-1">
@@ -200,6 +200,11 @@ const EmployeeAdd = () => {
                 <input className="input input-bordered input-sm  hover:border-teal-500  " id="additional_total" type="text" placeholder="auto calculated" />
               </div>
 
+              <div className="flex flex-col gap-1">
+                <label className="font-medium" htmlFor="employee_security_fund">Employee Security Fund:</label>
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="employee_security_fund" type="text" placeholder="Enter your security money deposite"/>
+              </div>
+
             </section>
           </form>
         </section>
@@ -213,7 +218,7 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="name">Name :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="name" type="text" placeholder="" />
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="name" type="text" placeholder="Enter gurantor name" />
               </div>
 
               <div className="flex flex-col gap-1">
@@ -223,12 +228,12 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="relation">Relation :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="relation" type="text" placeholder="" />
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="relation" type="text" placeholder="Enter your relation with gurantor" />
               </div>
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="occupation">Occupation :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="occupation" type="text" placeholder="" />
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="occupation" type="text" placeholder="Enter gurantor occupation" />
               </div>
 
             </section>

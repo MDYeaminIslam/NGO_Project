@@ -53,6 +53,11 @@ const AddNewFixedAsset = () => {
             </div>
 
             <div className="flex flex-col gap-1">
+              <label className="font-medium" htmlFor="depreciation_rate">Depreciation %:</label>
+              <input className="input input-bordered input-sm  hover:border-teal-500  " id="depreciation_rate" type="text" placeholder="Enter depreciation rate here" />
+            </div>
+
+            <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="permanent_address"> Remarks :</label>
               <textarea className="input input-bordered hover:border-teal-500 " id=" permanent_address" cols="10" rows="1"></textarea>
             </div>
