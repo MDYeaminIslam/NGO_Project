@@ -3,6 +3,10 @@ import MemberNav from "./MemberNav/MemberNav";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import BranchSamitySelector from "../../component/branchSamitySelector";
+import useMutationHook from "../../../hooks/useMutationHook";
+import { createMember } from "../../../api/admin";
+import toast from "react-hot-toast";
+
 const initialState = {
   name: "",
   branchId: "",
@@ -15,14 +19,15 @@ const initialState = {
   occupationBrief: "",
   presentAddress: "",
   permanentAddress: "",
-  educationalQualification: "",
   dateOfBirth: "",
   nidNumber: "",
   mobileNumber: "",
+  educationalQualification: "",
   emergencyContactNumber: "",
   membershipFee: "",
   photo: "",
   status: "Active",
+  fromAdmin: true,
   nominee: {
     name: "",
     address: "",
@@ -33,6 +38,13 @@ const initialState = {
 };
 const AddMember = () => {
   const [selectedDate, setSelectedDate] = useState(null);
+  const { mutate, isSuccess, isError, errorMessage, isPending } =
+    useMutationHook(createMember, {
+      key: ["user"],
+      onSuccess: () => {
+        toast.success("User added successfully!");
+      },
+    });
 
   const [formData, setFormData] = useState(initialState);
   const handleChange = (e) => {
@@ -59,7 +71,7 @@ const AddMember = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    mutate(formData);
   };
   return (
     <div>
@@ -272,6 +284,26 @@ const AddMember = () => {
                 name="photo"
               />
             </div>
+            {/* Education Qualification */}
+            <div className="flex flex-col gap-1">
+              <label className="font-medium" htmlFor="Attach_Photo ">
+                Education Qualification
+              </label>
+              <select
+                onChange={handleChange}
+                className="border-2 rounded hover:border-teal-500 "
+                name="educationalQualification"
+              >
+                <option disabled defaultValue>
+                  Select Education Qualification
+                </option>
+                <option value="SSC">SSC</option>
+                <option value="HSC">HSC</option>
+                <option value="B.A">B.A</option>
+                <option value="M.A">M.A</option>
+                <option value="NONE">NONE</option>
+              </select>
+            </div>
             <BranchSamitySelector callBackFn={setFormData} />
           </section>
           {/* nominee section */}
@@ -350,7 +382,7 @@ const AddMember = () => {
           </section>
 
           <section></section>
-
+          {isError ? errorMessage : null}
           <div className="w-full flex justify-center  mt-8">
             <button
               onClick={handleSubmit}

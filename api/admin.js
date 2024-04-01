@@ -1,5 +1,6 @@
 import axiosAdmin from "../axios/admin";
 import url from "../config/main-url";
+import { uploadPhoto } from "./upload-photo";
 // Add Branch
 export async function addBranch(data) {
   console.log(data);
@@ -15,4 +16,19 @@ export async function getAllBranches() {
 export async function addSamity(data) {
   const response = await axiosAdmin.post(`${url}/samity/add`, data);
   return response.data;
+}
+
+//create member
+export async function createMember(data) {
+  const photoUrl = await uploadPhoto(data.photo);
+  data["photo"] = photoUrl;
+  console.log(data);
+  const response = await axiosAdmin.post(`${url}/localuser/add`, data);
+  return response.data;
+}
+
+//get member using phoneNumber
+export async function searchUserByPhoneNumber(number) {
+  const response = await axiosAdmin.get(`${url}/localuser/${number}`);
+  return response.data.data;
 }

@@ -25,7 +25,7 @@ export default function BranchSamitySelector({ callBackFn }) {
     }));
   };
   return (
-    <div className="flex gap-1">
+    <div className="flex gap-3 w-full">
       {/* Branch List */}
 
       <div className="flex flex-col gap-1">

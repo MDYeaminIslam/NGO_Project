@@ -7,6 +7,7 @@ export default function BranchSelector({ callBackFn }) {
     queryFn: getAllBranches,
   });
   const handleBranchChange = async (event) => {
+    console.log(event.target.value);
     callBackFn((prev) => ({ ...prev, branchId: event.target.value }));
   };
 
