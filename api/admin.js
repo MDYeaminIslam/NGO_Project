@@ -37,3 +37,9 @@ export async function createDepositAccount(data) {
   const response = await axiosAdmin.post(`${url}/deposit/create`, data);
   return response.data;
 }
+
+//search deposit account
+export async function searchDepositAccount(number) {
+  const response = await axiosAdmin.get(`${url}/deposit/search/${number}`);
+  return response.data.data;
+}

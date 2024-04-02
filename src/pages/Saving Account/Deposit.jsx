@@ -25,6 +25,7 @@ const getDepositDates = (periodInMonths, status, perInstallment, profit) => {
   const startDate = moment();
   const endDate = moment().add(periodInMonths, "months");
   const daysInPeriod = endDate.diff(startDate, "days");
+  console.log({ daysInPeriod });
   switch (status) {
     case "Daily":
       installmentCount = daysInPeriod;
@@ -51,8 +52,12 @@ const getDepositDates = (periodInMonths, status, perInstallment, profit) => {
       break;
   }
   const totalAmount = installmentCount * perInstallment;
+  console.log({ totalAmount, profit });
+
   const profitAmount = (profit / 100) * totalAmount;
+  console.log({ profitAmount });
   const maturedAmount = totalAmount + profitAmount;
+  console.log(installmentCount);
 
   return maturedAmount;
 };
@@ -76,18 +81,13 @@ const Deposit = () => {
       setFormData((prev) => ({ ...prev, matureDate: tempMatureDate }));
     }
     if (name === "profitPercentage") {
-      const {
-        periodOfTimeInMonths,
-        perInstallment,
-        profitPercentage,
-        paymentTerm,
-      } = formData;
+      const { periodOfTimeInMonths, perInstallment, paymentTerm } = formData;
 
       const total = getDepositDates(
         periodOfTimeInMonths,
         paymentTerm,
         perInstallment,
-        profitPercentage
+        value
       );
       setFormData((prev) => ({ ...prev, onMatureAmount: total }));
     }
