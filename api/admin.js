@@ -32,3 +32,8 @@ export async function searchUserByPhoneNumber(number) {
   const response = await axiosAdmin.get(`${url}/localuser/${number}`);
   return response.data.data;
 }
+//create Deposit Account
+export async function createDepositAccount(data) {
+  const response = await axiosAdmin.post(`${url}/deposit/create`, data);
+  return response.data;
+}
