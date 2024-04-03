@@ -40,6 +40,21 @@ export async function createDepositAccount(data) {
 
 //search deposit account
 export async function searchDepositAccount(number) {
-  const response = await axiosAdmin.get(`${url}/deposit/search/${number}`);
-  return response.data.data;
+  try {
+    const response = await axiosAdmin.get(`${url}/deposit/search/${number}`);
+    return response.data.data;
+  } catch (error) {
+    return [];
+  }
+}
+// make deposit
+export async function makeDeposit(data) {
+  const response = await axiosAdmin.post(`${url}/deposit/makeDeposit`, data);
+  return response.data;
+}
+
+// make withdraw
+export async function makeWithdraw(data) {
+  const response = await axiosAdmin.post(`${url}/deposit/makeWithdraw`, data);
+  return response.data;
 }

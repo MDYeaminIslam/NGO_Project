@@ -52,12 +52,8 @@ const getDepositDates = (periodInMonths, status, perInstallment, profit) => {
       break;
   }
   const totalAmount = installmentCount * perInstallment;
-  console.log({ totalAmount, profit });
-
   const profitAmount = (profit / 100) * totalAmount;
-  console.log({ profitAmount });
   const maturedAmount = totalAmount + profitAmount;
-  console.log(installmentCount);
 
   return maturedAmount;
 };
