@@ -147,9 +147,9 @@ const SideNavbar = () => {
                         </li>
                         <li className="w-full bg-gray-100 hover:bg-teal-500  rounded-md ">
                             <div className="dropdown w-full">
-                                <p tabIndex={0} role="button" className="p-2 w-full flex gap-2">
+                                <p tabIndex={0} role="button" className="p-2 w-full flex gap-2 hover:text-white">
                                     <img className="w-5 object-fill" src="/NGO Dashboard icon/asset.png" alt="" />
-                                    <span className="hover:text-white">
+                                    <span className="">
                                         Asset Section
                                     </span>
                                 </p>
