@@ -52,13 +52,13 @@ const DrawerCash = () => {
                                 </div>
 
                                 <div className="flex flex-col gap-1">
-                                    <label className="font-medium" htmlFor="source_details">Source Details:</label>
-                                    <input className="input input-bordered input-sm  hover:border-teal-500  " id="source_details" type="text" placeholder="Enter your source details here" />
+                                  <label className="font-medium" htmlFor="source_details">Source Details:</label>
+                                  <textarea className="input input-bordered hover:border-teal-500 " id="source_details" cols="10" rows="1"></textarea>
                                 </div>
 
                                 <div className="flex flex-col gap-1">
-                                    <label className="font-medium" htmlFor="remarks">Remarks:</label>
-                                    <input className="input input-bordered input-sm  hover:border-teal-500  " id="remarks" type="text" placeholder="Enter remarks here" />
+                                  <label className="font-medium" htmlFor="remarks"> Remarks :</label>
+                                  <textarea className="input input-bordered hover:border-teal-500 " id="remarks" cols="10" rows="1"></textarea>
                                 </div>
 
 
