@@ -46,7 +46,7 @@ const Purchase = () => {
 
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="description">Description:</label>
-              <input className="input input-bordered input-sm  hover:border-teal-500  " id="description" type="text" placeholder="type description here" />
+              <textarea className="input input-bordered hover:border-teal-500 " id="description" cols="10" rows="1"></textarea>
             </div>
 
             <div className="flex flex-col gap-1">
@@ -56,7 +56,22 @@ const Purchase = () => {
 
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="unit_price">Unit Price:</label>
-              <input className="input input-bordered input-sm  hover:border-teal-500  " id="unit_price" type="number" placeholder="TDS, TAX, VAT" />
+              <input className="input input-bordered input-sm  hover:border-teal-500  " id="unit_price" type="number" placeholder="Enter unit price here" />
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label className="font-medium" htmlFor="tds">TDS:</label>
+              <input className="input input-bordered input-sm  hover:border-teal-500  " id="tds" type="number" placeholder="Enter TDS amount here" />
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label className="font-medium" htmlFor="tax">TAX:</label>
+              <input className="input input-bordered input-sm  hover:border-teal-500  " id="tax" type="number" placeholder="Enter TAX amount here" />
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label className="font-medium" htmlFor="vat">VAT:</label>
+              <input className="input input-bordered input-sm  hover:border-teal-500  " id="vat" type="number" placeholder="Enter VAT amount here" />
             </div>
 
             <div className="flex flex-col gap-1">
@@ -68,8 +83,8 @@ const Purchase = () => {
             </div>
 
             <div className="flex flex-col gap-1">
-              <label className="font-medium" htmlFor="remarks">Remarks:</label>
-              <input className="input input-bordered input-sm  hover:border-teal-500  " id="remarks" type="text" placeholder="type unit amount here" />
+              <label className="font-medium" htmlFor="remarks"> Remarks :</label>
+              <textarea className="input input-bordered hover:border-teal-500 " id="remarks" cols="10" rows="1"></textarea>
             </div>
 
           </section>
