@@ -46,7 +46,7 @@ const Purchase = () => {
 
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="description">Description:</label>
-              <input className="input input-bordered input-sm  hover:border-teal-500  " id="description" type="text" placeholder="type description here" />
+              <textarea className="input input-bordered hover:border-teal-500 " id="description" cols="10" rows="1"></textarea>
             </div>
 
             <div className="flex flex-col gap-1">
