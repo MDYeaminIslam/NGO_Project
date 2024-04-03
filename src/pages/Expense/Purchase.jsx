@@ -65,7 +65,7 @@ const Purchase = () => {
             </div>
 
             <div className="flex flex-col gap-1">
-              <label className="font-medium" htmlFor="tax">Tax:</label>
+              <label className="font-medium" htmlFor="tax">TAX:</label>
               <input className="input input-bordered input-sm  hover:border-teal-500  " id="tax" type="number" placeholder="Enter TAX amount here" />
             </div>
 

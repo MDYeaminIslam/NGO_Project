@@ -60,11 +60,6 @@ const MonthlyExpense = () => {
             </div>
 
             <div className="flex flex-col gap-1">
-              <label className="font-medium" htmlFor="tax_capital">TAX Capital:</label>
-              <input className="input input-bordered input-sm  hover:border-teal-500  " id="tax_capital" type="number" placeholder="Enter TAX capital amount here" />
-            </div>
-
-            <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="remarks"> Remarks :</label>
               <textarea className="input input-bordered hover:border-teal-500 " id="remarks" cols="10" rows="1"></textarea>
             </div>
