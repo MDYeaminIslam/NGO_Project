@@ -5,6 +5,7 @@ import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
 import {
   createDepositAccount,
+  createLoanAccount,
   searchUserByPhoneNumber,
 } from "../../../api/admin";
 import { MoonLoader } from "react-spinners";
@@ -16,13 +17,13 @@ const initialState = {
   expiryDate: "",
   paymentTerm: "Daily",
   profitPercentage: "",
-  onMatureAmount: "",
   loanAmount: "",
   totalAmount: "",
   numberOfInstallment: 0,
   periodOfTimeInMonths: "",
   installmentAmount: 0,
 };
+
 function calculateNumberOfInstallments(paymentTerm, loanPeriodInMonths) {
   switch (paymentTerm) {
     case "Daily":
@@ -53,15 +54,15 @@ function calculateEmi(totalAmount, paymentTerm, loanPeriodInMonths) {
 
   return [numberOfInstallments, emi.toFixed(2)]; // Round to two decimal places
 }
-
+// ! Component
 const OpenLoanAccount = () => {
   const [formData, setFormData] = useState(initialState);
   const [searchedUser, setSearchedUser] = useState(null);
   const [showLoadingIcon, setShowLoadingIcon] = useState(false);
   const { mutate, isSuccess, isError, errorMessage, isPending } =
-    useMutationHook(createDepositAccount, {
+    useMutationHook(createLoanAccount, {
       onSuccess: () => {
-        toast.success("User added successfully!");
+        toast.success("Loan Account Created Successfully!");
       },
     });
   // * handleChange
@@ -335,12 +336,14 @@ const OpenLoanAccount = () => {
                 />
               </div>
             </section>
-
+            {isError ? errorMessage : null}
             <div className="w-full flex justify-center  mt-8">
-              <input
+              <button
+                onClick={handleSubmit}
                 className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
-                type="submit"
-              />
+              >
+                Submit
+              </button>
             </div>
           </form>
         </section>
