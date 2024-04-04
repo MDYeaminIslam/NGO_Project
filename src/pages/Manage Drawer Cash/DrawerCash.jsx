@@ -47,9 +47,9 @@ const DrawerCash = () => {
                                         <input 
                                         type="number" 
                                         id="cash_in_amount" 
-                                        name = "cashInAmount"
-                                        onChange={handleChange}
-                                        className="grow  " placeholder="Enter your amount" />
+                                        name = "cashInAmount" 
+                                        onChange={handleChange} 
+                                        className="grow  " placeholder="Enter your amount" /> 
                               
                                     </label>
                                 </div>

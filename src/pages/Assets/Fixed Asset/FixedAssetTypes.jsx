@@ -1,10 +1,29 @@
+import { useState } from "react";
 import FixedAssetNav from "./FixedAssetNav/FixedAssetNav";
+const initialState = {
+  code: "",
+  typeName: "",
+
+};
 
 const FixedAssetTypes = () => {
+  const [formData, setFormData] = useState(initialState);
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    console.log(name, value);
+    setFormData((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(formData);
+  };
+
   return (
     <div>
       <section>
-        <FixedAssetNav/>
+        <FixedAssetNav />
       </section>
 
       <section className="m-4">
@@ -14,21 +33,31 @@ const FixedAssetTypes = () => {
 
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="code">Code:</label>
-              <input className="input input-bordered input-sm  hover:border-teal-500  " id="code" type="text" placeholder="enter code here" />
+              <input
+                name="code"
+                onChange={handleChange}
+                className="input input-bordered input-sm  hover:border-teal-500  " id="code" type="text" placeholder="enter code here" />
             </div>
 
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="type_name">Type Name :</label>
-              <input className="input input-bordered input-sm  hover:border-teal-500  " id="type_name" type="text" placeholder="enter type name here" />
+              <input
+                name="typeName"
+                onChange={handleChange}
+                className="input input-bordered input-sm  hover:border-teal-500  " id="type_name" type="text" placeholder="enter type name here" />
             </div>
-            
+
 
           </section>
 
         </form>
 
         <div className="w-fit mx-auto  m-8">
-          <input className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white" type="submit" />
+          <button
+            className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
+            onClick={handleSubmit} >
+            Submit
+          </button>
         </div>
       </section>
     </div>

@@ -1,6 +1,27 @@
+import { useState } from "react";
 import TemporaryAssetNav from "./TeamporaryAssetNav/TemporaryAssetNav";
+const initialState = {
+  year: "",
+  branch: "",
+  type: "",
+  item: "",
+
+};
 
 const EditTemporaryAsset = () => {
+  const [formData, setFormData] = useState(initialState);
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    console.log(name, value);
+    setFormData((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(formData);
+  };
+
   return (
     <div>
       <section>
@@ -14,46 +35,67 @@ const EditTemporaryAsset = () => {
 
             <div className="flex flex-col gap-1">
               <label className="font-medium " htmlFor="year">Year :</label>
-              <select className=" input input-bordered input-sm hover:border-teal-500 " >
-                <option >2000</option>
-                <option >2010</option>
-                <option >2020</option>
-                <option >2030</option>
+              <select
+                name="year"
+                onChange={handleChange}
+                className=" input input-bordered input-sm hover:border-teal-500 " >
+                <option disabled defaultValue>Select</option>
+                <option value="2000">2000</option>
+                <option value="2010">2010</option>
+                <option value="2020">2020</option>
+                <option value="2030">2030</option>
               </select>
             </div>
 
             <div className="flex flex-col gap-1">
               <label className="font-medium " htmlFor="branch">Branch :</label>
-              <select className=" input input-bordered input-sm hover:border-teal-500 " >
-                <option >dummy 1</option>
-                <option >dummy 2</option>
-                <option >dummy 3</option>
-                <option >dummy 4</option>
+              <select
+                name="branch"
+                onChange={handleChange}
+                className=" input input-bordered input-sm hover:border-teal-500 " >
+                <option disabled defaultValue>Select</option>
+                <option value="dummy_1">dummy 1</option>
+                <option value="dummy_2">dummy 2</option>
+                <option value="dummy_3">dummy 3</option>
+                <option value="dummy_4">dummy 4</option>
               </select>
             </div>
 
+
             <div className="flex flex-col gap-1">
               <label className="font-medium " htmlFor="type">Type :</label>
-              <select className=" input input-bordered input-sm hover:border-teal-500 " >
-                <option >dummy 1</option>
-                <option >dummy 2</option>
-                <option >dummy 3</option>
-                <option >dummy 4</option>
+              <select
+                name="type"
+                onChange={handleChange}
+                className=" input input-bordered input-sm hover:border-teal-500 " >
+                <option disabled defaultValue>Select</option>
+                <option value="dummy_1">dummy 1</option>
+                <option value="dummy_2">dummy 2</option>
+                <option value="dummy_3">dummy 3</option>
+                <option value="dummy_4">dummy 4</option>
               </select>
             </div>
 
             <div className="flex flex-col gap-1">
               <label className="font-medium " htmlFor="item">Item :</label>
-              <select className=" input input-bordered input-sm hover:border-teal-500 " >
-                <option >dummy 1</option>
-                <option >dummy 2</option>
-                <option >dummy 3</option>
-                <option >dummy 4</option>
+              <select
+                name="item"
+                onChange={handleChange}
+                className=" input input-bordered input-sm hover:border-teal-500 " >
+                <option disabled defaultValue>Select</option>
+                <option value="dummy_1">dummy 1</option>
+                <option value="dummy_2">dummy 2</option>
+                <option value="dummy_3">dummy 3</option>
+                <option value="dummy_4">dummy 4</option>
               </select>
             </div>
 
             <div className=" flex w-fit  mt-6">
-              <button className="bg-blue-500 hover:bg-blue-700 px-10 py-2 rounded font-medium     text-white" >Search</button>
+              <button
+                className="bg-blue-500 hover:bg-blue-700 px-10 py-2 rounded font-medium     text-white"
+                onClick={handleSubmit} >
+                Search
+              </button>
             </div>
 
           </section>
@@ -61,10 +103,14 @@ const EditTemporaryAsset = () => {
         </form>
 
         <div className="w-fit mx-auto  m-8">
-          <input className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white" type="submit" />
+          <button
+            className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
+            onClick={handleSubmit} >
+            Submit
+          </button>
         </div>
       </section>
-      
+
     </div>
   );
 };
