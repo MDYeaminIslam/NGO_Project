@@ -58,3 +58,8 @@ export async function makeWithdraw(data) {
   const response = await axiosAdmin.post(`${url}/deposit/makeWithdraw`, data);
   return response.data;
 }
+//create loan account
+export async function createLoanAccount(data) {
+  const response = await axiosAdmin.post(`${url}/loan/create`, data);
+  return response.data;
+}
