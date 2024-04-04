@@ -1,6 +1,76 @@
+import { useState } from "react";
 import EmployeeNav from "./EmployeeNav/EmployeeNav";
+import ReactDatePicker from "react-datepicker";
+
+const initialState = {
+  name: "",
+  employeeId: "",
+  fathersName: "",
+  mothersName: "",
+  spouseName: "",
+  presentAddress: "",
+  permanentAddress: "",
+  occupation: "",
+  employeeReligion: "",
+  dateOfBirth: "",
+  employeeEmail: "",
+  employeePhoto: "",
+  employeeStatus: "Active",
+  mobileNumber: "",
+  emergencyContactNumber: "",
+  educationalQualification: "",
+  previousOrganization: {
+    previousOrganizationName: '',
+    poAddress: '',
+    poPosition: '',
+    poSalary: '',
+    poSwitchReason: '',
+
+  },
+}
 
 const EmployeeAdd = () => {
+
+  const [formData, setFormData] = useState(initialState)
+
+  const handleChange = (e) => {
+    const { name, value, files, type } = e.target;
+    console.log(name, value);
+    setFormData({ ...formData, [name]: type === "file" ? files[0] : value });
+  };
+
+  const handleChangeDate = (date) => {
+    setFormData((prev) => ({
+      ...prev,
+      dateOfBirth: new Date(date),
+
+    }));
+  };
+
+  const handlePreviousOrganization = e => {
+    const { name, value } = e.target;
+    console.log(name, value);
+    setFormData((prevState) => ({
+      ...prevState,
+      nominee: {
+        ...prevState.nominee,
+        [name]: value,
+      },
+    }));
+  }
+
+  const handlePresentPosition = e => {
+    const { name, value } = e.target;
+    console.log(name, value);
+    setFormData((prevState) => ({
+      ...prevState,
+      nominee: {
+        ...prevState.nominee,
+        [name]: value,
+      },
+    }));
+  }
+
   return (
     <div>
       <section>
@@ -15,47 +85,48 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="name">Name :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="name" type="text" placeholder="enter your name" />
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="name" name="name" onChange={handleChange} type="text" placeholder="enter your name" />
               </div>
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="employee_id">Employee Id :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="employee_id" type="text" placeholder="enter your id" />
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="employee_id" name="employeeId" onChange={handleChange} type="text" placeholder="enter your id" />
               </div>
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="father_name">Father Name :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="father_name" type="text" placeholder="enter your father name" />
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="father_name" name="fatherName" onChange={handleChange} type="text" placeholder="enter your father name" />
               </div>
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="mother_name">Mother Name :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="mother_name" type="text" placeholder="enter your mother name" />
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="mother_name" name="motherName" onChange={handleChange} type="text" placeholder="enter your mother name" />
               </div>
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="spouse_name">Spouse Name :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="spouse_name" type="text" placeholder="enter your spouse name" />
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="spouse_name" name="spouseName" onChange={handleChange} type="text" placeholder="enter your spouse name" />
               </div>
 
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="present_address"> Present Address:</label>
-                <textarea className="input input-bordered hover:border-teal-500 " id=" present_address" cols="10" rows="1"></textarea>
+                <textarea className="input input-bordered hover:border-teal-500 " id=" present_address" name="presentAddress" onChange={handleChange} cols="10" rows="1"></textarea>
               </div>
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="permanent_address"> Permanent Address:</label>
-                <textarea className="input input-bordered hover:border-teal-500 " id=" permanent_address" cols="10" rows="1"></textarea>
+                <textarea className="input input-bordered hover:border-teal-500 " id=" permanent_address" name="permanentAddress" onChange={handleChange} cols="10" rows="1"></textarea>
               </div>
 
 
               <div className="flex flex-col gap-1">
-                <label className="font-medium " htmlFor="occupation">Educational Qualification :</label>
-                <select className=" input input-bordered input-sm hover:border-teal-500 " >
+                <label className="font-medium " htmlFor="educational_qualification">Educational Qualification :</label>
+                <select id="educational_qualification" name="educationalQualification"
+                  onChange={handleChange} className=" input input-bordered input-sm hover:border-teal-500 " >
                   <option >HSC</option>
                   <option >BA</option>
-                  <option >Bcom</option>
+                  <option >B'com</option>
                   <option >BBA</option>
                   <option >BSc</option>
                 </select>
@@ -64,28 +135,35 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1 ">
                 <label className="font-medium" htmlFor="dob"> Date of Birth :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="dob" type="date" placeholder="" />
+                {/* <input className="input input-bordered input-sm  hover:border-teal-500  " id="dob" name="dateOfBirth" type="date" placeholder="" /> */}
+                <ReactDatePicker
+                  selected={formData.dateOfBirth}
+                  onChange={handleChangeDate}
+                  dateFormat={'dd/MM/yyyy'}
+                  className="input input-bordered input-sm  hover:border-teal-500  " id="dob" name="dateOfBirth"
+                >
+                </ReactDatePicker>
               </div>
 
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="mobile_no">Mobile Number :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="mobile_no" type="text" placeholder="enter your mobile number" />
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="mobile_no" name="mobileNumber" onChange={handleChange} type="text" placeholder="enter your mobile number" />
               </div>
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="email">Email :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="email" type="email" placeholder="enter your email" />
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="email" name="employeeEmail" onChange={handleChange} type="email" placeholder="enter your email" />
               </div>
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="emergency_contact_number">Emergency Contact Number :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="emergency_contact_number" type="text" placeholder="enter emergency contact number" />
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="emergency_contact_number" name="emergencyContactNumber" onChange={handleChange} type="text" placeholder="enter emergency contact number" />
               </div>
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium " htmlFor="religion">Religion :</label>
-                <select className=" input input-bordered input-sm hover:border-teal-500 " >
+                <select id="religion" name="employeeReligion" onChange={handleChange} className=" input input-bordered input-sm hover:border-teal-500 " >
                   <option >Islam</option>
                   <option >Hinduism</option>
                   <option >Christianity</option>
@@ -95,17 +173,16 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="Attach_Photo ">Attach Photo :</label>
-                <input className="input input_bordered  hover:border-teal-500 " id="Attach_Photo " type="file" />
+                <input className="input input_bordered  hover:border-teal-500 " id="attach_photo" name="employeePhoto" onChange={handleChange} type="file" />
               </div>
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium " htmlFor="status">Status :</label>
-                <select className=" input input-bordered input-sm hover:border-teal-500 " >
+                <select id="status" name="employeeStatus" onChange={handleChange} className=" input input-bordered input-sm hover:border-teal-500 " >
                   <option >Working</option>
                   <option >Resigned</option>
                 </select>
               </div>
-
             </section>
 
           </form>
@@ -118,14 +195,15 @@ const EmployeeAdd = () => {
             <section className="grid grid-cols-3 max-w-5xl mx-auto gap-4">
 
               <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="name">Name :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="name" type="text" placeholder="enter your name" />
+                <label className="font-medium" htmlFor="previous_organization_name">Name :</label>
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="previous_organization_name" name="previousOrganizationName" onChange={handlePreviousOrganization} type="text" placeholder="enter your name" />
               </div>
 
 
               <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="address"> Address :</label>
-                <textarea className="input input-bordered hover:border-teal-500 " id="address" cols="10" rows="1"></textarea>
+                <label className="font-medium" htmlFor="previous_organization_address"> Address :</label>
+                <textarea className="input input-bordered hover:border-teal-500 " id="previous_organization_address" name="poAddress"
+                  onChange={handlePreviousOrganization} cols="10" rows="1"></textarea>
               </div>
 
               <div className="flex flex-col gap-1 ">
@@ -134,16 +212,19 @@ const EmployeeAdd = () => {
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="position">Position :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="position" type="text" placeholder="" />
+                <label className="font-medium" htmlFor="po_position">Position :</label>
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="po_position" name="poPosition" onChange={handlePreviousOrganization} type="text" placeholder="" />
               </div>
+
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="salary">Salary :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="salary" type="text" placeholder="" />
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="po_salary" name="poSalary" onChange={handlePreviousOrganization} type="text" placeholder="" />
               </div>
+
               <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="switch_reason">Switch Reason :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="switch_reason" type="text" placeholder="write your reason here" />
+                <label className="font-medium" htmlFor="po_switch_reason">Switch Reason :</label>
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="po_switch_reason" name="poSwitchReason"
+                  onChange={handlePreviousOrganization} type="text" placeholder="write your reason here" />
               </div>
 
             </section>
@@ -158,8 +239,8 @@ const EmployeeAdd = () => {
             <section className="grid grid-cols-3 max-w-5xl mx-auto gap-4">
 
               <div className="flex flex-col gap-1">
-                <label className="font-medium " htmlFor="designation">Designation :</label>
-                <select className=" input input-bordered input-sm hover:border-teal-500 " >
+                <label className="font-medium " htmlFor="present_designation">Designation :</label>
+                <select id="present_designation" name="presentDesignation" className=" input input-bordered input-sm hover:border-teal-500 " >
                   <option >dummy</option>
                   <option >dummy 2</option>
                   <option >dummy 3</option>
@@ -173,8 +254,8 @@ const EmployeeAdd = () => {
 
 
               <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="branch_name">Branch Name :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="branch_name" type="text" placeholder="Enter your branch name" />
+                <label className="font-medium" htmlFor="current_branch_name">Branch Name :</label>
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="current_branch_name" name="currentBranchName" type="text" placeholder="Enter your branch name" />
               </div>
 
               <div className="flex flex-col gap-1">
@@ -202,7 +283,7 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="employee_security_fund">Employee Security Fund:</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="employee_security_fund" type="text" placeholder="Enter your security money deposite"/>
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="employee_security_fund" type="text" placeholder="Enter your security money deposit" />
               </div>
 
             </section>
