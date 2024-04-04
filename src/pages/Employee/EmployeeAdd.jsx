@@ -19,14 +19,15 @@ const initialState = {
   mobileNumber: "",
   emergencyContactNumber: "",
   educationalQualification: "",
+
   previousOrganization: {
     previousOrganizationName: '',
     poAddress: '',
     poPosition: '',
     poSalary: '',
     poSwitchReason: '',
-
   },
+
   presentPosition: {
     presentDesignation: '',
     currentBranchName: '',
@@ -36,6 +37,13 @@ const initialState = {
     tadaAmount: '',
     additionalTotal: '',
     employeeSecurityFund: '',
+  },
+
+  guarantorDetails: {
+    guarantorName: '',
+    guarantorAddress: '',
+    relationWithEmployee: '',
+    guarantorOccupation: '',
   },
 }
 
@@ -70,6 +78,18 @@ const EmployeeAdd = () => {
   }
 
   const handlePresentPosition = e => {
+    const { name, value } = e.target;
+    console.log(name, value);
+    setFormData((prevState) => ({
+      ...prevState,
+      nominee: {
+        ...prevState.nominee,
+        [name]: value,
+      },
+    }));
+  }
+
+  const handleGuarantorDetails = e => {
     const { name, value } = e.target;
     console.log(name, value);
     setFormData((prevState) => ({
@@ -303,7 +323,7 @@ const EmployeeAdd = () => {
           </form>
         </section>
 
-        {/* Gurantor Section */}
+        {/* Guarantor Section */}
         <section className="m-4">
           <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">Guarantor Details </h1>
           <form className="my-8" >
@@ -311,23 +331,23 @@ const EmployeeAdd = () => {
 
 
               <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="name">Name :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="name" type="text" placeholder="Enter gurantor name" />
+                <label className="font-medium" htmlFor="guarantor_name">Name :</label>
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="guarantor_name" name="guarantorName" onChange={handleGuarantorDetails} type="text" placeholder="Enter guarantor name" />
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="address"> Address :</label>
-                <textarea className="input input-bordered hover:border-teal-500 " id=" address" cols="10" rows="1"></textarea>
+                <label className="font-medium" htmlFor="guarantor_address"> Address :</label>
+                <textarea className="input input-bordered hover:border-teal-500 " id=" guarantor_address" name="guarantorAddress" onChange={handleGuarantorDetails} cols="10" rows="1"></textarea>
               </div>
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="relation">Relation :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="relation" type="text" placeholder="Enter your relation with gurantor" />
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="relation" name="relationWithEmployee" onChange={handleGuarantorDetails} type="text" placeholder="Enter your relation with guarantor" />
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="occupation">Occupation :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="occupation" type="text" placeholder="Enter gurantor occupation" />
+                <label className="font-medium" htmlFor="guarantor_occupation">Occupation :</label>
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="guarantor_occupation" name="guarantorOccupation" onChange={handleGuarantorDetails} type="text" placeholder="Enter guarantor occupation" />
               </div>
 
             </section>
