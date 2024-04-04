@@ -27,6 +27,16 @@ const initialState = {
     poSwitchReason: '',
 
   },
+  presentPosition: {
+    presentDesignation: '',
+    currentBranchName: '',
+    currentSamityName: '',
+    currentSalaryAmount: '',
+    mobileBill: '',
+    tadaAmount: '',
+    additionalTotal: '',
+    employeeSecurityFund: '',
+  },
 }
 
 const EmployeeAdd = () => {
@@ -240,7 +250,7 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium " htmlFor="present_designation">Designation :</label>
-                <select id="present_designation" name="presentDesignation" className=" input input-bordered input-sm hover:border-teal-500 " >
+                <select id="present_designation" name="presentDesignation" onChange={handlePresentPosition} className=" input input-bordered input-sm hover:border-teal-500 " >
                   <option >dummy</option>
                   <option >dummy 2</option>
                   <option >dummy 3</option>
@@ -255,35 +265,38 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="current_branch_name">Branch Name :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="current_branch_name" name="currentBranchName" type="text" placeholder="Enter your branch name" />
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="current_branch_name" name="currentBranchName" onChange={handlePresentPosition} type="text" placeholder="Enter your branch name" />
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="samity_name">Samity Name :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="samity_name" type="text" placeholder="Enter your samity name" />
+                <label className="font-medium" htmlFor="current_samity_name">Samity Name :</label>
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="current_samity_name" name="currentSamityName"
+                  onChange={handlePresentPosition} type="text" placeholder="Enter your samity name" />
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="salary_amount">Salary Amount :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="salary_amount" type="text" placeholder="auto calculated" />
+                <label className="font-medium" htmlFor="current_salary_amount">Salary Amount :</label>
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="current_salary_amount" name="currentSalaryAmount" onChange={handlePresentPosition} type="text" placeholder="auto calculated" />
               </div>
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="mobile_bill">Mobile Bill :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="mobile_bill" type="text" placeholder="auto calculated" />
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="mobile_bill" name="mobileBill" onChange={handlePresentPosition} type="text" placeholder="auto calculated" />
               </div>
+
               <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="salary_amount">TA/DA :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="salary_amount" type="text" placeholder="auto calculated" />
+                <label className="font-medium" htmlFor="TA/DA_amount">TA/DA :</label>
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="TA/DA_amount" name="tadaAmount" onChange={handlePresentPosition} type="text" placeholder="auto calculated" />
               </div>
+
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="additional_total">Additional Total :</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="additional_total" type="text" placeholder="auto calculated" />
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="additional_total" name="additionalTotal" onChange={handlePresentPosition} type="text" placeholder="auto calculated" />
               </div>
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="employee_security_fund">Employee Security Fund:</label>
-                <input className="input input-bordered input-sm  hover:border-teal-500  " id="employee_security_fund" type="text" placeholder="Enter your security money deposit" />
+                <input className="input input-bordered input-sm  hover:border-teal-500  " id="employee_security_fund" name="employeeSecurityFund" onChange={handlePresentPosition} type="text" placeholder="Enter your security money deposit" />
               </div>
 
             </section>
