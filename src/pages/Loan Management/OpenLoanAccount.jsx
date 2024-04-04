@@ -20,8 +20,39 @@ const initialState = {
   loanAmount: "",
   totalAmount: "",
   numberOfInstallment: "",
+  periodOfTimeInMonths: "",
   installmentAmount: "",
 };
+function calculateNumberOfInstallments(paymentTerm, loanPeriodInMonths) {
+  switch (paymentTerm) {
+    case "Daily":
+      return loanPeriodInMonths * 30; // Assuming 30 days per month
+    case "Weekly":
+      return loanPeriodInMonths * 4; // Assuming 4 weeks per month
+    case "Fortnightly":
+      return loanPeriodInMonths * 2;
+    case "Monthly":
+      return loanPeriodInMonths;
+    case "Quarterly":
+      return Math.ceil(loanPeriodInMonths / 3); // Use Math.ceil for rounding up
+    case "Half-Yearly":
+      return Math.ceil(loanPeriodInMonths / 6);
+    case "Yearly":
+      return Math.ceil(loanPeriodInMonths / 12);
+    default:
+      throw new Error("Invalid payment term");
+  }
+}
+function calculateEmi(totalAmount, paymentTerm, loanPeriodInMonths) {
+  // Calculate number of installments (call the previous function)
+  const numberOfInstallments = calculateNumberOfInstallments(
+    paymentTerm,
+    loanPeriodInMonths
+  );
+  let emi = totalAmount / numberOfInstallments;
+
+  return [numberOfInstallments, emi.toFixed(2)]; // Round to two decimal places
+}
 
 const OpenLoanAccount = () => {
   const [formData, setFormData] = useState(initialState);
@@ -37,20 +68,17 @@ const OpenLoanAccount = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    if (name === "periodOfTimeInMonths") {
-      const tempMatureDate = moment().add(value, "months").format("YYYY-MM-DD");
-      setFormData((prev) => ({ ...prev, matureDate: tempMatureDate }));
-    }
     if (name === "profitPercentage") {
-      const { periodOfTimeInMonths, perInstallment, paymentTerm } = formData;
-
-      const total = getDepositDates(
-        periodOfTimeInMonths,
-        paymentTerm,
-        perInstallment,
-        value
-      );
-      setFormData((prev) => ({ ...prev, onMatureAmount: total }));
+      const { loanAmount } = formData;
+      const profit = loanAmount * (value / 100);
+      const total = Number(loanAmount) + Number(profit);
+      setFormData((prev) => ({ ...prev, totalAmount: total }));
+    } else if (name === "periodOfTimeInMonths") {
+      const { loanAmount, totalAmount, profitPercentage, paymentTerm } =
+        formData;
+      const numberOfInstallment = calculateEmi(totalAmount, paymentTerm, value);
+      const [no_of_installment, emi] = numberOfInstallment;
+      console.log(no_of_installment, emi);
     }
   };
   // * handleSearchUser
@@ -79,6 +107,9 @@ const OpenLoanAccount = () => {
     };
     mutate(data);
   };
+  useEffect(() => {
+    setFormData((prev) => ({ ...prev, openingDate: new Date() }));
+  }, []);
   return (
     <div>
       <section>
@@ -178,7 +209,39 @@ const OpenLoanAccount = () => {
                   disabled
                 />
               </div>
-
+              <div className="flex flex-col gap-1">
+                <label className="font-medium " htmlFor="payment_term">
+                  Payment Term :
+                </label>
+                <select
+                  onChange={handleChange}
+                  name="paymentTerm"
+                  className=" input input-bordered input-sm hover:border-teal-500 "
+                >
+                  <option disabled>Select a Value</option>
+                  <option value="Daily">Daily</option>
+                  <option value="Weekly">Weekly</option>
+                  <option value="Fortnightly">Fortnightly</option>
+                  <option value="Monthly">Monthly</option>
+                  <option value="Quarterly">Quarterly</option>
+                  <option value="Half-Yearly">Half-Yearly</option>
+                  <option value="Yearly">Yearly</option>
+                </select>
+              </div>
+              <div className="flex flex-col gap-1">
+                <label className="font-medium" htmlFor="period_of_time">
+                  Period of time :
+                </label>
+                <input
+                  name="periodOfTimeInMonths"
+                  className="input input-bordered input-sm  hover:border-teal-500  "
+                  id="period_of_time"
+                  type="text"
+                  placeholder="In months"
+                  value={formData.periodOfTimeInMonths}
+                  onChange={handleChange}
+                />
+              </div>
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="no_of_installment">
                   Number of Installment :
@@ -206,36 +269,17 @@ const OpenLoanAccount = () => {
                 />
               </div>
 
-              <div className="flex flex-col gap-1">
-                <label className="font-medium " htmlFor="payment_term">
-                  Payment Term :
-                </label>
-                <select
-                  onChange={handleChange}
-                  name="paymentTerm"
-                  className=" input input-bordered input-sm hover:border-teal-500 "
-                >
-                  <option disabled>Select a Value</option>
-                  <option value="Daily">Daily</option>
-                  <option value="Weekly">Weekly</option>
-                  <option value="Fortnightly">Fortnightly</option>
-                  <option value="Monthly">Monthly</option>
-                  <option value="Quarterly">Quarterly</option>
-                  <option value="Half-Yearly">Half-Yearly</option>
-                  <option value="Yearly">Yearly</option>
-                </select>
-              </div>
-
               <div className="flex flex-col gap-1 ">
                 <label className="font-medium" htmlFor="opening_date">
                   {" "}
                   Opening Date :
                 </label>
-                <input
+                <DatePicker
+                  selected={formData.openingDate}
+                  dateFormat="dd/MM/yyyy"
                   className="input input-bordered input-sm  hover:border-teal-500  "
-                  id="opening_date"
-                  type="date"
-                  placeholder=""
+                  disabled
+                  showIcon
                 />
               </div>
 

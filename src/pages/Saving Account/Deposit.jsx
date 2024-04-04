@@ -93,6 +93,7 @@ const Deposit = () => {
     const { value } = event.target;
     if (value.length >= 11) {
       const userData = await searchUserByPhoneNumber(value);
+      console.log(userData);
       if (userData.length) {
         setShowLoadingIcon(false);
         setSearchedUser(userData[0]);
