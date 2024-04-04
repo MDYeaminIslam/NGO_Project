@@ -19,9 +19,9 @@ const initialState = {
   onMatureAmount: "",
   loanAmount: "",
   totalAmount: "",
-  numberOfInstallment: "",
+  numberOfInstallment: 0,
   periodOfTimeInMonths: "",
-  installmentAmount: "",
+  installmentAmount: 0,
 };
 function calculateNumberOfInstallments(paymentTerm, loanPeriodInMonths) {
   switch (paymentTerm) {
@@ -78,7 +78,13 @@ const OpenLoanAccount = () => {
         formData;
       const numberOfInstallment = calculateEmi(totalAmount, paymentTerm, value);
       const [no_of_installment, emi] = numberOfInstallment;
-      console.log(no_of_installment, emi);
+      const tempMatureDate = moment().add(value, "months").format("YYYY-MM-DD");
+      setFormData((prev) => ({
+        ...prev,
+        numberOfInstallment: no_of_installment,
+        installmentAmount: emi,
+        expiryDate: tempMatureDate,
+      }));
     }
   };
   // * handleSearchUser
@@ -252,7 +258,8 @@ const OpenLoanAccount = () => {
                   type="text"
                   placeholder=""
                   name="numberOfInstallment"
-                  onChange={handleChange}
+                  value={formData.numberOfInstallment}
+                  disabled
                 />
               </div>
 
@@ -266,6 +273,7 @@ const OpenLoanAccount = () => {
                   type="text"
                   placeholder="auto calculated"
                   value={formData.installmentAmount}
+                  disabled
                 />
               </div>
 
@@ -287,15 +295,16 @@ const OpenLoanAccount = () => {
                 <label className="font-medium" htmlFor="expiry_date">
                   Expiry Date :
                 </label>
-                <input
+                <DatePicker
+                  selected={formData.expiryDate}
+                  dateFormat="dd/MM/yyyy"
                   className="input input-bordered input-sm  hover:border-teal-500  "
-                  id="mature_date"
-                  type="date"
-                  placeholder=""
+                  disabled
+                  showIcon
                 />
               </div>
 
-              <div className="flex flex-col gap-1">
+              {/* <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="first_due_date">
                   {" "}
                   First Due Date:
@@ -306,7 +315,7 @@ const OpenLoanAccount = () => {
                   type="date"
                   placeholder=""
                 />
-              </div>
+              </div> */}
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="gurantor_info">
