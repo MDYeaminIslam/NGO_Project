@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ManageDrawerCashNav from "./ManageDrawerCashNav/ManageDrawerCashNav";
 
+
 const initialState = {
   
     cashInAmount: "",
@@ -70,7 +71,7 @@ const DrawerCash = () => {
                                   onChange={handleChange}
                                   name = "branchName"
                                   className=" input input-bordered input-sm hover:border-teal-500 " >
-                                    <option disabled defaultValue>Select</option>
+                                    <option disabled defaultValue>--Select--</option>
                                     <option value="branch_1">Branch 1</option>
                                     <option value="branch_2">Branch 2</option>
                                     <option value="branch_2">Branch 3</option>
@@ -83,7 +84,7 @@ const DrawerCash = () => {
                                   onChange={handleChange}
                                   name="samityName"
                                   className=" input input-bordered input-sm hover:border-teal-500 " >
-                                    <option disabled defaultValue>Select</option>
+                                    <option disabled defaultValue>--Select--</option>
                                     <option value="samity_1">Samity 1</option>
                                     <option value="samity_1">Samity 2</option>
                                     <option value="samity_1">Samity 3</option>
