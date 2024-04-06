@@ -63,3 +63,13 @@ export async function createLoanAccount(data) {
   const response = await axiosAdmin.post(`${url}/loan/create`, data);
   return response.data;
 }
+//search deposit account
+export async function searchLoanAccount(number) {
+  try {
+    const response = await axiosAdmin.get(`${url}/loan/search/${number}`);
+    console.log(response.data);
+    return response.data.data;
+  } catch (error) {
+    return [];
+  }
+}
