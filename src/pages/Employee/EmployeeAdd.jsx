@@ -2,6 +2,9 @@ import { useState } from "react";
 import EmployeeNav from "./EmployeeNav/EmployeeNav";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import useMutationHook from "../../../hooks/useMutationHook";
+import { createEmployee } from "../../../api/admin";
+import toast from "react-hot-toast";
 
 const initialState = {
   name: "",
@@ -111,9 +114,15 @@ const EmployeeAdd = () => {
       },
     }));
   };
+  const { mutate, isSuccess, isError, errorMessage, isPending } =
+    useMutationHook(createEmployee, {
+      onSuccess: () => {
+        toast.success("Employee added successfully!");
+      },
+    });
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData);
+    mutate(formData);
   };
 
   return (
@@ -650,12 +659,11 @@ const EmployeeAdd = () => {
             </section>
           </form>
         </section>
-
+        {isError ? errorMessage : null}
         <div className="w-fit mx-auto m-8">
           <button
             className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
             onClick={handleSubmit}
-            type="submit"
           >
             Submit
           </button>

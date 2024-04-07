@@ -73,3 +73,12 @@ export async function searchLoanAccount(number) {
     return [];
   }
 }
+
+//create employee
+export async function createEmployee(data) {
+  const photoUrl = await uploadPhoto(data.photo);
+  data["photo"] = photoUrl;
+  const response = await axiosAdmin.post(`/employee/create`, data);
+
+  return response.data;
+}
