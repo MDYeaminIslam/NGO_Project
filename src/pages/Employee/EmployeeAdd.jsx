@@ -5,12 +5,12 @@ import "react-datepicker/dist/react-datepicker.css";
 import useMutationHook from "../../../hooks/useMutationHook";
 import { createEmployee } from "../../../api/admin";
 import toast from "react-hot-toast";
+import BranchSamitySelector from "../../component/branchSamitySelector";
 
 const initialState = {
   name: "",
   fatherName: "",
   motherName: "",
-  //  spouseName: "",
   presentAddress: "",
   permanentAddress: "",
   educationalQualification: "HSC",
@@ -21,7 +21,8 @@ const initialState = {
   religion: "Islam",
   nidNumber: "",
   photo: "",
-  // status: "",
+  branchId: "",
+  samityId: "",
   previousOrganization: {
     name: "",
     address: "",
@@ -33,8 +34,6 @@ const initialState = {
   presentPosition: {
     designation: "Senior",
     dateOfJoining: "",
-    branchName: "",
-    samityName: "",
     salaryAmount: "",
     mobileBill: "",
     taDa: "",
@@ -492,7 +491,7 @@ const EmployeeAdd = () => {
                 />
               </div>
 
-              <div className="flex flex-col gap-1">
+              {/* <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="branch_name">
                   Branch Name :
                 </label>
@@ -518,7 +517,8 @@ const EmployeeAdd = () => {
                   type="text"
                   placeholder="Enter your samity name"
                 />
-              </div>
+              </div> */}
+              <BranchSamitySelector callBackFn={setFormData} />
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="salary_amount">

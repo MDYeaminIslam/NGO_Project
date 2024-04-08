@@ -1,20 +1,19 @@
 import axiosAdmin from "../axios/admin";
-import url from "../config/main-url";
 import { uploadPhoto } from "./upload-photo";
 // Add Branch
 export async function addBranch(data) {
   console.log(data);
-  const response = await axiosAdmin.post(`${url}/branch/add`, data);
+  const response = await axiosAdmin.post(`/branch/add`, data);
   return response.data;
 }
 //Get all branches
 export async function getAllBranches() {
-  const response = await axiosAdmin.get(`${url}/branch/all`);
+  const response = await axiosAdmin.get(`/branch/all`);
   return response.data.data;
 }
 //Add Samity
 export async function addSamity(data) {
-  const response = await axiosAdmin.post(`${url}/samity/add`, data);
+  const response = await axiosAdmin.post(`/samity/add`, data);
   return response.data;
 }
 
@@ -23,25 +22,25 @@ export async function createMember(data) {
   const photoUrl = await uploadPhoto(data.photo);
   data["photo"] = photoUrl;
   console.log(data);
-  const response = await axiosAdmin.post(`${url}/localuser/add`, data);
+  const response = await axiosAdmin.post(`/localuser/add`, data);
   return response.data;
 }
 
 //get member using phoneNumber
 export async function searchUserByPhoneNumber(number) {
-  const response = await axiosAdmin.get(`${url}/localuser/${number}`);
+  const response = await axiosAdmin.get(`/localuser/${number}`);
   return response.data.data;
 }
 //create Deposit Account
 export async function createDepositAccount(data) {
-  const response = await axiosAdmin.post(`${url}/deposit/create`, data);
+  const response = await axiosAdmin.post(`/deposit/create`, data);
   return response.data;
 }
 
 //search deposit account
 export async function searchDepositAccount(number) {
   try {
-    const response = await axiosAdmin.get(`${url}/deposit/search/${number}`);
+    const response = await axiosAdmin.get(`/deposit/search/${number}`);
     return response.data.data;
   } catch (error) {
     return [];
@@ -49,25 +48,24 @@ export async function searchDepositAccount(number) {
 }
 // make deposit
 export async function makeDeposit(data) {
-  const response = await axiosAdmin.post(`${url}/deposit/makeDeposit`, data);
+  const response = await axiosAdmin.post(`/deposit/makeDeposit`, data);
   return response.data;
 }
 
 // make withdraw
 export async function makeWithdraw(data) {
-  const response = await axiosAdmin.post(`${url}/deposit/makeWithdraw`, data);
+  const response = await axiosAdmin.post(`/deposit/makeWithdraw`, data);
   return response.data;
 }
 //create loan account
 export async function createLoanAccount(data) {
-  const response = await axiosAdmin.post(`${url}/loan/create`, data);
+  const response = await axiosAdmin.post(`/loan/create`, data);
   return response.data;
 }
 //search deposit account
 export async function searchLoanAccount(number) {
   try {
-    const response = await axiosAdmin.get(`${url}/loan/search/${number}`);
-    console.log(response.data);
+    const response = await axiosAdmin.get(`/loan/search/${number}`);
     return response.data.data;
   } catch (error) {
     return [];
@@ -80,5 +78,21 @@ export async function createEmployee(data) {
   data["photo"] = photoUrl;
   const response = await axiosAdmin.post(`/employee/create`, data);
 
+  return response.data;
+}
+
+//get member using phoneNumber
+export async function searchEmployeeByPhoneNumber(number) {
+  try {
+    const response = await axiosAdmin.get(`/employee/search/${number}`);
+    return response.data.data;
+  } catch (err) {
+    return [];
+  }
+}
+
+//set employee credentials
+export async function setEmployeeCredentials(data) {
+  const response = await axiosAdmin.post("/employee/credentials", data);
   return response.data;
 }

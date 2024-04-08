@@ -24,7 +24,6 @@ const Loan_transaction_posting = () => {
     });
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
   // * handleSearchUser
