@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import axiosAdmin from "../../axios/admin";
 export default function BranchSamitySelector({ callBackFn }) {
   const { data, isFetched } = useQuery({
+    queryKey: ["branches"],
     queryFn: getAllBranches,
   });
   const [selectedBranch, setSelectedBranch] = useState("");

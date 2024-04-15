@@ -109,3 +109,29 @@ export async function createPurchaseExpense(data) {
   const response = await axiosAdmin.post("/expense/purchase/add", data);
   return response.data;
 }
+
+//create bank
+export async function createBank(data) {
+  const response = await axiosAdmin.post("/bank/add", data);
+  return response.data;
+}
+
+// get all bank
+export async function getAllBank() {
+  const response = await axiosAdmin.get("/bank/all");
+  return response.data.data;
+}
+// add drawerToBank transaction
+export async function addDrawerToBank(data) {
+  const response = await axiosAdmin.post(
+    "/bank/from_drawer_to_bank/transaction",
+    data
+  );
+  return response.data;
+}
+
+//add drawer cash
+export async function addDrawerCashInOut(data) {
+  const response = await axiosAdmin.post("/drawer/add", data);
+  return response.data;
+}

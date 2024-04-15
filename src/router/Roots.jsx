@@ -1,6 +1,4 @@
-import {
-    createBrowserRouter,
-} from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import DashBoardAdmin from "../component/dashboard/DashBoardAdmin";
 import AddMember from "../pages/Member/AddMember";
@@ -87,408 +85,393 @@ import TemporaryAssetItem from "../pages/Assets/Temporary Asset/TemporaryAssetIt
 import TemporaryAssetList from "../pages/Assets/Temporary Asset/TemporaryAssetList";
 import TemporaryAssetTypes from "../pages/Assets/Temporary Asset/TemporaryAssetTypes";
 import IMWFundCollection from "../pages/Branches/IMWFundCollection";
-
-
+import AddBank from "../pages/Manage Drawer Cash/AddBank";
 
 const router = createBrowserRouter([
-    {
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      //admin dashboard
+      {
         path: "/",
-        element: <App />,
-        children: [
-            //admin dashboard
-            {
-                path: '/',
-                element: <DashBoardAdmin />
-            },
-            // members routes
-            {
-                path: 'add_member',
-                element: <AddMember />
-            },
-            {
-                path: 'members_list',
-                element: <MembersList />
-            },
-            {
-                path: 'member_closing',
-                element: <MemberClosing />
-            },
-            {
-                path: 'member_request',
-                element: <MemberRequest />
-            },
+        element: <DashBoardAdmin />,
+      },
+      // members routes
+      {
+        path: "add_member",
+        element: <AddMember />,
+      },
+      {
+        path: "members_list",
+        element: <MembersList />,
+      },
+      {
+        path: "member_closing",
+        element: <MemberClosing />,
+      },
+      {
+        path: "member_request",
+        element: <MemberRequest />,
+      },
 
-            //Branches routes
-            {
-                path: 'add_new_branch',
-                element: <AddNewBranch />
-            },
-            {
-                path: 'add_new_samity',
-                element: <AddNewSamity />
-            },
-            {
-                path: 'branch_list',
-                element: <BranchList />
-            },
-            {
-                path: 'branch_sub_navbar',
-                element: <BranchSubNavbar />
-            },
-            {
-                path: 'samity_list',
-                element: <SamityList />
-            },
-            {
-                path: 'imw_fund_collection',
-                element: <IMWFundCollection />
-            },
+      //Branches routes
+      {
+        path: "add_new_branch",
+        element: <AddNewBranch />,
+      },
+      {
+        path: "add_new_samity",
+        element: <AddNewSamity />,
+      },
+      {
+        path: "branch_list",
+        element: <BranchList />,
+      },
+      {
+        path: "branch_sub_navbar",
+        element: <BranchSubNavbar />,
+      },
+      {
+        path: "samity_list",
+        element: <SamityList />,
+      },
+      {
+        path: "imw_fund_collection",
+        element: <IMWFundCollection />,
+      },
 
+      //Saving Accounts routes
+      {
+        path: "close_saving_account",
+        element: <CloseSavingAccount />,
+      },
+      {
+        path: "deposit",
+        element: <Deposit />,
+      },
 
+      {
+        path: "withdraw_money",
+        element: <WithdrawMoney />,
+      },
+      {
+        path: "transactionn_posting",
+        element: <TransactionnPosting />,
+      },
+      {
+        path: "account_closing",
+        element: <AccountClosing />,
+      },
+      {
+        path: "saving_account_request",
+        element: <SavingAccountRequest />,
+      },
+      {
+        path: "closing_account_request",
+        element: <ClosingAccountRequest />,
+      },
 
-            //Saving Accounts routes
-            {
-                path: 'close_saving_account',
-                element: <CloseSavingAccount />
-            },
-            {
-                path: 'deposit',
-                element: <Deposit />
-            },
+      // loan handling routes
+      {
+        path: "open_loan_account",
+        element: <OpenLoanAccount />,
+      },
+      {
+        path: "loan_account_list",
+        element: <LoanAccountList />,
+      },
+      {
+        path: "loan_evaluation",
+        element: <LoanEvaluation />,
+      },
+      {
+        path: "loan_transaction_posting",
+        element: <Loan_transaction_posting />,
+      },
+      {
+        path: "loan_account_closing",
+        element: <LoanAccountClosing />,
+      },
+      {
+        path: "loan_received_money",
+        element: <LoanReceivedMoney />,
+      },
 
-            {
-                path: 'withdraw_money',
-                element: <WithdrawMoney />
-            },
-            {
-                path: 'transactionn_posting',
-                element: <TransactionnPosting />
+      {
+        path: "loan_account_request",
+        element: <LoanAccountRequest />,
+      },
+      {
+        path: "loan_closing_account_request",
+        element: <LoanClosingAccountRequest />,
+      },
 
-            },
-            {
-                path: 'account_closing',
-                element: <AccountClosing />
-            },
-            {
-                path: 'saving_account_request',
-                element: <SavingAccountRequest />
-            },
-            {
-                path: 'closing_account_request',
-                element: <ClosingAccountRequest />
-            },
+      {
+        path: "add_loan_plan",
+        element: <AddLoanPlan />,
+      },
+      {
+        path: "all_collection",
+        element: <AllCollection />,
+      },
+      {
+        path: "all_loan",
+        element: <AllLoan />,
+      },
+      {
+        path: "apply_loan",
+        element: <ApplyLoan />,
+      },
+      {
+        path: "loan_collection",
+        element: <LoanCollection />,
+      },
 
+      {
+        path: "loan_request",
+        element: <LoanRequest />,
+      },
+      {
+        path: "paid_loan",
+        element: <PaidLoan />,
+      },
+      {
+        path: "running_loan",
+        element: <RunningLoan />,
+      },
 
-            // loan handling routes
-            {
-                path: 'open_loan_account',
-                element: <OpenLoanAccount />
-            },
-            {
-                path: 'loan_account_list',
-                element: <LoanAccountList />
-            },
-            {
-                path: 'loan_evaluation',
-                element: <LoanEvaluation />
-            },
-            {
-                path: 'loan_transaction_posting',
-                element: <Loan_transaction_posting />
-            },
-            {
-                path: 'loan_account_closing',
-                element: <LoanAccountClosing />
-            },
-            {
-                path: 'loan_received_money',
-                element: <LoanReceivedMoney />
-            },
+      // Expense routes
+      {
+        path: "all_expense",
+        element: <AllExpense />,
+      },
+      {
+        path: "monthly_expense",
+        element: <MonthlyExpense />,
+      },
+      {
+        path: "purchase",
+        element: <Purchase />,
+      },
 
-            {
-                path: 'loan_account_request',
-                element: <LoanAccountRequest />
-            },
-            {
-                path: 'loan_closing_account_request',
-                element: <LoanClosingAccountRequest />
-            },
+      //Employee routs
+      {
+        path: "employee_add",
+        element: <EmployeeAdd />,
+      },
+      {
+        path: "employee_login_credentials",
+        element: <EmployeeLoginCredentials />,
+      },
+      {
+        path: "employee_list",
+        element: <EmployeeList />,
+      },
+      {
+        path: "employee_posting",
+        element: <EmployeePosting />,
+      },
 
+      //  Income routes
+      {
+        path: "any_charges",
+        element: <AnyCharges />,
+      },
+      {
+        path: "category_wise_income",
+        element: <CategoryWiseIncome />,
+      },
+      {
+        path: "loan_profit",
+        element: <LoanProfit />,
+      },
+      {
+        path: "member_fees",
+        element: <Memberfees />,
+      },
+      {
+        path: "penalty",
+        element: <Penalty />,
+      },
 
-            {
-                path: 'add_loan_plan',
-                element: <AddLoanPlan />
-            },
-            {
-                path: 'all_collection',
-                element: <AllCollection />
-            },
-            {
-                path: 'all_loan',
-                element: <AllLoan />
-            },
-            {
-                path: 'apply_loan',
-                element: <ApplyLoan />
-            },
-            {
-                path: 'loan_collection',
-                element: <LoanCollection />
-            },
+      //manage drawer cash routes
+      {
+        path: "drawer_cash",
+        element: <DrawerCash />,
+      },
+      {
+        path: "drawer_cash_to_bank",
+        element: <DrawerCashtoBank />,
+      },
+      {
+        path: "add_bank",
+        element: <AddBank />,
+      },
+      //manage bank cash routes
+      {
+        path: "bank_cash",
+        element: <BankCash />,
+      },
+      {
+        path: "bank_cash_to_drawer",
+        element: <BankCashtoDrawer />,
+      },
 
-            {
-                path: 'loan_request',
-                element: <LoanRequest />
-            },
-            {
-                path: 'paid_loan',
-                element: <PaidLoan />
-            },
-            {
-                path: 'running_loan',
-                element: <RunningLoan />
-            },
+      //user maintenance routes
+      {
+        path: "add_new_user",
+        element: <AddNewUser />,
+      },
+      {
+        path: "add_new_user_type",
+        element: <AddNewUserType />,
+      },
+      {
+        path: "user_list",
+        element: <UserList />,
+      },
+      {
+        path: "user_type",
+        element: <UserType />,
+      },
 
+      //HRM routs
+      {
+        path: "advance",
+        element: <Advance />,
+      },
+      {
+        path: "attendance",
+        element: <Attendance />,
+      },
+      {
+        path: "extra_bill",
+        element: <ExtraBill />,
+      },
+      {
+        path: "fixation",
+        element: <Fixation />,
+      },
+      {
+        path: "leave_application",
+        element: <LeaveApplication />,
+      },
+      {
+        path: "pay_slip",
+        element: <PaySlip />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
+      },
+      {
+        path: "salary_posting",
+        element: <SalaryPosting />,
+      },
+      {
+        path: "salary_sheet",
+        element: <SalarySheet />,
+      },
+      {
+        path: "paying_amount_application",
+        element: <PayingAmountApplication />,
+      },
 
-            // Expense routes
-            {
-                path: 'all_expense',
-                element: <AllExpense />
-            },
-            {
-                path: 'monthly_expense',
-                element: <MonthlyExpense />
-            },
-            {
-                path: 'purchase',
-                element: <Purchase />
-            },
+      //Assets routes
+      {
+        path: "edit_fixed_asset",
+        element: <EditFixedAsset />,
+      },
+      {
+        path: "remove_wasted_asset",
+        element: <RemoveWastedAsset />,
+      },
+      {
+        path: "fixed_asset_list",
+        element: <FixedAssetList />,
+      },
+      {
+        path: "add_new_fixed_asset",
+        element: <AddNewFixedAsset />,
+      },
+      {
+        path: "fixed_asset_item",
+        element: <FixedAssetItem />,
+      },
+      {
+        path: "fixed_asset_types",
+        element: <FixedAssetTypes />,
+      },
+      // temporary asset
+      {
+        path: "add_new_temporary_asset",
+        element: <AddNewTemporaryAsset />,
+      },
+      {
+        path: "edit_temporary_asset",
+        element: <EditTemporaryAsset />,
+      },
+      {
+        path: "remove_wasted_temporary_asset",
+        element: <RemoveWastedTemporaryAsset />,
+      },
+      {
+        path: "temporary_asset_item",
+        element: <TemporaryAssetItem />,
+      },
+      {
+        path: "temporary_asset_list",
+        element: <TemporaryAssetList />,
+      },
+      {
+        path: "temporary_asset_types",
+        element: <TemporaryAssetTypes />,
+      },
 
+      //Liabilities routes
+      {
+        path: "upcoming",
+        element: <Upcoming />,
+      },
 
-            //Employee routs
-            {
-                path: 'employee_add',
-                element: <EmployeeAdd />
-            },
-            {
-                path: 'employee_login_credentials',
-                element: <EmployeeLoginCredentials />
-            },
-            {
-                path: 'employee_list',
-                element: <EmployeeList />
-            },
-            {
-                path: 'employee_posting',
-                element: <EmployeePosting />
-            },
+      //Report routes
+      {
+        path: "asset",
+        element: <Asset />,
+      },
+      {
+        path: "balance_sheet",
+        element: <BalanceSheet />,
+      },
+      {
+        path: "credit",
+        element: <Credit />,
+      },
+      {
+        path: "debit",
+        element: <Debit />,
+      },
+      {
+        path: "debit_vs_credit",
+        element: <DebitvsCredit />,
+      },
+      {
+        path: "liabilities",
+        element: <Liabilities />,
+      },
+      {
+        path: "tds_tax_vat",
+        element: <TdsTaxVat />,
+      },
 
-
-
-            //  Income routes
-            {
-                path: 'any_charges',
-                element: <AnyCharges />
-            },
-            {
-                path: 'category_wise_income',
-                element: <CategoryWiseIncome />
-            },
-            {
-                path: 'loan_profit',
-                element: <LoanProfit />
-            },
-            {
-                path: 'member_fees',
-                element: <Memberfees />
-            },
-            {
-                path: 'penalty',
-                element: <Penalty />
-            },
-
-            //manage drawer cash routes
-            {
-                path: 'drawer_cash',
-                element: <DrawerCash />
-            },
-            {
-                path: 'drawer_cash_to_bank',
-                element: <DrawerCashtoBank />
-            },
-
-
-            //manage bank cash routes
-            {
-                path: 'bank_cash',
-                element: <BankCash />
-            },
-            {
-                path: 'bank_cash_to_drawer',
-                element: <BankCashtoDrawer />
-            },
-
-
-            //user maintenance routes
-            {
-                path: 'add_new_user',
-                element: <AddNewUser />
-            },
-            {
-                path: 'add_new_user_type',
-                element: <AddNewUserType />
-            },
-            {
-                path: 'user_list',
-                element: <UserList />
-            },
-            {
-                path: 'user_type',
-                element: <UserType />
-            },
-
-
-            //HRM routs
-            {
-                path: 'advance',
-                element: <Advance />
-            },
-            {
-                path: 'attendance',
-                element: <Attendance />
-            },
-            {
-                path: 'extra_bill',
-                element: <ExtraBill />
-            },
-            {
-                path: 'fixation',
-                element: <Fixation />
-            },
-            {
-                path: 'leave_application',
-                element: <LeaveApplication />
-            },
-            {
-                path: 'pay_slip',
-                element: <PaySlip />
-            },
-            {
-                path: 'profile',
-                element: <Profile />
-            },
-            {
-                path: 'salary_posting',
-                element: <SalaryPosting />
-            },
-            {
-                path: 'salary_sheet',
-                element: <SalarySheet />
-            },
-            {
-                path: 'paying_amount_application',
-                element: <PayingAmountApplication />
-            },
-
-            //Assets routes
-            {
-                path: 'edit_fixed_asset',
-                element: <EditFixedAsset />
-            },
-            {
-                path: 'remove_wasted_asset',
-                element: <RemoveWastedAsset />
-            },
-            {
-                path: 'fixed_asset_list',
-                element: <FixedAssetList />
-            },
-            {
-                path: 'add_new_fixed_asset',
-                element: <AddNewFixedAsset />
-            },
-            {
-                path: 'fixed_asset_item',
-                element: <FixedAssetItem />
-            },
-            {
-                path: 'fixed_asset_types',
-                element: <FixedAssetTypes />
-            },
-            // temporary asset
-            {
-                path: 'add_new_temporary_asset',
-                element: <AddNewTemporaryAsset />
-            },
-            {
-                path: 'edit_temporary_asset',
-                element: <EditTemporaryAsset />
-            },
-            {
-                path: 'remove_wasted_temporary_asset',
-                element: <RemoveWastedTemporaryAsset />
-
-            },
-            {
-                path: 'temporary_asset_item',
-                element: <TemporaryAssetItem />
-            },
-            {
-                path: 'temporary_asset_list',
-                element: <TemporaryAssetList />
-            },
-            {
-                path: 'temporary_asset_types',
-                element: <TemporaryAssetTypes />
-            },
-
-
-            //Liabilities routes
-            {
-                path: 'upcoming',
-                element: <Upcoming />
-            },
-
-
-            //Report routes
-            {
-                path: 'asset',
-                element: <Asset />
-            },
-            {
-                path: 'balance_sheet',
-                element: <BalanceSheet />
-            },
-            {
-                path: 'credit',
-                element: <Credit />
-            },
-            {
-                path: 'debit',
-                element: <Debit />
-            },
-            {
-                path: 'debit_vs_credit',
-                element: <DebitvsCredit />
-            },
-            {
-                path: 'liabilities',
-                element: <Liabilities />
-            },
-            {
-                path: 'tds_tax_vat',
-                element: <TdsTaxVat />
-            },
-
-            //settings routes
-            {
-                path: 'settings',
-                element: <GeneralSettings />
-
-            }
-
-        ]
-    },
+      //settings routes
+      {
+        path: "settings",
+        element: <GeneralSettings />,
+      },
+    ],
+  },
 ]);
 
 export default router;
