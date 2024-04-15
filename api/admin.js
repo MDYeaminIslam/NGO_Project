@@ -96,3 +96,16 @@ export async function setEmployeeCredentials(data) {
   const response = await axiosAdmin.post("/employee/credentials", data);
   return response.data;
 }
+
+//add monthly expense
+
+export async function addMonthlyExpense(data) {
+  const response = await axiosAdmin.post("/expense/monthly/add", data);
+  return response.data;
+}
+
+//create purchase expense
+export async function createPurchaseExpense(data) {
+  const response = await axiosAdmin.post("/expense/purchase/add", data);
+  return response.data;
+}

@@ -25,7 +25,7 @@ export default function BranchSamitySelector({ callBackFn }) {
     }));
   };
   return (
-    <div className="flex gap-3 w-full">
+    <>
       {/* Branch List */}
 
       <div className="flex flex-col gap-1">
@@ -34,7 +34,7 @@ export default function BranchSamitySelector({ callBackFn }) {
         </label>
         <select
           onChange={handleBranchChange}
-          className="border-2 rounded hover:border-teal-500 "
+          className="input input-bordered input-sm hover:border-teal-500  "
         >
           <option disabled selected>
             Select Branch
@@ -55,7 +55,7 @@ export default function BranchSamitySelector({ callBackFn }) {
         </label>
         <select
           onChange={handleSamityChange}
-          className="border-2 rounded hover:border-teal-500 "
+          className="input input-bordered input-sm hover:border-teal-500  "
         >
           <option disabled selected>
             Select Branch
@@ -67,6 +67,6 @@ export default function BranchSamitySelector({ callBackFn }) {
           ))}
         </select>
       </div>
-    </div>
+    </>
   );
 }
