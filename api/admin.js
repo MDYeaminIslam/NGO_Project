@@ -135,3 +135,20 @@ export async function addDrawerCashInOut(data) {
   const response = await axiosAdmin.post("/drawer/add", data);
   return response.data;
 }
+//get attendance sheet
+export async function getAttendeesSheet(branch, samity, date) {
+  const response = await axiosAdmin.get(
+    `/employee/attendance?branchId=${branch}&samityId=${samity}&date=${date}`
+  );
+  return response.data;
+}
+//set attendance sheet
+export async function setAttendeesSheet(data, other) {
+  const { branchId, samityId, date } = other;
+  console.log(data);
+  const response = await axiosAdmin.post(
+    `/employee/set-attendance?branchId=${branchId}&samityId=${samityId}&date=${date}`,
+    data
+  );
+  return response;
+}
