@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <div className=' flex flex-col md:flex-row w-full  '>
-        <div className='min-h-screen h-screen overflow-y-scroll no-scrollbar w-1/5 '>
+        <div className='min-h-screen h-screen overflow-y-scroll no-scrollbar w-full md:w-1/5 '>
           <SideNavbar />
         </div>
 
