@@ -38,7 +38,7 @@ const AddNewBranch = () => {
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
           Add New Branch
         </h1>
-        <div className="grid grid-cols-2 max-w-5xl mx-auto gap-4 my-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto gap-4 my-8">
           <div className="flex flex-col gap-1">
             <label className="font-medium" htmlFor="name">
               Branch Name:{" "}
