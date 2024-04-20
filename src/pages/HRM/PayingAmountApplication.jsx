@@ -37,7 +37,7 @@ const PayingAmountApplication = () => {
       <section className="m-4">
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">Paying Amount Application</h1>
         <form className="my-8" action="">
-          <section className="grid grid-cols-3 max-w-5xl mx-auto gap-4">
+          <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
 
           <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="employee_id">Employee Id:</label>
