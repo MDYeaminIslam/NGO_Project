@@ -105,7 +105,7 @@ const Deposit = () => {
       setShowLoadingIcon(true);
     }
   };
-  // !handleSubmit
+  //* !handleSubmit
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = {
@@ -130,7 +130,7 @@ const Deposit = () => {
             Open Deposit Account Form{" "}
           </h1>
           <form className="my-8">
-            <section className="grid grid-cols-3 max-w-5xl mx-auto gap-4">
+            <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="member_id">
                   Search By Phone Number :{" "}

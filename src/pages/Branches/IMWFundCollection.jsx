@@ -16,7 +16,7 @@ const IMWFundCollection = () => {
 
 
         <form className="my-8" action="">
-          <section className="grid grid-cols-3 max-w-5xl mx-auto gap-4">
+          <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
 
           <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="member_id">Member Id:</label>
@@ -52,7 +52,7 @@ const IMWFundCollection = () => {
 
 
         <form className="my-8" action="">
-          <section className="grid grid-cols-3 max-w-5xl mx-auto gap-4">
+          <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
 
           <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="fund_amount">Fund Amount:</label>

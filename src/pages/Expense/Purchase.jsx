@@ -76,7 +76,7 @@ const Purchase = () => {
           Open Purchase Form{" "}
         </h1>
         <form className="my-8">
-          <section className="grid grid-cols-3 max-w-5xl mx-auto gap-4">
+          <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
             <BranchSamitySelector callBackFn={setFormData} />
 
             <div className="flex flex-col gap-1">
