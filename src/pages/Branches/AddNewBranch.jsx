@@ -2,6 +2,7 @@ import { useState } from "react";
 import useMutationHook from "../../../hooks/useMutationHook";
 import BranchesNav from "./BranchesNav/BranchesNav";
 import { addBranch } from "../../../api/admin";
+import { SpinnerButton } from "../../component/SpinnerButton";
 const initialState = {
   hostBranch: false,
   branchCode: "",
@@ -99,12 +100,12 @@ const AddNewBranch = () => {
         {isError ? errorMessage : null}
 
         <div className="w-full flex justify-center  mt-8">
-          <button
-            onClick={handleSubmit}
+          <SpinnerButton
             className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium     text-white"
-          >
-            Submit
-          </button>
+            isLoading={isPending}
+            name="Submit"
+            onClick={handleSubmit}
+          />
         </div>
       </section>
     </div>

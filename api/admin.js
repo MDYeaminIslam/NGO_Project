@@ -152,3 +152,21 @@ export async function setAttendeesSheet(data, other) {
   );
   return response;
 }
+
+//create praying amount application
+export async function createPrayingAmountApplication(data) {
+  const response = await axiosAdmin.post("/praying-application/create", data);
+  console.log(response.data);
+  return response.data;
+}
+
+//create monthly payslip
+export async function createMonthlyPaySlipApplication(data) {
+  const response = await axiosAdmin.post("/pay-slip/monthly/create", data);
+  return response.data;
+}
+// add asset
+export async function addAsset(data) {
+  const response = await axiosAdmin.post("/asset/add", data);
+  return response.data;
+}

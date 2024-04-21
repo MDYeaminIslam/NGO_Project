@@ -39,7 +39,6 @@ const EmployeeLoginCredentials = () => {
     const { value } = event.target;
     if (value.length >= 11) {
       const userData = await searchEmployeeByPhoneNumber(value);
-      console.log(userData);
       if (userData.length) {
         setShowLoadingIcon(false);
         setSearchedUser(userData[0]);
