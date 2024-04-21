@@ -6,7 +6,29 @@ const BranchesNav = () => {
       <nav className="bg-teal-700 text-white">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
           <div className="relative flex items-center justify-between h-16">
-            <div className="hidden sm:block sm:ml-6">
+
+
+            <div className="block sm:hidden">
+                  <details className="dropdown">
+                      <summary className="m-1 btn">Select</summary>
+                      <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                        
+                        <li><a>Item 2</a></li>
+                        <li><a>Item 2</a></li>
+                        <li><a>Item 2</a></li>
+                        <li><a>Item 2</a></li>
+                        <li><a>Item 2</a></li>
+                        <li><a>Item 2</a></li>
+                      </ul>
+                    </details>
+            </div>
+
+            
+              <div className="hidden sm:block sm:ml-6">
+
+            
+
+
               <div className="flex space-x-4">
 
                 <Link to={'/add_new_branch'}>
