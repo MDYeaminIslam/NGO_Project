@@ -42,7 +42,7 @@ const MembersList = () => {
       {/* Local User List */}
       <section>
         {localUsers.length
-          ? localUsers.map((user, key) => <h1 key={key}>{user.name}</h1>)
+          ? localUsers.map((user, key) => <ListView key={key} data={user} />)
           : null}
       </section>
 
