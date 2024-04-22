@@ -22,6 +22,8 @@ const initialState = {
   numberOfInstallment: 0,
   periodOfTimeInMonths: "",
   installmentAmount: 0,
+  branchId: "",
+  samityId: "",
 };
 
 function calculateNumberOfInstallments(paymentTerm, loanPeriodInMonths) {
@@ -110,6 +112,8 @@ const OpenLoanAccount = () => {
     event.preventDefault();
     const data = {
       memberId: searchedUser._id,
+      branchId: searchedUser.branchId,
+      samityId: searchedUser.samityId,
       ...formData,
     };
     mutate(data);

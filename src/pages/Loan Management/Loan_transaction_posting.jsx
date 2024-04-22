@@ -2,7 +2,11 @@ import LoanManagementNav from "./LoanManagementNav/LoanManagementNav";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useEffect, useState } from "react";
-import { makeDeposit, searchLoanAccount } from "../../../api/admin";
+import {
+  makeDeposit,
+  payLoanAccount,
+  searchLoanAccount,
+} from "../../../api/admin";
 import toast from "react-hot-toast";
 import { IconSearch } from "../../../icons/icons";
 import { MoonLoader } from "react-spinners";
@@ -10,14 +14,15 @@ import useMutationHook from "../../../hooks/useMutationHook";
 const initialState = {
   description: "",
   date: "",
-  amount: "",
+  amount: 0,
+  memberId: "",
 };
 const Loan_transaction_posting = () => {
   const [searchedUser, setSearchedUser] = useState(null);
   const [formData, setFormData] = useState(initialState);
   const [showLoadingIcon, setShowLoadingIcon] = useState(false);
   const { mutate, isSuccess, isError, errorMessage, isPending } =
-    useMutationHook(makeDeposit, {
+    useMutationHook(payLoanAccount, {
       onSuccess: () => {
         toast.success("Deposit Added Successfully!");
       },
@@ -31,10 +36,11 @@ const Loan_transaction_posting = () => {
     const { value } = event.target;
     if (value.length >= 11) {
       const userData = await searchLoanAccount(value);
-      console.log(userData);
-      console.log(userData);
       if (userData.length) {
         setShowLoadingIcon(false);
+        const { memberId } = userData[0];
+        setFormData((prev) => ({ ...prev, memberId }));
+        console.log(userData[0]);
         setSearchedUser(userData[0]);
       } else {
         toast.error("No Data Found");
@@ -44,6 +50,10 @@ const Loan_transaction_posting = () => {
       setShowLoadingIcon(true);
     }
   };
+  function handleSubmit(event) {
+    event.preventDefault();
+    mutate(formData);
+  }
   useEffect(() => {
     setFormData((prev) => ({ ...prev, date: new Date() }));
   }, []);
@@ -102,6 +112,8 @@ const Loan_transaction_posting = () => {
                   className="input input-bordered input-sm  hover:border-teal-500  "
                   id="description"
                   type="text"
+                  name="description"
+                  onChange={handleChange}
                   placeholder="write description here"
                 />
               </div>
@@ -113,7 +125,9 @@ const Loan_transaction_posting = () => {
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
                   id="fine_other"
-                  type="text"
+                  type="number"
+                  name="fine"
+                  onChange={handleChange}
                   placeholder=""
                 />
               </div>
@@ -125,6 +139,8 @@ const Loan_transaction_posting = () => {
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
                   id="installment_amount"
+                  name="amount"
+                  onChange={handleChange}
                   type="text"
                   placeholder="installment amount"
                 />
@@ -215,11 +231,13 @@ const Loan_transaction_posting = () => {
             </section>
 
             <div className="w-full flex justify-center  mt-12 gap-6">
-              <input
+              <button
+                onClick={handleSubmit}
                 className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
-                type="submit"
-                value="Save"
-              />
+              >
+                {" "}
+                Submit
+              </button>
               <input
                 className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
                 type="submit"

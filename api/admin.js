@@ -31,6 +31,14 @@ export async function searchUserByPhoneNumber(number) {
   const response = await axiosAdmin.get(`/localuser/${number}`);
   return response.data.data;
 }
+//get users using samity and branch id
+export async function getLocalUsersByBranchIdAndSmityId(data) {
+  const { branchId, samityId } = data;
+  const response = await axiosAdmin.get(
+    `/localuser/all?branchId=${branchId}&samityId=${samityId}`
+  );
+  return response.data;
+}
 //create Deposit Account
 export async function createDepositAccount(data) {
   const response = await axiosAdmin.post(`/deposit/create`, data);
@@ -62,6 +70,19 @@ export async function createLoanAccount(data) {
   const response = await axiosAdmin.post(`/loan/create`, data);
   return response.data;
 }
+//pay loan account
+export async function payLoanAccount(data) {
+  const response = await axiosAdmin.post("/loan/pay", data);
+  return response.data;
+}
+//get loan accounts using samity and branch id adn type
+export async function getAllLoanAccountByBranchIdAndSmityId(data) {
+  const { branchId, samityId, paymentTerm } = data;
+  const response = await axiosAdmin.get(
+    `/loan/all?branchId=${branchId}&samityId=${samityId}&paymentTerm=${paymentTerm}`
+  );
+  return response.data;
+}
 //search deposit account
 export async function searchLoanAccount(number) {
   try {
@@ -80,7 +101,14 @@ export async function createEmployee(data) {
 
   return response.data;
 }
-
+//get empolyee using samity and branch id
+export async function getAllEmployeeByBranchIdAndSmityId(data) {
+  const { branchId, samityId } = data;
+  const response = await axiosAdmin.get(
+    `/employee/all?branchId=${branchId}&samityId=${samityId}`
+  );
+  return response.data;
+}
 //get member using phoneNumber
 export async function searchEmployeeByPhoneNumber(number) {
   try {

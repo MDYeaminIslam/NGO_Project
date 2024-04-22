@@ -16,6 +16,7 @@ const initialState = {
   description: "",
   remarks: "",
   date: new Date(),
+  depreciation: "",
 };
 
 const EditFixedAsset = () => {
@@ -28,13 +29,13 @@ const EditFixedAsset = () => {
     });
   const handleChange = (event) => {
     const { name, value } = event.target;
-    console.log(name, value);
     setFormData((prev) => {
       return { ...prev, [name]: value };
     });
   };
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(formData);
     mutate(formData);
   };
   const handleChangeDate = (date) => {
@@ -119,6 +120,18 @@ const EditFixedAsset = () => {
                 id="amount"
                 type="number"
                 name="amount"
+              />
+            </div>
+            <div className="flex flex-col gap-1">
+              <label className="font-medium" htmlFor="des">
+                Depreciation:
+              </label>
+              <input
+                onChange={handleChange}
+                className="border-2 hover:border-teal-500 rounded "
+                id="des"
+                type="number"
+                name="depreciation"
               />
             </div>
             <div className="flex flex-col gap-1">
