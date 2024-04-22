@@ -11,6 +11,7 @@ const initalState = {
 const MembersList = () => {
   const [formData, setFormData] = useState(initalState);
   const [localUsers, setLocalUsers] = useState([]);
+
   const { mutate, isPending } = useMutationHook(
     getLocalUsersByBranchIdAndSmityId,
     {
