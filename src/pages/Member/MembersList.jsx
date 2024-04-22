@@ -3,6 +3,7 @@ import BranchSamitySelector from "../../component/branchSamitySelector";
 import { useState } from "react";
 import useMutationHook from "../../../hooks/useMutationHook";
 import { getLocalUsersByBranchIdAndSmityId } from "../../../api/admin";
+import ListView from "../../component/ListView";
 const initalState = {
   branchId: null,
   samityId: null,
@@ -43,6 +44,10 @@ const MembersList = () => {
         {localUsers.length
           ? localUsers.map((user, key) => <h1 key={key}>{user.name}</h1>)
           : null}
+      </section>
+
+      <section>
+        <ListView/>
       </section>
     </div>
   );
