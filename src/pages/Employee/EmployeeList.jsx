@@ -3,6 +3,7 @@ import EmployeeNav from "./EmployeeNav/EmployeeNav";
 import useMutationHook from "../../../hooks/useMutationHook";
 import { getAllEmployeeByBranchIdAndSmityId } from "../../../api/admin";
 import BranchSamitySelector from "../../component/branchSamitySelector";
+import EmployeeListView from "./EmployeeListView";
 const initalState = {
   branchId: null,
   samityId: null,
@@ -35,7 +36,7 @@ const EmployeeList = () => {
       {/* Local User List */}
       <section>
         {employee.length
-          ? employee.map((user, key) => <h1 key={key}>{user.name}</h1>)
+          ? employee.map((user, key) => <EmployeeListView key={key} data={user}/>)
           : null}
       </section>
     </div>
