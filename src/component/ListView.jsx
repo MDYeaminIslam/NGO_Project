@@ -1,9 +1,6 @@
-
-
 const ListView = ({ data }) => {
     console.log(data);
-    const { name, status, mobileNumber, occupation } = data;
-
+    const { name, status, mobileNumber, occupation, presentAddress } = data;
 
     return (
         <div>
@@ -11,15 +8,15 @@ const ListView = ({ data }) => {
                 <tr className="grid grid-cols-5 items-center justify-center gap-1 text-center">
                     <th>Member Name</th>
                     <th>Phone Number</th>
-                    <th>Branch Name</th>
-                    <th>Samity Name</th>
-                    <th>Action</th>
+                    <th>Occupation</th>
+                    <th>Present Address</th>
                 </tr>
                 <tr className="grid grid-cols-5 items-center w-full justify-between text-center">
-                    <td>{ }</td>
-                    <td>01783746583</td>
-                    <td>Rajshahi</td>
-                    <td>Brac</td>
+                    <td>{name}</td>
+                    <td>{mobileNumber}</td>
+                    <td>{occupation}</td>
+                    <td>{presentAddress}</td>
+
                     <td>
                         <button className="btn btn-info text-white">view</button>
                     </td>

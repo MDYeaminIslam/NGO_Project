@@ -3,13 +3,13 @@ import BranchSamitySelector from "../../component/branchSamitySelector";
 import LoanManagementNav from "./LoanManagementNav/LoanManagementNav";
 import { getAllLoanAccountByBranchIdAndSmityId } from "../../../api/admin";
 import useMutationHook from "../../../hooks/useMutationHook";
-const initalState = {
+const initialState = {
   branchId: null,
   samityId: null,
   paymentTerm: null,
 };
 const LoanAccountList = () => {
-  const [formData, setFormData] = useState(initalState);
+  const [formData, setFormData] = useState(initialState);
   const [loanList, setLoanList] = useState([]);
   const { mutate, isPending } = useMutationHook(
     getAllLoanAccountByBranchIdAndSmityId,
