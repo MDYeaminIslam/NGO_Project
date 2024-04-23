@@ -1,9 +1,10 @@
 
 
-const ListView = ({data}) => {
+const ListView = ({ data }) => {
     console.log(data);
-    const {name, status,mobileNumber, occupation } = data;
-    
+    const { name, status, mobileNumber, occupation } = data;
+
+
     return (
         <div>
             <table className="w-full mt-8 ">
@@ -15,7 +16,7 @@ const ListView = ({data}) => {
                     <th>Action</th>
                 </tr>
                 <tr className="grid grid-cols-5 items-center w-full justify-between text-center">
-                    <td></td>
+                    <td>{ }</td>
                     <td>01783746583</td>
                     <td>Rajshahi</td>
                     <td>Brac</td>
