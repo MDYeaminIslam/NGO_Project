@@ -17,6 +17,7 @@ const MembersList = () => {
     getLocalUsersByBranchIdAndSmityId,
     {
       onSuccess: (data) => {
+        console.log(data);
         setLocalUsers(data.data);
       },
     }
@@ -32,23 +33,21 @@ const MembersList = () => {
         <MemberNav />
       </section>
       <section className="p-4 grid gap-1 grid-cols-2">
-
         <BranchSamitySelector callBackFn={setFormData} />
-
       </section>
       <div className="w-fit mx-auto">
-
-        <button className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium text-white mt-8" onClick={handleSubmit}>Search</button>
+        <button
+          className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium text-white mt-8"
+          onClick={handleSubmit}
+        >
+          Search
+        </button>
       </div>
       {/* Local User List */}
       <section>
         {localUsers.length
           ? localUsers.map((user, key) => <ListView key={key} data={user} />)
           : null}
-      </section>
-
-      <section>
-        <ListView/>
       </section>
     </div>
   );
