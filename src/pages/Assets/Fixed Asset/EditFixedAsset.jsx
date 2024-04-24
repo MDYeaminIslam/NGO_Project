@@ -41,7 +41,7 @@ const EditFixedAsset = () => {
   const handleChangeDate = (date) => {
     setFormData((prev) => ({
       ...prev,
-      dateOfBirth: new Date(date),
+      date: new Date(date),
     }));
   };
 

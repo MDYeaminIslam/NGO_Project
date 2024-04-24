@@ -131,6 +131,25 @@ const PaySlip = () => {
           <form className="my-8">
             <section className="grid grid-cols-3 max-w-5xl mx-auto gap-4">
               <div className="flex flex-col gap-1">
+                <label className="font-medium" htmlFor="acc_id">
+                  Account Id :{" "}
+                </label>
+                <label className="input input-sm hover:border-teal-500 input-bordered flex items-center gap-2">
+                  <input
+                    type="text"
+                    id="acc_id"
+                    className="grow  "
+                    placeholder="Search"
+                    onChange={handleSearchUser}
+                  />
+                  {!showLoadingIcon ? (
+                    <IconSearch className="w-6 h-6 opacity-50" />
+                  ) : (
+                    <MoonLoader size={15} />
+                  )}
+                </label>
+              </div>
+              <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="phone_number">
                   Name
                 </label>
