@@ -22,7 +22,7 @@ const initialState = {
   dateOfBirth: "",
   nidNumber: "",
   mobileNumber: "",
-  educationalQualification: "",
+  educationalQualification: "SSC",
   emergencyContactNumber: "",
   membershipFee: "",
   photo: "",
