@@ -36,7 +36,7 @@ const AllExpense = () => {
           All Expense{" "}
         </h1>
       </section>
-      <section>
+      <section className="p-4 grid gap-1 grid-cols-3">
         <BranchSamitySelector callBackFn={setFormData} />
         <div className="flex flex-col gap-1">
           <label className="font-medium " htmlFor="payment_term">
@@ -52,8 +52,15 @@ const AllExpense = () => {
             <option value="purchase">Purchase</option>
           </select>
         </div>
-        <button onClick={handleSubmit}>Search</button>
       </section>
+      <div className="w-fit mx-auto">
+        <button
+          className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium text-white "
+          onClick={handleSubmit}
+        >
+          Search
+        </button>
+      </div>
       <section>
         {formData.type
           ? formData.type === "purchase"
