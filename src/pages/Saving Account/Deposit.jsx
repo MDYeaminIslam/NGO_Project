@@ -130,10 +130,10 @@ const Deposit = () => {
             Open Deposit Account Form{" "}
           </h1>
           <form className="my-8">
-            <section className="grid grid-cols-1 w-full md:max-w-5xl mx-auto gap-4">
+            <section className="grid grid-cols-1 md:grid-col-3 w-full md:max-w-5xl mx-auto gap-4">
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="member_id">
-                  Search By Phone Number :{" "}
+                  Search Number :{" "}
                 </label>
                 <label className="input input-sm hover:border-teal-500 input-bordered flex items-center gap-2">
                   <input
@@ -269,7 +269,7 @@ const Deposit = () => {
                 />
               </div>
 
-              <div className="flex flex-col gap-1 col-span-3">
+              <div className="flex flex-col gap-1 md:col-span-3">
                 <label className="font-medium" htmlFor="first_due_date">
                   {" "}
                   First Due Date :
@@ -284,7 +284,7 @@ const Deposit = () => {
             </section>
             {isError ? errorMessage : null}
 
-            <div className="w-full flex justify-center  mt-8">
+            <div className="md:w-full flex justify-center  mt-8">
               <button
                 className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
                 onClick={handleSubmit}

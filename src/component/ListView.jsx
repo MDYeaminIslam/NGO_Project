@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 const ListView = ({ data }) => {
     console.log(data);
-    const { name, status, mobileNumber, occupation, presentAddress } = data;
+    const { name, status, mobileNumber, occupation, _id, presentAddress } = data;
 
     return (
         <div>
@@ -18,7 +20,9 @@ const ListView = ({ data }) => {
                     <td>{presentAddress}</td>
 
                     <td>
-                        <button className="btn btn-info text-white">view</button>
+                        <Link to={`/members_details/${_id}`} className="btn btn-info text-white" >
+                            View
+                        </Link>
                     </td>
                 </tr>
             </table>

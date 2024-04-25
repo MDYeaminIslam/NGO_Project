@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 const ManageDrawerCashNav = () => {
 
   const [isOpen, setIsOpen] = useState(false);
-  
-    const toggleDropdown = () => {
-      setIsOpen(!isOpen);
-    };
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <div>
@@ -15,59 +15,61 @@ const ManageDrawerCashNav = () => {
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
           <div className="relative flex items-center justify-between h-16">
 
-          <div className="block sm:hidden relative">
-                <button
-                  onClick={toggleDropdown}
-                  className="text-black bg-white focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
-                  type="button">
+            <div className="block sm:hidden relative">
+              <button
+                onClick={toggleDropdown}
+                className="text-black bg-white focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
+                type="button">
 
-                  --Select Menu--
-                  <svg
-                    className="w-2.5 h-2.5 ms-3"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 10 6">
-                      
-                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
-                  </svg>
-                </button>
+                --Select Menu--
+                <svg
+                  className="w-2.5 h-2.5 ms-3"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6">
 
-                {isOpen && (
-                  <div className="absolute right-0 mt-2 w-44 bg-white divide-y divide-gray-100 rounded-lg shadow-lg">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
+                </svg>
+              </button>
 
-
-                    <ul className="py-2 text-sm text-black" aria-labelledby="dropdownDefaultButton">
+              {isOpen && (
+                <div className="absolute right-0 mt-2 w-44 bg-white divide-y divide-gray-100 rounded-lg shadow-lg">
 
 
-                      <li>
+                  <ul className="py-2 text-sm text-black" aria-labelledby="dropdownDefaultButton">
+
+
+                    <li>
                       <Link to={"/drawer_cash"}>
                         <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">
                           Drawer Cash
                         </p>
                       </Link>
-                      </li>
+                    </li>
 
-                      <li>
+                    <li>
                       <Link to={"/drawer_cash_to_bank"}>
                         <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">
-                          Drawer Cash to Bank
+                          Drawer Cash <span>
+                            <img className="w-4" src="/public/between.256x216.png" alt="" />
+                          </span> Bank
                         </p>
                       </Link>
-                      </li>
+                    </li>
 
-                      <li>
+                    <li>
                       <Link to={"/add_bank"}>
                         <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">
                           Add Bank
                         </p>
                       </Link>
-                      </li>
-                      
-                    </ul>
-                  </div>
-                )}
-              </div>
+                    </li>
+
+                  </ul>
+                </div>
+              )}
+            </div>
 
 
             <div className="hidden sm:block sm:ml-6">

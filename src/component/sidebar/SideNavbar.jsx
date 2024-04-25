@@ -110,7 +110,7 @@ const SideNavbar = () => {
                             </Link>
 
                         </li>
-                        <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
+                        <li className=" hidden  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             <Link to={'/bank_cash'}>
                                 <a className="flex items-center p-2 space-x-3 rounded-md">
                                     <img className="w-4" src="/NGO Dashboard icon/manage-bank-cash.png" alt="" />
@@ -119,7 +119,7 @@ const SideNavbar = () => {
                             </Link>
 
                         </li>
-                        <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
+                        <li className=" hidden  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             <Link to={'/add_new_user'}>
                                 <a className="flex items-center p-2 space-x-3 rounded-md">
                                     <img className="w-4" src="/NGO Dashboard icon/user-maintenance.png" alt="" />
@@ -145,7 +145,16 @@ const SideNavbar = () => {
                             </Link>
 
                         </li>
-                        <li className="w-full bg-gray-100 hover:bg-teal-500  rounded-md ">
+                        <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
+                            <Link to={'/edit_fixed_asset'}>
+                                <p className="flex items-center p-2 space-x-3 rounded-md">
+                                    <img className="w-4" src="/NGO Dashboard icon/asset.png" alt="" />
+                                    <span> Assets</span>
+                                </p>
+                            </Link>
+                        </li>
+
+                        <li className=" hidden w-full bg-gray-100 hover:bg-teal-500  rounded-md ">
                             <div className="dropdown w-full">
                                 <p tabIndex={0} role="button" className="p-2 w-full flex gap-2 hover:text-white">
                                     <img className="w-5 object-fill" src="/NGO Dashboard icon/asset.png" alt="" />
@@ -156,14 +165,7 @@ const SideNavbar = () => {
                                 <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded w-full flex gap-2">
                                     {/* <li><a>Item 1</a></li>
                                     <li><a>Item 2</a></li> */}
-                                    <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
-                                        <Link to={'/edit_fixed_asset'}>
-                                            <p className="flex items-center p-2 space-x-3 rounded-md">
-                                                <img className="w-4" src="/NGO Dashboard icon/asset.png" alt="" />
-                                                <span>Fixed Assets</span>
-                                            </p>
-                                        </Link>
-                                    </li>
+
                                     <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                                         <Link to={'/add_new_temporary_asset'}>
                                             <p rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">

@@ -53,7 +53,7 @@ const EditFixedAsset = () => {
 
       <section className="m-4">
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
-          Edit Fixed Asset
+          Edit Asset
         </h1>
         <form className="my-8">
           <section className="grid grid-cols-3 max-w-5xl mx-auto gap-4">
