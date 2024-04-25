@@ -2,7 +2,7 @@
 
 const DashBoardAdmin = () => {
     return (
-        <div className="flex flex-col gap-10 justify-center items-center   bg-gray-100 md:py-10 min-h-screen no-scrollbar   ">
+        <div className="flex flex-col gap-10 justify-center items-center   bg-gray-100 md:py-10 sm:py-10 min-h-screen no-scrollbar">
 
             <section className="flex gap-6">
                 <div className="flex items-center gap-6">

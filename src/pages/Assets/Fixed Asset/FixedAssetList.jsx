@@ -11,6 +11,7 @@ const FixedAssetList = () => {
   const [formData, setFormData] = useState(initialState);
   const { mutate, isPending } = useMutationHook(getAllAssets, {
     onSuccess: (data) => {
+
       console.log(data);
     },
   });
@@ -29,20 +30,20 @@ const FixedAssetList = () => {
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
           Asset List
         </h1>
-        <section>
+        <section className="p-4 grid gap-1 grid-cols-2">
           <BranchSamitySelector callBackFn={setFormData} />
-
-          <button onClick={handleSubmit}>Search</button>
         </section>
-
-        <div className="w-fit mx-auto  m-8">
+        <div className="w-fit mx-auto">
           <button
-            className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
+            className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium text-white "
             onClick={handleSubmit}
           >
-            Submit
+            Search
           </button>
         </div>
+      </section>
+      <section>
+
       </section>
     </div>
   );

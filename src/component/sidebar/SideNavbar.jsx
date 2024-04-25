@@ -2,8 +2,12 @@ import { Link } from "react-router-dom";
 
 const SideNavbar = () => {
     return (
+
+        
         <div className="">
-            <div className="h-full w-full min-h-screen p-3 space-y-2  bg-gray-300 text-gray-800 ">
+
+            <div className="hidden md:block w-full min-h-screen p-3 space-y-2  bg-gray-300 text-gray-800">
+
                 <div className="flex items-center p-2 space-x-4">
                     <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="w-12 h-12 rounded-full bg-gray-500" />
                     <div>
@@ -14,7 +18,7 @@ const SideNavbar = () => {
                     </div>
                 </div>
                 <div className="divide-y divide-gray-300">
-                    <ul className="pt-2 pb-4 px-1  space-y-3 text-sm font-medium text-black ">
+                    <ul className="pt-2 pb-4 px-1 space-y-3 text-sm font-medium text-black ">
                         <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             <Link to={'/'}>
                                 <p className="flex items-center p-2 space-x-3 rounded-md">
@@ -230,6 +234,10 @@ const SideNavbar = () => {
                 </div>
             </div>
         </div>
+        
+
+
+                        
     );
 };
 

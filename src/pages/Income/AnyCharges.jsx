@@ -26,9 +26,16 @@ const AnyCharges = () => {
       <section>
         <IncomeNav />
       </section>
-      <section>
+      <section className="p-4 grid gap-1 grid-cols-2">
         <BranchSamitySelector callBackFn={setFormData} />
-        <button onClick={handleSubmit}>Search</button>
+      </section>
+      <section className="w-full flex items-center">
+        <button
+          className="mx-auto bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium text-white"
+          onClick={handleSubmit}
+        >
+          Search
+        </button>
       </section>
       {data ? (
         <div>

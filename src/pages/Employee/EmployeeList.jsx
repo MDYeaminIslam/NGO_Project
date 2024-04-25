@@ -35,11 +35,13 @@ const EmployeeList = () => {
       </section>
       {/* Local User List */}
       <section>
-        <div className="max-w-5xl mx-auto bg-teal-700 text-white py-4">
-          <tr className="grid grid-cols-1 md:grid-cols-4 items-center justify-center gap-1 text-center">
+        <div className="max-w-5xl mx-auto bg-teal-700 text-white py-4 ">
+          <tr className="grid grid-cols-1 md:grid-cols-5  items-center justify-center gap-1 text-start">
             <th>employee Name</th>
             <th>Phone Number</th>
             <th>Email</th>
+            <th>Address</th>
+            <th>action</th>
 
           </tr>
         </div>
