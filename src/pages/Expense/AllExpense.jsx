@@ -3,6 +3,8 @@ import BranchSamitySelector from "../../component/branchSamitySelector";
 import ExpenseNav from "./ExpenseNav/ExpenseNav";
 import { getAllExpenses } from "../../../api/admin";
 import useMutationHook from "../../../hooks/useMutationHook";
+import Purchase from "../../component/Purchase";
+import Expense from "../../component/Expense";
 const initalState = {
   branchId: null,
   samityId: null,
@@ -13,8 +15,7 @@ const AllExpense = () => {
   const [expenses, setExpenses] = useState([]);
   const { mutate, isPending } = useMutationHook(getAllExpenses, {
     onSuccess: (data) => {
-      console.log(data);
-      //setLoanList(data.data);
+      setExpenses(data);
     },
   });
   function handleChange(e) {
@@ -52,6 +53,13 @@ const AllExpense = () => {
           </select>
         </div>
         <button onClick={handleSubmit}>Search</button>
+      </section>
+      <section>
+        {formData.type
+          ? formData.type === "purchase"
+            ? expenses.map((data, idx) => <Purchase data={data} key={idx} />)
+            : expenses.map((data, idx) => <Expense data={data} key={idx} />)
+          : null}
       </section>
     </div>
   );
