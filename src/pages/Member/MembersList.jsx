@@ -45,9 +45,22 @@ const MembersList = () => {
       </div>
       {/* Local User List */}
       <section>
-        {localUsers.length
-          ? localUsers.map((user, key) => <ListView key={key} data={user} />)
-          : null}
+        <div>
+          <table className="w-full mt-8 ">
+            <tr className="grid grid-cols-5 items-center justify-center gap-1 text-center">
+              <th>Member Name</th>
+              <th>Phone Number</th>
+              <th>Occupation</th>
+              <th>Present Address</th>
+            </tr>
+
+            {localUsers.length
+              ? localUsers.map((user, key) => (
+                  <ListView key={key} data={user} />
+                ))
+              : null}
+          </table>
+        </div>
       </section>
     </div>
   );
