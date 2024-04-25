@@ -35,6 +35,11 @@ const MemberCards = ({ data }) => {
                 <p>Mother Name: <br /> <span className="font-normal text-base ">{mothersName}</span></p>
                 <p>Spouse Name: <br /> <span className="font-normal text-base ">{spouseName}</span></p>
             </div>
+            <div className=" flex gap-2  ">
+                <button className="btn bg-teal-700 text-white">Print</button>
+                <button className="btn btn-primary">Edit</button>
+                <button className="btn btn-error text-white ">Delete</button>
+            </div>
         </section>
     );
 };

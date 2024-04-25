@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { searchEmployeeByPhoneNumber } from "../../../api/admin";
 import { useEffect, useState } from "react";
+import EmployeeCard from "./EmployeeCard";
 
 
 const EmployeeDetailsPage = () => {
@@ -20,7 +21,9 @@ const EmployeeDetailsPage = () => {
     } = member
     return (
         <div>
-            <p>employee details {id}, {name}</p>
+            {
+                isFetched ? <EmployeeCard data={member} /> : null
+            }
         </div>
     );
 };
