@@ -8,8 +8,15 @@ function App() {
   return (
     <>
       <div className=' flex flex-col md:flex-row w-full  '>
-        <div className='min-h-screen h-screen overflow-y-scroll no-scrollbar w-full md:w-1/5 '>
-          <SideNavbar />
+        <div className=' md:min-h-screen  md:h-screen overflow-y-scroll no-scrollbar w-full md:w-1/5 '>
+          <div className='hidden md:block'>
+            <SideNavbar />
+          </div>
+          <div>
+            <p>nav for mobile</p>
+          </div>
+
+
         </div>
 
         <div className=' w-full md:w-4/5'>

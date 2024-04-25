@@ -20,7 +20,7 @@ const ListView = ({ data }) => {
                     <td>{presentAddress}</td>
 
                     <td>
-                        <Link to={`/members_details/${_id}`} className="btn btn-info text-white" >
+                        <Link to={`/members_details/${mobileNumber}`} className="btn btn-info text-white" >
                             View
                         </Link>
                     </td>

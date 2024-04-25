@@ -86,6 +86,8 @@ import TemporaryAssetList from "../pages/Assets/Temporary Asset/TemporaryAssetLi
 import TemporaryAssetTypes from "../pages/Assets/Temporary Asset/TemporaryAssetTypes";
 import IMWFundCollection from "../pages/Branches/IMWFundCollection";
 import AddBank from "../pages/Manage Drawer Cash/AddBank";
+import MemberDetailsPage from "../pages/Member/MemberDetailsPage";
+import EmployeeDetailsPage from "../pages/Employee/EmployeeDetailsPage";
 
 const router = createBrowserRouter([
   {
@@ -113,6 +115,12 @@ const router = createBrowserRouter([
       {
         path: "member_request",
         element: <MemberRequest />,
+      },
+      {
+        path: 'members_details/:id',
+        element: <MemberDetailsPage />,
+
+
       },
 
       //Branches routes
@@ -271,6 +279,10 @@ const router = createBrowserRouter([
       {
         path: "employee_posting",
         element: <EmployeePosting />,
+      },
+      {
+        path: 'employee_details/:id',
+        element: <EmployeeDetailsPage />
       },
 
       //  Income routes

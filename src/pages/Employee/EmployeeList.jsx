@@ -29,15 +29,25 @@ const EmployeeList = () => {
       <section>
         <EmployeeNav />
       </section>
-      <section>
+      <section className="flex items-center justify-around gap-2 my-8 pb-8 border-b-2 max-w-5xl mx-auto">
         <BranchSamitySelector callBackFn={setFormData} />
-        <button onClick={handleSubmit}>Search</button>
+        <button className="btn bg-teal-700 text-white mt-4 " onClick={handleSubmit}>Search</button>
       </section>
       {/* Local User List */}
       <section>
-        {employee.length
-          ? employee.map((user, key) => <EmployeeListView key={key} data={user}/>)
-          : null}
+        <div className="max-w-5xl mx-auto bg-teal-700 text-white py-4">
+          <tr className="grid grid-cols-1 md:grid-cols-4 items-center justify-center gap-1 text-center">
+            <th>employee Name</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+
+          </tr>
+        </div>
+        <div>
+          {employee.length
+            ? employee.map((user, key) => <EmployeeListView key={key} data={user} />)
+            : null}
+        </div>
       </section>
     </div>
   );
