@@ -35,9 +35,9 @@ const Purchase = () => {
     const productCost = formData.unitAmount * formData.unitPrice;
     const total =
       productCost +
-      productCost * formData.tds +
-      productCost * formData.vat +
-      productCost * formData.tax;
+      (productCost * formData.tds) / 100 +
+      (productCost * formData.vat) / 100 +
+      (productCost * formData.tax) / 100;
     setFormData((prev) => ({ ...prev, totalPayment: total }));
     return total;
   }, [
