@@ -3,6 +3,7 @@ import BranchSamitySelector from "../../component/branchSamitySelector";
 import LoanManagementNav from "./LoanManagementNav/LoanManagementNav";
 import { getAllLoanAccountByBranchIdAndSmityId } from "../../../api/admin";
 import useMutationHook from "../../../hooks/useMutationHook";
+import LoanCard from "../../component/LoanCard";
 const initialState = {
   branchId: null,
   samityId: null,
@@ -16,7 +17,7 @@ const LoanAccountList = () => {
     {
       onSuccess: (data) => {
         console.log(data);
-        setLoanList(data.data);
+        setLoanList(data);
       },
     }
   );
@@ -34,9 +35,9 @@ const LoanAccountList = () => {
       <section>
         <LoanManagementNav />
       </section>
-      <section>
+      <section className="p-4 grid gap-1 grid-cols-2">
         <BranchSamitySelector callBackFn={setFormData} />
-        <div className="flex flex-col gap-1">
+        {/* <div className="flex flex-col gap-1">
           <label className="font-medium " htmlFor="payment_term">
             Payment Term :
           </label>
@@ -54,11 +55,20 @@ const LoanAccountList = () => {
             <option value="Half-Yearly">Half-Yearly</option>
             <option value="Yearly">Yearly</option>
           </select>
-        </div>
-        <button onClick={handleSubmit}>Search</button>
+        </div> */}
       </section>
-      <section>
-        <h1>Loan Account List</h1>
+      <section className="w-full flex items-center">
+        <button
+          className="mx-auto bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium text-white"
+          onClick={handleSubmit}
+        >
+          Search
+        </button>
+      </section>
+      <section className="mt-8">
+        {loanList.length
+          ? loanList.map((loan, idx) => <LoanCard data={loan} key={idx} />)
+          : null}
       </section>
     </div>
   );
