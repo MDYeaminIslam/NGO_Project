@@ -22,8 +22,6 @@ const initialState = {
   numberOfInstallment: 0,
   periodOfTimeInMonths: "",
   installmentAmount: 0,
-  branchId: "",
-  samityId: "",
 };
 
 function calculateNumberOfInstallments(paymentTerm, loanPeriodInMonths) {
@@ -110,12 +108,16 @@ const OpenLoanAccount = () => {
   //* !handleSubmit
   const handleSubmit = (event) => {
     event.preventDefault();
+    const { branchId, samityId } = searchedUser;
+    console.log(branchId, samityId);
+
     const data = {
       memberId: searchedUser._id,
-      branchId: searchedUser.branchId,
-      samityId: searchedUser.samityId,
+      branchId: branchId,
+      samityId: samityId,
       ...formData,
     };
+    console.log(data);
     mutate(data);
   };
   useEffect(() => {

@@ -213,3 +213,12 @@ export async function getAllAssets(data) {
   );
   return response.data.data;
 }
+
+//get income
+export async function getIncome(data) {
+  const { branchId, samityId } = data;
+  const response = await axiosAdmin.get(
+    `/loan/profit?branchId=${branchId}&samityId=${samityId}`
+  );
+  return response.data.data;
+}
