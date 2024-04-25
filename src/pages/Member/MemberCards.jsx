@@ -16,7 +16,7 @@ const MemberCards = ({ data }) => {
     } = data;
     return (
         <section className="p-4 max-w-4xl mx-auto bg-gray-100 mt-8 rounded ">
-            <div className="flex flex-col md:flex-row gap-10">
+            <div className="flex flex-col md:flex-row gap-10 border-b-4 pb-4">
                 <div className="md:w-1/2">
                     <img className=" object-cover " src={photo} alt="" />
                 </div>
@@ -27,7 +27,7 @@ const MemberCards = ({ data }) => {
                     <p className="text-lg"> NID :{nidNumber}</p>
                 </div>
             </div>
-            <div className=" font-bold grid grid-cols-4 py-4">
+            <div className=" font-bold grid grid-cols-1e md:grid-cols-4 py-4">
                 <p>Education: <br /> <span className="font-normal text-base ">{educationalQualification}</span></p>
                 <p>Date of Birth: <br /> <span className="font-normal text-base ">{dateToString(dateOfBirth)}</span></p>
                 <p>Address: <br /> <span className="font-normal text-base ">{presentAddress}</span></p>
