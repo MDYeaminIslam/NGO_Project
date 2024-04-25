@@ -3,16 +3,17 @@ import FixedAssetNav from "./FixedAssetNav/FixedAssetNav";
 import BranchSamitySelector from "../../../component/branchSamitySelector";
 import useMutationHook from "../../../../hooks/useMutationHook";
 import { getAllAssets } from "../../../../api/admin";
+import AssetCard from "../../../component/AssetCard";
 const initialState = {
   branchId: null,
   samityId: null,
 };
 const FixedAssetList = () => {
   const [formData, setFormData] = useState(initialState);
+  const [data, setData] = useState([]);
   const { mutate, isPending } = useMutationHook(getAllAssets, {
     onSuccess: (data) => {
-
-      console.log(data);
+      setData(data);
     },
   });
   const handleSubmit = (event) => {
@@ -43,7 +44,9 @@ const FixedAssetList = () => {
         </div>
       </section>
       <section>
-
+        {data.length
+          ? data.map((item, idx) => <AssetCard data={item} key={idx} />)
+          : null}
       </section>
     </div>
   );
