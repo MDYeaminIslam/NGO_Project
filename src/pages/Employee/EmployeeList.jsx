@@ -29,33 +29,26 @@ const EmployeeList = () => {
       <section>
         <EmployeeNav />
       </section>
-      <section className="p-4 grid gap-1 grid-cols-2">
+      <section className="flex items-center justify-around gap-2 my-8 pb-8 border-b-2 max-w-5xl mx-auto">
         <BranchSamitySelector callBackFn={setFormData} />
-      </section>
-      <section className="w-full flex items-center">
-        <button
-          className="mx-auto bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium text-white"
-          onClick={handleSubmit}
-        >
-          Search
-        </button>
+        <button className="btn bg-teal-700 text-white mt-4 " onClick={handleSubmit}>Search</button>
       </section>
       {/* Local User List */}
       <section>
+        <div className="max-w-5xl mx-auto bg-teal-700 text-white py-4 ">
+          <tr className="grid grid-cols-1 md:grid-cols-5  items-center justify-center gap-1 text-start">
+            <th>employee Name</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>action</th>
+
+          </tr>
+        </div>
         <div>
-          <table className="w-full mt-8 ">
-            <tr className="grid grid-cols-5 items-center justify-center gap-1 text-center">
-              <th>Member Name</th>
-              <th>Phone Number</th>
-              <th>Email</th>
-              <th>Present Address</th>
-            </tr>
-            {employee.length
-              ? employee.map((user, key) => (
-                  <EmployeeListView key={key} data={user} />
-                ))
-              : null}
-          </table>
+          {employee.length
+            ? employee.map((user, key) => <EmployeeListView key={key} data={user} />)
+            : null}
         </div>
       </section>
     </div>

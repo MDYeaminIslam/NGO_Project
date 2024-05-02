@@ -32,7 +32,7 @@ const MembersList = () => {
       <section>
         <MemberNav />
       </section>
-      <section className="p-4 grid gap-1 grid-cols-2">
+      <section className="p-4 w-full  gap-1 flex md:flex-col">
         <BranchSamitySelector callBackFn={setFormData} />
       </section>
       <div className="w-fit mx-auto">
@@ -47,7 +47,7 @@ const MembersList = () => {
       <section>
         <div>
           <table className="w-full mt-8 ">
-            <tr className="grid grid-cols-5 items-center justify-center gap-1 text-center">
+            <tr className="grid grid-cols-1 bg-teal-700  py-4 text-white md:grid-cols-5 items-center justify-center gap-1 text-center">
               <th>Member Name</th>
               <th>Phone Number</th>
               <th>Occupation</th>
@@ -56,8 +56,8 @@ const MembersList = () => {
 
             {localUsers.length
               ? localUsers.map((user, key) => (
-                  <ListView key={key} data={user} />
-                ))
+                <ListView key={key} data={user} />
+              ))
               : null}
           </table>
         </div>

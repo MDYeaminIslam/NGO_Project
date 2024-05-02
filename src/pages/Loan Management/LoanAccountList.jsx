@@ -35,7 +35,7 @@ const LoanAccountList = () => {
       <section>
         <LoanManagementNav />
       </section>
-      <section className="p-4 grid gap-1 grid-cols-2">
+      <section className="p-4 w-full flex flex-col md:flex-row">
         <BranchSamitySelector callBackFn={setFormData} />
         {/* <div className="flex flex-col gap-1">
           <label className="font-medium " htmlFor="payment_term">

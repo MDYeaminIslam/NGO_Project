@@ -26,7 +26,7 @@ const AnyCharges = () => {
       <section>
         <IncomeNav />
       </section>
-      <section className="p-4 grid gap-1 grid-cols-2">
+      <section className="p-4 flex flex-col md:flex-row w-full">
         <BranchSamitySelector callBackFn={setFormData} />
       </section>
       <section className="w-full flex items-center">

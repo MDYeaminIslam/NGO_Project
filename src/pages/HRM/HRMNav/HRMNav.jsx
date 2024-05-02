@@ -112,9 +112,13 @@ const HRMNav = () => {
           <div className="hidden sm:block sm:ml-6">
             <div className="flex flex-wrap gap-2">
               
-              <Link to={'/advance'}>
-              <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Advance</p>
-              </Link>
+              {
+                /*
+                <Link to={'/advance'}>
+                <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Advance</p>
+                </Link>
+                */
+              }
 
               <Link to={'/attendance'}>
               <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Attendance</p>
@@ -124,10 +128,13 @@ const HRMNav = () => {
               <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Extra Bill</p>
               </Link>
 
+              {/*
               <Link to={'/fixation'}>
               <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Fixation</p>
               </Link>
+              */}
 
+            
               <Link to={'/leave_application'}>
               <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Leave Application</p>
               </Link>
