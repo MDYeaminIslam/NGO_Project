@@ -89,8 +89,8 @@ import AddBank from "../pages/Manage Drawer Cash/AddBank";
 import MemberDetailsPage from "../pages/Member/MemberDetailsPage";
 import EmployeeDetailsPage from "../pages/Employee/EmployeeDetailsPage";
 import LoginLayout from "../layouts/LoginLayout";
-import ForgotPass from "../pages/Login/ForgotPass";
-import Login from "../pages/Login/Login";
+import Login from "../pages/login/Login";
+import ForgotPass from "../pages/login/ForgotPass";
 
 const router = createBrowserRouter([
   {
@@ -491,15 +491,15 @@ const router = createBrowserRouter([
     element: <LoginLayout />,
     children: [
       {
-        path: 'login_page',
-        element: <Login />
+        path: "login_page",
+        element: <Login />,
       },
       {
-        path: 'forgot_pass',
-        element: <ForgotPass />
-      }
-    ]
-  }
+        path: "forgot_pass",
+        element: <ForgotPass />,
+      },
+    ],
+  },
 ]);
 
 export default router;

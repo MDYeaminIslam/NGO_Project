@@ -50,7 +50,7 @@ export default function BranchSamitySelector({ callBackFn }) {
         </select>
       </div>
       {/* Samity List */}
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1 w-full">
         <label className="font-medium" htmlFor="name">
           Samity Name:
         </label>
