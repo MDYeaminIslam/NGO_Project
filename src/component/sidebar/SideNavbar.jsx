@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 
+
 const SideNavbar = () => {
     return (
 
 
         <div className="">
-            
 
-            <div className="hidden md:block w-full min-h-screen p-3 space-y-2  bg-gray-300 text-gray-800">
+
+            <div className=" md:block w-full min-h-screen p-3 space-y-2  bg-gray-300 text-gray-800">
 
                 <div className="flex items-center p-2 space-x-4">
                     <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="w-12 h-12 rounded-full bg-gray-500" />
@@ -236,7 +237,11 @@ const SideNavbar = () => {
                         </li>
                     </ul>
                 </div>
+                
             </div>
+
+
+
         </div>
 
 

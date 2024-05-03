@@ -12,9 +12,10 @@ function App() {
           <div className='hidden md:block'>
             <SideNavbar />
           </div>
-          <div>
+
+          {/* <div>
             <p>nav for mobile</p>
-          </div>
+          </div> */}         
 
 
         </div>

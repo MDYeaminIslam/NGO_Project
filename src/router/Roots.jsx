@@ -88,6 +88,7 @@ import IMWFundCollection from "../pages/Branches/IMWFundCollection";
 import AddBank from "../pages/Manage Drawer Cash/AddBank";
 import MemberDetailsPage from "../pages/Member/MemberDetailsPage";
 import EmployeeDetailsPage from "../pages/Employee/EmployeeDetailsPage";
+import Registration from "../pages/Registration/Registration";
 
 const router = createBrowserRouter([
   {
@@ -482,6 +483,12 @@ const router = createBrowserRouter([
         path: "settings",
         element: <GeneralSettings />,
       },
+
+      //Registration Routes
+      {
+        path: "registration",
+        element: <Registration/>
+      }
     ],
   },
 ]);
