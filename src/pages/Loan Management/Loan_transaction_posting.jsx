@@ -72,7 +72,7 @@ const Loan_transaction_posting = () => {
             <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="acc_id">
-                  Account Id :{" "}
+                  Account Id:{" "}
                 </label>
                 <label className="input input-sm hover:border-teal-500 input-bordered flex items-center gap-2">
                   <input
@@ -92,7 +92,7 @@ const Loan_transaction_posting = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="member_name">
-                  Member Name :
+                  Member Name:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -106,7 +106,7 @@ const Loan_transaction_posting = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="description">
-                  Description :
+                  Description:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -120,7 +120,7 @@ const Loan_transaction_posting = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="fine_other">
-                  Fine/Other :
+                  Fine/Other:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -134,7 +134,7 @@ const Loan_transaction_posting = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="installment_amount">
-                  Installment Amount :
+                  Installment Amount:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -149,7 +149,7 @@ const Loan_transaction_posting = () => {
               <div className="flex flex-col gap-1 ">
                 <label className="font-medium" htmlFor="date">
                   {" "}
-                  Date :
+                  Date:
                 </label>
                 <DatePicker
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -162,7 +162,7 @@ const Loan_transaction_posting = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="payment_term">
-                  Payment Term :
+                  Payment Term:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -180,7 +180,7 @@ const Loan_transaction_posting = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="installment_payment">
-                  Installment Payment :
+                  Installment Payment:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -199,7 +199,7 @@ const Loan_transaction_posting = () => {
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="balance">
                   {" "}
-                  Total Amount :
+                  Total Amount:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -217,7 +217,7 @@ const Loan_transaction_posting = () => {
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="balance">
                   {" "}
-                  Total Paid :
+                  Total Paid:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "

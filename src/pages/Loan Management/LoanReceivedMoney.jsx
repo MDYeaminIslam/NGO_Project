@@ -14,7 +14,7 @@ const LoanReceivedMoney = () => {
                     <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
 
                         <div className="flex flex-col gap-1">
-                            <label className="font-medium " htmlFor="financial_institute_type">Financial Institute Type :</label>
+                            <label className="font-medium " htmlFor="financial_institute_type">Financial Institute Type:</label>
                             <select className=" input input-bordered input-sm hover:border-teal-500 " >
                                 <option >Organization</option>
                                 <option >Bank</option>
@@ -24,27 +24,27 @@ const LoanReceivedMoney = () => {
                         </div>
 
                         <div className="flex flex-col gap-1">
-                            <label className="font-medium" htmlFor="name_of_the_institute">Name of the Institute :</label>
+                            <label className="font-medium" htmlFor="name_of_the_institute">Name of the Institute:</label>
                             <input className="input input-bordered input-sm  hover:border-teal-500  " id="name_of_the_institute" type="text" placeholder="enter name of the institute" />
                         </div>
 
                         <div className="flex flex-col gap-1">
-                            <label className="font-medium" htmlFor="duration_of_month">Duration of Month :</label>
+                            <label className="font-medium" htmlFor="duration_of_month">Duration of Month:</label>
                             <input className="input input-bordered input-sm  hover:border-teal-500  " id="duration_of_month" type="text" placeholder="enter number of month" />
                         </div>
 
                         <div className="flex flex-col gap-1">
-                            <label className="font-medium" htmlFor="rate">Rate :</label>
+                            <label className="font-medium" htmlFor="rate">Rate:</label>
                             <input className="input input-bordered input-sm  hover:border-teal-500  " id="rate" type="text" placeholder="%" />
                         </div>
 
                         <div className="flex flex-col gap-1">
-                            <label className="font-medium" htmlFor="amount">Amount :</label>
+                            <label className="font-medium" htmlFor="amount">Amount:</label>
                             <input className="input input-bordered input-sm  hover:border-teal-500  " id="amount" type="text" placeholder="enter amount" />
                         </div>
 
                         <div className="flex flex-col gap-1">
-                            <label className="font-medium " htmlFor="currency_type">Currency Type :</label>
+                            <label className="font-medium " htmlFor="currency_type">Currency Type:</label>
                             <select className=" input input-bordered input-sm hover:border-teal-500 " >
                                 <option >BDT</option>
                                 <option >Other Currency</option>
@@ -52,7 +52,7 @@ const LoanReceivedMoney = () => {
                         </div>
 
                         <div className="flex flex-col gap-1">
-                            <label className="font-medium" htmlFor="reason"> Remark :</label>
+                            <label className="font-medium" htmlFor="reason"> Remark:</label>
                             <textarea className="input input-bordered hover:border-teal-500 " id="remark" cols="10" rows="1"></textarea>
                         </div>
 
