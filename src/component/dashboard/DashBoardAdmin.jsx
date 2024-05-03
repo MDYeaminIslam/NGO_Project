@@ -4,8 +4,8 @@ const DashBoardAdmin = () => {
     return (
         <div className="flex flex-col gap-10 justify-center items-center   bg-gray-100 md:py-10 sm:py-10 min-h-screen no-scrollbar">
 
-            <section className="flex gap-6">
-                <div className="flex items-center gap-6">
+            <section className="flex flex-col md:flex-row gap-6 p-4 md:p-0">
+                <div className="flex flex-col md:flex-row items-center gap-6">
                     <div className="avatar">
                         <div className="w-14 rounded-full ring ring-teal-500 ring-offset-base-100 ring-offset-2">
                             <img src="https://source.unsplash.com/100x100/?portrait" />
@@ -47,7 +47,7 @@ const DashBoardAdmin = () => {
                 </ul>
             </section>
 
-            <section className="grid grid-cols-2 md:grid-cols-4 md:gap-4 gap-2 w-fit    ">
+            <section className="grid grid-cols-2 md:grid-cols-4 md:gap-4 gap-2 w-fit p-4 pt-0 md:p-0   ">
                 {/* card */}
                 <div className="bg-teal-700 hover:bg-teal-500 text-white p-4 rounded-md md:col-span-2 ">
                     <div>
