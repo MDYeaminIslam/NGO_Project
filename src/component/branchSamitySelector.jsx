@@ -2,7 +2,7 @@ import { useState } from "react";
 import { getAllBranches } from "../../api/admin";
 import { useQuery } from "@tanstack/react-query";
 import axiosAdmin from "../../axios/admin";
-export function BranchSamitySelector({ callBackFn }) {
+export default function BranchSamitySelector({ callBackFn }) {
   const { data, isFetched } = useQuery({
     queryKey: ["branches"],
     queryFn: getAllBranches,
