@@ -80,7 +80,7 @@ const AddMember = () => {
       </section>
       <section className="m-4">
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
-          New Member Adding Form{" "}
+          New Member Add{" "}
         </h1>
         <form className="my-8" action="">
           <section className=" grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4 ">
@@ -90,7 +90,7 @@ const AddMember = () => {
               </label>
               <input
                 onChange={handleChange}
-                className="border-2 rounded hover:border-teal-500 "
+                className="input input-bordered input-sm  hover:border-teal-500"
                 id="name"
                 name="name"
                 type="text"
@@ -103,7 +103,7 @@ const AddMember = () => {
               </label>
               <input
                 onChange={handleChange}
-                className="border-2 hover:border-teal-500 rounded "
+                className="input input-bordered input-sm  hover:border-teal-500"
                 id="fathers_name"
                 type="text"
                 name="fathersName"
@@ -116,7 +116,7 @@ const AddMember = () => {
               </label>
               <input
                 onChange={handleChange}
-                className="border-2 hover:border-teal-500 rounded "
+                className="input input-bordered input-sm  hover:border-teal-500"
                 id="mothers_name"
                 type="text"
                 name="mothersName"
@@ -129,7 +129,7 @@ const AddMember = () => {
               </label>
               <input
                 onChange={handleChange}
-                className="border-2 hover:border-teal-500 rounded "
+                className="input input-bordered input-sm  hover:border-teal-500"
                 id="spouse_name"
                 type="text"
                 name="spouseName"
@@ -142,7 +142,7 @@ const AddMember = () => {
               </label>
               <input
                 onChange={handleChange}
-                className="border-2 hover:border-teal-500 rounded "
+                className="input input-bordered input-sm  hover:border-teal-500"
                 id="occupation"
                 type="text"
                 name="occupation"
@@ -155,7 +155,7 @@ const AddMember = () => {
               </label>
               <input
                 onChange={handleChange}
-                className="border-2 hover:border-teal-500 rounded "
+                className="input input-bordered input-sm  hover:border-teal-500"
                 id="religion"
                 type="text"
                 name="religion"
@@ -175,7 +175,7 @@ const AddMember = () => {
                 id="short_brief_of_occupation"
                 cols="10"
                 rows="2"
-                className="border-2 hover:border-teal-500 rounded "
+                className="input input-bordered input-sm  hover:border-teal-500  "
               ></textarea>
             </div>
 
@@ -190,7 +190,7 @@ const AddMember = () => {
                 id=" present_address"
                 cols="10"
                 rows="2"
-                className="border-2 hover:border-teal-500 rounded "
+                className="input input-bordered input-sm  hover:border-teal-500"
               ></textarea>
             </div>
 
@@ -205,7 +205,7 @@ const AddMember = () => {
                 id="  permanent_address"
                 cols="10"
                 rows="2"
-                className="border-2 hover:border-teal-500 rounded "
+                className="input input-bordered input-sm  hover:border-teal-500"
               ></textarea>
             </div>
 
@@ -215,7 +215,7 @@ const AddMember = () => {
               </label>
               <input
                 onChange={handleChange}
-                className="border-2 hover:border-teal-500 rounded "
+                className="input input-bordered input-sm  hover:border-teal-500"
                 id="nid_number"
                 type="number"
                 name="nidNumber"
@@ -228,7 +228,7 @@ const AddMember = () => {
               </label>
               <input
                 onChange={handleChange}
-                className="border-2 hover:border-teal-500 rounded "
+                className="input input-bordered input-sm  hover:border-teal-500"
                 id="mobile_number"
                 type="number"
                 placeholder="+880"
@@ -242,7 +242,7 @@ const AddMember = () => {
               </label>
               <input
                 onChange={handleChange}
-                className="border-2 hover:border-teal-500 rounded "
+                className="input input-bordered input-sm  hover:border-teal-500"
                 id="emergency_number"
                 type="number"
                 placeholder="+880"
@@ -255,7 +255,7 @@ const AddMember = () => {
               </label>
               <input
                 onChange={handleChange}
-                className="border-2 hover:border-teal-500 rounded "
+                className="input input-bordered input-sm  hover:border-teal-500"
                 id="membership_fee "
                 type="number"
                 name="membershipFee"
@@ -263,22 +263,22 @@ const AddMember = () => {
             </div>
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="membership_fee ">
-                DOB (DD/MM/YYYY)
+                DOB (DD/MM/YYYY):
               </label>
               <DatePicker
                 selected={formData.dateOfBirth}
                 onChange={handleChangeDate}
-                className="border-2 hover:border-teal-500 rounded "
+                className="input input-bordered input-sm  hover:border-teal-500 w-full"
                 dateFormat="dd/MM/yyyy"
               />
             </div>
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="Attach_Photo ">
-                Attach Photo
+                Attach Photo:
               </label>
               <input
                 onChange={handleChange}
-                className="border-2 hover:border-teal-500 rounded "
+                className="input input_bordered  hover:border-teal-500 "
                 id="Attach_Photo "
                 type="file"
                 name="photo"
@@ -287,15 +287,15 @@ const AddMember = () => {
             {/* Education Qualification */}
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="Attach_Photo ">
-                Education Qualification
+                Education Qualification:
               </label>
               <select
                 onChange={handleChange}
-                className="border-2 rounded hover:border-teal-500 "
+                className="input input-bordered input-sm  hover:border-teal-500"
                 name="educationalQualification"
               >
                 <option disabled defaultValue>
-                  Select Education Qualification
+                  --Select Education Qualification--
                 </option>
                 <option value="SSC">SSC</option>
                 <option value="HSC">HSC</option>
@@ -318,7 +318,7 @@ const AddMember = () => {
                 </label>
                 <input
                   onChange={handleChangeNominie}
-                  className="border-2 hover:border-teal-500 rounded "
+                  className="input input-bordered input-sm  hover:border-teal-500"
                   id="name"
                   type="text"
                   name="name"
@@ -336,7 +336,7 @@ const AddMember = () => {
                   id="address"
                   cols="10"
                   rows="2"
-                  className="border-2 hover:border-teal-500 rounded "
+                  className="input input-bordered input-sm  hover:border-teal-500  "
                 />
               </div>
 
@@ -346,7 +346,7 @@ const AddMember = () => {
                 </label>
                 <input
                   onChange={handleChangeNominie}
-                  className="border-2 hover:border-teal-500 rounded "
+                  className="input input-bordered input-sm  hover:border-teal-500  "
                   id="relation_with_member"
                   type="text"
                   name="relation"
@@ -355,11 +355,11 @@ const AddMember = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="share">
-                  Share %{" "}
+                  Share %:{" "}
                 </label>
                 <input
                   onChange={handleChangeNominie}
-                  className="border-2 hover:border-teal-500 rounded "
+                  className="input input-bordered input-sm  hover:border-teal-500  "
                   id="share"
                   type="number"
                   name="share"
@@ -372,7 +372,7 @@ const AddMember = () => {
                 </label>
                 <input
                   onChange={handleChangeNominie}
-                  className="border-2 hover:border-teal-500 rounded "
+                  className="input input-bordered input-sm  hover:border-teal-500  "
                   id="occupation"
                   type="text"
                   name="occupation"

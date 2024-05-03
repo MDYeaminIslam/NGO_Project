@@ -45,7 +45,7 @@ const MembersList = () => {
       </div>
       {/* Local User List */}
       <section>
-        <div>
+        <div className="m-10">
           <table className="w-full mt-8 ">
             <tr className="grid grid-cols-1 bg-teal-700  py-4 text-white md:grid-cols-5 items-center justify-center gap-1 text-center">
               <th>Member Name</th>

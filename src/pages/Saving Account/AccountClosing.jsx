@@ -16,7 +16,7 @@ const AccountClosing = () => {
 
 
                             <div className="flex flex-col gap-1">
-                                <label className="font-medium" htmlFor="acc_id"  >Account Id : </label>
+                                <label className="font-medium" htmlFor="acc_id"  >Account Id: </label>
                                 <label className="input input-sm hover:border-teal-500 input-bordered flex items-center gap-2">
                                     <input type="text" id="acc_id" className="grow  " placeholder="Search" />
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70"><path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" /></svg>
@@ -24,50 +24,50 @@ const AccountClosing = () => {
                             </div>
 
                             <div className="flex flex-col gap-1">
-                                <label className="font-medium" htmlFor="member_name">Member Name :</label>
+                                <label className="font-medium" htmlFor="member_name">Member Name:</label>
                                 <input className="input input-bordered input-sm  hover:border-teal-500  " id="member_name" type="text" placeholder="auto refill" />
                             </div>
 
 
 
                             <div className="flex flex-col gap-1">
-                                <label className="font-medium" htmlFor="description">Description :</label>
+                                <label className="font-medium" htmlFor="description">Description:</label>
                                 <input className="input input-bordered input-sm  hover:border-teal-500  " id="description" type="text" placeholder="write description here" />
                             </div>
 
                             <div className="flex flex-col gap-1">
-                                <label className="font-medium" htmlFor="closing_to">Closing To :</label>
+                                <label className="font-medium" htmlFor="closing_to">Closing To:</label>
                                 <input className="input input-bordered input-sm  hover:border-teal-500  " id="closing_to" type="text" placeholder="" />
                             </div>
 
                             <div className="flex flex-col gap-1">
-                                <label className="font-medium" htmlFor="total_deposit">Total Deposit :</label>
+                                <label className="font-medium" htmlFor="total_deposit">Total Deposit:</label>
                                 <input className="input input-bordered input-sm  hover:border-teal-500  " id="total_deposit" type="text" placeholder="" />
                             </div>
 
                             <div className="flex flex-col gap-1 ">
-                                <label className="font-medium" htmlFor="date"> Date :</label>
+                                <label className="font-medium" htmlFor="date"> Date:</label>
                                 <input className="input input-bordered input-sm  hover:border-teal-500  " id="date" type="date" placeholder="" />
                             </div>
 
                             <div className="flex flex-col gap-1">
-                                <label className="font-medium" htmlFor="payment_term">Payment Term :</label>
+                                <label className="font-medium" htmlFor="payment_term">Payment Term:</label>
                                 <input className="input input-bordered input-sm  hover:border-teal-500  " id="payment_term" type="text" placeholder="auto refill" />
                             </div>
 
 
                             <div className="flex flex-col gap-1">
-                                <label className="font-medium" htmlFor="installment_payment">Installment Payment :</label>
+                                <label className="font-medium" htmlFor="installment_payment">Installment Payment:</label>
                                 <input className="input input-bordered input-sm  hover:border-teal-500  " id="installment_payment" type="text" placeholder="auto refill" />
                             </div>
 
                             <div className="flex flex-col gap-1">
-                                <label className="font-medium" htmlFor="profit">Profit :</label>
+                                <label className="font-medium" htmlFor="profit">Profit:</label>
                                 <input className="input input-bordered input-sm  hover:border-teal-500  " id="profit" type="number" placeholder="%" />
                             </div>
 
                             <div className="flex flex-col gap-1">
-                                <label className="font-medium" htmlFor="balance"> Profit Amount :</label>
+                                <label className="font-medium" htmlFor="balance"> Profit Amount:</label>
                                 <input className="input input-bordered input-sm  hover:border-teal-500  " id="balance" type="text" placeholder="" />
                             </div>
 

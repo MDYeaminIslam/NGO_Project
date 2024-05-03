@@ -45,7 +45,7 @@ const AddNewBranch = () => {
               Branch Name:{" "}
             </label>
             <input
-              className="border-2 hover:border-black rounded "
+              className="input input-bordered input-sm  hover:border-teal-500  "
               name="branchName"
               type="text"
               onChange={handleChange}
@@ -57,7 +57,7 @@ const AddNewBranch = () => {
               Branch Code:{" "}
             </label>
             <input
-              className="border-2 hover:border-black rounded "
+              className="input input-bordered input-sm  hover:border-teal-500  "
               name="branchCode"
               type="text"
               onChange={handleChange}
@@ -69,7 +69,7 @@ const AddNewBranch = () => {
               Address:{" "}
             </label>
             <input
-              className="border-2 hover:border-black rounded "
+              className="input input-bordered input-sm  hover:border-teal-500  "
               name="address"
               type="text"
               onChange={handleChange}
@@ -80,7 +80,7 @@ const AddNewBranch = () => {
             <label className="font-medium" htmlFor="occupation">
               Status:
             </label>
-            <select className="border-2 hover:border-black">
+            <select className="input input-bordered input-sm  hover:border-teal-500  ">
               <option>Active</option>
               <option>Deactive</option>
             </select>
