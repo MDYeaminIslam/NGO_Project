@@ -88,8 +88,8 @@ import IMWFundCollection from "../pages/Branches/IMWFundCollection";
 import AddBank from "../pages/Manage Drawer Cash/AddBank";
 import MemberDetailsPage from "../pages/Member/MemberDetailsPage";
 import EmployeeDetailsPage from "../pages/Employee/EmployeeDetailsPage";
-import Login from "../pages/Login/Login";
 import LoginLayout from "../layouts/LoginLayout";
+import Login from "../pages/login/Login";
 
 const router = createBrowserRouter([
   {
@@ -119,10 +119,8 @@ const router = createBrowserRouter([
         element: <MemberRequest />,
       },
       {
-        path: 'members_details/:id',
+        path: "members_details/:id",
         element: <MemberDetailsPage />,
-
-
       },
 
       //Branches routes
@@ -283,8 +281,8 @@ const router = createBrowserRouter([
         element: <EmployeePosting />,
       },
       {
-        path: 'employee_details/:id',
-        element: <EmployeeDetailsPage />
+        path: "employee_details/:id",
+        element: <EmployeeDetailsPage />,
       },
 
       //  Income routes
@@ -484,7 +482,6 @@ const router = createBrowserRouter([
         path: "settings",
         element: <GeneralSettings />,
       },
-
     ],
   },
   {
@@ -492,11 +489,11 @@ const router = createBrowserRouter([
     element: <LoginLayout />,
     children: [
       {
-        path: 'login_page',
-        element: <Login />
-      }
-    ]
-  }
+        path: "login_page",
+        element: <Login />,
+      },
+    ],
+  },
 ]);
 
 export default router;
