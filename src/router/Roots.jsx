@@ -88,15 +88,11 @@ import IMWFundCollection from "../pages/Branches/IMWFundCollection";
 import AddBank from "../pages/Manage Drawer Cash/AddBank";
 import MemberDetailsPage from "../pages/Member/MemberDetailsPage";
 import EmployeeDetailsPage from "../pages/Employee/EmployeeDetailsPage";
-<<<<<<< HEAD
-import Registration from "../pages/Registration/Registration";
-
-=======
 import LoginLayout from "../layouts/LoginLayout";
 import Login from "../pages/Login/Login";
 import ForgotPass from "../pages/Login/ForgotPass";
 import RegPage from "../pages/Login/RegPage";
->>>>>>> e0347eb9e35747a93da3b9397ba784da32069be4
+import Registration from "../pages/Registration/Registration";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -492,7 +488,7 @@ const router = createBrowserRouter([
       //Registration Routes
       {
         path: "registration",
-        element: <Registration/>
+        element: <Registration/>,
       }
     ],
   },
