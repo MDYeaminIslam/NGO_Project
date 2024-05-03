@@ -91,6 +91,7 @@ import EmployeeDetailsPage from "../pages/Employee/EmployeeDetailsPage";
 import LoginLayout from "../layouts/LoginLayout";
 import Login from "../pages/Login/Login";
 import ForgotPass from "../pages/Login/ForgotPass";
+import RegPage from "../pages/Login/RegPage";
 
 
 const router = createBrowserRouter([
@@ -499,6 +500,10 @@ const router = createBrowserRouter([
         path: "forgot_pass",
         element: <ForgotPass />
       },
+      {
+        path: 'reg',
+        element: <RegPage />,
+      }
     ],
   },
 ]);
