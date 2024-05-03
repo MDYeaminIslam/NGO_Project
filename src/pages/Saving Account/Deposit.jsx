@@ -127,13 +127,13 @@ const Deposit = () => {
         {/* input container */}
         <section className="m-4">
           <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
-            Open Deposit Account Form{" "}
+            Open Deposit Account{" "}
           </h1>
           <form className="my-8">
             <section className="grid grid-cols-1 md:grid-col-3 w-full md:max-w-5xl mx-auto gap-4">
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="member_id">
-                  Search Number :{" "}
+                  Search Number:{" "}
                 </label>
                 <label className="input input-sm hover:border-teal-500 input-bordered flex items-center gap-2">
                   <input
@@ -153,7 +153,7 @@ const Deposit = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="acc_id">
-                  User Name :
+                  User Name:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -166,7 +166,7 @@ const Deposit = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium " htmlFor="occupation">
-                  Status :
+                  Status:
                 </label>
                 <select
                   onChange={handleChange}
@@ -186,7 +186,7 @@ const Deposit = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="period_of_time">
-                  Period of time :
+                  Period of Time:
                 </label>
                 <input
                   name="periodOfTimeInMonths"
@@ -201,7 +201,7 @@ const Deposit = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="per_installment">
-                  Per installment :
+                  Per Installment:
                 </label>
                 <input
                   onChange={handleChange}
@@ -215,7 +215,7 @@ const Deposit = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="profit">
-                  Profit :
+                  Profit:
                 </label>
                 <input
                   name="profitPercentage"
@@ -230,7 +230,7 @@ const Deposit = () => {
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="on_mature_amount">
                   {" "}
-                  On Mature amount :
+                  On Mature Amount:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -244,7 +244,7 @@ const Deposit = () => {
               <div className="flex flex-col gap-1 ">
                 <label className="font-medium" htmlFor="opening_date">
                   {" "}
-                  Opening Date :
+                  Opening Date:
                 </label>
 
                 <DatePicker
@@ -258,7 +258,7 @@ const Deposit = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="mature_date">
-                  Mature Date :
+                  Mature Date:
                 </label>
                 <DatePicker
                   selected={formData.matureDate}
@@ -272,7 +272,7 @@ const Deposit = () => {
               <div className="flex flex-col gap-1 md:col-span-3">
                 <label className="font-medium" htmlFor="first_due_date">
                   {" "}
-                  First Due Date :
+                  First Due Date:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "

@@ -278,7 +278,7 @@ const AddMember = () => {
               </label>
               <input
                 onChange={handleChange}
-                className="input input-bordered input-sm  hover:border-teal-500"
+                className="input input_bordered  hover:border-teal-500 "
                 id="Attach_Photo "
                 type="file"
                 name="photo"
