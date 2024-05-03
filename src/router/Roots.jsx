@@ -90,6 +90,7 @@ import MemberDetailsPage from "../pages/Member/MemberDetailsPage";
 import EmployeeDetailsPage from "../pages/Employee/EmployeeDetailsPage";
 import Login from "../pages/Login/Login";
 import LoginLayout from "../layouts/LoginLayout";
+import ForgotPass from "../pages/Login/ForgotPass";
 
 const router = createBrowserRouter([
   {
@@ -487,6 +488,7 @@ const router = createBrowserRouter([
 
     ],
   },
+  // login routes
   {
     path: "login_page",
     element: <LoginLayout />,
@@ -494,6 +496,10 @@ const router = createBrowserRouter([
       {
         path: 'login_page',
         element: <Login />
+      },
+      {
+        path: 'forgot_pass',
+        element: <ForgotPass />
       }
     ]
   }
