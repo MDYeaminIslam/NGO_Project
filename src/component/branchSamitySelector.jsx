@@ -66,7 +66,7 @@ export default function BranchSamitySelector({ callBackFn }) {
                 className="input input-bordered input-sm hover:border-teal-500  "
               >
                 <option disabled selected>
-                  Select Branch
+                  Select Samity
                 </option>
                 {samityList.map((samity) => (
                   <option key={samity._id} value={samity._id}>
