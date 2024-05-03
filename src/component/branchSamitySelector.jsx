@@ -2,7 +2,7 @@ import { useState } from "react";
 import { getAllBranches } from "../../api/admin";
 import { useQuery } from "@tanstack/react-query";
 import axiosAdmin from "../../axios/admin";
-export function BranchSamitySelector({ callBackFn }) {
+export default function BranchSamitySelector({ callBackFn }) {
   const { data, isFetched } = useQuery({
     queryKey: ["branches"],
     queryFn: getAllBranches,
@@ -66,7 +66,7 @@ export function BranchSamitySelector({ callBackFn }) {
                 className="input input-bordered input-sm hover:border-teal-500  "
               >
                 <option disabled selected>
-                  Select Branch
+                  Select Samity
                 </option>
                 {samityList.map((samity) => (
                   <option key={samity._id} value={samity._id}>
