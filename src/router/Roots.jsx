@@ -89,8 +89,9 @@ import AddBank from "../pages/Manage Drawer Cash/AddBank";
 import MemberDetailsPage from "../pages/Member/MemberDetailsPage";
 import EmployeeDetailsPage from "../pages/Employee/EmployeeDetailsPage";
 import LoginLayout from "../layouts/LoginLayout";
-import Login from "../pages/login/Login";
-import ForgotPass from "../pages/login/ForgotPass";
+import Login from "../pages/Login/Login";
+import ForgotPass from "../pages/Login/ForgotPass";
+
 
 const router = createBrowserRouter([
   {
@@ -496,7 +497,7 @@ const router = createBrowserRouter([
       },
       {
         path: "forgot_pass",
-        element: <ForgotPass />,
+        element: <ForgotPass />
       },
     ],
   },
