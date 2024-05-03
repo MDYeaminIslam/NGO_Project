@@ -71,7 +71,7 @@ const AddNewSamity = () => {
               Samity Name:{" "}
             </label>
             <input
-              className="border-2 hover:border-teal-500 rounded "
+              className="input input-bordered input-sm  hover:border-teal-500  "
               id="name"
               type="text"
               name="samityName"
@@ -84,7 +84,7 @@ const AddNewSamity = () => {
               Samity Code:{" "}
             </label>
             <input
-              className="border-2 hover:border-teal-500 rounded "
+              className="input input-bordered input-sm  hover:border-teal-500  "
               id="relation_with_member"
               type="text"
               name="samityCode"
@@ -97,7 +97,7 @@ const AddNewSamity = () => {
               Address:{" "}
             </label>
             <input
-              className="border-2 hover:border-teal-500 rounded "
+              className="input input-bordered input-sm  hover:border-teal-500  "
               id="share"
               type="text"
               name="address"
@@ -109,7 +109,7 @@ const AddNewSamity = () => {
             <label className="font-medium" htmlFor="occupation">
               Status:
             </label>
-            <select className="border-2 hover:border-teal-500">
+            <select className="input input-bordered input-sm  hover:border-teal-500  ">
               <option>Active</option>
               <option>Deactive</option>
             </select>

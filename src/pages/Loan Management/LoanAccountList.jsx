@@ -59,7 +59,8 @@ const LoanAccountList = () => {
       </section>
       <section className="w-full flex items-center">
         <button
-          className="mx-auto bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium text-white"
+          className="mx-auto bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium text-white
+          mt-6"
           onClick={handleSubmit}
         >
           Search

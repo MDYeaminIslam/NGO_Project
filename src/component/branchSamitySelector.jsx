@@ -29,62 +29,45 @@ export default function BranchSamitySelector({ callBackFn }) {
     <>
       {/* Branch List */}
 
-      <section className="m-4">
-
-        <form className="my-8" action="">
-
-          <section className=" flex gap-2 justify-between ">
-
-
-            <div className="flex flex-col gap-1 w-full">
-              <label className="font-medium" htmlFor="name">
-                Branch Name:
-              </label>
-              <select
-                onChange={handleBranchChange}
-                className="input input-bordered input-sm hover:border-teal-500  "
-              >
-                <option disabled selected>
-                  Select Branch
+      <div className="flex flex-col gap-1 w-full">
+        <label className="font-medium" htmlFor="name">
+          Branch Name:
+        </label>
+        <select
+          onChange={handleBranchChange}
+          className="input input-bordered input-sm hover:border-teal-500  "
+        >
+          <option disabled selected>
+            Select Branch
+          </option>
+          {isFetched
+            ? data.map((branch) => (
+                <option key={branch._id} value={branch._id}>
+                  {branch.branchName}
                 </option>
-                {isFetched
-                  ? data.map((branch) => (
-                    <option key={branch._id} value={branch._id}>
-                      {branch.branchName}
-                    </option>
-                  ))
-                  : null}
-              </select>
-            </div>
-            {/* Samity List */}
-            <div className="flex flex-col gap-1">
-              <label className="font-medium" htmlFor="name">
-                Samity Name:
-              </label>
-              <select
-                onChange={handleSamityChange}
-                className="input input-bordered input-sm hover:border-teal-500  "
-              >
-                <option disabled selected>
-                  Select Samity
-                </option>
-                {samityList.map((samity) => (
-                  <option key={samity._id} value={samity._id}>
-                    {samity.samityName}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-
-          </section>
-
-
-        </form>
-
-
-
-      </section>
+              ))
+            : null}
+        </select>
+      </div>
+      {/* Samity List */}
+      <div className="flex flex-col gap-1">
+        <label className="font-medium" htmlFor="name">
+          Samity Name:
+        </label>
+        <select
+          onChange={handleSamityChange}
+          className="input input-bordered input-sm hover:border-teal-500  "
+        >
+          <option disabled selected>
+            Select Samity
+          </option>
+          {samityList.map((samity) => (
+            <option key={samity._id} value={samity._id}>
+              {samity.samityName}
+            </option>
+          ))}
+        </select>
+      </div>
     </>
   );
 }

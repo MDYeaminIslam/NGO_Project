@@ -138,7 +138,7 @@ const OpenLoanAccount = () => {
             <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="member_id">
-                  Search By Phone Number :{" "}
+                  Search By Phone Number:{" "}
                 </label>
                 <label className="input input-sm hover:border-teal-500 input-bordered flex items-center gap-2">
                   <input
@@ -158,7 +158,7 @@ const OpenLoanAccount = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="acc_id">
-                  User Name :
+                  User Name:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -183,7 +183,7 @@ const OpenLoanAccount = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="loan_amount">
-                  Loan Amount :
+                  Loan Amount:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -197,7 +197,7 @@ const OpenLoanAccount = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="profit">
-                  Profit :
+                  Profit:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -211,7 +211,7 @@ const OpenLoanAccount = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="profit_amount">
-                  Total Amount :
+                  Total Amount:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -224,7 +224,7 @@ const OpenLoanAccount = () => {
               </div>
               <div className="flex flex-col gap-1">
                 <label className="font-medium " htmlFor="payment_term">
-                  Payment Term :
+                  Payment Term:
                 </label>
                 <select
                   onChange={handleChange}
@@ -243,7 +243,7 @@ const OpenLoanAccount = () => {
               </div>
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="period_of_time">
-                  Period of time :
+                  Period of time:
                 </label>
                 <input
                   name="periodOfTimeInMonths"
@@ -257,7 +257,7 @@ const OpenLoanAccount = () => {
               </div>
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="no_of_installment">
-                  Number of Installment :
+                  Number of Installment:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -272,7 +272,7 @@ const OpenLoanAccount = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="installment">
-                  Installment :
+                  Installment:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -287,7 +287,7 @@ const OpenLoanAccount = () => {
               <div className="flex flex-col gap-1 ">
                 <label className="font-medium" htmlFor="opening_date">
                   {" "}
-                  Opening Date :
+                  Opening Date:
                 </label>
                 <DatePicker
                   selected={formData.openingDate}
@@ -300,7 +300,7 @@ const OpenLoanAccount = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="expiry_date">
-                  Expiry Date :
+                  Expiry Date:
                 </label>
                 <DatePicker
                   selected={formData.expiryDate}
@@ -326,7 +326,7 @@ const OpenLoanAccount = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="gurantor_info">
-                  Guarantor Info :
+                  Guarantor Info:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
