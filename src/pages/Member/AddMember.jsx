@@ -80,7 +80,7 @@ const AddMember = () => {
       </section>
       <section className="m-4">
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
-          New Member Adding Form{" "}
+          New Member Add{" "}
         </h1>
         <form className="my-8" action="">
           <section className=" grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4 ">
@@ -263,7 +263,7 @@ const AddMember = () => {
             </div>
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="membership_fee ">
-                DOB (DD/MM/YYYY)
+                DOB (DD/MM/YYYY):
               </label>
               <DatePicker
                 selected={formData.dateOfBirth}
@@ -274,7 +274,7 @@ const AddMember = () => {
             </div>
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="Attach_Photo ">
-                Attach Photo
+                Attach Photo:
               </label>
               <input
                 onChange={handleChange}
@@ -287,7 +287,7 @@ const AddMember = () => {
             {/* Education Qualification */}
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="Attach_Photo ">
-                Education Qualification
+                Education Qualification:
               </label>
               <select
                 onChange={handleChange}
@@ -295,7 +295,7 @@ const AddMember = () => {
                 name="educationalQualification"
               >
                 <option disabled defaultValue>
-                  Select Education Qualification
+                  --Select Education Qualification--
                 </option>
                 <option value="SSC">SSC</option>
                 <option value="HSC">HSC</option>
@@ -355,7 +355,7 @@ const AddMember = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="share">
-                  Share %{" "}
+                  Share %:{" "}
                 </label>
                 <input
                   onChange={handleChangeNominie}
