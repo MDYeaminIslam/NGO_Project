@@ -92,8 +92,6 @@ import LoginLayout from "../layouts/LoginLayout";
 import Login from "../pages/Login/Login";
 import ForgotPass from "../pages/Login/ForgotPass";
 import RegPage from "../pages/Login/RegPage";
-
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -489,21 +487,21 @@ const router = createBrowserRouter([
   },
   // login routes
   {
-    path: "login_page",
+    path: "auth",
     element: <LoginLayout />,
     children: [
       {
-        path: "login_page",
+        path: "login",
         element: <Login />,
       },
       {
         path: "forgot_pass",
-        element: <ForgotPass />
+        element: <ForgotPass />,
       },
       {
-        path: 'reg',
+        path: "registration",
         element: <RegPage />,
-      }
+      },
     ],
   },
 ]);
