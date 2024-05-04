@@ -36,6 +36,7 @@ const AllExpense = () => {
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
           All Expense{" "}
         </h1>
+<<<<<<< HEAD
 
         <form className="my-8" action="">
 
@@ -73,6 +74,40 @@ const AllExpense = () => {
               : null}
           </section>
         </form>
+=======
+      </section>
+      <section className="p-4 grid gap-1 grid-cols-3 ">
+        <BranchSamitySelector callBackFn={setFormData} />
+        <div className="flex flex-col gap-1">
+          <label className="font-medium " htmlFor="payment_term">
+            Expense Type :
+          </label>
+          <select
+            onChange={handleChange}
+            name="type"
+            className=" input input-bordered input-sm hover:border-teal-500 "
+          >
+            <option disabled>Select a Value</option>
+            <option value="monthly">Monthly</option>
+            <option value="purchase">Purchase</option>
+          </select>
+        </div>
+      </section>
+      <div className="w-fit mx-auto">
+        <button
+          className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium text-white "
+          onClick={handleSubmit}
+        >
+          Search
+        </button>
+      </div>
+      <section>
+        {formData.type
+          ? formData.type === "purchase"
+            ? expenses.map((data, idx) => <Purchase data={data} key={idx} />)
+            : expenses.map((data, idx) => <Expense data={data} key={idx} />)
+          : null}
+>>>>>>> ad4ea5a6fcb49c42cd5ac8202049f0b5070f6a62
       </section>
     </div>
   );

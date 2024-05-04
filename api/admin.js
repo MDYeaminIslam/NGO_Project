@@ -222,3 +222,16 @@ export async function getIncome(data) {
   );
   return response.data.data;
 }
+
+//admin registration
+
+export async function adminRegistration(data) {
+  delete data["confirmPassword"];
+  const response = await axiosAdmin.post("/admin/create", data);
+  return response.data;
+}
+//login
+export async function loginAdminCollector(data) {
+  const response = await axiosAdmin.post("/auth/user", data);
+  return response.data;
+}

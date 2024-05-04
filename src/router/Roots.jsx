@@ -89,9 +89,10 @@ import AddBank from "../pages/Manage Drawer Cash/AddBank";
 import MemberDetailsPage from "../pages/Member/MemberDetailsPage";
 import EmployeeDetailsPage from "../pages/Employee/EmployeeDetailsPage";
 import LoginLayout from "../layouts/LoginLayout";
-import Login from "../pages/login/Login";
-import ForgotPass from "../pages/login/ForgotPass";
-
+import Login from "../pages/Login/Login";
+import ForgotPass from "../pages/Login/ForgotPass";
+import RegPage from "../pages/Login/RegPage";
+import Registration from "../pages/Registration/Registration";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -483,20 +484,30 @@ const router = createBrowserRouter([
         path: "settings",
         element: <GeneralSettings />,
       },
+
+      //Registration Routes
+      {
+        path: "registration",
+        element: <Registration/>,
+      }
     ],
   },
   // login routes
   {
-    path: "login_page",
+    path: "auth",
     element: <LoginLayout />,
     children: [
       {
-        path: "login_page",
+        path: "login",
         element: <Login />,
       },
       {
         path: "forgot_pass",
         element: <ForgotPass />,
+      },
+      {
+        path: "registration",
+        element: <RegPage />,
       },
     ],
   },

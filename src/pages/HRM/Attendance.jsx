@@ -35,23 +35,19 @@ const Attendance = () => {
 
   return (
     <div>
-
       <section>
         <HRMNav />
       </section>
 
-
       <section className="m-4">
-
-        <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">Attendance</h1>
+        <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
+          Attendance
+        </h1>
 
         <form className="m" action="">
+          <div className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto justify-evenly items-center ">
+            <BranchSamitySelector callBackFn={setFormData} />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto justify-evenly items-center ">
-            <div className="w-full">
-              <BranchSamitySelector callBackFn={setFormData} />
-
-            </div>
             <div className="flex flex-col gap-1 ">
               <label className="font-medium" htmlFor="date">
                 Date(DD/MM/YYYY):
@@ -64,12 +60,7 @@ const Attendance = () => {
               />
             </div>
           </div>
-
-
         </form>
-
-
-
       </section>
       <div className="w-full flex justify-center  mt-2">
         <button
