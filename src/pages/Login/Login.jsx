@@ -35,6 +35,10 @@ const Login = () => {
     e.preventDefault();
     mutate(formData);
   }
+  const minHeightStyle = {
+    minHeight: `calc(100vh - 50px)`
+  };
+
   // useEffect(() => {
   //   if (role) {
   //     navigate("/")
@@ -43,8 +47,8 @@ const Login = () => {
   return (
     <div>
       <section>
-        <div className="hero min-h-screen bg-teal-800 w-full">
-          <div className="hero-content flex-col lg:flex-row">
+        <div className="hero  bg-teal-800 w-full" style={minHeightStyle} >
+          <div className="hero-content flex flex-col lg:flex-row">
             <div className="text-center lg:text-left w-full md:w-1/2 hidden md:block">
               <h1 className="text-5xl font-bold text-white">Login now!</h1>
               <p className="py-6 text-base-300">
@@ -148,9 +152,9 @@ const Login = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section >
       <section></section>
-    </div>
+    </div >
   );
 };
 
