@@ -235,3 +235,9 @@ export async function loginAdminCollector(data) {
   const response = await axiosAdmin.post("/auth/user", data);
   return response.data;
 }
+
+//ngo loan create
+export async function ngoLoansCreate(data) {
+  const response = await axiosAdmin.post("/loan/ngo-loan/create", data);
+  return response.data;
+}

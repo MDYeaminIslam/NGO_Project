@@ -1,20 +1,28 @@
 import { useMemo, useState } from "react";
 import LoanManagementNav from "./LoanManagementNav/LoanManagementNav";
+import useMutationHook from "../../../hooks/useMutationHook";
+import { ngoLoansCreate } from "../../../api/admin";
+import toast from "react-hot-toast";
 const initialState = {
-  institute: null,
+  institute: "organization",
   nameOfInstitute: null,
   durationInMonth: 0,
   interestRate: 0,
   amount: 0,
   totalAmount: 0,
   perInstallment: 0,
-  remark: null,
+  remark: "",
 };
 const LoanReceivedMoney = () => {
   const [formData, setFormData] = useState(initialState);
+  const { mutate, isError, errorMessage } = useMutationHook(ngoLoansCreate, {
+    onSuccess: () => {
+      toast.success("Done");
+    },
+  });
   const handleChange = (e) => {
     const { name, value, type } = e.target;
-    console.log(type);
+    console.log(name, value);
     setFormData((prev) => ({
       ...prev,
       [name]: type === "number" ? Number(value) : value,
@@ -22,7 +30,7 @@ const LoanReceivedMoney = () => {
   };
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(formData);
+    mutate(formData);
   }
   const totalAmount = useMemo(() => {
     const profit = formData.amount * (formData.interestRate / 100);
@@ -153,10 +161,12 @@ const LoanReceivedMoney = () => {
                 cols="10"
                 rows="1"
                 name="remark"
+                onChange={handleChange}
               ></textarea>
             </div>
           </section>
         </form>
+        {isError ? errorMessage : null}
 
         <div className="w-fit mx-auto  m-8">
           <button

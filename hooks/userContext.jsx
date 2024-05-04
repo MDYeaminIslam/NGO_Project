@@ -42,10 +42,10 @@ export const UserTypeProvider = ({ children }) => {
 
   useEffect(() => {
     // Simulate asynchronous data fetching (replace with actual fetch logic)
-    setTimeout(() => {
-      setUserType(localStorage.getItem("userType"));
-      setIsLoading(false); // Set loading to false after simulated fetch
-    }, 1000); // Simulate 1 second delay
+
+    setUserType(localStorage.getItem("userType"));
+    setIsLoading(false); // Set loading to false after simulated fetch
+    // Simulate 1 second delay
   }, []); // Empty dependency array to run only on initial render
 
   // Value to be provided by the context
