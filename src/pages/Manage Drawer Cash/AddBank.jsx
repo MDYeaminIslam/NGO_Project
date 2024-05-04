@@ -46,10 +46,10 @@ const AddBank = () => {
       <section>
         <section className="m-4">
           <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
-            Drawer Cash
+            Add Bank
           </h1>
           <form className="my-8">
-            <section className="w-full">
+            <section className=" m-8">
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="bankName">
                   Bank Name:{" "}
@@ -80,11 +80,11 @@ const AddBank = () => {
         </section>
       </section>
       {/* Bank List */}
-      <section>
+      <section className="m-12">
         {data.length
           ? data.map((bank, idx) => {
-              return <div key={idx}>{bank.name}</div>;
-            })
+            return <div key={idx}>{bank.name}</div>;
+          })
           : "No Bank Data"}
       </section>
     </div>

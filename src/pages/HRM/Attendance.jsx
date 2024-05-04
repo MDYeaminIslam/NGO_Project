@@ -44,8 +44,8 @@ const Attendance = () => {
           Attendance
         </h1>
 
-        <form className="m" action="">
-          <div className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto justify-evenly items-center ">
+        <form className="my-8" action="">
+          <div className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto justify-evenly items-center gap-4 ">
             <BranchSamitySelector callBackFn={setFormData} />
 
             <div className="flex flex-col gap-1 ">
@@ -55,16 +55,16 @@ const Attendance = () => {
               <DatePicker
                 selected={formData.date}
                 onChange={handleChangeDate}
-                className=" hover:border-teal-500 rounded    input input-bordered input-sm"
+                className=" hover:border-teal-500 rounded input input-bordered input-sm w-full"
                 dateFormat="dd/MM/yyyy"
               />
             </div>
           </div>
         </form>
       </section>
-      <div className="w-full flex justify-center  mt-2">
+      <div className="w-full flex justify-center  mt-12">
         <button
-          className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
+          className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium text-white"
           onClick={handleSubmit}
         >
           Search
@@ -72,15 +72,21 @@ const Attendance = () => {
       </div>
       {/* Attendance Section */}
 
-      {data.data.length ? (
-        <AttendanceTable
-          data={data.data}
-          attendance={data.attendance}
-          other={formData}
-        />
-      ) : (
-        "No Data To Show"
-      )}
+      <div className="m-12">
+
+        {data.data.length ? (
+          <AttendanceTable
+            data={data.data}
+            attendance={data.attendance}
+            other={formData}
+          />
+        ) : (
+          "No Data To Show"
+        )}
+
+      </div>
+
+
     </div>
   );
 };

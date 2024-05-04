@@ -29,28 +29,42 @@ const EmployeeList = () => {
       <section>
         <EmployeeNav />
       </section>
-      <section className="flex items-center justify-around gap-2 my-8 pb-8 border-b-2 max-w-5xl mx-auto">
-        <BranchSamitySelector callBackFn={setFormData} />
-        <button className="btn bg-teal-700 text-white mt-4 " onClick={handleSubmit}>Search</button>
-      </section>
-      {/* Local User List */}
-      <section>
-        <div className="max-w-5xl mx-auto bg-teal-700 text-white py-4 ">
-          <tr className="grid grid-cols-1 md:grid-cols-5  items-center justify-center gap-1 text-start">
-            <th>employee Name</th>
-            <th>Phone Number</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>action</th>
 
-          </tr>
-        </div>
-        <div>
-          {employee.length
-            ? employee.map((user, key) => <EmployeeListView key={key} data={user} />)
-            : null}
-        </div>
+      <section className="m-4">
+        <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
+          Employee List{" "}
+        </h1>
+
+
+        <section className="flex items-center justify-around gap-2 my-8 pb-8 border-b-2 max-w-5xl mx-auto">
+          <BranchSamitySelector callBackFn={setFormData} />
+          <button className="btn bg-teal-700 text-white mt-4 " onClick={handleSubmit}>Search</button>
+        </section>
+        {/* Local User List */}
+        <section>
+          <div className="max-w-5xl mx-auto bg-teal-700 text-white py-4 ">
+            <tr className="grid grid-cols-1 md:grid-cols-5  items-center justify-center gap-1 text-start">
+              <th>employee Name</th>
+              <th>Phone Number</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>action</th>
+
+            </tr>
+          </div>
+          <div>
+            {employee.length
+              ? employee.map((user, key) => <EmployeeListView key={key} data={user} />)
+              : null}
+          </div>
+        </section>
+
+
       </section>
+
+
+
+
     </div>
   );
 };

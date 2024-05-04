@@ -26,20 +26,22 @@ const AnyCharges = () => {
       <section>
         <IncomeNav />
       </section>
-      <section className="p-4 flex flex-col md:flex-row w-full">
+      <section className="flex gap-4 my-8 pb-8 max-w-5xl mx-auto items-center  border-b-2">
         <BranchSamitySelector callBackFn={setFormData} />
-      </section>
-      <section className="w-full flex items-center">
+
+
         <button
-          className="mx-auto bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium text-white"
+          className="mx-auto mt-5 bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium text-white"
           onClick={handleSubmit}
         >
           Search
         </button>
+
       </section>
+
       {data ? (
         <div>
-          <table className="w-full mt-8 ">
+          <table className="w-full mt-16 ">
             <tr className="grid grid-cols-5 items-center justify-center gap-1 text-center border">
               <th>Loan Profit</th>
               <th>Member Fees</th>

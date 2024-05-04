@@ -93,7 +93,7 @@ const PayingAmountApplication = () => {
 
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="phone_number">
-                Name
+                Name:
               </label>
               <input
                 className="input input-bordered input-sm  hover:border-teal-500  "

@@ -60,7 +60,7 @@ const DrawerCash = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium " htmlFor="type">
-                  Type :
+                  Type:
                 </label>
                 <select
                   id="type"
@@ -117,7 +117,7 @@ const DrawerCash = () => {
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="remarks">
                   {" "}
-                  Remarks :
+                  Remarks:
                 </label>
                 <textarea
                   className="input input-bordered hover:border-teal-500 "

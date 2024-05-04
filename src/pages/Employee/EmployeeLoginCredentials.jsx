@@ -81,7 +81,7 @@ const EmployeeLoginCredentials = () => {
           <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="acc_id">
-                Search By Phone Number :{" "}
+                Search By Phone Number:{" "}
               </label>
               <label className="input input-sm hover:border-teal-500 input-bordered flex items-center gap-2">
                 <input
@@ -102,7 +102,7 @@ const EmployeeLoginCredentials = () => {
             <div className="flex flex-col gap-1 ">
               <label className="font-medium" htmlFor="id">
                 {" "}
-                Email :
+                Email:
               </label>
               <input
                 className="input input-bordered input-sm  hover:border-teal-500  "
@@ -127,7 +127,7 @@ const EmployeeLoginCredentials = () => {
 
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="password">
-                Password :
+                Password:
               </label>
               <input
                 className="input input-bordered input-sm  hover:border-teal-500  "
@@ -141,7 +141,7 @@ const EmployeeLoginCredentials = () => {
 
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="confirm_password">
-                Confirm Password :
+                Confirm Password:
               </label>
               <input
                 className="input input-bordered input-sm  hover:border-teal-500  "

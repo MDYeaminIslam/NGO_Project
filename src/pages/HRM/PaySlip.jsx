@@ -126,13 +126,17 @@ const PaySlip = () => {
         <section className="m-4">
           <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
             {" "}
+            Pay Slip
+          </h1>
+          <h1 className="text-lg font-bold text-start max-w-5xl mx-auto  pt-12">
+            {" "}
             Addition
           </h1>
           <form className="my-8">
             <section className="grid grid-cols-3 max-w-5xl mx-auto gap-4">
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="acc_id">
-                  Account Id :{" "}
+                  Account Id:{" "}
                 </label>
                 <label className="input input-sm hover:border-teal-500 input-bordered flex items-center gap-2">
                   <input
@@ -151,7 +155,7 @@ const PaySlip = () => {
               </div>
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="phone_number">
-                  Name
+                  Name:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -162,7 +166,7 @@ const PaySlip = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="basic_salary">
-                  Basic Salary :
+                  Basic Salary:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -177,7 +181,7 @@ const PaySlip = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="mobile_bill">
-                  Mobile Bill :
+                  Mobile Bill:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -192,7 +196,7 @@ const PaySlip = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="tour_bill">
-                  Tour Bill :
+                  Tour Bill:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -206,7 +210,7 @@ const PaySlip = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="overtime">
-                  Overtime :
+                  Overtime:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -220,7 +224,7 @@ const PaySlip = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="special_award">
-                  Special Award :
+                  Special Award:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -234,7 +238,7 @@ const PaySlip = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="bonus">
-                  Bonus :
+                  Bonus:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -250,7 +254,7 @@ const PaySlip = () => {
         </section>
 
         <section className="m-4">
-          <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
+          <h1 className="text-lg font-bold text-start max-w-5xl mx-auto  pt-8">
             {" "}
             Deduction
           </h1>
@@ -258,7 +262,7 @@ const PaySlip = () => {
             <section className="grid grid-cols-3 max-w-5xl mx-auto gap-4">
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="advance">
-                  Advance :
+                  Advance:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -273,7 +277,7 @@ const PaySlip = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="ait">
-                  AIT :
+                  AIT:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -287,7 +291,7 @@ const PaySlip = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="provident fund">
-                  Provident Fund :
+                  Provident Fund:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -301,7 +305,7 @@ const PaySlip = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="absent">
-                  Absent :
+                  Absent:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -315,7 +319,7 @@ const PaySlip = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="others">
-                  Others :
+                  Others:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -330,7 +334,7 @@ const PaySlip = () => {
 
             <div className="w-fit mx-auto flex justify-center  m-8">
               <button
-                className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
+                className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium text-white mt-6"
                 onClick={handleSubmit}
                 type="submit"
               >
@@ -340,7 +344,7 @@ const PaySlip = () => {
           </form>
         </section>
         <section className="m-4">
-          <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
+          <h1 className="text-lg font-bold text-start max-w-5xl mx-auto  pt-8">
             {" "}
             Total Payable
           </h1>
@@ -356,7 +360,7 @@ const PaySlip = () => {
           </form>
         </section>
 
-        <div className="flex gap-6 justify-center items-center mt-6   col-span-2">
+        <div className="flex gap-6 justify-center items-center mt-6 mb-12 col-span-2">
           <div className="flex w-fit mt-8">
             <button
               className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
