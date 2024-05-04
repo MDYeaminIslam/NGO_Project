@@ -4,6 +4,7 @@ import './App.css'
 import SideNavbar from './component/sidebar/SideNavbar'
 import MobileNav from './component/Navbar/MobileNav'
 import AdminRoute from './router/AdminRoute'
+import Footer from './component/Footer'
 
 
 
@@ -16,7 +17,7 @@ function App() {
             <SideNavbar />
           </div>
 
-          <div className='min-w-full'>
+          <div className='min-w-full block md:hidden'>
             <MobileNav />
           </div>
 
@@ -27,6 +28,7 @@ function App() {
 
           <div className='h-screen overflow-y-scroll '>
             <Outlet />
+            <div className='mt-4'>  <Footer /></div>
           </div>
         </div>
       </div>
