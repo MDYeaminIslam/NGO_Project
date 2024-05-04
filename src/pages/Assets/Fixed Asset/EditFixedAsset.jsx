@@ -60,18 +60,18 @@ const EditFixedAsset = () => {
             <BranchSamitySelector callBackFn={setFormData} />
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="membership_fee ">
-                Date (DD/MM/YYYY)
+                Date (DD/MM/YYYY):
               </label>
               <DatePicker
                 selected={formData.date}
                 onChange={handleChangeDate}
-                className="border-2 hover:border-teal-500 rounded "
+                className="input input-bordered input-sm hover:border-teal-500 w-full"
                 dateFormat="dd/MM/yyyy"
               />
             </div>
             <div className="flex flex-col gap-1">
               <label className="font-medium " htmlFor="type">
-                Type :
+                Type:
               </label>
               <select
                 name="type"
@@ -79,7 +79,7 @@ const EditFixedAsset = () => {
                 className=" input input-bordered input-sm hover:border-teal-500 "
               >
                 <option disabled defaultValue>
-                  Select
+                  --Select--
                 </option>
                 <option value="fixed">Fixed</option>
                 <option value="temporary">Temporary</option>
@@ -92,7 +92,7 @@ const EditFixedAsset = () => {
               </label>
               <input
                 onChange={handleChange}
-                className="border-2 hover:border-teal-500 rounded "
+                className="input input-bordered input-sm hover:border-teal-500 "
                 id="name"
                 type="text"
                 name="productName"
@@ -104,7 +104,7 @@ const EditFixedAsset = () => {
               </label>
               <input
                 onChange={handleChange}
-                className="border-2 hover:border-teal-500 rounded "
+                className="input input-bordered input-sm hover:border-teal-500 "
                 id="measure"
                 type="number"
                 name="quantity"
@@ -116,7 +116,7 @@ const EditFixedAsset = () => {
               </label>
               <input
                 onChange={handleChange}
-                className="border-2 hover:border-teal-500 rounded "
+                className="input input-bordered input-sm hover:border-teal-500 "
                 id="amount"
                 type="number"
                 name="amount"
@@ -128,7 +128,7 @@ const EditFixedAsset = () => {
               </label>
               <input
                 onChange={handleChange}
-                className="border-2 hover:border-teal-500 rounded "
+                className="input input-bordered input-sm hover:border-teal-500 "
                 id="des"
                 type="number"
                 name="depreciation"
@@ -140,7 +140,7 @@ const EditFixedAsset = () => {
               </label>
               <input
                 onChange={handleChange}
-                className="border-2 hover:border-teal-500 rounded "
+                className="input input-bordered input-sm hover:border-teal-500 "
                 id="des"
                 type="text"
                 name="description"
@@ -152,7 +152,7 @@ const EditFixedAsset = () => {
               </label>
               <input
                 onChange={handleChange}
-                className="border-2 hover:border-teal-500 rounded "
+                className="input input-bordered input-sm hover:border-teal-500 "
                 id="remarks"
                 type="text"
                 name="remarks"
@@ -164,7 +164,7 @@ const EditFixedAsset = () => {
         {isError ? errorMessage : null}
         <div className="w-fit mx-auto  m-8">
           <button
-            className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
+            className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium  mt-12   text-white"
             onClick={handleSubmit}
           >
             Submit

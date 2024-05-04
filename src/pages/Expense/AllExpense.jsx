@@ -37,11 +37,11 @@ const AllExpense = () => {
           All Expense{" "}
         </h1>
       </section>
-      <section className="p-4 grid gap-1 grid-cols-3 ">
+      <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4 my-8">
         <BranchSamitySelector callBackFn={setFormData} />
         <div className="flex flex-col gap-1">
           <label className="font-medium " htmlFor="payment_term">
-            Expense Type :
+            Expense Type:
           </label>
           <select
             onChange={handleChange}

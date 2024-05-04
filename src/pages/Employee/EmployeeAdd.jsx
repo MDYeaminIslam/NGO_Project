@@ -139,7 +139,7 @@ const EmployeeAdd = () => {
             <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="name">
-                  Name :
+                  Name:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -153,7 +153,7 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="father_name">
-                  Father Name :
+                  Father Name:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -167,7 +167,7 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="mother_name">
-                  Mother Name :
+                  Mother Name:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -237,7 +237,7 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium " htmlFor="occupation">
-                  Educational Qualification :
+                  Educational Qualification:
                 </label>
                 <select
                   name="educationalQualification"
@@ -257,7 +257,7 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="membership_fee ">
-                  DOB (DD/MM/YYYY)
+                  DOB (DD/MM/YYYY):
                 </label>
                 <DatePicker
                   selected={formData.dateOfBirth}
@@ -269,7 +269,7 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="mobile_no">
-                  Mobile Number :
+                  Mobile Number:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -283,7 +283,7 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="email">
-                  Email :
+                  Email:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -300,7 +300,7 @@ const EmployeeAdd = () => {
                   className="font-medium"
                   htmlFor="emergency_contact_number"
                 >
-                  Emergency Contact Number :
+                  Emergency Contact Number:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -314,7 +314,7 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium " htmlFor="religion">
-                  Religion :
+                  Religion:
                 </label>
                 <select
                   name="religion"
@@ -333,7 +333,7 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="Attach_Photo ">
-                  Attach Photo :
+                  Attach Photo:
                 </label>
                 <input
                   className="input input_bordered  hover:border-teal-500 "
@@ -373,7 +373,7 @@ const EmployeeAdd = () => {
             <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="name">
-                  Name :
+                  Name:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -388,7 +388,7 @@ const EmployeeAdd = () => {
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="address">
                   {" "}
-                  Address :
+                  Address:
                 </label>
                 <textarea
                   className="input input-bordered hover:border-teal-500 "
@@ -401,17 +401,18 @@ const EmployeeAdd = () => {
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="font-medium">Joining Date (DD/MM/YYYY)</label>
+                <label className="font-medium">Joining Date (DD/MM/YYYY):
+                </label>
                 <DatePicker
                   selected={formData.previousOrganization.joiningDate}
                   onChange={handleChangeDatePrevious}
-                  className="border-2 hover:border-teal-500 rounded "
+                  className="input input-bordered input-sm  hover:border-teal-500 w-full"
                   dateFormat="dd/MM/yyyy"
                 />
               </div>
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="position">
-                  Position :
+                  Position:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -425,7 +426,7 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="salary">
-                  Salary :
+                  Salary:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -439,7 +440,7 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="switch_reason">
-                  Switch Reason :
+                  Switch Reason:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -463,7 +464,7 @@ const EmployeeAdd = () => {
             <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
               <div className="flex flex-col gap-1">
                 <label className="font-medium " htmlFor="designation">
-                  Designation :
+                  Designation:
                 </label>
                 <select
                   name="designation"
@@ -481,12 +482,12 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="membership_fee ">
-                  Date Of Joining (DD/MM/YYYY)
+                  Date Of Joining (DD/MM/YYYY):
                 </label>
                 <DatePicker
                   selected={formData.presentPosition.dateOfJoining}
                   onChange={handleChangeDatePrensentPosition}
-                  className="border-2 hover:border-teal-500 rounded "
+                  className="input input-bordered input-sm  hover:border-teal-500 w-full"
                   dateFormat="dd/MM/yyyy"
                 />
               </div>
@@ -522,7 +523,7 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="salary_amount">
-                  Salary Amount :
+                  Salary Amount:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -536,7 +537,7 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="mobile_bill">
-                  Mobile Bill :
+                  Mobile Bill:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -550,7 +551,7 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="salary_amount">
-                  TA/DA :
+                  TA/DA:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -564,7 +565,7 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="additional_total">
-                  Additional Total :
+                  Additional Total:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -602,7 +603,7 @@ const EmployeeAdd = () => {
             <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="name">
-                  Name :
+                  Name:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -617,7 +618,7 @@ const EmployeeAdd = () => {
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="address">
                   {" "}
-                  Address :
+                  Address:
                 </label>
                 <textarea
                   className="input input-bordered hover:border-teal-500 "
@@ -631,7 +632,7 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="relation">
-                  Relation :
+                  Relation:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -645,7 +646,7 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="occupation">
-                  Occupation :
+                  Occupation:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "

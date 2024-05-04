@@ -71,7 +71,7 @@ const DrawerCashtoBank = () => {
               </div>
               <div className="flex flex-col gap-1">
                 <label className="font-medium " htmlFor="type">
-                  Type :
+                  Type:
                 </label>
                 <select
                   id="type"

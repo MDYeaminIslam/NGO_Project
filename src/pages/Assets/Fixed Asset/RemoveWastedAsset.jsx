@@ -54,15 +54,13 @@ const RemoveWastedAsset = () => {
             </div>
 
 
-            <div className=" flex w-fit  mt-6">
+            <div className=" flex w-fit  mt-6 gap-4">
               <button
                 className="bg-blue-500 hover:bg-blue-700 px-10 py-2 rounded font-medium     text-white"
                 onClick={handleSubmit} >
                 Search
               </button>
-            </div>
 
-            <div className=" flex w-fit  mt-6">
               <button
                 className="bg-red-500 hover:bg-red-700 px-10 py-2 rounded font-medium     text-white"
                 onClick={handleSubmit} >
@@ -76,7 +74,7 @@ const RemoveWastedAsset = () => {
 
         <div className="w-fit mx-auto  m-8">
           <button
-            className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
+            className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium  mt-12   text-white"
             onClick={handleSubmit} >
             Submit
           </button>
