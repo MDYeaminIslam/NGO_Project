@@ -43,9 +43,9 @@ const Login = () => {
   return (
     <div>
       <section>
-        <div className="hero min-h-screen bg-teal-800">
+        <div className="hero min-h-screen bg-teal-800 w-full">
           <div className="hero-content flex-col lg:flex-row">
-            <div className="text-center lg:text-left w-1/2">
+            <div className="text-center lg:text-left w-full md:w-1/2 hidden md:block">
               <h1 className="text-5xl font-bold text-white">Login now!</h1>
               <p className="py-6 text-base-300">
                 For over 7 years, ATC Tech Limited has been dedicated to
@@ -56,7 +56,7 @@ const Login = () => {
                 building long-lasting partnerships.
               </p>
             </div>
-            <div className="card w-96 shrink-0  max-w-sm shadow-2xl bg-base-100">
+            <div className="card md:w-96 shrink-0  max-w-sm shadow-2xl bg-base-100">
               <form className="card-body">
                 <div className="form-control">
                   <label className="label">
@@ -83,9 +83,10 @@ const Login = () => {
                     name="password"
                     onChange={handleChange}
                   />
-                  <div>
-                    <label>
+                  <div className="p-4 items-center flex flex-wrap md:flex-row  gap-4">
+                    <label className="flex items-center gap-1">
                       <input
+                        className="radio radio-success"
                         type="radio"
                         name="type"
                         value="admin"
@@ -94,8 +95,9 @@ const Login = () => {
                       />
                       Admin
                     </label>
-                    <label>
+                    <label className="flex items-center gap-1">
                       <input
+                        className="radio radio-success"
                         type="radio"
                         name="type"
                         value="collector"
@@ -104,8 +106,9 @@ const Login = () => {
                       />
                       Collector
                     </label>
-                    <label>
+                    <label className="flex items-center gap-1">
                       <input
+                        className="radio radio-success"
                         type="radio"
                         name="type"
                         value="user"

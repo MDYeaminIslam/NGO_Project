@@ -32,8 +32,8 @@ const RegPage = () => {
     mutate(formData);
   }
   return (
-    <div className="w-full min-h-screen flex justify-center items-center bg-teal-800">
-      <div className="card w-96 shrink-0  max-w-sm shadow-2xl bg-base-100">
+    <div className="w-full py-8 min-h-screen flex justify-center items-center bg-teal-800">
+      <div className="card md:w-96 shrink-0  max-w-sm shadow-2xl bg-base-100">
         <form className="card-body">
           <div className="form-control">
             <label className="label">
@@ -80,7 +80,7 @@ const RegPage = () => {
             </label>
             <input
               type="password"
-              placeholder="password here.."
+              placeholder="repeat password.."
               className="input input-bordered"
               name="confirmPassword"
               required

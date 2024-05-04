@@ -112,15 +112,15 @@ const router = createBrowserRouter([
       // members routes
       {
         path: "add_member",
-        element: <AddMember />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><AddMember /></AdminRoute>,
       },
       {
         path: "members_list",
-        element: <MembersList />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><MembersList /></AdminRoute>,
       },
       {
         path: "member_closing",
-        element: <MemberClosing />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><MemberClosing /></AdminRoute>,
       },
       {
         path: "member_request",
@@ -134,7 +134,7 @@ const router = createBrowserRouter([
       //Branches routes
       {
         path: "add_new_branch",
-        element: <AddNewBranch />,
+        element: <AdminRoute roles={[ROLES.Admin]}><AddNewBranch /></AdminRoute>,
       },
       {
         path: "add_new_samity",

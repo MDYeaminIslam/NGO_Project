@@ -26,7 +26,7 @@ const SavingAccountRequest = () => {
                 <input className="input input-bordered input-sm  hover:border-teal-500  " id="account_id" type="text" placeholder="" />
               </div>
 
-              <div className="flex   gap-1 ">
+              <div className="flex flex-col md:flex-row  gap-2 text-center ">
                 <label className="font-medium pt-10" htmlFor="account_id">Action:</label>
 
                 <div className="w-full flex justify-center  mt-8">
