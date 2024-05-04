@@ -27,14 +27,14 @@ const FixedAssetList = () => {
         <FixedAssetNav />
       </section>
 
-      <section className="m-4">
-        <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
+      <section className="m-4 ">
+        <h1 className="mb-8 text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
           Fixed Asset List
         </h1>
         <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto justify-evenly items-center gap-4">
           <BranchSamitySelector callBackFn={setFormData} />
 
-          <div className="w-fit mx-auto">
+          <div className="mt-6 w-fit ml-28">
             <button
               className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium text-white "
               onClick={handleSubmit}
