@@ -45,12 +45,12 @@ import BranchSubNavbar from "../pages/Branches/BranchSubNavbar";
 import SamityList from "../pages/Branches/SamityList";
 import DrawerCash from "../pages/Manage Drawer Cash/DrawerCash";
 import DrawerCashtoBank from "../pages/Manage Drawer Cash/DrawerCashtoBank";
-import BankCash from "../pages/Manage Bank Cash/BankCash";
-import BankCashtoDrawer from "../pages/Manage Bank Cash/BankCashtoDrawer";
-import AddNewUser from "../pages/User Maintenance/AddNewUser";
-import AddNewUserType from "../pages/User Maintenance/AddNewUserType";
-import UserList from "../pages/User Maintenance/UserList";
-import UserType from "../pages/User Maintenance/UserType";
+// import BankCash from "../pages/Manage Bank Cash/BankCash";
+// import BankCashtoDrawer from "../pages/Manage Bank Cash/BankCashtoDrawer";
+// import AddNewUser from "../pages/User Maintenance/AddNewUser";
+// import AddNewUserType from "../pages/User Maintenance/AddNewUserType";
+// import UserList from "../pages/User Maintenance/UserList";
+// import UserType from "../pages/User Maintenance/UserType";
 import Upcoming from "../pages/Liabilities/Upcoming";
 import Asset from "../pages/Report/Asset";
 import BalanceSheet from "../pages/Report/BalanceSheet";
@@ -124,11 +124,11 @@ const router = createBrowserRouter([
       },
       {
         path: "member_request",
-        element: <MemberRequest />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><MemberRequest /></AdminRoute>,
       },
       {
         path: "members_details/:id",
-        element: <MemberDetailsPage />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><MemberDetailsPage /></AdminRoute>,
       },
 
       //Branches routes
@@ -138,357 +138,357 @@ const router = createBrowserRouter([
       },
       {
         path: "add_new_samity",
-        element: <AddNewSamity />,
+        element: <AdminRoute roles={[ROLES.Admin]}><AddNewSamity /></AdminRoute>,
       },
       {
         path: "branch_list",
-        element: <BranchList />,
+        element: <AdminRoute roles={[ROLES.Admin]}><BranchList /></AdminRoute>,
       },
       {
         path: "branch_sub_navbar",
-        element: <BranchSubNavbar />,
+        element: <AdminRoute roles={[ROLES.Admin]}><BranchSubNavbar /></AdminRoute>,
       },
       {
         path: "samity_list",
-        element: <SamityList />,
+        element: <AdminRoute roles={[ROLES.Admin]}><SamityList /></AdminRoute>,
       },
       {
         path: "imw_fund_collection",
-        element: <IMWFundCollection />,
+        element: <AdminRoute roles={[ROLES.Admin]}><IMWFundCollection /></AdminRoute>,
       },
 
       //Saving Accounts routes
       {
         path: "close_saving_account",
-        element: <CloseSavingAccount />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><CloseSavingAccount /></AdminRoute>,
       },
       {
         path: "deposit",
-        element: <Deposit />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><Deposit /></AdminRoute>,
       },
 
       {
         path: "withdraw_money",
-        element: <WithdrawMoney />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><WithdrawMoney /></AdminRoute>,
       },
       {
         path: "transactionn_posting",
-        element: <TransactionnPosting />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><TransactionnPosting /></AdminRoute>,
       },
       {
         path: "account_closing",
-        element: <AccountClosing />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><AccountClosing /></AdminRoute>,
       },
       {
         path: "saving_account_request",
-        element: <SavingAccountRequest />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><SavingAccountRequest /></AdminRoute>,
       },
       {
         path: "closing_account_request",
-        element: <ClosingAccountRequest />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}> <ClosingAccountRequest /></AdminRoute>,
       },
 
       // loan handling routes
       {
         path: "open_loan_account",
-        element: <OpenLoanAccount />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><OpenLoanAccount /></AdminRoute>,
       },
       {
         path: "loan_account_list",
-        element: <LoanAccountList />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><LoanAccountList /></AdminRoute>,
       },
       {
         path: "loan_evaluation",
-        element: <LoanEvaluation />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><LoanEvaluation /></AdminRoute>,
       },
       {
         path: "loan_transaction_posting",
-        element: <Loan_transaction_posting />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><Loan_transaction_posting /></AdminRoute>,
       },
       {
         path: "loan_account_closing",
-        element: <LoanAccountClosing />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><LoanAccountClosing /></AdminRoute>,
       },
       {
         path: "loan_received_money",
-        element: <LoanReceivedMoney />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><LoanReceivedMoney /></AdminRoute>,
       },
 
       {
         path: "loan_account_request",
-        element: <LoanAccountRequest />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><LoanAccountRequest /></AdminRoute>,
       },
       {
         path: "loan_closing_account_request",
-        element: <LoanClosingAccountRequest />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><LoanClosingAccountRequest /></AdminRoute>,
       },
 
       {
         path: "add_loan_plan",
-        element: <AddLoanPlan />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><AddLoanPlan /></AdminRoute>,
       },
       {
         path: "all_collection",
-        element: <AllCollection />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><AllCollection /></AdminRoute>,
       },
       {
         path: "all_loan",
-        element: <AllLoan />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><AllLoan /></AdminRoute>,
       },
       {
         path: "apply_loan",
-        element: <ApplyLoan />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><ApplyLoan /></AdminRoute>,
       },
       {
         path: "loan_collection",
-        element: <LoanCollection />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><LoanCollection /></AdminRoute>,
       },
 
       {
         path: "loan_request",
-        element: <LoanRequest />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><LoanRequest /></AdminRoute>,
       },
       {
         path: "paid_loan",
-        element: <PaidLoan />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><PaidLoan /></AdminRoute>,
       },
       {
         path: "running_loan",
-        element: <RunningLoan />,
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><RunningLoan /></AdminRoute>,
       },
 
       // Expense routes
       {
         path: "all_expense",
-        element: <AllExpense />,
+        element: <AdminRoute roles={[ROLES.Admin]}><AllExpense /></AdminRoute>,
       },
       {
         path: "monthly_expense",
-        element: <MonthlyExpense />,
+        element: <AdminRoute roles={[ROLES.Admin]}><MonthlyExpense /></AdminRoute>,
       },
       {
         path: "purchase",
-        element: <Purchase />,
+        element: <AdminRoute roles={[ROLES.Admin]}><Purchase /></AdminRoute>,
       },
 
       //Employee routs
       {
         path: "employee_add",
-        element: <EmployeeAdd />,
+        element: <AdminRoute roles={[ROLES.Admin]}><EmployeeAdd /></AdminRoute>,
       },
       {
         path: "employee_login_credentials",
-        element: <EmployeeLoginCredentials />,
+        element: <AdminRoute roles={[ROLES.Admin]}><EmployeeLoginCredentials /></AdminRoute>,
       },
       {
         path: "employee_list",
-        element: <EmployeeList />,
+        element: <AdminRoute roles={[ROLES.Admin]}><EmployeeList /></AdminRoute>,
       },
       {
         path: "employee_posting",
-        element: <EmployeePosting />,
+        element: <AdminRoute roles={[ROLES.Admin]}><EmployeePosting /></AdminRoute>,
       },
       {
         path: "employee_details/:id",
-        element: <EmployeeDetailsPage />,
+        element: <AdminRoute roles={[ROLES.Admin]}><EmployeeDetailsPage /></AdminRoute>,
       },
 
       //  Income routes
       {
         path: "any_charges",
-        element: <AnyCharges />,
+        element: <AdminRoute roles={[ROLES.Admin]}><AnyCharges /></AdminRoute>,
       },
       {
         path: "category_wise_income",
-        element: <CategoryWiseIncome />,
+        element: <AdminRoute roles={[ROLES.Admin]}><CategoryWiseIncome /></AdminRoute>,
       },
       {
         path: "loan_profit",
-        element: <LoanProfit />,
+        element: <AdminRoute roles={[ROLES.Admin]}><LoanProfit /></AdminRoute>,
       },
       {
         path: "member_fees",
-        element: <Memberfees />,
+        element: <AdminRoute roles={[ROLES.Admin]}><Memberfees /></AdminRoute>,
       },
       {
         path: "penalty",
-        element: <Penalty />,
+        element: <AdminRoute roles={[ROLES.Admin]}><Penalty /></AdminRoute>,
       },
 
       //manage drawer cash routes
       {
         path: "drawer_cash",
-        element: <DrawerCash />,
+        element: <AdminRoute roles={[ROLES.Admin]}><DrawerCash /></AdminRoute>,
       },
       {
         path: "drawer_cash_to_bank",
-        element: <DrawerCashtoBank />,
+        element: <AdminRoute roles={[ROLES.Admin]}><DrawerCashtoBank /></AdminRoute>,
       },
       {
         path: "add_bank",
-        element: <AddBank />,
+        element: <AdminRoute roles={[ROLES.Admin]}><AddBank /></AdminRoute>,
       },
       //manage bank cash routes
-      {
-        path: "bank_cash",
-        element: <BankCash />,
-      },
-      {
-        path: "bank_cash_to_drawer",
-        element: <BankCashtoDrawer />,
-      },
+      // {
+      //   path: "bank_cash",
+      //   element: <BankCash />,
+      // },
+      // {
+      //   path: "bank_cash_to_drawer",
+      //   element: <BankCashtoDrawer />,
+      // },
 
       //user maintenance routes
-      {
-        path: "add_new_user",
-        element: <AddNewUser />,
-      },
-      {
-        path: "add_new_user_type",
-        element: <AddNewUserType />,
-      },
-      {
-        path: "user_list",
-        element: <UserList />,
-      },
-      {
-        path: "user_type",
-        element: <UserType />,
-      },
+      // {
+      //   path: "add_new_user",
+      //   element: <AddNewUser />,
+      // },
+      // {
+      //   path: "add_new_user_type",
+      //   element: <AddNewUserType />,
+      // },
+      // {
+      //   path: "user_list",
+      //   element: <UserList />,
+      // },
+      // {
+      //   path: "user_type",
+      //   element: <UserType />,
+      // },
 
       //HRM routs
       {
         path: "advance",
-        element: <Advance />,
+        element: <AdminRoute roles={[ROLES.Admin]}><Advance /></AdminRoute>,
       },
       {
         path: "attendance",
-        element: <Attendance />,
+        element: <AdminRoute roles={[ROLES.Admin]}><Attendance /></AdminRoute>,
       },
       {
         path: "extra_bill",
-        element: <ExtraBill />,
+        element: <AdminRoute roles={[ROLES.Admin]}><ExtraBill /></AdminRoute>,
       },
       {
         path: "fixation",
-        element: <Fixation />,
+        element: <AdminRoute roles={[ROLES.Admin]}><Fixation /></AdminRoute>,
       },
       {
         path: "leave_application",
-        element: <LeaveApplication />,
+        element: <AdminRoute roles={[ROLES.Admin]}><LeaveApplication /></AdminRoute>,
       },
       {
         path: "pay_slip",
-        element: <PaySlip />,
+        element: <AdminRoute roles={[ROLES.Admin]}><PaySlip /></AdminRoute>,
       },
       {
         path: "profile",
-        element: <Profile />,
+        element: <AdminRoute roles={[ROLES.Admin]}><Profile /></AdminRoute>,
       },
       {
         path: "salary_posting",
-        element: <SalaryPosting />,
+        element: <AdminRoute roles={[ROLES.Admin]}><SalaryPosting /></AdminRoute>,
       },
       {
         path: "salary_sheet",
-        element: <SalarySheet />,
+        element: <AdminRoute roles={[ROLES.Admin]}><SalarySheet /></AdminRoute>,
       },
       {
         path: "paying_amount_application",
-        element: <PayingAmountApplication />,
+        element: <AdminRoute roles={[ROLES.Admin]}><PayingAmountApplication /></AdminRoute>,
       },
 
       //Assets routes
       {
         path: "edit_fixed_asset",
-        element: <EditFixedAsset />,
+        element: <AdminRoute roles={[ROLES.Admin]}><EditFixedAsset /></AdminRoute>,
       },
       {
         path: "remove_wasted_asset",
-        element: <RemoveWastedAsset />,
+        element: <AdminRoute roles={[ROLES.Admin]}><RemoveWastedAsset /></AdminRoute>,
       },
       {
         path: "fixed_asset_list",
-        element: <FixedAssetList />,
+        element: <AdminRoute roles={[ROLES.Admin]}><FixedAssetList /></AdminRoute>,
       },
       {
         path: "add_new_fixed_asset",
-        element: <AddNewFixedAsset />,
+        element: <AdminRoute roles={[ROLES.Admin]}><AddNewFixedAsset /></AdminRoute>,
       },
       {
         path: "fixed_asset_item",
-        element: <FixedAssetItem />,
+        element: <AdminRoute roles={[ROLES.Admin]}><FixedAssetItem /></AdminRoute>,
       },
       {
         path: "fixed_asset_types",
-        element: <FixedAssetTypes />,
+        element: <AdminRoute roles={[ROLES.Admin]}><FixedAssetTypes /></AdminRoute>,
       },
       // temporary asset
       {
         path: "add_new_temporary_asset",
-        element: <AddNewTemporaryAsset />,
+        element: <AdminRoute roles={[ROLES.Admin]}><AddNewTemporaryAsset /></AdminRoute>,
       },
       {
         path: "edit_temporary_asset",
-        element: <EditTemporaryAsset />,
+        element: <AdminRoute roles={[ROLES.Admin]}><EditTemporaryAsset /></AdminRoute>,
       },
       {
         path: "remove_wasted_temporary_asset",
-        element: <RemoveWastedTemporaryAsset />,
+        element: <AdminRoute roles={[ROLES.Admin]}><RemoveWastedTemporaryAsset /></AdminRoute>,
       },
       {
         path: "temporary_asset_item",
-        element: <TemporaryAssetItem />,
+        element: <AdminRoute roles={[ROLES.Admin]}><TemporaryAssetItem /></AdminRoute>,
       },
       {
         path: "temporary_asset_list",
-        element: <TemporaryAssetList />,
+        element: <AdminRoute roles={[ROLES.Admin]}><TemporaryAssetList /></AdminRoute>,
       },
       {
         path: "temporary_asset_types",
-        element: <TemporaryAssetTypes />,
+        element: <AdminRoute roles={[ROLES.Admin]}><TemporaryAssetTypes /></AdminRoute>,
       },
 
       //Liabilities routes
       {
         path: "upcoming",
-        element: <Upcoming />,
+        element: <AdminRoute roles={[ROLES.Admin]}><Upcoming /></AdminRoute>,
       },
 
       //Report routes
       {
         path: "asset",
-        element: <Asset />,
+        element: <AdminRoute roles={[ROLES.Admin]}><Asset /></AdminRoute>,
       },
       {
         path: "balance_sheet",
-        element: <BalanceSheet />,
+        element: <AdminRoute roles={[ROLES.Admin]}><BalanceSheet /></AdminRoute>,
       },
       {
         path: "credit",
-        element: <Credit />,
+        element: <AdminRoute roles={[ROLES.Admin]}><Credit /></AdminRoute>,
       },
       {
         path: "debit",
-        element: <Debit />,
+        element: <AdminRoute roles={[ROLES.Admin]}><Debit /></AdminRoute>,
       },
       {
         path: "debit_vs_credit",
-        element: <DebitvsCredit />,
+        element: <AdminRoute roles={[ROLES.Admin]}><DebitvsCredit /></AdminRoute>,
       },
       {
         path: "liabilities",
-        element: <Liabilities />,
+        element: <AdminRoute roles={[ROLES.Admin]}><Liabilities /></AdminRoute>,
       },
       {
         path: "tds_tax_vat",
-        element: <TdsTaxVat />,
+        element: <AdminRoute roles={[ROLES.Admin]}><TdsTaxVat /></AdminRoute>,
       },
 
       //settings routes
       {
         path: "settings",
-        element: <GeneralSettings />,
+        element: <AdminRoute roles={[ROLES.Admin]}><GeneralSettings /></AdminRoute>,
       },
 
       //Registration Routes
