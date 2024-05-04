@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom'
 import './App.css'
 import SideNavbar from './component/sidebar/SideNavbar'
 import MobileNav from './component/Navbar/MobileNav'
+import AdminRoute from './router/AdminRoute'
 
 
 
@@ -15,11 +16,11 @@ function App() {
             <SideNavbar />
           </div>
 
-         <div className='min-w-full'>
-          <MobileNav/>
-          </div>     
+          <div className='min-w-full'>
+            <MobileNav />
+          </div>
 
-
+          <AdminRoute />
         </div>
 
         <div className=' w-full md:w-4/5'>
