@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useMutationHook from "../../../hooks/useMutationHook";
 import { loginAdminCollector } from "../../../api/admin";
@@ -14,6 +14,7 @@ const initialState = {
 const Login = () => {
   const [formData, setFormData] = useState(initialState);
   const { setUser, getUser } = useUserType();
+  const role = getUser()
   const navigate = useNavigate();
   const { mutate, isError, errorMessage } = useMutationHook(
     loginAdminCollector,
@@ -34,6 +35,11 @@ const Login = () => {
     e.preventDefault();
     mutate(formData);
   }
+  // useEffect(() => {
+  //   if (role) {
+  //     navigate("/")
+  //   }
+  // }, [])
   return (
     <div>
       <section>

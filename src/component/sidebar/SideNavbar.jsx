@@ -1,7 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useUserType } from "../../../hooks/userContext";
+
 
 
 const SideNavbar = () => {
+    const { logout } = useUserType()
+    const nextPage = useNavigate()
+    const logOutFunction = () => {
+        logout();
+        nextPage('/auth/login')
+
+    }
+
     return (
 
 
@@ -232,12 +242,12 @@ const SideNavbar = () => {
                                     <path d="M440,424V88H352V13.005L88,58.522V424H16v32h86.9L352,490.358V120h56V456h88V424ZM320,453.642,120,426.056V85.478L320,51Z"></path>
                                     <rect width="32" height="64" x="256" y="232"></rect>
                                 </svg>
-                                <span>Logout</span>
+                                <button onClick={logOutFunction}><span>Logout</span></button>
                             </a>
                         </li>
                     </ul>
                 </div>
-                
+
             </div>
 
 
