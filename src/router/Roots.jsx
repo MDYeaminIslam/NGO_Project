@@ -94,7 +94,7 @@ import ForgotPass from "../pages/Login/ForgotPass";
 import RegPage from "../pages/Login/RegPage";
 import Registration from "../pages/Registration/Registration";
 import AdminRoute from "./AdminRoute";
-import { ROLES } from "../../config/roles";
+import ROLES from "../../config/roles";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -103,7 +103,11 @@ const router = createBrowserRouter([
       //admin dashboard
       {
         path: "/",
-        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><DashBoardAdmin /></AdminRoute>,
+        element: (
+          <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}>
+            <DashBoardAdmin />
+          </AdminRoute>
+        ),
       },
       // members routes
       {
@@ -491,7 +495,7 @@ const router = createBrowserRouter([
       {
         path: "registration",
         element: <Registration />,
-      }
+      },
     ],
   },
   // login routes

@@ -1,71 +1,174 @@
+import { useMemo, useState } from "react";
 import LoanManagementNav from "./LoanManagementNav/LoanManagementNav";
-
-
+const initialState = {
+  institute: null,
+  nameOfInstitute: null,
+  durationInMonth: 0,
+  interestRate: 0,
+  amount: 0,
+  totalAmount: 0,
+  perInstallment: 0,
+  remark: null,
+};
 const LoanReceivedMoney = () => {
-    return (
-        <div>
-            <section>
-                <LoanManagementNav />
-            </section>
+  const [formData, setFormData] = useState(initialState);
+  const handleChange = (e) => {
+    const { name, value, type } = e.target;
+    console.log(type);
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "number" ? Number(value) : value,
+    }));
+  };
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(formData);
+  }
+  const totalAmount = useMemo(() => {
+    const profit = formData.amount * (formData.interestRate / 100);
+    const totalAmount = formData.amount + profit;
+    const perInstallment = totalAmount / formData.durationInMonth;
+    console.log(profit, totalAmount);
+    setFormData((prev) => ({ ...prev, totalAmount, perInstallment }));
+  }, [formData.durationInMonth, formData.interestRate, formData.amount]);
+  return (
+    <div>
+      <section>
+        <LoanManagementNav />
+      </section>
 
-            <section className="m-4">
-                <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 "> Loan Received Money</h1>
-                <form className="my-8" >
-                    <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
+      <section className="m-4">
+        <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
+          {" "}
+          Loan Received Money
+        </h1>
+        <form className="my-8">
+          <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
+            <div className="flex flex-col gap-1">
+              <label
+                className="font-medium "
+                htmlFor="financial_institute_type"
+              >
+                Financial Institute Type:
+              </label>
+              <select
+                name="institute"
+                onChange={handleChange}
+                className=" input input-bordered input-sm hover:border-teal-500 "
+              >
+                <option value="organization">Organization</option>
+                <option value="bank">Bank</option>
+                <option value="bank">Another Financial Institute</option>
+              </select>
+            </div>
 
-                        <div className="flex flex-col gap-1">
-                            <label className="font-medium " htmlFor="financial_institute_type">Financial Institute Type:</label>
-                            <select className=" input input-bordered input-sm hover:border-teal-500 " >
-                                <option >Organization</option>
-                                <option >Bank</option>
-                                <option >Another Financial Institute</option>
+            <div className="flex flex-col gap-1">
+              <label className="font-medium" htmlFor="name_of_the_institute">
+                Name of the Institute:
+              </label>
+              <input
+                className="input input-bordered input-sm  hover:border-teal-500  "
+                id="name_of_the_institute"
+                type="text"
+                name="nameOfInstitute"
+                onChange={handleChange}
+                placeholder="enter name of the institute"
+              />
+            </div>
 
-                            </select>
-                        </div>
+            <div className="flex flex-col gap-1">
+              <label className="font-medium" htmlFor="duration_of_month">
+                Duration of Month:
+              </label>
+              <input
+                className="input input-bordered input-sm  hover:border-teal-500  "
+                id="duration_of_month"
+                type="number"
+                name="durationInMonth"
+                placeholder="enter number of month"
+                onChange={handleChange}
+              />
+            </div>
 
-                        <div className="flex flex-col gap-1">
-                            <label className="font-medium" htmlFor="name_of_the_institute">Name of the Institute:</label>
-                            <input className="input input-bordered input-sm  hover:border-teal-500  " id="name_of_the_institute" type="text" placeholder="enter name of the institute" />
-                        </div>
+            <div className="flex flex-col gap-1">
+              <label className="font-medium" htmlFor="rate">
+                Rate:
+              </label>
+              <input
+                className="input input-bordered input-sm  hover:border-teal-500  "
+                id="rate"
+                type="number"
+                name="interestRate"
+                placeholder="%"
+                onChange={handleChange}
+              />
+            </div>
 
-                        <div className="flex flex-col gap-1">
-                            <label className="font-medium" htmlFor="duration_of_month">Duration of Month:</label>
-                            <input className="input input-bordered input-sm  hover:border-teal-500  " id="duration_of_month" type="text" placeholder="enter number of month" />
-                        </div>
+            <div className="flex flex-col gap-1">
+              <label className="font-medium" htmlFor="amount">
+                Amount:
+              </label>
+              <input
+                className="input input-bordered input-sm  hover:border-teal-500  "
+                id="amount"
+                type="number"
+                name="amount"
+                placeholder="enter amount"
+                onChange={handleChange}
+              />
+            </div>
+            <div className="flex flex-col gap-1">
+              <label className="font-medium" htmlFor="amount">
+                Total Amount:
+              </label>
+              <input
+                className="input input-bordered input-sm  hover:border-teal-500  "
+                id="amount"
+                value={formData.totalAmount}
+                disabled
+                placeholder="enter amount"
+              />
+            </div>
+            <div className="flex flex-col gap-1">
+              <label className="font-medium" htmlFor="amount">
+                Per Installment:
+              </label>
+              <input
+                className="input input-bordered input-sm  hover:border-teal-500  "
+                id="amount"
+                value={formData.perInstallment}
+                disabled
+                placeholder="enter amount"
+              />
+            </div>
 
-                        <div className="flex flex-col gap-1">
-                            <label className="font-medium" htmlFor="rate">Rate:</label>
-                            <input className="input input-bordered input-sm  hover:border-teal-500  " id="rate" type="text" placeholder="%" />
-                        </div>
+            <div className="flex flex-col gap-1">
+              <label className="font-medium" htmlFor="reason">
+                {" "}
+                Remark:
+              </label>
+              <textarea
+                className="input input-bordered hover:border-teal-500 "
+                id="remark"
+                cols="10"
+                rows="1"
+                name="remark"
+              ></textarea>
+            </div>
+          </section>
+        </form>
 
-                        <div className="flex flex-col gap-1">
-                            <label className="font-medium" htmlFor="amount">Amount:</label>
-                            <input className="input input-bordered input-sm  hover:border-teal-500  " id="amount" type="text" placeholder="enter amount" />
-                        </div>
-
-                        <div className="flex flex-col gap-1">
-                            <label className="font-medium " htmlFor="currency_type">Currency Type:</label>
-                            <select className=" input input-bordered input-sm hover:border-teal-500 " >
-                                <option >BDT</option>
-                                <option >Other Currency</option>
-                            </select>
-                        </div>
-
-                        <div className="flex flex-col gap-1">
-                            <label className="font-medium" htmlFor="reason"> Remark:</label>
-                            <textarea className="input input-bordered hover:border-teal-500 " id="remark" cols="10" rows="1"></textarea>
-                        </div>
-
-                    </section>
-
-                </form>
-
-                <div className="w-fit mx-auto  m-8">
-                    <input className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white" type="submit" />
-                </div>
-            </section>
+        <div className="w-fit mx-auto  m-8">
+          <button
+            onClick={handleSubmit}
+            className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
+          >
+            Submit
+          </button>
         </div>
-    );
+      </section>
+    </div>
+  );
 };
 
 export default LoanReceivedMoney;

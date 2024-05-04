@@ -1,7 +1,13 @@
 import { createContext, useState, useContext, useEffect } from "react";
 
 // Create a context
-const UserTypeContext = createContext(null);
+const UserTypeContext = createContext({
+  userType: null,
+  setUser: () => {},
+  getUser: () => null,
+  logout: () => {},
+  isLoading: true, // Add isLoading state for loading indicator
+});
 
 // Custom hook to use UserTypeContext
 export const useUserType = () => {
@@ -12,8 +18,10 @@ export const useUserType = () => {
 export const UserTypeProvider = ({ children }) => {
   const [userType, setUserType] = useState(() => {
     // Initialize userType from localStorage, defaulting to null if not found
-    return localStorage.getItem("userType") || "asif";
+    return localStorage.getItem("userType") || null;
   });
+
+  const [isLoading, setIsLoading] = useState(false); // Set initial loading state to false
 
   // Function to set user type
   const setUser = (type) => {
@@ -32,11 +40,20 @@ export const UserTypeProvider = ({ children }) => {
     localStorage.removeItem("userType"); // Remove userType from localStorage
   };
 
+  useEffect(() => {
+    // Simulate asynchronous data fetching (replace with actual fetch logic)
+    setTimeout(() => {
+      setUserType(localStorage.getItem("userType"));
+      setIsLoading(false); // Set loading to false after simulated fetch
+    }, 1000); // Simulate 1 second delay
+  }, []); // Empty dependency array to run only on initial render
+
   // Value to be provided by the context
   const value = {
     setUser,
     getUser,
     logout,
+    isLoading, // Include isLoading in the provided value
   };
 
   return (

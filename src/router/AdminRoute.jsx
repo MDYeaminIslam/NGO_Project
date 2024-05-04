@@ -1,21 +1,17 @@
 import { Navigate } from "react-router-dom";
 import { useUserType } from "../../hooks/userContext";
 
-
 const AdminRoute = ({ children, roles }) => {
-    const { getUser } = useUserType()
-    const role = getUser()
-    const allowedRoles = Array.isArray(roles) ? roles : []
-    console.log(Array.isArray(roles));
+  const { getUser, isLoading } = useUserType();
+  if (isLoading || !roles) {
+    return;
+  }
+  const role = getUser();
+  const allowedRoles = Array.isArray(roles) ? roles : [];
 
-    // const r = roles.includes(role)
-    //console.log(r);
-    const check = allowedRoles.includes(role)
-    console.log(check);
-    console.log(children);
+  const check = allowedRoles.includes(role);
 
-    const content = check ? children : <Navigate to="/auth/login" />
-    return content
+  return check ? children : <Navigate to="/auth/login" />;
 };
 
 export default AdminRoute;
