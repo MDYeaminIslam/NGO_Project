@@ -145,7 +145,7 @@ const Login = () => {
                     to={"/auth/registration"}
                     className="btn  bg-emerald-500 hover:bg-teal-700 text-white"
                   >
-                    Sing up
+                    Sign Up
                   </Link>
                 </div>
               </form>
