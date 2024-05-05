@@ -89,8 +89,8 @@ const SavingAccountNav = () => {
 
 
 
-            <div className="hidden sm:block sm:ml-6">
-              <div className="flex  space-x-4">
+            <div className="hidden md:block ">
+              <div className="flex flex-wrap w-full  ">
 
 
 
@@ -114,11 +114,11 @@ const SavingAccountNav = () => {
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Saving Account Request</p>
                 </Link>
 
-                <li>
-                  <Link to={'/closing_account_request'}>
-                    <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Closing Account Request</p>
-                  </Link>
-                </li>
+
+                <Link to={'/closing_account_request'}>
+                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Closing Account Request</p>
+                </Link>
+
 
 
                 <Link to={'/saving_account_list'}>
