@@ -97,6 +97,7 @@ import AdminRoute from "./AdminRoute";
 import ROLES from "../../config/roles";
 import LoanPayList from "../pages/Loan Management/LoanPayList";
 import LoanPayDetails from "../pages/Loan Management/LoanPayDetails";
+import SavingAccountList from "../pages/Saving Account/SavingAccountList";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -188,6 +189,10 @@ const router = createBrowserRouter([
       {
         path: "closing_account_request",
         element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}> <ClosingAccountRequest /></AdminRoute>,
+      },
+      {
+        path: "saving_account_list",
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><SavingAccountList/> </AdminRoute>
       },
 
       // loan handling routes

@@ -38,7 +38,7 @@ const FixedAssetList = () => {
             <button
               className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium text-white "
               onClick={handleSubmit}
-            >
+            > 
               Search
             </button>
           </div>
