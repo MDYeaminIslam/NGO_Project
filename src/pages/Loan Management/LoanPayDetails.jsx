@@ -9,6 +9,7 @@ import { useState } from "react";
 import useMutationHook from "../../../hooks/useMutationHook";
 
 import toast from "react-hot-toast";
+import LoanPayDetailsList from "./LoanPayDetailsList";
 const initialState = {
   ngoLoanId: null,
   amount: 0,
@@ -22,6 +23,7 @@ const LoanPayDetails = () => {
   const { data, isFetched } = useQuery({
     queryKey: [`nog-loan-${id}`],
     queryFn: () => ngoLoanTransaction(id),
+    initialData: [],
   });
 
   console.log(data);
@@ -31,6 +33,7 @@ const LoanPayDetails = () => {
     onSuccess: () => {
       toast.success("Done!");
     },
+
     onError: (datad) => {
       toast.error("Something went wrong ");
     },
@@ -51,10 +54,17 @@ const LoanPayDetails = () => {
     console.log(data);
     mutate(data);
   }
+
   return (
-    <div className="w-full">
-      {isFetched ? data.length ? <h1>{data[0].NgoLoanDetails.totalPaid}</h1> : null : null}
-      <form className="flex flex-col md:flex-row items-center gap-4 p-4">
+    <div className="max-w-5xl mx-auto mt-8">
+      <div className="text-lg p-4 bg-base-200 w-fit mx-auto rounded-md m-4 tracking-normal leading-relaxed flex flex-wrap gap-4 ">
+        {isFetched ? <h1 className="bg-teal-700 text-white p-2 rounded-md font-medium"> Name of Institute:<span className="font-thin mx-2 ">  {data.ngoLoanDetails.nameOfInstitute}</span></h1> : null}
+        {isFetched ? <h1 className="bg-teal-700 text-white p-2 rounded-md font-medium"> Total Amount:<span className="font-thin mx-2 ">  {data.ngoLoanDetails.totalAmount}</span></h1> : null}
+        {isFetched ? <h1 className="bg-teal-700 text-white p-2 rounded-md font-medium">Total Paid: <span className="font-thin mx-2 ">  {data.ngoLoanDetails.totalPaid}</span></h1> : null}
+        {isFetched ? <h1 className="bg-teal-700 text-white p-2 rounded-md font-medium">Per Installment: <span className="font-thin mx-2 ">  {data.ngoLoanDetails.perInstallment.toFixed(2)}</span></h1> : null}
+
+      </div>
+      <form className="flex flex-col w-fit mx-auto md:flex-row items-center p-4 gap-4">
         <input
           className="input input-bordered input-sm  hover:border-teal-500  "
           type="number"
@@ -72,7 +82,23 @@ const LoanPayDetails = () => {
 
         <button className="btn bg-teal-700 text-white" onClick={handleSubmit}>Submit</button>
       </form>
-      {isFetched ? <h1>{data[0].transactions.length} </h1> : null}
+      <div>
+        <div>
+          <div className="max-w-5xl mx-auto bg-teal-700 text-white py-4 ">
+            <tr className="grid grid-cols-1 md:grid-cols-5  items-center justify-center gap-1 text-start">
+              <th>Remark</th>
+              <th>Date</th>
+              <th>Amount</th>
+              <th>NGO Loan ID</th>
+            </tr>
+          </div>
+        </div>
+        {
+          isFetched ?
+            data.transactionDetails.map((data, idx) => <LoanPayDetailsList data={data} key={idx} />)
+            : null
+        }
+      </div>
     </div>
   );
 };
