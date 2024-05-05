@@ -246,3 +246,14 @@ export async function ngoLoanList() {
   const response = await axiosAdmin.get("/loan/ngo-loan/list");
   return response.data.data;
 }
+
+//ngo loan transaction by id
+export async function ngoLoanTransaction(id) {
+  const response = await axiosAdmin.get(`/loan/ngo-loan/${id}`);
+  return response.data.data;
+}
+//ngo loan pay
+export async function ngoLoanPayment(data) {
+  const response = await axiosAdmin.post("/loan/ngo-loan/pay", data);
+  return response.data;
+}
