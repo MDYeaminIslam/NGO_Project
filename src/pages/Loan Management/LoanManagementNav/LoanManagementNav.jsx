@@ -85,9 +85,16 @@ const LoanManagementNav = () => {
 
                     <li>
                       <Link to={'/loan_closing_account_request'}>
-                        <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-normal">Closing Account Request</p>
+                        <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-normal">Closing  Account Request</p>
                       </Link>
                     </li>
+
+                    <li>
+                      <Link to={'/loan_pay_list'}>
+                        <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-normal">Loan Pay List</p>
+                      </Link>
+                    </li>
+
 
                   </ul>
                 </div>
@@ -129,6 +136,10 @@ const LoanManagementNav = () => {
 
                 <Link to={'/loan_closing_account_request'}>
                   <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">Closing Account Request</p>
+                </Link>
+
+                <Link to={'/loan_pay_list'}>
+                  <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">Loan Pay List</p>
                 </Link>
 
 
