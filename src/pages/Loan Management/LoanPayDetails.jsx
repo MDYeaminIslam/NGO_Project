@@ -23,6 +23,7 @@ const LoanPayDetails = () => {
   const { data, isFetched } = useQuery({
     queryKey: [`nog-loan-${id}`],
     queryFn: () => ngoLoanTransaction(id),
+    initialData: [],
   });
 
   console.log(data);
@@ -52,9 +53,10 @@ const LoanPayDetails = () => {
     console.log(data);
     mutate(data);
   }
+
   return (
     <div>
-      {isFetched ? <h1>{data[0].NgoLoanDetails.totalPaid}</h1> : null}
+      {isFetched ? <h1>{data.ngoLoanDetails.totalPaid}</h1> : null}
       <form>
         <input
           className="input input-bordered input-sm  hover:border-teal-500  "
@@ -73,7 +75,7 @@ const LoanPayDetails = () => {
 
         <button onClick={handleSubmit}>Submit</button>
       </form>
-      {isFetched ? <h1>{data[0].transactions.length} </h1> : null}
+      {isFetched ? <h1>{data.transactionDetails.length} </h1> : null}
     </div>
   );
 };
