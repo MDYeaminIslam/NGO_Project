@@ -16,6 +16,7 @@ const initialState = {
 const LoanReceivedMoney = () => {
   const [formData, setFormData] = useState(initialState);
   const { mutate, isError, errorMessage } = useMutationHook(ngoLoansCreate, {
+    key: ["ngo-loan"],
     onSuccess: () => {
       toast.success("Done");
     },
