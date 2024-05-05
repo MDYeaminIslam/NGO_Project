@@ -90,7 +90,7 @@ const LoanManagementNav = () => {
                     </li>
 
                     <li>
-                      <Link to={'/loan_pay_list'}>
+                      <Link to={'/ngo_loan_pay_list'}>
                         <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-normal">Loan Pay List</p>
                       </Link>
                     </li>
@@ -138,7 +138,7 @@ const LoanManagementNav = () => {
                   <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">Closing Account Request</p>
                 </Link>
 
-                <Link to={'/loan_pay_list'}>
+                <Link to={'/ngo_loan_pay_list'}>
                   <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">Loan Pay List</p>
                 </Link>
 

@@ -96,6 +96,7 @@ import Registration from "../pages/Registration/Registration";
 import AdminRoute from "./AdminRoute";
 import ROLES from "../../config/roles";
 import LoanPayList from "../pages/Loan Management/LoanPayList";
+import LoanPayDetails from "../pages/Loan Management/LoanPayDetails";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -258,8 +259,12 @@ const router = createBrowserRouter([
         element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><RunningLoan /></AdminRoute>,
       },
       {
-        path: 'loan_pay_list',
+        path: 'ngo_loan_pay_list',
         element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><LoanPayList /></AdminRoute>,
+      },
+      {
+        path: 'loan_pay_details/:id',
+        element: <LoanPayDetails />,
       },
 
       // Expense routes
