@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
 import { useParams, useLocation } from "react-router-dom";
 import {
   ngoLoanList,
@@ -8,7 +7,7 @@ import {
 } from "../../../api/admin";
 import { useState } from "react";
 import useMutationHook from "../../../hooks/useMutationHook";
-import { key } from "localforage";
+
 import toast from "react-hot-toast";
 const initialState = {
   ngoLoanId: null,
@@ -32,7 +31,7 @@ const LoanPayDetails = () => {
     onSuccess: () => {
       toast.success("Done!");
     },
-    onError: (data) => {
+    onError: (datad) => {
       toast.error("Something went wrong ");
     },
   });
@@ -53,9 +52,9 @@ const LoanPayDetails = () => {
     mutate(data);
   }
   return (
-    <div>
-      {isFetched ? <h1>{data[0].NgoLoanDetails.totalPaid}</h1> : null}
-      <form>
+    <div className="w-full">
+      {isFetched ? data.length ? <h1>{data[0].NgoLoanDetails.totalPaid}</h1> : null : null}
+      <form className="flex flex-col md:flex-row items-center gap-4 p-4">
         <input
           className="input input-bordered input-sm  hover:border-teal-500  "
           type="number"
@@ -71,7 +70,7 @@ const LoanPayDetails = () => {
           placeholder="Remark"
         />
 
-        <button onClick={handleSubmit}>Submit</button>
+        <button className="btn bg-teal-700 text-white" onClick={handleSubmit}>Submit</button>
       </form>
       {isFetched ? <h1>{data[0].transactions.length} </h1> : null}
     </div>
