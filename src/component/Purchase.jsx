@@ -1,5 +1,9 @@
-import React from "react";
+import { Link } from "react-router-dom";
+
+
 
 export default function Purchase({ data }) {
-  return <div>Purchase</div>;
+  return <div>Purchase
+    <Link to={'asdasd${asdasd}'} state={data}></Link>
+  </div>;
 }

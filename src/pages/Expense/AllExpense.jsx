@@ -26,6 +26,7 @@ const AllExpense = () => {
     event.preventDefault();
     mutate(formData);
   }
+  console.log(expenses);
   return (
     <div>
       <section>

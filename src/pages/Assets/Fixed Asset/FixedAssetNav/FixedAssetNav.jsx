@@ -16,13 +16,13 @@ const FixedAssetNav = () => {
                 <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
                     <div className="relative flex  items-center justify-between h-16">
 
-                        <div className="block sm:hidden relative">
+                        <div className="block sm:hidden  relative">
                             <button
                                 onClick={toggleDropdown}
-                                className="text-black bg-white focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
+                                className="text-black ml-4 bg-white focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
                                 type="button">
 
-                                --Select Menu--
+                                Select Menu
                                 <svg
                                     className="w-2.5 h-2.5 ms-3"
                                     aria-hidden="true"
@@ -33,9 +33,9 @@ const FixedAssetNav = () => {
                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
                                 </svg>
                             </button>
-
+                            {/* for mobile */}
                             {isOpen && (
-                                <div className="absolute right-0 mt-2 w-44 bg-white divide-y divide-gray-100 rounded-lg shadow-lg">
+                                <div className="absolute right-0 mt-2  bg-white divide-y divide-gray-100 rounded-lg shadow-lg ml-4 ">
 
 
                                     <ul className="py-2 text-sm text-black" aria-labelledby="dropdownDefaultButton">
@@ -83,7 +83,7 @@ const FixedAssetNav = () => {
                         </div>
 
 
-
+                        {/* for pc */}
                         <div className="hidden sm:block sm:ml-6">
                             <div className="flex flex-wrap space-x-2 ">
 
