@@ -92,6 +92,13 @@ export async function searchLoanAccount(number) {
     return [];
   }
 }
+export async function searchDepositAccountByBranchAndSamity(body) {
+  const { branchId, samityId } = body;
+  const response = await axiosAdmin.get(
+    `/deposit/list?branchId=${branchId}&samityId=${samityId}`
+  );
+  return response.data;
+}
 
 //create employee
 export async function createEmployee(data) {

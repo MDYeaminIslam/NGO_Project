@@ -109,6 +109,8 @@ const Deposit = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = {
+      branchId: searchedUser.branchId,
+      samityId: searchedUser.samityId,
       memberId: searchedUser._id,
       ...formData,
     };
