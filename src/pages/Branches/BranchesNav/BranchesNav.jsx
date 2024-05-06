@@ -19,10 +19,10 @@ function BranchesNav() {
               <div className="block sm:hidden relative">
                 <button
                   onClick={toggleDropdown}
-                  className="text-black bg-white focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
+                  className="ml-4 text-black bg-white focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
                   type="button">
 
-                  --Select Menu--
+                  Select Menu
                   <svg
                     className="w-2.5 h-2.5 ms-3"
                     aria-hidden="true"
@@ -35,7 +35,7 @@ function BranchesNav() {
                 </button>
 
                 {isOpen && (
-                  <div className="absolute right-0 mt-2 w-44 bg-white divide-y divide-gray-100 rounded-lg shadow-lg">
+                  <div className="ml-4 absolute right-0 mt-2 bg-white divide-y divide-gray-100 rounded-lg shadow-lg">
 
 
                     <ul className="py-2 text-sm text-black" aria-labelledby="dropdownDefaultButton">
