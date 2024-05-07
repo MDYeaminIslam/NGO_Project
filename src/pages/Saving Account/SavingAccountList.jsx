@@ -28,7 +28,7 @@ const SavingAccountList = () => {
       <section>
         <SavingAccountNav />
       </section>
-      <section className=" flex flex-col md:flex-row p-2">
+      <section className=" flex flex-col md:flex-row p-2 gap-2 items-center">
         <BranchSamitySelector callBackFn={setFormData} />
         <button className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium w-fit  text-white mt-8 mx-auto justify-center" onClick={handleSubmit}>Search</button>
       </section>
