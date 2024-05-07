@@ -28,8 +28,11 @@ const Loan_transaction_posting = () => {
       },
     });
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const { name, value, type } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "number" ? Number(value) : value,
+    }));
   };
   // * handleSearchUser
   const handleSearchUser = async (event) => {
@@ -141,7 +144,7 @@ const Loan_transaction_posting = () => {
                   id="installment_amount"
                   name="amount"
                   onChange={handleChange}
-                  type="text"
+                  type="number"
                   placeholder="installment amount"
                 />
               </div>
@@ -185,7 +188,7 @@ const Loan_transaction_posting = () => {
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
                   id="installment_payment"
-                  type="text"
+                  type="number"
                   placeholder="auto refill"
                   value={
                     searchedUser
@@ -204,7 +207,7 @@ const Loan_transaction_posting = () => {
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
                   id="balance"
-                  type="text"
+                  type="number"
                   placeholder=""
                   value={
                     searchedUser
@@ -222,7 +225,7 @@ const Loan_transaction_posting = () => {
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
                   id="balance"
-                  type="text"
+                  type="number"
                   placeholder=""
                   value={searchedUser ? searchedUser.paid : "NO Data Available"}
                   disabled
@@ -235,7 +238,6 @@ const Loan_transaction_posting = () => {
                 onClick={handleSubmit}
                 className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
               >
-                
                 Submit
               </button>
               <input
