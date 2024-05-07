@@ -84,28 +84,3 @@ const LoanPayCardView = ({ data }) => {
 
 export default LoanPayCardView;
 
-// _id: '66372e874bda9c80dae60736',
-
-// institute: 'bank',
-
-// nameOfInstitute: 'asif',
-
-// durationInMonth: 3,
-
-// interestRate: 10,
-
-// amount: 100,
-
-// totalAmount: 110,
-
-// perInstallment: 36.666666666666664,
-
-// remark: 'asif',
-
-// totalPaid: 0,
-
-// createdAt: '2024-05-05T07:00:23.370Z',
-
-// updatedAt: '2024-05-05T07:00:23.370Z',
-
-// __v: 0

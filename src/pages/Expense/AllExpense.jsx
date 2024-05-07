@@ -38,7 +38,7 @@ const AllExpense = () => {
           All Expense{" "}
         </h1>
       </section>
-      <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4 my-8">
+      <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4 my-8 px-4">
         <BranchSamitySelector callBackFn={setFormData} />
         <div className="flex flex-col gap-1">
           <label className="font-medium " htmlFor="payment_term">
@@ -63,11 +63,45 @@ const AllExpense = () => {
           Search
         </button>
       </div>
-      <section>
+      <section className="px-4">
         {formData.type
           ? formData.type === "purchase"
-            ? expenses.map((data, idx) => <Purchase data={data} key={idx} />)
-            : expenses.map((data, idx) => <Expense data={data} key={idx} />)
+            ? <section>
+              <section>
+                <div className="max-w-5xl mx-auto bg-teal-700 text-white py-4 mt-8 ">
+                  <tr className="grid grid-cols-1 md:grid-cols-5  items-center justify-center gap-1 text-start">
+                    <th>Expense Name</th>
+                    <th>Date</th>
+                    <th>Total Payment</th>
+                    <th>status</th>
+                    <th>action</th>
+                  </tr>
+                </div>
+              </section>
+              <section>
+                {
+                  expenses.map((data, idx) => <Purchase data={data} key={idx} />)
+                }
+              </section>
+            </section>
+            : <section>
+              <section>
+                <div className="max-w-5xl mx-auto bg-teal-700 text-white py-4 mt-8 ">
+                  <tr className="grid grid-cols-1 md:grid-cols-5  items-center justify-center gap-1 text-start">
+                    <th>Expense Name</th>
+                    <th>Date</th>
+                    <th>Total Payment</th>
+                    <th>status</th>
+                    <th>action</th>
+                  </tr>
+                </div>
+              </section>
+              <section>
+                {
+                  expenses.map((data, idx) => <Expense data={data} key={idx} />)
+                }
+              </section>
+            </section>
           : null}
       </section>
     </div>

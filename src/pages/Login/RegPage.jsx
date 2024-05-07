@@ -37,9 +37,15 @@ const RegPage = () => {
   }
   function handleSubmit(event) {
     event.preventDefault();
-    const { password, confirmPassword } = formData;
+    const { password, confirmPassword, phoneNumber } = formData;
     if (password !== confirmPassword) {
       return toast.error("Password does not match");
+    }
+    else if (!/^\d{8}$/.test(password)) {
+      return toast.error("Password must be at least 8 characters");
+    }
+    if (!/^\d{11}$/.test(phoneNumber)) {
+      return toast.error("Phone must be at least 11 characters BD Format");
     }
     mutate(formData);
   }
@@ -105,7 +111,7 @@ const RegPage = () => {
               className="btn  bg-emerald-500 hover:bg-teal-700 text-white"
               onClick={handleSubmit}
             >
-              Sing Up{" "}
+              Sing Up
             </button>
           </div>
         </form>
