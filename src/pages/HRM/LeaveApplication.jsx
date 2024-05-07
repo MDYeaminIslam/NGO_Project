@@ -81,7 +81,7 @@ const LeaveApplication = () => {
 
         </form>
 
-        <div className="flex gap-6 justify-center items-center mt-6   col-span-2">
+        <div className="flex flex-col md:flex-row gap-6 justify-center items-center mt-6   col-span-2">
           <label className="font-medium pt-10" htmlFor="grant_leave">Grant Leave:</label>
           <div className="flex w-fit mt-8">
             <button className="bg-green-500 hover:bg-green-700 px-10 py-2 rounded font-medium     text-white"

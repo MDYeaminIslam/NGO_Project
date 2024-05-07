@@ -133,7 +133,7 @@ const PaySlip = () => {
             Addition
           </h1>
           <form className="my-8">
-            <section className="grid grid-cols-3 max-w-5xl mx-auto gap-4">
+            <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="acc_id">
                   Account Id:{" "}
@@ -259,7 +259,7 @@ const PaySlip = () => {
             Deduction
           </h1>
           <form className="my-8">
-            <section className="grid grid-cols-3 max-w-5xl mx-auto gap-4">
+            <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="advance">
                   Advance:
@@ -360,7 +360,7 @@ const PaySlip = () => {
           </form>
         </section>
 
-        <div className="flex gap-6 justify-center items-center mt-6 mb-12 col-span-2">
+        <div className="flex flex-col md:flex-row gap-6 justify-center items-center mt-6 mb-12 col-span-2">
           <div className="flex w-fit mt-8">
             <button
               className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"

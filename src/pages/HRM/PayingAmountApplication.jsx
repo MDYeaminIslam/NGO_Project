@@ -76,7 +76,7 @@ const PayingAmountApplication = () => {
           Paying Amount Application
         </h1>
         <form className="my-8" action="">
-          <section className="grid grid-cols-3 max-w-5xl mx-auto gap-4">
+          <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="employee_id">
                 Employee Id:

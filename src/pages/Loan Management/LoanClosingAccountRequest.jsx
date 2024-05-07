@@ -27,8 +27,8 @@ const LoanClosingAccountRequest = () => {
                                 <input className="input input-bordered input-sm  hover:border-teal-500  " id="account_id" type="text" placeholder="" />
                             </div>
 
-                            <div className="flex   gap-1 ">
-                                <label className="font-medium pt-10" htmlFor="account_id">Action:</label>
+                            <div className="flex flex-col md:flex-row  gap-1 ">
+                                <label className="font-medium pt-10 text-center md:text-start" htmlFor="account_id">Action:</label>
 
                                 <div className="w-full flex justify-center  mt-8">
                                     <input className="bg-green-500 hover:bg-green-700 px-10 py-2 rounded font-medium     text-white" type="submit" value="Approve" />

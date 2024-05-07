@@ -75,7 +75,7 @@ const LoanAccountClosing = () => {
 
                         </section>
 
-                        <div className="w-full flex justify-center  mt-12 gap-6">
+                        <div className="w-full flex flex-col md:flex-row justify-center  mt-12 gap-6">
                             <input className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white" type="submit" value="Save" />
                             <button className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white">Save and Print</button>
 

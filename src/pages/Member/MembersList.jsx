@@ -38,8 +38,8 @@ const MembersList = () => {
           Members List{" "}
         </h1>
 
-        <section className="flex gap-4 my-8 pb-8 max-w-5xl mx-auto items-center  border-b-2">
-          <div className="w-full flex gap-4">
+        <section className="flex flex-col md:flex-row gap-4 my-8 pb-8 md:max-w-5xl mx-auto items-center  border-b-2">
+          <div className="w-full flex flex-col md:flex-row gap-4">
             <BranchSamitySelector callBackFn={setFormData} />
           </div>
           <div className="w-fit mx-auto mt-5">

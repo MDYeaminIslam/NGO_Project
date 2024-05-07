@@ -17,9 +17,13 @@ const MobileNav = () => {
                 <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content ml-4">
                     {/* Page content here */}
-                    <label htmlFor="my-drawer-4" className="  bg-teal-700 text-white px-2 ">
+                    <label htmlFor="my-drawer-4" className=" bg-teal-700 text-white px-2 ">
                         <img className="w-10" src="/Hamburger icon/icons-hamburger.png" alt="" />
                     </label>
+                    {/* <button htmlFor="my-drawer-4">
+                        <img className="w-10" src="/Hamburger icon/icons-hamburger.png" alt="" />
+
+                    </button> */}
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>

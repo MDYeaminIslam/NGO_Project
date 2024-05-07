@@ -35,7 +35,7 @@ function BranchesNav() {
                 </button>
 
                 {isOpen && (
-                  <div className="ml-4 absolute right-0 mt-2 bg-white divide-y divide-gray-100 rounded-lg shadow-lg">
+                  <div className="ml-4 absolute right-0 mt-2ransa bg-white divide-y divide-gray-100 rounded-lg shadow-lg">
 
 
                     <ul className="py-2 text-sm text-black" aria-labelledby="dropdownDefaultButton">

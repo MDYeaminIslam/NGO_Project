@@ -36,7 +36,7 @@ const EmployeeList = () => {
         </h1>
 
 
-        <section className="flex items-center justify-around gap-2 my-8 pb-8 border-b-2 max-w-5xl mx-auto">
+        <section className="flex flex-col md:flex-row items-center justify-around gap-2 my-8 pb-8 border-b-2 max-w-5xl mx-auto">
           <BranchSamitySelector callBackFn={setFormData} />
           <button className="btn bg-teal-700 text-white mt-4 " onClick={handleSubmit}>Search</button>
         </section>

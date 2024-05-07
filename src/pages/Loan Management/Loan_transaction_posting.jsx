@@ -230,12 +230,12 @@ const Loan_transaction_posting = () => {
               </div>
             </section>
 
-            <div className="w-full flex justify-center  mt-12 gap-6">
+            <div className="w-full flex flex-col md:flex-row justify-center  mt-12 gap-6">
               <button
                 onClick={handleSubmit}
                 className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
               >
-                {" "}
+                
                 Submit
               </button>
               <input
