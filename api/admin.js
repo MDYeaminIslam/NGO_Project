@@ -227,7 +227,7 @@ export async function getIncome(data) {
   const response = await axiosAdmin.get(
     `/loan/profit?branchId=${branchId}&samityId=${samityId}`
   );
-  return response.data.data;
+  return response.data;
 }
 
 //admin registration

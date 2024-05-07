@@ -14,7 +14,8 @@ const AnyCharges = () => {
   const { mutate, isPending } = useMutationHook(getIncome, {
     onSuccess: (data) => {
       console.log(data);
-      setData(data);
+
+      setData(data.data);
     },
   });
   function handleSubmit(event) {
@@ -29,14 +30,12 @@ const AnyCharges = () => {
       <section className="flex flex-col md:flex-row gap-4 my-8 pb-8 max-w-5xl mx-auto items-center  border-b-2">
         <BranchSamitySelector callBackFn={setFormData} />
 
-
         <button
           className="mx-auto mt-5 bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium text-white"
           onClick={handleSubmit}
         >
           Search
         </button>
-
       </section>
 
       {data ? (
