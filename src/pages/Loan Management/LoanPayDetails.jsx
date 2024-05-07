@@ -83,7 +83,7 @@ const LoanPayDetails = () => {
           Submit
         </button>
       </form>
-      <div className="text-lg p-4 bg-base-200 md:w-fit mx-auto rounded-md m-4 tracking-normal leading-relaxed flex w-full flex-col md:flex-row flex-wrap gap-4 ">
+      <div className="text-lg p-2 bg-base-200 md:w-fit mx-auto rounded-md m-4 tracking-normal leading-relaxed flex w-full flex-col md:flex-row flex-wrap gap-2 ">
         {/* {isFetched ? (
           <h1 className="bg-teal-700 text-white p-2 rounded-md font-medium">
 
@@ -95,28 +95,30 @@ const LoanPayDetails = () => {
           </h1>
         ) : null} */}
         {isFetched ? (
-          <h1 className="bg-teal-500 text-white p-2 rounded-md font-medium">
-
+          <h1 className="bg-teal-300   p-2 rounded-md font-medium flex items-center gap-2">
+            <span><img className="w-6" src="/public/NGO Dashboard icon/income.png" alt="" /></span>
             Total Amount:
-            <span className="font-thin mx-2 ">
+            <span className="font-bold mx-2 ">
 
               {data.ngoLoanDetails.totalAmount}
             </span>
           </h1>
         ) : null}
         {isFetched ? (
-          <h1 className="bg-teal-500 text-white p-2 rounded-md font-medium">
+          <h1 className="bg-teal-300  p-2 rounded-md font-medium flex items-center gap-2">
+            <span><img className="w-6" src="/public/NGO Dashboard icon/expense.png" alt="" /></span>
             Total Paid:
-            <span className="font-thin mx-2 ">
+            <span className="font-bold mx-2 ">
 
               {data.ngoLoanDetails.totalPaid}
             </span>
           </h1>
         ) : null}
         {isFetched ? (
-          <h1 className="bg-teal-500 text-white p-2 rounded-md font-medium">
+          <h1 className="bg-teal-300  p-2 rounded-md font-medium flex items-center gap-2">
+            <span><img className="w-6" src="/public/NGO Dashboard icon/Saving account.png" alt="" /></span>
             Per Installment:
-            <span className="font-thin mx-2 ">
+            <span className="font-bold mx-2 ">
 
               {data.ngoLoanDetails.perInstallment.toFixed(2)}
             </span>

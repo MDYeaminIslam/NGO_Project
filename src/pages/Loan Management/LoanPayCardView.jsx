@@ -20,7 +20,7 @@ const LoanPayCardView = ({ data }) => {
     <div>
       <div className="card  bg-base-100 shadow-xl">
         <div className="card-body">
-          <h2 className="card-title">
+          <h2 className="card-title text-base text-wrap">
             Name Of Institute : <span>{nameOfInstitute}</span>
           </h2>
           <div className="divider"></div>

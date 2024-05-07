@@ -14,7 +14,7 @@ const LoanPayList = () => {
         <div>
             <LoanManagementNav />
             <section className="max-w-5xl mx-auto">
-                <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">NGO Loan Pay Details</h1>
+                <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 pl-2 ">NGO Loan Pay Details</h1>
                 <div className="grid grid-col-1 md: grid-col-2 lg:grid-cols-3 gap-4 p-4">
                     {
                         isFetched ?
