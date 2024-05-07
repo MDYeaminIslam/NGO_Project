@@ -21,12 +21,16 @@ const AnyCharges = () => {
     event.preventDefault();
     mutate(formData);
   }
+
   return (
     <div>
       <section>
         <IncomeNav />
       </section>
-      <section className="flex flex-col md:flex-row gap-4 my-8 pb-8 max-w-5xl mx-auto items-center  border-b-2">
+      <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 px-4 ">
+        Income
+      </h1>
+      <section className="flex flex-col md:flex-row gap-4 my-8 pb-8 max-w-5xl mx-auto items-center  border-b-2 mx-4">
         <BranchSamitySelector callBackFn={setFormData} />
 
         <button
@@ -39,20 +43,20 @@ const AnyCharges = () => {
 
       {data ? (
         <div>
+
           <table className="w-full mt-16 ">
-            <tr className="grid grid-cols-5 items-center justify-center gap-1 text-center border">
+            <tr className="grid bg-teal-700 text-white grid-cols-3  md:grid-cols-5 items-center justify-center gap-1 text-center border">
               <th>Loan Profit</th>
               <th>Member Fees</th>
-              <th>Penalty</th>
-              <th>Any Charges</th>
+              <th className="hidden md:block">Penalty</th>
+              <th className="hidden md:block">Any Charges</th>
               <th>Total Profit</th>
             </tr>
-            <tr className="grid grid-cols-5 items-center w-full justify-between text-center">
+            <tr className="grid border-b-2 grid-cols-3 md:grid-cols-5 items-center w-full justify-between text-center">
               <td>{data.totalProfit}</td>
               <td>{data.membershipFee}</td>
-              <td>0</td>
-              <td>0</td>
-
+              <td className="hidden md:block">0</td>
+              <td className="hidden md:block">0</td>
               <td>{data.totalProfit + data.membershipFee}</td>
             </tr>
           </table>
