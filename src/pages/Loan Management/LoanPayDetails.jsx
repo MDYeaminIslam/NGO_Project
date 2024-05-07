@@ -57,12 +57,34 @@ const LoanPayDetails = () => {
 
   return (
     <div className="max-w-5xl mx-auto mt-8">
-      <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
-
-        {data.ngoLoanDetails.nameOfInstitute}
+      <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 pl-2 ">
+        Name Of The Institute:  <br /> <span className="text-teal-500"> {
+          isFetched ? data.ngoLoanDetails.nameOfInstitute : null
+        }
+        </span>
       </h1>
-      <div className="text-lg p-4 bg-base-200 w-fit mx-auto rounded-md m-4 tracking-normal leading-relaxed flex flex-wrap gap-4 ">
-        {isFetched ? (
+      <form className="flex flex-col w-full md:w-fit mx-auto md:flex-row items-center p-4 gap-4">
+        <input
+          className="input w-full  input-bordered input-sm  hover:border-teal-500  "
+          type="number"
+          name="amount"
+          onChange={handleChange}
+          placeholder="Amount"
+        />
+        <input
+          className="input w-full  input-bordered input-sm  hover:border-teal-500  "
+          type="text"
+          name="remark"
+          onChange={handleChange}
+          placeholder="Remark"
+        />
+
+        <button className="btn w-full md:w-fit bg-teal-700 text-white" onClick={handleSubmit}>
+          Submit
+        </button>
+      </form>
+      <div className="text-lg p-4 bg-base-200 md:w-fit mx-auto rounded-md m-4 tracking-normal leading-relaxed flex w-full flex-col md:flex-row flex-wrap gap-4 ">
+        {/* {isFetched ? (
           <h1 className="bg-teal-700 text-white p-2 rounded-md font-medium">
 
             Name of Institute:
@@ -71,9 +93,9 @@ const LoanPayDetails = () => {
               {data.ngoLoanDetails.nameOfInstitute}
             </span>
           </h1>
-        ) : null}
+        ) : null} */}
         {isFetched ? (
-          <h1 className="bg-teal-700 text-white p-2 rounded-md font-medium">
+          <h1 className="bg-teal-500 text-white p-2 rounded-md font-medium">
 
             Total Amount:
             <span className="font-thin mx-2 ">
@@ -83,7 +105,7 @@ const LoanPayDetails = () => {
           </h1>
         ) : null}
         {isFetched ? (
-          <h1 className="bg-teal-700 text-white p-2 rounded-md font-medium">
+          <h1 className="bg-teal-500 text-white p-2 rounded-md font-medium">
             Total Paid:
             <span className="font-thin mx-2 ">
 
@@ -92,7 +114,7 @@ const LoanPayDetails = () => {
           </h1>
         ) : null}
         {isFetched ? (
-          <h1 className="bg-teal-700 text-white p-2 rounded-md font-medium">
+          <h1 className="bg-teal-500 text-white p-2 rounded-md font-medium">
             Per Installment:
             <span className="font-thin mx-2 ">
 
@@ -101,34 +123,15 @@ const LoanPayDetails = () => {
           </h1>
         ) : null}
       </div>
-      <form className="flex flex-col w-fit mx-auto md:flex-row items-center p-4 gap-4">
-        <input
-          className="input input-bordered input-sm  hover:border-teal-500  "
-          type="number"
-          name="amount"
-          onChange={handleChange}
-          placeholder="Amount"
-        />
-        <input
-          className="input input-bordered input-sm  hover:border-teal-500  "
-          type="text"
-          name="remark"
-          onChange={handleChange}
-          placeholder="Remark"
-        />
 
-        <button className="btn bg-teal-700 text-white" onClick={handleSubmit}>
-          Submit
-        </button>
-      </form>
       <div>
-        <div>
-          <div className="max-w-5xl mx-auto bg-teal-700 text-white py-4 ">
-            <tr className="grid grid-cols-1 md:grid-cols-5  items-center justify-center gap-1 text-start">
+        <div className="max-w-5xl mx-auto">
+          <div className=" bg-teal-700 text-white py-4 mx-1  ">
+            <tr className="grid grid-cols-3 md:grid-cols-5  items-center justify-center gap-1 text-start ">
               <th>Remark</th>
               <th>Date</th>
               <th>Amount</th>
-              <th>NGO Loan ID</th>
+              <th className="hidden md:block">NGO Loan ID</th>
             </tr>
           </div>
         </div>
