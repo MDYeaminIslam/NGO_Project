@@ -57,51 +57,45 @@ const LoanPayDetails = () => {
 
   return (
     <div className="max-w-5xl mx-auto mt-8">
-<<<<<<< HEAD
-      <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 "> Name Of Institute:    {
-        isFetched ? data.ngoLoanDetails.nameOfInstitute : null
-      }
-=======
       <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
-        {" "}
+
         {data.ngoLoanDetails.nameOfInstitute}
->>>>>>> f97fcfc47235ca0e1be3330f7f8adcc7e659a1e7
       </h1>
       <div className="text-lg p-4 bg-base-200 w-fit mx-auto rounded-md m-4 tracking-normal leading-relaxed flex flex-wrap gap-4 ">
         {isFetched ? (
           <h1 className="bg-teal-700 text-white p-2 rounded-md font-medium">
-            {" "}
+
             Name of Institute:
             <span className="font-thin mx-2 ">
-              {" "}
+
               {data.ngoLoanDetails.nameOfInstitute}
             </span>
           </h1>
         ) : null}
         {isFetched ? (
           <h1 className="bg-teal-700 text-white p-2 rounded-md font-medium">
-            {" "}
+
             Total Amount:
             <span className="font-thin mx-2 ">
-              {" "}
+
               {data.ngoLoanDetails.totalAmount}
             </span>
           </h1>
         ) : null}
         {isFetched ? (
           <h1 className="bg-teal-700 text-white p-2 rounded-md font-medium">
-            Total Paid:{" "}
+            Total Paid:
             <span className="font-thin mx-2 ">
-              {" "}
+
               {data.ngoLoanDetails.totalPaid}
             </span>
           </h1>
         ) : null}
         {isFetched ? (
           <h1 className="bg-teal-700 text-white p-2 rounded-md font-medium">
-            Per Installment:{" "}
+            Per Installment:
             <span className="font-thin mx-2 ">
-              {" "}
+
               {data.ngoLoanDetails.perInstallment.toFixed(2)}
             </span>
           </h1>
@@ -140,8 +134,8 @@ const LoanPayDetails = () => {
         </div>
         {isFetched
           ? data.transactionDetails.map((data, idx) => (
-              <LoanPayDetailsList data={data} key={idx} />
-            ))
+            <LoanPayDetailsList data={data} key={idx} />
+          ))
           : null}
       </div>
     </div>
