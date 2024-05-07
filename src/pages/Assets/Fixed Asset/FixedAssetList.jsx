@@ -34,7 +34,7 @@ const FixedAssetList = () => {
         <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto justify-evenly items-center gap-4">
           <BranchSamitySelector callBackFn={setFormData} />
 
-          <div className="mt-6 w-fit ml-28">
+          <div className="mt-6 w-full flex flex-col md:flex-row">
             <button
               className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium text-white "
               onClick={handleSubmit}
