@@ -96,7 +96,7 @@ const LoanPayDetails = () => {
         ) : null} */}
         {isFetched ? (
           <h1 className="bg-teal-300   p-2 rounded-md font-medium flex items-center gap-2">
-            <span><img className="w-6" src="/public/NGO Dashboard icon/income.png" alt="" /></span>
+            <span><img className="w-6" src="/NGO Dashboard icon/income.png" alt="" /></span>
             Total Amount:
             <span className="font-bold mx-2 ">
 
@@ -106,7 +106,7 @@ const LoanPayDetails = () => {
         ) : null}
         {isFetched ? (
           <h1 className="bg-teal-300  p-2 rounded-md font-medium flex items-center gap-2">
-            <span><img className="w-6" src="/public/NGO Dashboard icon/expense.png" alt="" /></span>
+            <span><img className="w-6" src="/NGO Dashboard icon/expense.png" alt="" /></span>
             Total Paid:
             <span className="font-bold mx-2 ">
 
@@ -116,7 +116,7 @@ const LoanPayDetails = () => {
         ) : null}
         {isFetched ? (
           <h1 className="bg-teal-300  p-2 rounded-md font-medium flex items-center gap-2">
-            <span><img className="w-6" src="/public/NGO Dashboard icon/Saving account.png" alt="" /></span>
+            <span><img className="w-6" src="/NGO Dashboard icon/Saving account.png" alt="" /></span>
             Per Installment:
             <span className="font-bold mx-2 ">
 
