@@ -12,7 +12,7 @@ export default function BranchSelector({ callBackFn }) {
   };
 
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex  flex-col gap-1">
       {/* Branch List */}
 
       <label className="" htmlFor="name">
@@ -27,10 +27,10 @@ export default function BranchSelector({ callBackFn }) {
         </option>
         {isFetched
           ? data.map((branch) => (
-              <option key={branch._id} value={branch._id}>
-                {branch.branchName}
-              </option>
-            ))
+            <option key={branch._id} value={branch._id}>
+              {branch.branchName}
+            </option>
+          ))
           : null}
       </select>
     </div>

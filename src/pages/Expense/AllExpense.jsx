@@ -8,7 +8,7 @@ import Expense from "../../component/Expense";
 const initalState = {
   branchId: null,
   samityId: null,
-  type: null,
+  type: 'monthly',
 };
 const AllExpense = () => {
   const [formData, setFormData] = useState(initalState);
@@ -64,7 +64,7 @@ const AllExpense = () => {
         </button>
       </div>
       <section className="px-4">
-        {formData.type
+        {expenses.length
           ? formData.type === "purchase"
             ? <section>
               <section>
@@ -87,7 +87,7 @@ const AllExpense = () => {
             : <section>
               <section>
                 <div className="max-w-5xl mx-auto bg-teal-700 text-white py-4 mt-8 ">
-                  <tr className="text-xs md:text-base grid grid-cols-3 md:grid-cols-3  items-center justify-center gap-1 text-start">
+                  <tr className="text-xs md:text-base  grid grid-cols-3 md:grid-cols-3  items-center justify-center gap-1 text-start">
                     <th>Date</th>
                     <th>Total Bill</th>
                     <th>action</th>

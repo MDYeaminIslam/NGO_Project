@@ -10,14 +10,12 @@ export default function Purchase({ data }) {
   } = data
 
   return <div>
-    <section>
-      <tr className="grid grid-cols-5 md:grid-cols-5 text-xs md:text-base bg-gray-100 border-l-4 border-teal-700 items-center w-full justify-between text-center py-3">
+    <section className="max-w-5xl mx-auto">
+      <tr className="grid grid-cols-5 md:grid-cols-5 text-xs md:text-base bg-gray-100 border-b-2  items-center w-full justify-between text-center py-3">
         <td>{expenseName}</td>
         <td>{dateToString(date)}</td>
         <td>{totalPayment}</td>
         <td>{status}</td>
-
-
         <td>
           <Link to={`/some/${_id}`}>
             <button className="btn btn-info btn-xs md:btn text-white">view</button>

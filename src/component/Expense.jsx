@@ -12,8 +12,8 @@ export default function Expense({ data }) {
   const totalBill = officeRent + salary
   console.log(totalBill);
   return <div>
-    <section>
-      <tr className="grid grid-cols-3 md:grid-cols-3 bg-gray-100 border-l-4 border-teal-700 items-center w-full justify-between text-center py-3 text-xs md:text-base">
+    <section className="max-w-5xl mx-auto" >
+      <tr className="grid grid-cols-3 md:grid-cols-3 bg-gray-100   items-center w-full justify-between text-center py-3 text-xs md:text-base border-b-2">
         <td>{dateToString(date)}</td>
         <td>{totalBill}</td>
 

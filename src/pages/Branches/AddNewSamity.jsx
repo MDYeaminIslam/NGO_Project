@@ -64,7 +64,9 @@ const AddNewSamity = () => {
               
             />
           </div> */}
-          <BranchSelector callBackFn={setFormData} />
+          <div>
+            <BranchSelector callBackFn={setFormData} />
+          </div>
 
           <div className="flex flex-col gap-1">
             <label className="font-medium" htmlFor="name">
