@@ -69,7 +69,7 @@ const AllExpense = () => {
             ? <section>
               <section>
                 <div className="max-w-5xl mx-auto bg-teal-700 text-white py-4 mt-8 ">
-                  <tr className="grid grid-cols-1 md:grid-cols-5  items-center justify-center gap-1 text-start">
+                  <tr className="grid grid-cols-5 text-xs md:text-base md:grid-cols-5  items-center justify-center gap-1 text-start">
                     <th>Expense Name</th>
                     <th>Date</th>
                     <th>Total Payment</th>
@@ -87,11 +87,9 @@ const AllExpense = () => {
             : <section>
               <section>
                 <div className="max-w-5xl mx-auto bg-teal-700 text-white py-4 mt-8 ">
-                  <tr className="grid grid-cols-1 md:grid-cols-5  items-center justify-center gap-1 text-start">
-                    <th>Expense Name</th>
+                  <tr className="text-xs md:text-base grid grid-cols-3 md:grid-cols-3  items-center justify-center gap-1 text-start">
                     <th>Date</th>
-                    <th>Total Payment</th>
-                    <th>status</th>
+                    <th>Total Bill</th>
                     <th>action</th>
                   </tr>
                 </div>

@@ -6,16 +6,16 @@ const ListView = ({ data }) => {
 
     return (
         <>
-            <tr className="grid grid-cols-1 bg-gray-100 border-l-4 border-teal-700  md:grid-cols-5 items-center w-full justify-between text-center py-3">
+            <tr className="grid grid-cols-3 text-xs md:text-base bg-gray-100 border-l-4 border-teal-700  md:grid-cols-5 items-center w-full justify-between text-center py-3">
                 <td>{name}</td>
                 <td>{mobileNumber}</td>
-                <td>{occupation}</td>
-                <td>{presentAddress}</td>
+                <td className="hidden md:block">{occupation}</td>
+                <td className="hidden md:block">{presentAddress}</td>
 
                 <td>
                     <Link
                         to={`/members_details/${mobileNumber}`}
-                        className="btn btn-info text-white"
+                        className="btn btn-xs md:btn btn-info text-white"
                     >
                         View
                     </Link>

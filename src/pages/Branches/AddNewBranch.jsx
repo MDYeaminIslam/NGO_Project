@@ -99,7 +99,7 @@ const AddNewBranch = () => {
         </div>
         {isError ? errorMessage : null}
 
-        <div className="w-full flex justify-center  mt-8">
+        <div className="w-full flex flex-col md:flex-row justify-center  mt-8">
           <SpinnerButton
             className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium     text-white"
             isLoading={isPending}
