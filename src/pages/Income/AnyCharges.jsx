@@ -14,7 +14,6 @@ const AnyCharges = () => {
   const { mutate, isPending } = useMutationHook(getIncome, {
     onSuccess: (data) => {
       console.log(data);
-
       setData(data.data);
     },
   });
