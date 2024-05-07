@@ -26,42 +26,42 @@ const LoanPayCardView = ({ data }) => {
           <div className="divider"></div>
           <div className="grid grid-cols-1 md:grid-cols-2  ">
             <p>
-              Period Month:{" "}
+              Period Month:
               <span className="font-bold text-emerald-500">
-                {" "}
-                {durationInMonth}{" "}
+
+                {durationInMonth}
               </span>
             </p>
             <p>
-              Interest Rate:{" "}
+              Interest Rate:
               <span className="font-bold text-emerald-500">
-                {" "}
-                {interestRate}{" "}
+
+                {interestRate}
               </span>
             </p>
           </div>
 
           <div className="flex flex-col md:flex-row  ">
             <p>
-              Total Amount:{" "}
+              Total Amount:
               <span className="font-bold text-emerald-500"> {totalAmount}</span>
             </p>
             <p>
-              Total Paid:{" "}
+              Total Paid:
               <span className="font-bold text-emerald-500"> {totalPaid}</span>
             </p>
           </div>
           <p className="md:col-span-2 mt-1">
-            Per Installment:{" "}
+            Per Installment:
             <span className="font-bold text-emerald-500">
-              {" "}
-              {perInstallment.toFixed(2)}{" "}
+
+              {perInstallment.toFixed(2)}
             </span>
           </p>
 
           <div className="card-actions justify-end">
             <p>
-              Created At:{" "}
+              Created At:
               <span className="text-emerald-500">
                 {dateToString(createdAt)}
               </span>

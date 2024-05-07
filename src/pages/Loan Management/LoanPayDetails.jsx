@@ -57,7 +57,9 @@ const LoanPayDetails = () => {
 
   return (
     <div className="max-w-5xl mx-auto mt-8">
-      <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">   {data.ngoLoanDetails.nameOfInstitute}
+      <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 "> Name Of Institute:    {
+        isFetched ? data.ngoLoanDetails.nameOfInstitute : null
+      }
       </h1>
       <div className="text-lg p-4 bg-base-200 w-fit mx-auto rounded-md m-4 tracking-normal leading-relaxed flex flex-wrap gap-4 ">
         {isFetched ? <h1 className="bg-teal-700 text-white p-2 rounded-md font-medium"> Name of Institute:<span className="font-thin mx-2 ">  {data.ngoLoanDetails.nameOfInstitute}</span></h1> : null}

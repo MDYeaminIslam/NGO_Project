@@ -20,6 +20,18 @@ const RegPage = () => {
   });
   function handleChange(e) {
     const { name, value } = e.target;
+    // if (name == 'phoneNumber' && name.value < 11) {
+    //   return toast.error("Please enter a valid 11-digit phone number.");
+    // }
+
+    // Define the regular expression for phone number validation
+    // const phoneRegex = /^\d{11}$/; // Regex for 11-digit phone number
+
+    // // Check if the input field is for phone number and validate against the regex
+    // if (name === "phoneNumber" && !phoneRegex.test(value)) {
+    //   // If the phone number doesn't match the regex pattern, show an error message
+    //   return toast.error("Please enter a valid 11-digit phone number.");
+    // }
 
     setFormData((prev) => ({ ...prev, [name]: value }));
   }
@@ -54,7 +66,7 @@ const RegPage = () => {
             </label>
             <input
               type="number"
-              placeholder="Enter phone number here.."
+              placeholder="Enter Phone Number Here.. "
               className="input input-bordered"
               name="phoneNumber"
               required
@@ -67,7 +79,7 @@ const RegPage = () => {
             </label>
             <input
               type="password"
-              placeholder="password here.."
+              placeholder="Password here.."
               className="input input-bordered"
               name="password"
               required
@@ -80,7 +92,7 @@ const RegPage = () => {
             </label>
             <input
               type="password"
-              placeholder="repeat password.."
+              placeholder="Confirm Password"
               className="input input-bordered"
               name="confirmPassword"
               required
