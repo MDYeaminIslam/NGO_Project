@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const ManageBankCashNav = () => {
 
@@ -42,15 +42,15 @@ const ManageBankCashNav = () => {
 
 
                       <li>
-                      <Link to={'/bank_cash'}>
+                      <NavLink to={'/bank_cash'}>
                       <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Bank Cash</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                       <li>
-                      <Link to={'/bank_cash_to_drawer'}>
+                      <NavLink to={'/bank_cash_to_drawer'}>
                       <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Bank Cash to Drawer</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                     </ul>
@@ -63,13 +63,13 @@ const ManageBankCashNav = () => {
           <div className="hidden sm:block sm:ml-6">
             <div className="flex space-x-4">
               
-              <Link to={'/bank_cash'}>
+              <NavLink to={'/bank_cash'}>
               <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Bank Cash</p>
-              </Link>
+              </NavLink>
 
-              <Link to={'/bank_cash_to_drawer'}>
+              <NavLink to={'/bank_cash_to_drawer'}>
               <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Bank Cash to Drawer</p>
-              </Link>
+              </NavLink>
 
             </div>
           </div>

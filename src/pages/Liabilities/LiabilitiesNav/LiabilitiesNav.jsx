@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Liabilities = () => {
 
@@ -41,9 +41,9 @@ const Liabilities = () => {
 
 
                       <li>
-                      <Link>
+                      <NavLink>
                       <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Upcoming</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                     </ul>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const LoanManagementNav = () => {
 
@@ -42,57 +42,57 @@ const LoanManagementNav = () => {
 
 
                     <li>
-                      <Link to={'/open_loan_account'}>
+                      <NavLink to={'/open_loan_account'}>
                         <p className=" hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-sm font-normal">Open Loan Account</p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                     <li>
-                      <Link to={'/loan_account_list'}>
+                      <NavLink to={'/loan_account_list'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Loan Account List</p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                     <li>
-                      <Link to={'/loan_evaluation'}>
+                      <NavLink to={'/loan_evaluation'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Loan Evaluation</p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                     <li>
-                      <Link to={'/loan_transaction_posting'}>
+                      <NavLink to={'/loan_transaction_posting'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Transaction Posting</p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                     <li>
-                      <Link to={'/loan_account_closing'}>
+                      <NavLink to={'/loan_account_closing'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Account Closing</p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                     <li>
-                      <Link to={'/loan_received_money'}>
+                      <NavLink to={'/loan_received_money'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Loan Received Money</p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                     <li>
-                      <Link to={'/loan_account_request'}>
+                      <NavLink to={'/loan_account_request'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Loan Account Request</p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                     <li>
-                      <Link to={'/loan_closing_account_request'}>
+                      <NavLink to={'/loan_closing_account_request'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Closing  Account Request</p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                     <li>
-                      <Link to={'/ngo_loan_pay_list'}>
+                      <NavLink to={'/ngo_loan_pay_list'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Loan Pay List</p>
-                      </Link>
+                      </NavLink>
                     </li>
 
 
@@ -106,41 +106,41 @@ const LoanManagementNav = () => {
             <div className="hidden sm:block ">
               <div className="flex flex-wrap items-center justify-center gap-1">
 
-                <Link to={'/open_loan_account'}>
+                <NavLink to={'/open_loan_account'}>
                   <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">Open Loan Account</p>
-                </Link>
+                </NavLink>
 
-                <Link to={'/loan_account_list'}>
+                <NavLink to={'/loan_account_list'}>
                   <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">Loan Account List</p>
-                </Link>
+                </NavLink>
 
-                <Link to={'/loan_evaluation'}>
+                <NavLink to={'/loan_evaluation'}>
                   <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">Loan Evaluation</p>
-                </Link>
+                </NavLink>
 
-                <Link to={'/loan_transaction_posting'}>
+                <NavLink to={'/loan_transaction_posting'}>
                   <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">Transaction Posting</p>
-                </Link>
+                </NavLink>
 
-                <Link to={'/loan_account_closing'}>
+                <NavLink to={'/loan_account_closing'}>
                   <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">Account Closing</p>
-                </Link>
+                </NavLink>
 
-                <Link to={'/loan_received_money'}>
+                <NavLink to={'/loan_received_money'}>
                   <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">Loan Received Money</p>
-                </Link>
+                </NavLink>
 
-                <Link to={'/loan_account_request'}>
+                <NavLink to={'/loan_account_request'}>
                   <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">Loan Account Request</p>
-                </Link>
+                </NavLink>
 
-                <Link to={'/loan_closing_account_request'}>
+                <NavLink to={'/loan_closing_account_request'}>
                   <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">Closing Account Request</p>
-                </Link>
+                </NavLink>
 
-                <Link to={'/ngo_loan_pay_list'}>
+                <NavLink to={'/ngo_loan_pay_list'}>
                   <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">Loan Pay List</p>
-                </Link>
+                </NavLink>
 
 
 

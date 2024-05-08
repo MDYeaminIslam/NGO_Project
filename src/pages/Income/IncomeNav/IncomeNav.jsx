@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const IncomeNav = () => {
 
@@ -42,33 +42,33 @@ const IncomeNav = () => {
 
 
                     <li>
-                      <Link to={'/any_charges'}>
+                      <NavLink to={'/any_charges'}>
                         <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Any Charges</p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                     <li>
-                      <Link to={'/category_wise_income'}>
+                      <NavLink to={'/category_wise_income'}>
                         <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Catagory Wise Income</p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                     <li>
-                      <Link to={'/loan_profit'}>
+                      <NavLink to={'/loan_profit'}>
                         <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Loan Profit</p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                     <li>
-                      <Link to={'/member_fees'}>
+                      <NavLink to={'/member_fees'}>
                         <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Member Fees</p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                     <li>
-                      <Link to={'/penalty'}>
+                      <NavLink to={'/penalty'}>
                         <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Penalty</p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                   </ul>
@@ -81,25 +81,25 @@ const IncomeNav = () => {
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4">
 
-                <Link to={'/any_charges'}>
+                <NavLink to={'/any_charges'}>
                   <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Any Charges</p>
-                </Link>
+                </NavLink>
 
-                <Link to={'/category_wise_income'}>
+                <NavLink to={'/category_wise_income'}>
                   <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Catagory Wise Income</p>
-                </Link>
+                </NavLink>
 
-                <Link to={'/loan_profit'}>
+                <NavLink to={'/loan_profit'}>
                   <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Loan Profit</p>
-                </Link>
+                </NavLink>
 
-                <Link to={'/member_fees'}>
+                <NavLink to={'/member_fees'}>
                   <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Member Fees</p>
-                </Link>
+                </NavLink>
 
-                <Link to={'/penalty'}>
+                <NavLink to={'/penalty'}>
                   <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Penalty</p>
-                </Link>
+                </NavLink>
 
               </div>
             </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const UserMaintanaceNav = () => {
 
@@ -22,7 +22,7 @@ const UserMaintanaceNav = () => {
                   className="text-black bg-white focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
                   type="button">
 
-                  --Select Menu--
+                  Select Menu
                   <svg
                     className="w-2.5 h-2.5 ms-3"
                     aria-hidden="true"
@@ -42,27 +42,27 @@ const UserMaintanaceNav = () => {
 
 
                       <li>
-                      <Link to={'/add_new_user'}>
+                      <NavLink to={'/add_new_user'}>
                       <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-normal">Add New User</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                       <li>
-                      <Link to={'/add_new_user_type'}>
+                      <NavLink to={'/add_new_user_type'}>
                       <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-normal">Add New User Type</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                       <li>
-                      <Link to={'/user_list'}>
+                      <NavLink to={'/user_list'}>
                       <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-normal">User List</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                       <li>
-                      <Link to={'/user_type'}>
+                      <NavLink to={'/user_type'}>
                       <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-normal">User Type</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                     </ul>
@@ -75,21 +75,21 @@ const UserMaintanaceNav = () => {
           <div className="hidden sm:block sm:ml-6">
             <div className="flex space-x-4">
               
-              <Link to={'/add_new_user'}>
+              <NavLink to={'/add_new_user'}>
               <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">Add New User</p>
-              </Link>
+              </NavLink>
 
-              <Link to={'/add_new_user_type'}>
+              <NavLink to={'/add_new_user_type'}>
               <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">Add New User Type</p>
-              </Link>
+              </NavLink>
 
-              <Link to={'/user_list'}>
+              <NavLink to={'/user_list'}>
               <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">User List</p>
-              </Link>
+              </NavLink>
 
-              <Link to={'/user_type'}>
+              <NavLink to={'/user_type'}>
               <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">User Type</p>
-              </Link>
+              </NavLink>
 
             </div>
           </div>

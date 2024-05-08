@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const ManageDrawerCashNav = () => {
 
@@ -41,29 +41,29 @@ const ManageDrawerCashNav = () => {
 
 
                     <li>
-                      <Link to={"/drawer_cash"}>
+                      <NavLink to={"/drawer_cash"}>
                         <p className=" hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-sm font-medium">
                           Drawer Cash
                         </p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                     <li>
-                      <Link to={"/drawer_cash_to_bank"}>
+                      <NavLink to={"/drawer_cash_to_bank"}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                           Drawer Cash <span>
                             <img className="w-4" src="/public/between.256x216.png" alt="" />
                           </span> Bank
                         </p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                     <li>
-                      <Link to={"/add_bank"}>
+                      <NavLink to={"/add_bank"}>
                         <p className=" hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-sm font-medium">
                           Add Bank
                         </p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                   </ul>
@@ -76,23 +76,23 @@ const ManageDrawerCashNav = () => {
               <div className="flex space-x-4">
 
 
-                <Link to={"/drawer_cash"}>
+                <NavLink to={"/drawer_cash"}>
                   <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">
                     Drawer Cash
                   </p>
-                </Link>
+                </NavLink>
 
-                <Link to={"/drawer_cash_to_bank"}>
+                <NavLink to={"/drawer_cash_to_bank"}>
                   <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">
                     Drawer Cash to Bank
                   </p>
-                </Link>
+                </NavLink>
 
-                <Link to={"/add_bank"}>
+                <NavLink to={"/add_bank"}>
                   <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">
                     Add Bank
                   </p>
-                </Link>
+                </NavLink>
               </div>
             </div>
           </div>

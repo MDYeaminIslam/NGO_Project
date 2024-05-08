@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const HRMNav = () => {
 
@@ -42,64 +42,64 @@ const HRMNav = () => {
 
 
                       <li>
-                      <Link to={'/advance'}>
+                      <NavLink to={'/advance'}>
                       <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Advance</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                       <li>
-                      <Link to={'/attendance'}>
+                      <NavLink to={'/attendance'}>
                       <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Attendance</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                       <li>
-                      <Link to={'/extra_bill'}>
+                      <NavLink to={'/extra_bill'}>
                       <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Extra Bill</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                       <li>
-                      <Link to={'/fixation'}>
+                      <NavLink to={'/fixation'}>
                       <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Fixation</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                       <li>
-                      <Link to={'/leave_application'}>
+                      <NavLink to={'/leave_application'}>
                       <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Leave Application</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                       <li>
-                      <Link to={'/pay_slip'}>
+                      <NavLink to={'/pay_slip'}>
                       <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Pay Slip</p>
-                      </Link>
+                      </NavLink>
 
                       </li>
 
                       <li>
-                      <Link to={'/profile'}>
+                      <NavLink to={'/profile'}>
                       <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Profile</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                       <li>
-                      <Link to={'/salary_posting'}>
+                      <NavLink to={'/salary_posting'}>
                       <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Salary Posting</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                       <li>
-                      <Link to={'/salary_sheet'}>
+                      <NavLink to={'/salary_sheet'}>
                       <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Salary Sheet</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                       <li>
-                      <Link to={'/paying_amount_application'}>
+                      <NavLink to={'/paying_amount_application'}>
                       <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Paying Amount Application</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                     </ul>
@@ -120,13 +120,13 @@ const HRMNav = () => {
                 */
               }
 
-              <Link to={'/attendance'}>
+              <NavLink to={'/attendance'}>
               <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Attendance</p>
-              </Link>
+              </NavLink>
 
-              <Link to={'/extra_bill'}>
+              <NavLink to={'/extra_bill'}>
               <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Extra Bill</p>
-              </Link>
+              </NavLink>
 
               {/*
               <Link to={'/fixation'}>
@@ -135,29 +135,29 @@ const HRMNav = () => {
               */}
 
             
-              <Link to={'/leave_application'}>
+              <NavLink to={'/leave_application'}>
               <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Leave Application</p>
-              </Link>
+              </NavLink>
 
-              <Link to={'/pay_slip'}>
+              <NavLink to={'/pay_slip'}>
               <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Pay Slip</p>
-              </Link>
+              </NavLink>
 
-              <Link to={'/profile'}>
+              <NavLink to={'/profile'}>
               <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Profile</p>
-              </Link>
+              </NavLink>
 
-              <Link to={'/salary_posting'}>
+              <NavLink to={'/salary_posting'}>
               <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Salary Posting</p>
-              </Link>
+              </NavLink>
 
-              <Link to={'/salary_sheet'}>
+              <NavLink to={'/salary_sheet'}>
               <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Salary Sheet</p>
-              </Link>
+              </NavLink>
 
-              <Link to={'/paying_amount_application'}>
+              <NavLink to={'/paying_amount_application'}>
               <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Paying Amount Application</p>
-              </Link>
+              </NavLink>
 
             </div>
           </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 const FixedAssetNav = () => {
@@ -42,39 +42,39 @@ const FixedAssetNav = () => {
 
 
                                         <li>
-                                            <Link to={'/edit_fixed_asset'}>
+                                            <NavLink to={'/edit_fixed_asset'}>
                                                 <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Edit  Asset</p>
-                                            </Link>
+                                            </NavLink>
                                         </li>
 
                                         <li>
-                                            <Link to={'/remove_wasted_asset'}>
+                                            <NavLink to={'/remove_wasted_asset'}>
                                                 <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Remove Wasted Asset</p>
-                                            </Link>
+                                            </NavLink>
                                         </li>
 
                                         <li>
-                                            <Link to={'/fixed_asset_list'}>
+                                            <NavLink to={'/fixed_asset_list'}>
                                                 <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Fixed Asset List</p>
-                                            </Link>
+                                            </NavLink>
                                         </li>
 
                                         <li className="hidden">
-                                            <Link to={'/add_new_fixed_asset'}>
+                                            <NavLink to={'/add_new_fixed_asset'}>
                                                 <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Add New Fixed Asset</p>
-                                            </Link>
+                                            </NavLink>
                                         </li>
 
                                         <li className="hidden">
-                                            <Link to={'/fixed_asset_item'}>
+                                            <NavLink to={'/fixed_asset_item'}>
                                                 <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Fixed Asset Item</p>
-                                            </Link>
+                                            </NavLink>
                                         </li>
 
                                         <li className="hidden">
-                                            <Link to={'/fixed_asset_types'}>
+                                            <NavLink to={'/fixed_asset_types'}>
                                                 <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Fixed Asset Types</p>
-                                            </Link>
+                                            </NavLink>
                                         </li>
 
                                     </ul>
@@ -87,29 +87,29 @@ const FixedAssetNav = () => {
                         <div className="hidden sm:block sm:ml-6">
                             <div className="flex flex-wrap space-x-2 ">
 
-                                <Link to={'/edit_fixed_asset'}>
+                                <NavLink to={'/edit_fixed_asset'}>
                                     <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Edit  Asset</p>
-                                </Link>
+                                </NavLink>
 
-                                <Link to={'/remove_wasted_asset'}>
+                                <NavLink to={'/remove_wasted_asset'}>
                                     <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Remove Wasted Asset</p>
-                                </Link>
+                                </NavLink>
 
-                                <Link to={'/fixed_asset_list'}>
+                                <NavLink to={'/fixed_asset_list'}>
                                     <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Fixed Asset List</p>
-                                </Link>
+                                </NavLink>
 
-                                <Link className="hidden" to={'/add_new_fixed_asset'}>
+                                <NavLink className="hidden" to={'/add_new_fixed_asset'}>
                                     <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Add New Fixed Asset</p>
-                                </Link>
+                                </NavLink>
 
-                                <Link className="hidden" to={'/fixed_asset_item'}>
+                                <NavLink className="hidden" to={'/fixed_asset_item'}>
                                     <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Fixed Asset Item</p>
-                                </Link>
+                                </NavLink>
 
-                                <Link className="hidden" to={'/fixed_asset_types'}>
+                                <NavLink className="hidden" to={'/fixed_asset_types'}>
                                     <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Fixed Asset Types</p>
-                                </Link>
+                                </NavLink>
 
                             </div>
                         </div>

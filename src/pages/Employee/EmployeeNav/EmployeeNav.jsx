@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const EmployeeNav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,21 +39,21 @@ const EmployeeNav = () => {
 
 
                       <li>
-                      <Link to={'/employee_add'}>
+                      <NavLink to={'/employee_add'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Employee Add</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                       <li>
-                      <Link to={'/employee_login_credentials'}>
+                      <NavLink to={'/employee_login_credentials'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Employee Login Credentials</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                       <li>
-                      <Link to={'/employee_list'}>
+                      <NavLink to={'/employee_list'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Employee List</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                     </ul>
@@ -68,18 +68,18 @@ const EmployeeNav = () => {
           <div className="hidden sm:block sm:ml-6">
             <div className="flex space-x-4">
               
-              <Link to={'/employee_add'}>
+              <NavLink to={'/employee_add'}>
               <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Employee Add</p>
-              </Link>
+              </NavLink>
 
               
-              <Link to={'/employee_login_credentials'}>
+              <NavLink to={'/employee_login_credentials'}>
               <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Employee Login Credentials</p>
-              </Link>
+              </NavLink>
 
-              <Link to={'/employee_list'}>
+              <NavLink to={'/employee_list'}>
               <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Employee List</p>
-              </Link>
+              </NavLink>
 
 
             </div>

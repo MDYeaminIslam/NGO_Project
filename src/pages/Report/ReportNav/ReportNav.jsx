@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const ReportNav = () => {
 
@@ -41,45 +41,45 @@ const ReportNav = () => {
 
 
                       <li>
-                      <Link to={'/asset'}>
+                      <NavLink to={'/asset'}>
                       <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Asset</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                       <li>
-                      <Link to={'/balance_sheet'}>
+                      <NavLink to={'/balance_sheet'}>
                       <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Balance Sheet</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                       <li>
-                      <Link to={'/credit'}>
+                      <NavLink to={'/credit'}>
                       <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Credit</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                       <li>
-                      <Link to={'/debit'}>
+                      <NavLink to={'/debit'}>
                       <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Debit</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                       <li>
-                      <Link to={'/debit_vs_credit'}>
+                      <NavLink to={'/debit_vs_credit'}>
                       <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Debit vs Credit</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                       <li>
-                      <Link to={'/liabilities'}>
+                      <NavLink to={'/liabilities'}>
                       <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Liabilities</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                       <li>
-                      <Link to={'/tds_tax_vat'}>
+                      <NavLink to={'/tds_tax_vat'}>
                       <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">TDX, TAX, VAT</p>
-                      </Link>
+                      </NavLink>
                       </li>
 
                     </ul>
@@ -93,33 +93,33 @@ const ReportNav = () => {
           <div className="hidden sm:block sm:ml-6">
             <div className="flex space-x-4">
               
-              <Link to={'/asset'}>
+              <NavLink to={'/asset'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Asset</p>
-              </Link>
+              </NavLink>
 
-              <Link to={'/balance_sheet'}>
+              <NavLink to={'/balance_sheet'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Balance Sheet</p>
-              </Link>
+              </NavLink>
 
-              <Link to={'/credit'}>
+              <NavLink to={'/credit'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Credit</p>
-              </Link>
+              </NavLink>
 
-              <Link to={'/debit'}>
+              <NavLink to={'/debit'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Debit</p>
-              </Link>
+              </NavLink>
 
-              <Link to={'/debit_vs_credit'}>
+              <NavLink to={'/debit_vs_credit'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Debit vs Credit</p>
-              </Link>
+              </NavLink>
 
-              <Link to={'/liabilities'}>
+              <NavLink to={'/liabilities'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Liabilities</p>
-              </Link>
+              </NavLink>
 
-              <Link to={'/tds_tax_vat'}>
+              <NavLink to={'/tds_tax_vat'}>
               <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">TDX, TAX, VAT</p>
-              </Link>
+              </NavLink>
 
             </div>
           </div>

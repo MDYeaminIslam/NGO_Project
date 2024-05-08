@@ -42,33 +42,33 @@ function BranchesNav() {
 
 
                     <li>
-                      <Link to={'/add_new_branch'}>
+                      <NavLink to={'/add_new_branch'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Add New Branch</p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                     <li>
-                      <Link to={'/add_new_samity'}>
+                      <NavLink to={'/add_new_samity'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Add New Samity</p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                     <li>
-                      <Link to={'/branch_list'}>
+                      <NavLink to={'/branch_list'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Branch List</p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                     <li>
-                      <Link to={'/samity_list'}>
+                      <NavLink to={'/samity_list'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Samity List</p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                     <li>
-                      <Link to={'/imw_fund_collection'}>
+                      <NavLink to={'/imw_fund_collection'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">IMW Fund Collection</p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                   </ul>

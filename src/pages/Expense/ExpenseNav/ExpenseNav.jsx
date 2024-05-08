@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 const ExpenseNav = () => {
@@ -37,21 +37,21 @@ const ExpenseNav = () => {
                 <div className="ml-4 absolute right-0 mt-2 bg-white divide-y divide-gray-100 rounded-lg shadow-lg">
                   <ul className="py-2 text-sm text-black" aria-labelledby="dropdownDefaultButton">
                     <li>
-                      <Link to={'/all_expense'}>
+                      <NavLink to={'/all_expense'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">All Expense</p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                     <li>
-                      <Link to={'/monthly_expense'}>
+                      <NavLink to={'/monthly_expense'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Monthly Expense</p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                     <li>
-                      <Link to={'/purchase'}>
+                      <NavLink to={'/purchase'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Purchase</p>
-                      </Link>
+                      </NavLink>
                     </li>
                   </ul>
                 </div>
@@ -63,17 +63,17 @@ const ExpenseNav = () => {
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4">
 
-                <Link to={'/all_expense'}>
+                <NavLink to={'/all_expense'}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">All Expense</p>
-                </Link>
+                </NavLink>
 
-                <Link to={'/monthly_expense'}>
+                <NavLink to={'/monthly_expense'}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Monthly Expense</p>
-                </Link>
+                </NavLink>
 
-                <Link to={'/purchase'}>
+                <NavLink to={'/purchase'}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Purchase</p>
-                </Link>
+                </NavLink>
 
               </div>
             </div>
