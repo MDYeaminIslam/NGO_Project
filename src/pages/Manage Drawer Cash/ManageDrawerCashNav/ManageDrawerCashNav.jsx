@@ -42,7 +42,7 @@ const ManageDrawerCashNav = () => {
 
                     <li>
                       <Link to={"/drawer_cash"}>
-                        <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">
+                        <p className=" hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-sm font-medium">
                           Drawer Cash
                         </p>
                       </Link>
@@ -50,7 +50,7 @@ const ManageDrawerCashNav = () => {
 
                     <li>
                       <Link to={"/drawer_cash_to_bank"}>
-                        <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                           Drawer Cash <span>
                             <img className="w-4" src="/public/between.256x216.png" alt="" />
                           </span> Bank
@@ -60,7 +60,7 @@ const ManageDrawerCashNav = () => {
 
                     <li>
                       <Link to={"/add_bank"}>
-                        <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">
+                        <p className=" hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-sm font-medium">
                           Add Bank
                         </p>
                       </Link>

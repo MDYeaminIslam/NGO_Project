@@ -49,8 +49,8 @@ const AddBank = () => {
             Add Bank
           </h1>
           <form className="my-8">
-            <section className=" m-8">
-              <div className="flex flex-col gap-1">
+            <section className="m-1 md:m-8">
+              <div className="grid grid-cols-1 gap-1">
                 <label className="font-medium" htmlFor="bankName">
                   Bank Name:{" "}
                 </label>

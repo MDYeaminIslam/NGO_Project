@@ -43,55 +43,55 @@ const LoanManagementNav = () => {
 
                     <li>
                       <Link to={'/open_loan_account'}>
-                        <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-normal">Open Loan Account</p>
+                        <p className=" hover:bg-gray-700 hover:text-white  px-3 py-2 rounded-md text-sm font-normal">Open Loan Account</p>
                       </Link>
                     </li>
 
                     <li>
                       <Link to={'/loan_account_list'}>
-                        <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-normal">Loan Account List</p>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Loan Account List</p>
                       </Link>
                     </li>
 
                     <li>
                       <Link to={'/loan_evaluation'}>
-                        <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-normal">Loan Evaluation</p>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Loan Evaluation</p>
                       </Link>
                     </li>
 
                     <li>
                       <Link to={'/loan_transaction_posting'}>
-                        <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-normal">Transaction Posting</p>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Transaction Posting</p>
                       </Link>
                     </li>
 
                     <li>
                       <Link to={'/loan_account_closing'}>
-                        <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-normal">Account Closing</p>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Account Closing</p>
                       </Link>
                     </li>
 
                     <li>
                       <Link to={'/loan_received_money'}>
-                        <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-normal">Loan Received Money</p>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Loan Received Money</p>
                       </Link>
                     </li>
 
                     <li>
                       <Link to={'/loan_account_request'}>
-                        <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-normal">Loan Account Request</p>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Loan Account Request</p>
                       </Link>
                     </li>
 
                     <li>
                       <Link to={'/loan_closing_account_request'}>
-                        <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-normal">Closing  Account Request</p>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Closing  Account Request</p>
                       </Link>
                     </li>
 
                     <li>
                       <Link to={'/ngo_loan_pay_list'}>
-                        <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-normal">Loan Pay List</p>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Loan Pay List</p>
                       </Link>
                     </li>
 
