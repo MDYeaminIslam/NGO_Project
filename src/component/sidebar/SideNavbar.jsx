@@ -65,30 +65,30 @@ const SideNavbar = () => {
 
                             {
                                 role == 'admin' ?
-                                    <Link to={'/add_new_branch'}>
+                                    <NavLink to={'/add_new_branch'}>
                                         <p className="flex items-center p-2 space-x-3 rounded-md">
                                             <img className="w-4" src="/NGO Dashboard icon/branch.png" alt="" />
                                             <span>Branches</span>
                                         </p>
-                                    </Link> : <></>
+                                    </NavLink> : <></>
                             }
 
                         </li>
                         <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             {
                                 role == 'admin' || role == 'collector' ?
-                                    <Link to={'/deposit'}>
+                                    <NavLink to={'/deposit'}>
                                         <p className="flex items-center p-2 space-x-3 rounded-md">
                                             <img className="w-4" src="/NGO Dashboard icon/Saving account.png" alt="" />
                                             <span>Saving Account</span>
                                         </p>
-                                    </Link> : <></>
+                                    </NavLink> : <></>
                             }
                         </li>
                         <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             {
                                 role == 'admin' || role == "collector" ?
-                                    <Link to={'/open_loan_account'}>
+                                    <NavLink to={'/open_loan_account'}>
                                         <p className="flex items-center p-2 space-x-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current text-black">
                                                 <path d="M203.247,386.414,208,381.185V355.4L130.125,191H93.875L16,355.4v27.042l4.234,4.595a124.347,124.347,0,0,0,91.224,39.982h.42A124.343,124.343,0,0,0,203.247,386.414ZM176,368.608a90.924,90.924,0,0,1-64.231,26.413h-.33A90.907,90.907,0,0,1,48,369.667V362.6l64-135.112L176,362.6Z"></path>
@@ -97,7 +97,7 @@ const SideNavbar = () => {
                                             </svg>
                                             <span>Loan Management</span>
                                         </p>
-                                    </Link> : <></>
+                                    </NavLink> : <></>
                             }
 
                         </li>
@@ -112,48 +112,48 @@ const SideNavbar = () => {
                         <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             {
                                 role == 'admin' ?
-                                    <Link to={'/all_expense'}>
+                                    <NavLink to={'/all_expense'}>
                                         <p className="flex items-center p-2 space-x-3 rounded-md">
                                             <img className="w-4" src="/NGO Dashboard icon/expense.png" alt="" />
                                             <span>Expense</span>
                                         </p>
-                                    </Link> : <></>
+                                    </NavLink> : <></>
                             }
 
                         </li>
                         <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             {
                                 role == 'admin' ?
-                                    <Link to={'/employee_add'}>
+                                    <NavLink to={'/employee_add'}>
                                         <p className="flex items-center p-2 space-x-3 rounded-md">
                                             <img className="w-4" src="/NGO Dashboard icon/employee.png" alt="" />
                                             <span>Employee</span>
                                         </p>
-                                    </Link> : <></>
+                                    </NavLink> : <></>
                             }
 
                         </li>
                         <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             {
                                 role == 'admin' ?
-                                    <Link to={'/any_charges'}>
+                                    <NavLink to={'/any_charges'}>
                                         <a className="flex items-center p-2 space-x-3 rounded-md">
                                             <img className="w-4" src="/NGO Dashboard icon/income.png" alt="" />
                                             <span>Income</span>
                                         </a>
-                                    </Link> : <></>
+                                    </NavLink> : <></>
                             }
 
                         </li>
                         <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             {
                                 role == 'admin' ?
-                                    <Link to={'/drawer_cash'}>
+                                    <NavLink to={'/drawer_cash'}>
                                         <p className="flex items-center p-2 space-x-3 rounded-md">
                                             <img className="w-4" src="/NGO Dashboard icon/manage-drawer-cash.png" alt="" />
                                             <span>Manage Drawer Cash</span>
                                         </p>
-                                    </Link> : <></>
+                                    </NavLink> : <></>
                             }
 
                         </li>
@@ -186,24 +186,24 @@ const SideNavbar = () => {
                         <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             {
                                 role == 'admin' ?
-                                    <Link to={'/advance'}>
+                                    <NavLink to={'/advance'}>
                                         <p className="flex items-center p-2 space-x-3 rounded-md">
                                             <img className="w-4" src="/NGO Dashboard icon/hrm.png" alt="" />
                                             <span>HRM</span>
                                         </p>
-                                    </Link> : <></>
+                                    </NavLink> : <></>
                             }
 
                         </li>
                         <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             {
                                 role == 'admin' ?
-                                    <Link to={'/edit_fixed_asset'}>
+                                    <NavLink to={'/edit_fixed_asset'}>
                                         <p className="flex items-center p-2 space-x-3 rounded-md">
                                             <img className="w-4" src="/NGO Dashboard icon/asset.png" alt="" />
                                             <span> Assets</span>
                                         </p>
-                                    </Link> : <></>
+                                    </NavLink> : <></>
                             }
                         </li>
 
@@ -222,12 +222,12 @@ const SideNavbar = () => {
                                 <li><a>Item 2</a></li> */}
 
                                             <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
-                                                <Link to={'/add_new_temporary_asset'}>
+                                                <NavLink to={'/add_new_temporary_asset'}>
                                                     <p rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
                                                         <img className="w-4" src="/NGO Dashboard icon/asset.png" alt="" />
                                                         <span>Temporary Assets</span>
                                                     </p>
-                                                </Link>
+                                                </NavLink>
                                             </li>
                                         </ul>
                                     </div> : <></>
@@ -246,24 +246,24 @@ const SideNavbar = () => {
                         <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             {
                                 role == 'admin' ?
-                                    <Link to={'/upcoming'}>
+                                    <NavLink to={'/upcoming'}>
                                         <p className="flex items-center p-2 space-x-3 rounded-md">
                                             <img className="w-4" src="/NGO Dashboard icon/liability.png" alt="" />
                                             <span>Liabilities</span>
                                         </p>
-                                    </Link> : <></>
+                                    </NavLink> : <></>
                             }
 
                         </li>
                         <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             {
                                 role == 'admin' ?
-                                    <Link to={'/asset'}>
+                                    <NavLink to={'/asset'}>
                                         <p className="flex items-center p-2 space-x-3 rounded-md">
                                             <img className="w-4" src="/NGO Dashboard icon/report.png" alt="" />
                                             <span>Report</span>
                                         </p>
-                                    </Link> : <></>
+                                    </NavLink> : <></>
                             }
 
                         </li>
@@ -273,7 +273,7 @@ const SideNavbar = () => {
                         <li>
                             {
                                 role == 'admin' ?
-                                    <Link to={'/settings'}>
+                                    <NavLink to={'/settings'}>
                                         <p rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current text-gray-600">
                                                 <path d="M245.151,168a88,88,0,1,0,88,88A88.1,88.1,0,0,0,245.151,168Zm0,144a56,56,0,1,1,56-56A56.063,56.063,0,0,1,245.151,312Z"></path>
@@ -281,7 +281,7 @@ const SideNavbar = () => {
                                             </svg>
                                             <span>Settings</span>
                                         </p>
-                                    </Link> : <></>
+                                    </NavLink> : <></>
                             }
                         </li>
                         <li>

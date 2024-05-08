@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import '../../../component/sidebar/SideNavbarStyle.css'
+import { NavLink } from "react-router-dom";
+// import './MemberNavStyle.css'
 
 
 const MemberNav = () => {
@@ -16,8 +16,6 @@ const MemberNav = () => {
       <nav className="bg-teal-700 text-white">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
           <div className="relative flex items-center justify-between h-16">
-
-
             <div className="block sm:hidden relative">
               <button
                 onClick={toggleDropdown}
@@ -31,7 +29,6 @@ const MemberNav = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 10 6">
-
                   <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
                 </svg>
               </button>
@@ -77,21 +74,21 @@ const MemberNav = () => {
             <div className="hidden sm:block sm:ml-6">
               <div className="flex flex-wrap space-x-4 ">
 
-                <Link to={'/add_member'}>
+                <NavLink to={'/add_member'}>
                   <p className="  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Add Member</p>
-                </Link>
+                </NavLink>
 
-                <Link to={'/member_closing'}>
+                <NavLink to={'/member_closing'}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Member Closing</p>
-                </Link>
+                </NavLink>
 
-                <Link to={'/member_request'}>
+                <NavLink to={'/member_request'}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Member Request</p>
-                </Link>
+                </NavLink>
 
-                <Link to={'/members_list'}>
+                <NavLink to={'/members_list'}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Member List</p>
-                </Link>
+                </NavLink>
 
 
               </div>
