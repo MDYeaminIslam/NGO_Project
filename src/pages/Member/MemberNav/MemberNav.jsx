@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import '../../../component/sidebar/SideNavbarStyle.css'
+
 
 const MemberNav = () => {
 
@@ -43,27 +45,27 @@ const MemberNav = () => {
 
 
                     <li>
-                      <Link to={'/add_member'}>
+                      <NavLink to={'/add_member'}>
                         <p className="  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Add Member</p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                     <li>
-                      <Link to={'/member_closing'}>
+                      <NavLink to={'/member_closing'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Member Closing</p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                     <li>
-                      <Link to={'/member_request'}>
+                      <NavLink to={'/member_request'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Member Request</p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                     <li>
-                      <Link to={'/members_list'}>
+                      <NavLink to={'/members_list'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Member List</p>
-                      </Link>
+                      </NavLink>
                     </li>
 
                   </ul>
