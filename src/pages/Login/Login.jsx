@@ -22,7 +22,6 @@ const Login = () => {
       onSuccess: (data) => {
         setUser(data.type);
         toast.success("Done");
-
         navigate("/");
       },
     }

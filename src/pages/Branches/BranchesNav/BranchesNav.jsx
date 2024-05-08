@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function BranchesNav() {
-    const [isOpen, setIsOpen] = useState(false);
-  
-    const toggleDropdown = () => {
-      setIsOpen(!isOpen);
-    };
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
   return (
 
     <div>
@@ -16,89 +16,89 @@ function BranchesNav() {
 
 
 
-              <div className="block sm:hidden relative">
-                <button
-                  onClick={toggleDropdown}
-                  className="ml-4 text-black bg-white focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
-                  type="button">
+            <div className="block sm:hidden relative">
+              <button
+                onClick={toggleDropdown}
+                className="ml-4 text-black bg-white focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
+                type="button">
 
-                  Select Menu
-                  <svg
-                    className="w-2.5 h-2.5 ms-3"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 10 6">
-                      
-                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
-                  </svg>
-                </button>
+                Select Menu
+                <svg
+                  className="w-2.5 h-2.5 ms-3"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6">
 
-                {isOpen && (
-                  <div className="ml-4 absolute right-0 mt-2ransa bg-white divide-y divide-gray-100 rounded-lg shadow-lg">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
+                </svg>
+              </button>
 
-
-                    <ul className="py-2 text-sm text-black" aria-labelledby="dropdownDefaultButton">
+              {isOpen && (
+                <div className="ml-4 absolute right-0 mt-2ransa bg-white divide-y divide-gray-100 rounded-lg shadow-lg">
 
 
-                      <li>
-                        <Link to={'/add_new_branch'}>
+                  <ul className="py-2 text-sm text-black" aria-labelledby="dropdownDefaultButton">
+
+
+                    <li>
+                      <Link to={'/add_new_branch'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Add New Branch</p>
-                        </Link>
-                      </li>
+                      </Link>
+                    </li>
 
-                      <li>
-                        <Link to={'/add_new_samity'}>
-                          <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Add New Samity</p>
-                        </Link>
-                      </li>
+                    <li>
+                      <Link to={'/add_new_samity'}>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Add New Samity</p>
+                      </Link>
+                    </li>
 
-                      <li>
-                        <Link to={'/branch_list'}>
-                          <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Branch List</p>
-                        </Link>
-                      </li>
+                    <li>
+                      <Link to={'/branch_list'}>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Branch List</p>
+                      </Link>
+                    </li>
 
-                      <li>
-                        <Link to={'/samity_list'}>
-                          <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Samity List</p>
-                        </Link>
-                      </li>
+                    <li>
+                      <Link to={'/samity_list'}>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Samity List</p>
+                      </Link>
+                    </li>
 
-                      <li>
-                        <Link to={'/imw_fund_collection'}>
-                          <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">IMW Fund Collection</p>
-                        </Link>
-                      </li>
+                    <li>
+                      <Link to={'/imw_fund_collection'}>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">IMW Fund Collection</p>
+                      </Link>
+                    </li>
 
-                    </ul>
-                  </div>
-                )}
-              </div>
+                  </ul>
+                </div>
+              )}
+            </div>
 
 
-              <div className="hidden sm:block sm:ml-6">
+            <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4">
 
-                <Link to={'/add_new_branch'}>
+                <NavLink to={'/add_new_branch'}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Add New Branch</p>
-                </Link>
+                </NavLink>
 
-                <Link to={'/add_new_samity'}>
+                <NavLink to={'/add_new_samity'}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Add New Samity</p>
-                </Link>
+                </NavLink>
 
-                <Link to={'/branch_list'}>
+                <NavLink to={'/branch_list'}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Branch List</p>
-                </Link>
+                </NavLink>
 
-                <Link to={'/samity_list'}>
+                <NavLink to={'/samity_list'}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Samity List</p>
-                </Link>
+                </NavLink>
 
-                <Link to={'/imw_fund_collection'}>
+                <NavLink to={'/imw_fund_collection'}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">IMW Fund Collection</p>
-                </Link>
+                </NavLink>
 
               </div>
             </div>

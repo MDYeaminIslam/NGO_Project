@@ -33,7 +33,7 @@ const MembersList = () => {
         <MemberNav />
       </section>
 
-      <section className="m-4">
+      <section className="m-2">
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
           Members List{" "}
         </h1>

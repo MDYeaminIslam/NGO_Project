@@ -15,7 +15,7 @@ const MemberCards = ({ data }) => {
         presentAddress,
     } = data;
     return (
-        <section className="p-4 max-w-4xl mx-auto bg-gray-100 mt-8 rounded ">
+        <section className="p-4 max-w-4xl mx-auto bg-gray-100 md:mt-8 rounded ">
             <div className="flex flex-col md:flex-row gap-10 border-b-4 pb-4">
                 <div className="md:w-1/2">
                     <img className=" object-cover " src={photo} alt="" />
