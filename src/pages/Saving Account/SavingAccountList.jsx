@@ -24,6 +24,8 @@ const SavingAccountList = () => {
   }
   console.log(list);
 
+  
+
   return (
     <div>
       <section>
