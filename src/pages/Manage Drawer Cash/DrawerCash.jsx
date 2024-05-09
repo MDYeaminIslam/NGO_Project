@@ -23,6 +23,9 @@ const DrawerCash = () => {
       onSuccess: () => {
         toast.success("Done!");
       },
+      onError: () => {
+        toast.error("Error!");
+      },
     });
   const handleChange = (event) => {
     const { name, value } = event.target;

@@ -67,7 +67,7 @@ const LoanReceivedMoney = () => {
               >
                 <option value="organization">Organization</option>
                 <option value="bank">Bank</option>
-                <option value="bank">Another Financial Institute</option>
+                <option value="another">Another Financial Institute</option>
               </select>
             </div>
 
