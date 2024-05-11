@@ -27,7 +27,7 @@ const AnyCharges = () => {
       <section>
         <IncomeNav />
       </section>
-      <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
+      <h1 className=" bg-teal-700  text-white pl-4 rounded-b-lg text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
         Income
       </h1>
       <section className="flex flex-col md:flex-row gap-4 p-2 my-8 pb-8 max-w-5xl mx-auto items-center  border-b-2 mx-4">
@@ -42,9 +42,9 @@ const AnyCharges = () => {
       </section>
 
       {data ? (
-        <div>
+        <div className="max-w-5xl mx-auto">
 
-          <table className="w-full mt-16 ">
+          <table className="w-full mt-4 ">
             <tr className="grid bg-teal-700 text-white grid-cols-3  md:grid-cols-5 items-center justify-center gap-1 text-center border">
               <th>Loan Profit</th>
               <th>Member Fees</th>
