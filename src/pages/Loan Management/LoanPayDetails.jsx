@@ -55,9 +55,9 @@ const LoanPayDetails = () => {
     console.log(data);
     mutate(data);
   }
-  const totalAmount = data.ngoLoanDetails.totalAmount;
-  const totalPaid = data.ngoLoanDetails.totalPaid;
-  const perInstallment = data.ngoLoanDetails.perInstallment.toFixed(2);
+  const totalAmount = isFetched ? data.ngoLoanDetails.totalAmount : null;
+  const totalPaid = isFetched ? data.ngoLoanDetails.totalPaid : null;
+  const perInstallment = isFetched ? data.ngoLoanDetails.perInstallment.toFixed(2) : null;
   const statsData = { totalAmount, totalPaid, perInstallment, isFetched }
   console.log(statsData);
 

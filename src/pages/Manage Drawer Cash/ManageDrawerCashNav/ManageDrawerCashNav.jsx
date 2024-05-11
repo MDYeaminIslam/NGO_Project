@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const ManageDrawerCashNav = () => {
 
@@ -51,9 +51,7 @@ const ManageDrawerCashNav = () => {
                     <li>
                       <NavLink to={"/drawer_cash_to_bank"}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                          Drawer Cash <span>
-                            <img className="w-4" src="/public/between.256x216.png" alt="" />
-                          </span> Bank
+                          Drawer Cash To Bank
                         </p>
                       </NavLink>
                     </li>

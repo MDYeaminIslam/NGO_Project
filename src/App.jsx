@@ -8,7 +8,7 @@ import Footer from './component/Footer'
 
 
 function App() {
-  const minHeightApp = { minHeight: `calc(100vh - 60px)` }
+  const minHeightApp = { minHeight: `calc(100vh - 53px)` }
   return (
     <>
       <div className=' flex flex-col md:flex-row w-full  '>
@@ -27,7 +27,7 @@ function App() {
             <div style={minHeightApp} >
               <Outlet />
             </div>
-            <div className='mt-2'> <Footer /></div>
+            <div className=''> <Footer /></div>
           </div>
         </div>
 
