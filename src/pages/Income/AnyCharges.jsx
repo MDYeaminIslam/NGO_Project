@@ -30,7 +30,7 @@ const AnyCharges = () => {
       <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
         Income
       </h1>
-      <section className="flex flex-col md:flex-row gap-4 p-2 my-8 pb-8 max-w-5xl mx-auto items-center  border-b-2 mx-4">
+      <section className="flex flex-col md:flex-row gap-4 p-2 my-8 pb-8 max-w-5xl items-center  border-b-2 mx-4">
         <BranchSamitySelector callBackFn={setFormData} />
 
         <button

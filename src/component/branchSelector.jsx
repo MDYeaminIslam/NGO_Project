@@ -12,7 +12,7 @@ export default function BranchSelector({ callBackFn }) {
   };
 
   return (
-    <div className="flex  flex-col gap-1">
+    <div className="flex  flex-col gap-1 w-full">
       {/* Branch List */}
 
       <label className="" htmlFor="name">
