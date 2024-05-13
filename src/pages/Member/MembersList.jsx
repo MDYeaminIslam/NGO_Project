@@ -25,6 +25,7 @@ const MembersList = () => {
 
   function handleSubmit(event) {
     event.preventDefault();
+    console.log(formData);
     mutate(formData);
   }
   return (
@@ -66,16 +67,13 @@ const MembersList = () => {
 
               {localUsers.length
                 ? localUsers.map((user, key) => (
-                  <ListView key={key} data={user} />
-                ))
+                    <ListView key={key} data={user} />
+                  ))
                 : null}
             </table>
           </div>
         </section>
       </section>
-
-
-
     </div>
   );
 };

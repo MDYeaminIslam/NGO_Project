@@ -1,52 +1,91 @@
-import { useState } from "react";
+import { useEffect, useReducer } from "react";
 import { getAllBranches } from "../../api/admin";
 import { useQuery } from "@tanstack/react-query";
 import axiosAdmin from "../../axios/admin";
+
+function stateReducer(state, action) {
+  switch (action.type) {
+    case "branch":
+      return { ...state, branch: action.payload };
+    case "branches":
+      return { ...state, branches: action.payload };
+    case "samity":
+      return { ...state, samity: action.payload };
+    case "samities":
+      return { ...state, samities: action.payload };
+    default:
+      return state;
+  }
+}
+
+const initialState = {
+  branch: null,
+  branches: [],
+  samity: null,
+  samities: [],
+};
+
 export default function BranchSamitySelector({ callBackFn }) {
-  const { data, isFetched } = useQuery({
-    queryKey: ["branches"],
-    queryFn: getAllBranches,
-  });
-  const [selectedBranch, setSelectedBranch] = useState("");
-  const [selectedSamity, setSelectedSamity] = useState("");
-  const [samityList, setSamityList] = useState([]);
+  const [state, dispatch] = useReducer(stateReducer, initialState);
+
   const handleBranchChange = async (event) => {
-    setSelectedBranch(event.target.value);
-    const samityList = await axiosAdmin.get(
+    dispatch({ type: "branch", payload: event.target.value });
+
+    // Fetch new samity list for the selected branch
+    const samityListResponse = await axiosAdmin.get(
       `/samity/all/${event.target.value}`
     );
-    setSamityList(samityList.data.data);
+    const newSamityList = samityListResponse.data.data;
+
+    // Update samities state with the new list
+    dispatch({ type: "samities", payload: newSamityList });
+
+    // Reset samity state
+    dispatch({ type: "samity", payload: null });
+
+    // Pass branch and null samity to the parent component
+    callBackFn({
+      branchId: event.target.value,
+      samityId: null,
+    });
   };
+
   const handleSamityChange = (event) => {
-    setSelectedSamity(event.target.value);
-    callBackFn((prev) => ({
-      ...prev,
+    dispatch({ type: "samity", payload: event.target.value });
+
+    // Pass branch and selected samity to the parent component
+    callBackFn({
+      branchId: state.branch,
       samityId: event.target.value,
-      branchId: selectedBranch,
-    }));
+    });
   };
+
+  useEffect(() => {
+    getAllBranches().then((data) =>
+      dispatch({ type: "branches", payload: data })
+    );
+  }, []);
+
   return (
     <>
       {/* Branch List */}
-
       <div className="flex flex-col gap-1 w-full">
         <label className="font-medium" htmlFor="name">
           Branch Name:
         </label>
         <select
           onChange={handleBranchChange}
-          className="input input-bordered input-sm hover:border-teal-500  "
+          className="input input-bordered input-sm hover:border-teal-500"
         >
           <option disabled selected>
             Select Branch
           </option>
-          {isFetched
-            ? data.map((branch) => (
-                <option key={branch._id} value={branch._id}>
-                  {branch.branchName}
-                </option>
-              ))
-            : null}
+          {state.branches.length > 0 &&
+            state.branches.map((branch) => (
+              <option key={branch._id} value={branch._id}>
+                {branch.branchName}
+              </option>
+            ))}
         </select>
       </div>
       {/* Samity List */}
@@ -56,16 +95,16 @@ export default function BranchSamitySelector({ callBackFn }) {
         </label>
         <select
           onChange={handleSamityChange}
-          className="input input-bordered input-sm hover:border-teal-500  "
+          className="input input-bordered input-sm hover:border-teal-500"
         >
-          <option disabled selected>
-            Select Samity
-          </option>
-          {samityList.map((samity) => (
-            <option key={samity._id} value={samity._id}>
-              {samity.samityName}
-            </option>
-          ))}
+          {state.samities ? <option selected>Select Samity</option> : null}
+          {Array.isArray(state.samities) &&
+            state.samities.length > 0 &&
+            state.samities.map((samity) => (
+              <option key={samity._id} value={samity._id}>
+                {samity.samityName}
+              </option>
+            ))}
         </select>
       </div>
     </>
