@@ -29,7 +29,7 @@ const RemoveWastedAsset = () => {
       <section className="m-4">
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">Remove Wasted Asset</h1>
         <form className="my-8" >
-          <section className="grid  grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
+          <section className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center max-w-5xl mx-auto gap-4">
 
             <div className="flex flex-col gap-1">
               <label className="font-medium " htmlFor="branch">Branch :</label>
@@ -54,7 +54,7 @@ const RemoveWastedAsset = () => {
             </div>
 
 
-            <div className=" flex flex-row justify-center items-center  mt-6 gap-4">
+            <div className=" flex flex-row justify-center items-center  mt-6 gap-4 md:col-span-2 lg:col-span-1">
               <button
                 className="btn btn-info font-medium     text-white"
                 onClick={handleSubmit} >

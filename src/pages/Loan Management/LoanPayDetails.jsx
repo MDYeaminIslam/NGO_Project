@@ -10,6 +10,7 @@ import useMutationHook from "../../../hooks/useMutationHook";
 
 import toast from "react-hot-toast";
 import LoanPayDetailsList from "./LoanPayDetailsList";
+import Stats from "../../component/Stats";
 const initialState = {
   ngoLoanId: null,
   amount: 0,
@@ -54,15 +55,23 @@ const LoanPayDetails = () => {
     console.log(data);
     mutate(data);
   }
+  const totalAmount = isFetched ? data.ngoLoanDetails.totalAmount : null;
+  const totalPaid = isFetched ? data.ngoLoanDetails.totalPaid : null;
+  const perInstallment = isFetched ? data.ngoLoanDetails.perInstallment.toFixed(2) : null;
+  const statsData = { totalAmount, totalPaid, perInstallment, isFetched }
+  console.log(statsData);
 
   return (
-    <div className="max-w-5xl mx-auto mt-8">
-      <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 pl-2 ">
-        Name Of The Institute:  <br /> <span className="text-teal-500"> {
+    <div className="max-w-5xl mx-auto ">
+      <h1 className="  text-lg rounded-b-lg bg-teal-700 text-white font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 pl-4 ">
+        Name Of The Institute:   <span className="text-teal-100 text-2xl pl-4"> {
           isFetched ? data.ngoLoanDetails.nameOfInstitute : null
         }
         </span>
       </h1>
+      <div className="flex justify-center items-center p-4">
+        <Stats data={statsData} />
+      </div>
       <form className="flex flex-col w-full md:w-fit mx-auto md:flex-row items-center p-4 gap-4">
         <input
           className="input w-full  input-bordered input-sm  hover:border-teal-500  "
@@ -83,49 +92,6 @@ const LoanPayDetails = () => {
           Submit
         </button>
       </form>
-      <div className="text-lg p-2 bg-base-200 md:w-fit mx-auto rounded-md m-4 tracking-normal leading-relaxed flex w-full flex-col md:flex-row flex-wrap gap-2 ">
-        {/* {isFetched ? (
-          <h1 className="bg-teal-700 text-white p-2 rounded-md font-medium">
-
-            Name of Institute:
-            <span className="font-thin mx-2 ">
-
-              {data.ngoLoanDetails.nameOfInstitute}
-            </span>
-          </h1>
-        ) : null} */}
-        {isFetched ? (
-          <h1 className="bg-teal-300   p-2 rounded-md font-medium flex items-center gap-2">
-            <span><img className="w-6" src="/NGO Dashboard icon/income.png" alt="" /></span>
-            Total Amount:
-            <span className="font-bold mx-2 ">
-
-              {data.ngoLoanDetails.totalAmount}
-            </span>
-          </h1>
-        ) : null}
-        {isFetched ? (
-          <h1 className="bg-teal-300  p-2 rounded-md font-medium flex items-center gap-2">
-            <span><img className="w-6" src="/NGO Dashboard icon/expense.png" alt="" /></span>
-            Total Paid:
-            <span className="font-bold mx-2 ">
-
-              {data.ngoLoanDetails.totalPaid}
-            </span>
-          </h1>
-        ) : null}
-        {isFetched ? (
-          <h1 className="bg-teal-300  p-2 rounded-md font-medium flex items-center gap-2">
-            <span><img className="w-6" src="/NGO Dashboard icon/Saving account.png" alt="" /></span>
-            Per Installment:
-            <span className="font-bold mx-2 ">
-
-              {data.ngoLoanDetails.perInstallment.toFixed(2)}
-            </span>
-          </h1>
-        ) : null}
-      </div>
-
       <div>
         <div className="max-w-5xl mx-auto">
           <div className=" bg-teal-700 text-white py-4 mx-1  ">
@@ -148,3 +114,4 @@ const LoanPayDetails = () => {
 };
 
 export default LoanPayDetails;
+

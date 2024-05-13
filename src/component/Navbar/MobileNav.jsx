@@ -226,7 +226,6 @@ const MobileNav = () => {
                                 </li>
                             </ul>
                             <ul className="pt-4 pb-2 space-y-1 text-sm text-white font-medium">
-
                                 <li>
                                     <Link to={'/settings'}>
                                         <p className="flex items-center p-2 space-x-3 rounded-md">
@@ -237,7 +236,6 @@ const MobileNav = () => {
                                             <button>Settings</button>
                                         </p>
                                     </Link>
-
                                 </li>
                                 <li>
                                     <Link>
@@ -246,7 +244,6 @@ const MobileNav = () => {
                                                 <path d="M440,424V88H352V13.005L88,58.522V424H16v32h86.9L352,490.358V120h56V456h88V424ZM320,453.642,120,426.056V85.478L320,51Z"></path>
                                                 <rect width="32" height="64" x="256" y="232"></rect>
                                             </svg>
-
                                             <button onClick={logOutFunction}>Logout</button>
                                         </p>
                                     </Link>

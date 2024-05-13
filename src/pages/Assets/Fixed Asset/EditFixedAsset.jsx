@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import FixedAssetNav from "./FixedAssetNav/FixedAssetNav";
 import BranchSamitySelector from "../../../component/branchSamitySelector";
 import DatePicker from "react-datepicker";
@@ -11,12 +11,14 @@ const initialState = {
   samityId: "",
   type: "fixed",
   productName: "",
-  quantity: "",
-  amount: "",
+  quantity: 0,
+  unitPrice: 0,
+  amount: 0,
   description: "",
+  depreciationPrice: 0,
   remarks: "",
   date: new Date(),
-  depreciation: "",
+  depreciation: 0,
 };
 
 const EditFixedAsset = () => {
@@ -28,9 +30,9 @@ const EditFixedAsset = () => {
       },
     });
   const handleChange = (event) => {
-    const { name, value } = event.target;
+    const { name, value, type } = event.target;
     setFormData((prev) => {
-      return { ...prev, [name]: value };
+      return { ...prev, [name]: type === "number" ? Number(value) : value };
     });
   };
   const handleSubmit = (event) => {
@@ -44,6 +46,16 @@ const EditFixedAsset = () => {
       date: new Date(date),
     }));
   };
+  const memoCalculation = useMemo(() => {
+    let total = formData.unitPrice * formData.quantity;
+    let depreciationPrice = total * (formData.depreciation / 100);
+    console.log(total, depreciationPrice);
+    setFormData((prev) => ({
+      ...prev,
+      amount: total,
+      depreciationPrice: depreciationPrice,
+    }));
+  }, [formData.unitPrice, formData.quantity, formData.depreciation]);
 
   return (
     <div>
@@ -111,15 +123,15 @@ const EditFixedAsset = () => {
               />
             </div>
             <div className="flex flex-col gap-1">
-              <label className="font-medium" htmlFor="amount">
-                Amount:
+              <label className="font-medium" htmlFor="unit">
+                Unit Price:
               </label>
               <input
                 onChange={handleChange}
                 className="input input-bordered input-sm hover:border-teal-500 "
-                id="amount"
+                id="unit"
                 type="number"
-                name="amount"
+                name="unitPrice"
               />
             </div>
             <div className="flex flex-col gap-1">
@@ -134,6 +146,20 @@ const EditFixedAsset = () => {
                 name="depreciation"
               />
             </div>
+            <div className="flex flex-col gap-1">
+              <label className="font-medium" htmlFor="amount">
+                Amount:
+              </label>
+              <input
+                className="input input-bordered input-sm hover:border-teal-500 "
+                id="amount"
+                type="number"
+                name="amount"
+                disabled
+                value={formData.amount}
+              />
+            </div>
+
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="des">
                 Description:
