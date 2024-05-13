@@ -343,6 +343,9 @@ const router = createBrowserRouter([
         path: "add_bank",
         element: <AdminRoute roles={[ROLES.Admin]}><AddBank /></AdminRoute>,
       },
+
+      
+
       //manage bank cash routes
       // {
       //   path: "bank_cash",
