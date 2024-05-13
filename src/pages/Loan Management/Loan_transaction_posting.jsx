@@ -38,6 +38,7 @@ const Loan_transaction_posting = () => {
     mutate(userPhoneNumber);
   }
   console.log(userDetails);
+  // 01679806197
   return (
     <div>
       <section>
