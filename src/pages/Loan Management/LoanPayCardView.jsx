@@ -18,11 +18,14 @@ const LoanPayCardView = ({ data }) => {
   console.log(_id);
   return (
     <div>
-      <div className="card  bg-base-100 shadow-xl">
+      <div className="card min-h-96  bg-base-100 shadow-xl">
         <div className="card-body">
-          <h2 className="card-title text-base text-wrap">
-            Name Of Institute : <span>{nameOfInstitute}</span>
+          <h2 className="card-title text-base w-fit text-wrap">
+            Name Of Institute
           </h2>
+          <h3>
+            <span>{nameOfInstitute}</span>
+          </h3>
           <div className="divider"></div>
           <div className="grid grid-cols-1 md:grid-cols-2  ">
             <p>
@@ -41,7 +44,7 @@ const LoanPayCardView = ({ data }) => {
             </p>
           </div>
 
-          <div className="flex flex-col md:flex-row  ">
+          <div className="flex flex-col flex-wrap md:flex-row  ">
             <p>
               Total Amount:
               <span className="font-bold text-emerald-500"> {totalAmount}</span>
@@ -71,7 +74,7 @@ const LoanPayCardView = ({ data }) => {
             <Link
               to={`/loan_pay_details/${_id}`}
               state={data}
-              className="btn  bg-emerald-500 text-white "
+              className="btn btn-sm w-full   bg-emerald-500 text-white "
             >
               view
             </Link>

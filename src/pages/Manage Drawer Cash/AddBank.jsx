@@ -81,10 +81,10 @@ const AddBank = () => {
       </section>
       {/* Bank List */}
       <section className="m-12">
-        {data.length
+        {isFetched
           ? data.map((bank, idx) => {
-            return <div key={idx}>{bank.name}</div>;
-          })
+              return <div key={idx}>{bank.name}</div>;
+            })
           : "No Bank Data"}
       </section>
     </div>

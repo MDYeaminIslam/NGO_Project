@@ -85,12 +85,8 @@ export async function getAllLoanAccountByBranchIdAndSmityId(data) {
 }
 //search deposit account
 export async function searchLoanAccount(number) {
-  try {
-    const response = await axiosAdmin.get(`/loan/search/${number}`);
-    return response.data.data;
-  } catch (error) {
-    return [];
-  }
+  const response = await axiosAdmin.get(`/loan/search/${number}`);
+  return response.data.data;
 }
 export async function searchDepositAccountByBranchAndSamity(body) {
   const { branchId, samityId } = body;
