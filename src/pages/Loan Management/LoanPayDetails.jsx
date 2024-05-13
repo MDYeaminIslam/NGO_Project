@@ -63,16 +63,16 @@ const LoanPayDetails = () => {
 
   return (
     <div className="max-w-5xl mx-auto ">
-      <h1 className="  text-lg rounded-b-lg bg-teal-700 text-white font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 pl-4 ">
-        Name Of The Institute:   <span className="text-teal-100 text-2xl pl-4"> {
+      <h1 className="  text-lg md:rounded-md bg-teal-700 text-white font-normal  mx-2  mt-4  p-3 text-center ">
+        Name Of The Institute:   <span className="text-teal-100 text-2xl pl-2 "> {
           isFetched ? data.ngoLoanDetails.nameOfInstitute : null
         }
         </span>
       </h1>
-      <div className="flex justify-center items-center p-4">
+      <div className="flex justify-center items-center w-full mt-4">
         <Stats data={statsData} />
       </div>
-      <form className="flex flex-col w-full md:w-fit mx-auto md:flex-row items-center p-4 gap-4">
+      <form className="flex flex-col w-full md:max-w-2xl mx-auto md:flex-row items-center p-6 gap-4">
         <input
           className="input w-full  input-bordered input-sm  hover:border-teal-500  "
           type="number"
@@ -88,13 +88,13 @@ const LoanPayDetails = () => {
           placeholder="Remark"
         />
 
-        <button className="btn w-full md:w-fit bg-teal-700 text-white" onClick={handleSubmit}>
+        <button className="btn w-full btn-sm md:w-fit bg-teal-700 text-white" onClick={handleSubmit}>
           Submit
         </button>
       </form>
       <div>
         <div className="max-w-5xl mx-auto">
-          <div className=" bg-teal-700 text-white py-4 mx-1  ">
+          <div className=" bg-teal-700 text-white py-4 mx-1 rounded-t-md  ">
             <tr className="grid grid-cols-3 md:grid-cols-5  items-center justify-center gap-1 text-start ">
               <th>Remark</th>
               <th>Date</th>

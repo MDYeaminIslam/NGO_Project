@@ -11,6 +11,8 @@ import toast from "react-hot-toast";
 import { IconSearch } from "../../../icons/icons";
 import { MoonLoader } from "react-spinners";
 import useMutationHook from "../../../hooks/useMutationHook";
+import UserDetailsCard from "../../component/UserDetailsCard";
+import LoanAccountsCard from "../../component/LoanAccountsCard";
 
 const Loan_transaction_posting = () => {
   const [userDetails, setUserDetails] = useState(null);
@@ -37,7 +39,7 @@ const Loan_transaction_posting = () => {
     event.preventDefault();
     mutate(userPhoneNumber);
   }
-  console.log(userDetails, loanAccounts, userPhoneNumber);
+  console.log(loanAccounts);
   console.log(userPhoneNumber);
   // 01679806197
   return (
@@ -46,8 +48,8 @@ const Loan_transaction_posting = () => {
         <LoanManagementNav />
       </section>
 
-      <section>
-        <section className="m-4 max-w-5xl mx-auto">
+      <section className="p-2 m-4 max-w-5xl mx-auto">
+        <section className="">
           <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
             Transaction Posting
           </h1>
@@ -62,7 +64,19 @@ const Loan_transaction_posting = () => {
             <button className="btn btn-sm  hover:bg-teal-500 hover:text-white" onClick={handleSubmit}>Search</button>
           </div>
         </section>
-        <section>{isSuccess ? <h1>{userDetails.name}</h1> : null}</section>
+        <section>
+          {
+            userDetails ?
+              <UserDetailsCard data={{ ...userDetails, userPhoneNumber }} />
+              : null
+          }</section>
+        <section>
+          {
+            loanAccounts ?
+              loanAccounts.map((data, idx) => <LoanAccountsCard key={idx} data={data} />)
+              : null
+          }
+        </section>
       </section>
     </div>
   );
