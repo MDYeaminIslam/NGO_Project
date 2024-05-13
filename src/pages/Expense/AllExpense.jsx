@@ -63,6 +63,7 @@ const AllExpense = () => {
           Search
         </button>
       </div>
+
       <section className="px-4">
         {expenses.length
           ? formData.type === "purchase"

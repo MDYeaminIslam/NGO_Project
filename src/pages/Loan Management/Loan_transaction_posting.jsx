@@ -19,10 +19,10 @@ const Loan_transaction_posting = () => {
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(searchLoanAccount, {
       onSuccess: (data) => {
-        console.log("su");
         const { userDetails, loanAccounts } = data[0];
         setLoanAccounts(loanAccounts);
         setUserDetails(userDetails);
+        console.log();
       },
       onError: () => {
         toast.error("No Data Found");
@@ -37,7 +37,8 @@ const Loan_transaction_posting = () => {
     event.preventDefault();
     mutate(userPhoneNumber);
   }
-  console.log(userDetails);
+  console.log(userDetails, loanAccounts, userPhoneNumber);
+  console.log(userPhoneNumber);
   // 01679806197
   return (
     <div>
@@ -46,17 +47,20 @@ const Loan_transaction_posting = () => {
       </section>
 
       <section>
-        <section className="m-4">
+        <section className="m-4 max-w-5xl mx-auto">
           <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
             Transaction Posting
           </h1>
-          <input
-            type="number"
-            name="phoneNumber"
-            className="input input-bordered input-sm  hover:border-teal-500  "
-            onChange={handleChange}
-          />
-          <button onClick={handleSubmit}>Serach</button>
+          <div className=" flex flex-col md:flex-row gap-4 w-full p-4">
+            <input
+              type="number"
+              name="phoneNumber"
+              placeholder="Search by PhoneNumber"
+              className="input input-bordered input-sm w-full   hover:border-teal-500  "
+              onChange={handleChange}
+            />
+            <button className="btn btn-sm  hover:bg-teal-500 hover:text-white" onClick={handleSubmit}>Search</button>
+          </div>
         </section>
         <section>{isSuccess ? <h1>{userDetails.name}</h1> : null}</section>
       </section>
