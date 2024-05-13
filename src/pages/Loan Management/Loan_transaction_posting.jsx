@@ -37,7 +37,7 @@ const Loan_transaction_posting = () => {
     event.preventDefault();
     mutate(userPhoneNumber);
   }
-
+  console.log(userDetails);
   return (
     <div>
       <section>
