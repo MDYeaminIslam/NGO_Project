@@ -41,6 +41,7 @@ const Loan_transaction_posting = () => {
   }
   console.log(loanAccounts);
   console.log(userPhoneNumber);
+  console.log(userDetails);
   // 01679806197
   return (
     <div>
@@ -71,9 +72,24 @@ const Loan_transaction_posting = () => {
               : null
           }</section>
         <section>
+          <div className="overflow-x-auto">
+            <table className="table">
+              <thead className='grid grid-cols-4 w-full bg-teal-500 text-white rounded-md'>
+
+
+                <th>Name</th>
+                <th>Payment</th>
+                <th>date</th>
+                <th>Action</th>
+
+
+              </thead>
+            </table>
+          </div>
+
           {
             loanAccounts ?
-              loanAccounts.map((data, idx) => <LoanAccountsCard key={idx} data={data} />)
+              loanAccounts.map((data, idx) => <LoanAccountsCard value={userDetails} key={idx} data={data} />)
               : null
           }
         </section>

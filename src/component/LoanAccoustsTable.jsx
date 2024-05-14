@@ -1,70 +1,44 @@
+import { Link } from "react-router-dom";
+import { dateToString } from "../utils/DateHelper";
 
-const LoanAccoustsTable = () => {
+const LoanAccoustsTable = ({ data }) => {
+    const { _id, paymentTerm, totalAmount, numberOfInstallment, openingDate, expiryDate, paid, value } = data;
+    const { name, photo, samityName } = value
+
+    console.log(value);
     return (
         <div>
-            <div className="overflow-x-auto">
-                <table className="table">
-                    {/* head */}
-                    {/* <thead>
-                        <tr>
-                            <th>
-                                <label>
-                                    <input type="checkbox" className="checkbox" />
-                                </label>
-                            </th>
-                            <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
-                            <th></th>
-                        </tr>
-                    </thead> */}
-                    <tbody>
-                        {/* row 1 */}
-                        <tr>
-                            <th>
-                                <label>
-                                    <input type="checkbox" className="checkbox" />
-                                </label>
-                            </th>
-                            <td>
-                                <div className="flex items-center gap-3">
-                                    <div className="avatar">
-                                        <div className="mask mask-squircle w-12 h-12">
-                                            <img src="https://img.daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div className="font-bold">Hart Hagerty</div>
-                                        <div className="text-sm opacity-50">United States</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                Zemlak, Daniel and Leannon
-                                <br />
-                                <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
-                            </td>
-                            <td>Purple</td>
-                            <th>
-                                <button className="btn btn-ghost btn-xs">details</button>
-                            </th>
-                        </tr>
-                        {/* row 2 */}
+            <tbody className="grid grid-cols-4 divide-x-2 ">
 
-                    </tbody>
-                    {/* foot */}
-                    {/* <tfoot>
-                        <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
-                            <th></th>
-                        </tr>
-                    </tfoot> */}
+                <td>
+                    <div className="flex items-center gap-3">
+                        <div className="avatar">
+                            <div className="mask mask-squircle w-12 h-12">
+                                <img src={photo} />
+                            </div>
+                        </div>
+                        <div>
+                            <div className="font-bold">{name}</div>
+                            <div className="text-sm opacity-50">{samityName}</div>
+                        </div>
+                    </div>
+                </td>
+                <td className="space-y-2">
+                    <span> {paymentTerm}</span>
+                    <br />
+                    <span className="badge badge-ghost badge-sm">Total Amount: <span className="pl-2">{totalAmount}</span></span> <br />
+                    <span className="badge badge-ghost badge-sm">Total Paid: <span className="pl-2">{paid}</span></span>
+                </td>
+                <td className="space-y-2"> <p>Opening : <span>{dateToString(openingDate)}</span></p>
+                    <span className="badge badge-ghost badge-sm">Expire Date: <span>{dateToString(expiryDate)}</span></span>
+                </td>
+                <th>
+                    <Link className="btn bg-teal-500 text-white btn-xs">Details</Link>
+                </th>
 
-                </table>
-            </div>
+
+
+            </tbody>
         </div>
     )
 

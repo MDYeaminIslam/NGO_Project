@@ -32,7 +32,7 @@ const SideNavbar = () => {
                     </div>
                 </div>
                 <div className="divide-y divide-gray-300">
-                    <ul className="pt-2 pb-4 px-1 space-y-3 text-sm font-medium text-black ">
+                    <ul className="pt-2 pb-4 px-1 space-y-3 text-sm font-normal text-black ">
                         <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                             {
                                 role == 'admin' || role == 'collector' ?

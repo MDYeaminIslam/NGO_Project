@@ -3,8 +3,8 @@
 const UserDetailsCard = ({ data }) => {
     const { name, photo, samityName, branchName, userPhoneNumber } = data;
     return (
-        <div className="bg-gray-50">
-            <div className="max-w-md  p-4 sm:flex sm:space-x-6 bg-gray-50 text-gray-800">
+        <div className="bg-gray-50 rounded-md mb-2">
+            <div className="max-w-md rounded  p-2 sm:flex sm:space-x-6 bg-gray-50 text-gray-800">
                 <div className="flex-shrink-0 w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">
                     <img src={photo} alt="" className="object-cover object-center w-full h-full rounded bg-gray-500" />
                 </div>
