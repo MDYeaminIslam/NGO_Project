@@ -75,6 +75,11 @@ export async function payLoanAccount(data) {
   const response = await axiosAdmin.post("/loan/pay", data);
   return response.data;
 }
+//get loan transaction details
+export async function getLoanTransactionDetailsById(id) {
+  const response = await axiosAdmin.get(`/loan/user-transaction/search/${id}`);
+  return response.data.data;
+}
 //get loan accounts using samity and branch id adn type
 export async function getAllLoanAccountByBranchIdAndSmityId(data) {
   const { branchId, samityId, paymentTerm } = data;
