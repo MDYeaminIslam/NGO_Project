@@ -98,6 +98,8 @@ import ROLES from "../../config/roles";
 import LoanPayList from "../pages/Loan Management/LoanPayList";
 import LoanPayDetails from "../pages/Loan Management/LoanPayDetails";
 import SavingAccountList from "../pages/Saving Account/SavingAccountList";
+import SavingAccountListDetails from "../pages/Saving Account/SavingAccountListDetails";
+import LoanTransactionPostingDetails from "../pages/Loan Management/LoanTransactionPostingDetails";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -192,7 +194,11 @@ const router = createBrowserRouter([
       },
       {
         path: "saving_account_list",
-        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><SavingAccountList/> </AdminRoute>
+        element: <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}><SavingAccountList /> </AdminRoute>
+      },
+      {
+        path: "saving_account_list_details/:id",
+        element: <SavingAccountListDetails />
       },
 
       // loan handling routes
@@ -269,8 +275,13 @@ const router = createBrowserRouter([
       },
       {
         path: 'loan_pay_details/:id',
-        element: <LoanPayDetails />,
+        element: <LoanPayDetails />, //dynamic rout
       },
+      {
+        path: 'loan_transaction_posting_details/:id',
+        element: <LoanTransactionPostingDetails />
+      }
+      ,
 
       // Expense routes
       {
@@ -344,7 +355,7 @@ const router = createBrowserRouter([
         element: <AdminRoute roles={[ROLES.Admin]}><AddBank /></AdminRoute>,
       },
 
-      
+
 
       //manage bank cash routes
       // {

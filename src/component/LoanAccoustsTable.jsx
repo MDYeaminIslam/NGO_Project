@@ -33,11 +33,8 @@ const LoanAccoustsTable = ({ data }) => {
                     <span className="badge badge-ghost badge-sm">Expire Date: <span>{dateToString(expiryDate)}</span></span>
                 </td>
                 <th>
-                    <Link className="btn bg-teal-500 text-white btn-xs">Details</Link>
+                    <Link to={`/loan_transaction_posting_details/${_id}`} className="btn bg-teal-500 text-white btn-xs">Details</Link>
                 </th>
-
-
-
             </tbody>
         </div>
     )

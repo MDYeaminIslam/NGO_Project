@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const LoanManagementNav = () => {
 
@@ -14,14 +14,11 @@ const LoanManagementNav = () => {
       <nav className="bg-teal-700 text-white">
         <div className=" px-2  ">
           <div className="relative flex items-center justify-between h-24">
-
-
             <div className="block sm:hidden relative">
               <button
                 onClick={toggleDropdown}
                 className="ml-4 text-black bg-white focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
                 type="button">
-
                 Select Menu
                 <svg
                   className="w-2.5 h-2.5 ms-3"
@@ -29,7 +26,6 @@ const LoanManagementNav = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 10 6">
-
                   <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
                 </svg>
               </button>
@@ -94,8 +90,6 @@ const LoanManagementNav = () => {
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Loan Pay List</p>
                       </NavLink>
                     </li>
-
-
                   </ul>
                 </div>
               )}

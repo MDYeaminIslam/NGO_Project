@@ -249,6 +249,7 @@ const AddMember = () => {
                 name="emergencyContactNumber"
               />
             </div>
+
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="membership_fee ">
                 Membership Fee:
@@ -261,6 +262,7 @@ const AddMember = () => {
                 name="membershipFee"
               />
             </div>
+
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="membership_fee ">
                 DOB (DD/MM/YYYY):
@@ -272,6 +274,7 @@ const AddMember = () => {
                 dateFormat="dd/MM/yyyy"
               />
             </div>
+
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="Attach_Photo ">
                 Attach Photo:
@@ -284,6 +287,7 @@ const AddMember = () => {
                 name="photo"
               />
             </div>
+
             {/* Education Qualification */}
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="Attach_Photo ">
@@ -304,6 +308,7 @@ const AddMember = () => {
                 <option value="NONE">NONE</option>
               </select>
             </div>
+
             <BranchSamitySelector callBackFn={setFormData} />
           </section>
           {/* nominee section */}
