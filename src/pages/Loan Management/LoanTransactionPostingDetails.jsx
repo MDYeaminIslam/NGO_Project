@@ -7,6 +7,7 @@ import {
 import useMutationHook from "../../../hooks/useMutationHook";
 import toast from "react-hot-toast";
 import { useState } from "react";
+import LoanManagementNav from "./LoanManagementNav/LoanManagementNav";
 const initialData = {
   amount: 0,
   addFineAmount: 0,
@@ -79,41 +80,60 @@ const LoanTransactionPostingDetails = () => {
   return (
     <>
       {/* Loan Details Section */}
-      <section></section>
-      {/* Pay Section */}
       <section>
-        <h1>{id}</h1>
-        <h1>Pay Loan</h1>
-        <form>
-          <label htmlFor="">Amount</label>
-          <input
-            onChange={handleChange}
-            type="number"
-            name="amount"
-            className="input input-sm hover:border-teal-500 input-bordered flex items-center gap-2"
-          />
-          <label htmlFor="addFineAmount">Add Fine</label>
-          <input
-            onChange={handleChange}
-            type="number"
-            name="addFineAmount"
-            className="input input-sm hover:border-teal-500 input-bordered flex items-center gap-2"
-          />
-          <label htmlFor="">Fine Reason</label>
-          <input
-            onChange={handleChange}
-            type="text"
-            name="fineReason"
-            className="input input-sm hover:border-teal-500 input-bordered flex items-center gap-2"
-          />
-          <label htmlFor="">Pay Fine Amount</label>
-          <input
-            onChange={handleChange}
-            type="number"
-            name="payFineAmount"
-            className="input input-sm hover:border-teal-500 input-bordered flex items-center gap-2"
-          />
-          <button onClick={handleSubmit}>Add Transaction</button>
+        <LoanManagementNav />
+      </section>
+      {/* Pay Section */}
+      <section className="m-4">
+        {/* <h1>{id}</h1> */}
+        <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2">Pay Loan</h1>
+        <form >
+          <div className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4 my-8">
+            <div className="flex flex-col gap-1">
+              <label htmlFor="">Amount</label>
+              <input
+                onChange={handleChange}
+                type="number"
+                name="amount"
+                className="input input-sm hover:border-teal-500 input-bordered flex items-center gap-2"
+              />
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label htmlFor="addFineAmount">Add Fine</label>
+              <input
+                onChange={handleChange}
+                type="number"
+                name="addFineAmount"
+                className="input input-sm hover:border-teal-500 input-bordered flex items-center gap-2"
+              />
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label htmlFor="">Fine Reason</label>
+              <input
+                onChange={handleChange}
+                type="text"
+                name="fineReason"
+                className="input input-sm hover:border-teal-500 input-bordered flex items-center gap-2"
+              />
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label htmlFor="">Pay Fine Amount</label>
+              <input
+                onChange={handleChange}
+                type="number"
+                name="payFineAmount"
+                className="input input-sm hover:border-teal-500 input-bordered flex items-center gap-2"
+              />
+            </div>
+          </div>
+          
+          <div className="w-full flex justify-center  mt-12">
+
+            <button className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium  text-white" onClick={handleSubmit}>Add Transaction</button>
+          </div>
         </form>
       </section>
       {/* Transaction Section */}
