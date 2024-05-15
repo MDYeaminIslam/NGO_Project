@@ -10,6 +10,8 @@ import toast from "react-hot-toast";
 import useMutationHook from "../../../hooks/useMutationHook";
 const initialState = {
   employeeId: "",
+  branchId: "",
+  samityId: "",
   basicSalary: "",
   mobileBill: "",
   tourBill: 0,
@@ -24,6 +26,7 @@ const initialState = {
     absent: "",
     others: "",
   },
+  date: new Date(),
 };
 
 const PaySlip = () => {
@@ -63,6 +66,7 @@ const PaySlip = () => {
       if (userData.length) {
         setShowLoadingIcon(false);
         setSearchedUser(userData[0]);
+        console.log(useState[0]);
         const { salaryAmount, mobileBill } = userData[0].presentPosition;
         console.log(userData[0]);
 
@@ -70,6 +74,8 @@ const PaySlip = () => {
           ...prev,
           basicSalary: salaryAmount,
           employeeId: userData[0]._id,
+          branchId: userData[0].branchId,
+          samityId: userData[0].samityId,
           mobileBill,
           deduction: {
             ...prev.deduction,

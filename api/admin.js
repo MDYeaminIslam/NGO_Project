@@ -190,6 +190,7 @@ export async function setAttendeesSheet(data, other) {
   );
   return response;
 }
+//get attendnce of
 
 //create praying amount application
 export async function createPrayingAmountApplication(data) {
