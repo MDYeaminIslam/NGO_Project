@@ -14,6 +14,17 @@ const initialData = {
     fineReason: "",
     payFineAmount: 0,
 };
+const Mockdata = ({ data }) => {
+    const { memberId, loanAmount } = data;
+
+    return (
+        <div>
+            <h1>hello{memberId}</h1>
+        </div>
+    )
+
+}
+
 const LoanTransactionPostingDetails = () => {
     const [formData, setFormData] = useState(initialData);
     const { id } = useParams();
@@ -45,8 +56,9 @@ const LoanTransactionPostingDetails = () => {
         mutate(data);
         console.log(data);
     }
-    console.log(data.transactionDetails);
-    console.log(data.loanAccountDetails);
+    // console.log(data.transactionDetails);
+    // console.log(data.loanAccountDetails);
+
 
     // const { transactionDetails , loanAccountDetails} = data
     //   const {
@@ -85,7 +97,11 @@ const LoanTransactionPostingDetails = () => {
             <section>
                 <LoanManagementNav />
             </section>
-
+            <section>
+                {data ?
+                    <Mockdata data={data.loanAccountDetails} /> : null
+                }
+            </section>
             <section className="m-4">
                 <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2">Pay Loan</h1>
                 <form >
@@ -139,7 +155,9 @@ const LoanTransactionPostingDetails = () => {
             </section>
             {/* Transaction Section */}
             {data ? data.transactionDetails.length : 0}
-            <section></section>
+            <section>
+
+            </section>
         </>
     );
 };
