@@ -47,6 +47,7 @@ const LoanTransactionPostingDetails = () => {
     }
     console.log(data.transactionDetails);
     console.log(data.loanAccountDetails);
+
     // const { transactionDetails , loanAccountDetails} = data
     //   const {
     //   _id: loanAccountId,
