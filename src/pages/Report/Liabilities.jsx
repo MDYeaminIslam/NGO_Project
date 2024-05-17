@@ -4,7 +4,7 @@ const Liabilities = () => {
   return (
     <div>
       <section>
-        <ReportNav/>
+        <ReportNav />
       </section>
       <h1>Liabilities</h1>
     </div>

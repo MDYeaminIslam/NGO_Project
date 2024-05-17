@@ -126,6 +126,17 @@ export async function searchEmployeeByPhoneNumber(number) {
     return [];
   }
 }
+// payslip searrch
+export async function searchEmployeeByPhoneNumberPaySlip(number) {
+  try {
+    const response = await axiosAdmin.get(
+      `/employee/payslip/search/${number}?date=${new Date()}`
+    );
+    return response.data.data;
+  } catch (err) {
+    return [];
+  }
+}
 
 //set employee credentials
 export async function setEmployeeCredentials(data) {
@@ -265,4 +276,10 @@ export async function ngoLoanTransaction(id) {
 export async function ngoLoanPayment(data) {
   const response = await axiosAdmin.post("/loan/ngo-loan/pay", data);
   return response.data;
+}
+//ngo liabilities
+export async function ngoLiability() {
+  const response = await axiosAdmin.get("/liabilities/details");
+  console.log(response.data);
+  return response.data.data;
 }
