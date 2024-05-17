@@ -4,6 +4,7 @@ import { IconSearch } from "../../../icons/icons";
 import {
   createMonthlyPaySlipApplication,
   searchEmployeeByPhoneNumber,
+  searchEmployeeByPhoneNumberPaySlip,
 } from "../../../api/admin";
 import { MoonLoader } from "react-spinners";
 import toast from "react-hot-toast";
@@ -18,13 +19,15 @@ const initialState = {
   overTime: 0,
   specialAward: 0,
   bonus: 0,
+  total: 0,
   totalPaid: 0,
+  due: 0,
   deduction: {
-    advance: "",
-    ait: "",
-    providentFund: "",
-    absent: "",
-    others: "",
+    advance: 0,
+    ait: 0,
+    providentFund: 0,
+    absent: 0,
+    others: 0,
   },
   date: new Date(),
 };
@@ -41,6 +44,10 @@ const PaySlip = () => {
     });
   const handleChange = (event) => {
     const { name, value, type } = event.target;
+    if (name === "totalPaid") {
+      const due = formData.total - Number(value);
+      setFormData((prev) => ({ ...prev, due: due }));
+    }
     console.log(type, name);
     setFormData((prev) => {
       return { ...prev, [name]: type === "number" ? Number(value) : value };
@@ -62,11 +69,10 @@ const PaySlip = () => {
   const handleSearchUser = async (event) => {
     const { value } = event.target;
     if (value.length >= 11) {
-      const userData = await searchEmployeeByPhoneNumber(value);
+      const userData = await searchEmployeeByPhoneNumberPaySlip(value);
       if (userData.length) {
         setShowLoadingIcon(false);
         setSearchedUser(userData[0]);
-        console.log(useState[0]);
         const { salaryAmount, mobileBill } = userData[0].presentPosition;
         console.log(userData[0]);
 
@@ -74,8 +80,6 @@ const PaySlip = () => {
           ...prev,
           basicSalary: salaryAmount,
           employeeId: userData[0]._id,
-          branchId: userData[0].branchId,
-          samityId: userData[0].samityId,
           mobileBill,
           deduction: {
             ...prev.deduction,
@@ -90,9 +94,8 @@ const PaySlip = () => {
       setShowLoadingIcon(true);
     }
   };
-  const handleSubmit = (event, buttonAction) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData);
     const { tourBill, overTime, specialAward, bonus, basicSalary, mobileBill } =
       formData;
     const total =
@@ -101,20 +104,21 @@ const PaySlip = () => {
       Number(specialAward) +
       Number(bonus) +
       Number(basicSalary) +
-      Number(mobileBill);
+      Number(mobileBill) +
+      searchedUser.salaryDue;
     console.log(total);
 
-    const { absent, advance, ait, others, providentFund } = formData.deduction;
+    const { advance, ait, others, providentFund } = formData.deduction;
     const aitCalculation = Number(basicSalary) * (Number(ait) / 100);
     const proCalculation = Number(basicSalary) * (Number(providentFund) / 100);
     const totalDeduction =
       aitCalculation +
       proCalculation +
-      Number(absent) +
+      Number(searchedUser.totalAbsent) +
       Number(advance) +
       Number(others);
     const totalCalculation = total - totalDeduction;
-    setFormData((prev) => ({ ...prev, totalPaid: totalCalculation }));
+    setFormData((prev) => ({ ...prev, total: totalCalculation }));
   };
 
   function finalSubmit(e) {
@@ -317,6 +321,7 @@ const PaySlip = () => {
                   className="input input-bordered input-sm  hover:border-teal-500  "
                   id="absent"
                   name="absent"
+                  value={searchedUser ? searchedUser.totalAbsent : null}
                   onChange={handleChangeDeduction}
                   type="number"
                   placeholder=""
@@ -336,19 +341,29 @@ const PaySlip = () => {
                   placeholder=""
                 />
               </div>
+              <div className="flex flex-col gap-1">
+                <label className="font-medium">Salary Due:</label>
+                <input
+                  className="input input-bordered input-sm  hover:border-teal-500  "
+                  type="number"
+                  value={searchedUser ? searchedUser.salaryDue : null}
+                  disabled
+                />
+              </div>
             </section>
-
-            <div className="w-fit mx-auto flex justify-center  m-8">
-              <button
-                className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium text-white mt-6"
-                onClick={handleSubmit}
-                type="submit"
-              >
-                Submit
-              </button>
-            </div>
           </form>
+          <div className="w-fit mx-auto flex justify-center  m-8">
+            <button
+              className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium text-white mt-6"
+              onClick={handleSubmit}
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
         </section>
+        {/* Salary Due */}
+
         <section className="m-4">
           <h1 className="text-lg font-bold text-start max-w-5xl mx-auto  pt-8">
             {" "}
@@ -360,7 +375,28 @@ const PaySlip = () => {
                 <label className="font-medium" htmlFor="advance">
                   Total Amount:
                 </label>
-                <h1>{formData.totalPaid}</h1>
+                <h1>{formData.total}</h1>
+              </div>
+              <div className="flex flex-col gap-1">
+                <label className="font-medium" htmlFor="totalPay">
+                  TotalPay:
+                </label>
+                <input
+                  className="input input-bordered input-sm  hover:border-teal-500  "
+                  id="totalPay"
+                  name="totalPaid"
+                  onChange={handleChange}
+                  type="number"
+                />
+              </div>
+              <div className="flex flex-col gap-1">
+                <label className="font-medium">Due:</label>
+                <input
+                  className="input input-bordered input-sm  hover:border-teal-500  "
+                  value={formData.due}
+                  type="number"
+                  disabled
+                />
               </div>
             </section>
           </form>
