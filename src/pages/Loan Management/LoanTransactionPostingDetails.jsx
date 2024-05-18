@@ -35,9 +35,9 @@ const Mockdata = ({ data }) => {
     //   <p>Loan Fine: <span>{loanFine}</span></p>
     //   <p>Loan Fine Paid: <span>{loanFinePaid}</span></p>
     // </div>
-    <div>
-      <h1 className='border-b-4 bg-teal-100 text-gray-600 text-lg pl-6 font-medium rounded-b-md pb-2 pt-1 flex items-center gap-2'><span><img className='w-8' src="./../../../public/Admin Dashboard icon/Total members.png" alt="" /></span> User Details</h1>
-      <div className=' border-b-4 text-base font-medium tracking-wide divide-y-1 space-y-3 grid grid-cols-1 leading-6 p-6 py-3 bg-teal-50 rounded-b-md '>
+    <div className="max-w-5xl mx-auto">
+      <h1 className='border-b-4  text-gray-600 text-lg pl-6 font-medium  pb-2 pt-1 flex items-center gap-2'><span><img className='w-8' src="./../../../public/Admin Dashboard icon/Total members.png" alt="" /></span> User Details</h1>
+      <div className=' border-b-4 text-base font-medium tracking-wide divide-y-1 space-y-3 grid grid-cols-2 leading-6 p-6 py-3 bg-teal-50 rounded-md '>
         <p className='flex items-center gap-2'><span><img className='w-4' src="/NGO Dashboard icon/Member.png" alt="" /></span> Member Name : <span className='font-normal pl-2'>Mr. Yo </span></p>
         <p className='flex items-center gap-2'> <img className='w-5' src="/NGO Dashboard icon/expense.png" alt="" />Member Id: <span className='font-normal px-2 bg-green-500 text-white rounded'>{memberId}</span></p>
         <p className='flex items-center gap-2'> <img className='w-5' src="./../../../public/NGO Dashboard icon/report.png" alt="" />Payment Term: <span className='font-normal text-white rounded px-2 bg-teal-500'>{paymentTerm}</span></p>
@@ -49,10 +49,8 @@ const Mockdata = ({ data }) => {
         <p className='flex items-center gap-2'> <img className='w-5' src="./../../../public/NGO Dashboard icon/manage-drawer-cash.png" alt="" />Paid: <span className='font-normal pl-2'>{paid}</span></p>
         <p className='flex items-center gap-2'> <img className='w-5' src="./../../../public/NGO Dashboard icon/manage-drawer-cash.png" alt="" />Loan Fine: <span className='font-normal pl-2'>{loanFine}</span></p>
         <p className='flex items-center gap-2'> <img className='w-5' src="./../../../public/NGO Dashboard icon/manage-drawer-cash.png" alt="" />Loan Fine Paid: <span className='font-normal pl-2'>{loanFinePaid}</span></p>
-        <div className='flex flex-wrap  gap-4 border-t-2 pt-2'>
-          <p className='flex items-center gap-2 '><span><img width="22" height="22" src="https://img.icons8.com/ios/50/calendar--v1.png" alt="calendar--v1" /></span>Opening Date : <span className='font-normal '>{dateToString(openingDate)} </span></p>
-          <p className='flex items-center gap-2'><span><img width="22" height="22" src="https://img.icons8.com/ios/50/calendar--v1.png" alt="calendar--v1" /></span>Update Date : <span className='font-normal '>{dateToString(expiryDate)} </span></p>
-        </div>
+        <p className='flex items-center gap-2 '><span><img width="22" height="22" src="https://img.icons8.com/ios/50/calendar--v1.png" alt="calendar--v1" /></span>Opening Date : <span className='font-normal '>{dateToString(openingDate)} </span></p>
+        
       </div>
     </div>
   )
@@ -61,7 +59,7 @@ const Mockdata = ({ data }) => {
 
 
 const TransactionDetailsTable = ({ data }) => {
-  const { _id, loanId, amount, addFineAmount, fineReason, payFineAmount, createdAt, updatedAt, } = data;
+  const { _id, loanId, amount, addFineAmount, fineReason, payFineAmount, createdAt, updatedAt } = data;
 
 
   return (
@@ -76,10 +74,10 @@ const TransactionDetailsTable = ({ data }) => {
     //   <p>Updated At: {updatedAt}</p>
     // </div>
 
-    <div className="md:m-8">
+    <div className="">
      
 
-        <tr className="grid grid-cols-3 text-xs md:text-base bg-gray-100  border-b-4   md:grid-cols-5 items-center w-full justify-between text-center py-3">
+        <tr className="px-2 grid grid-cols-3 text-xs md:text-base bg-gray-100  border-b-4   md:grid-cols-5 items-center w-full justify-between text-center py-3">
           <td>{loanId}</td>
           <td>{amount}</td>
           <td className="hidden md:block">{addFineAmount}</td>
@@ -206,7 +204,7 @@ const LoanTransactionPostingDetails = () => {
             <th>Amount</th>
             <th>Fine Amount</th>
             <th className="hidden md:block">Fine Reason</th>
-            <th className="hidden md:block">Created At</th>
+            <th className="hidden md:block">date</th>
           </tr>
   
           {data ? data.transactionDetails.map((data, idx) => <TransactionDetailsTable key={idx} data={data} />) : null}
