@@ -24,7 +24,7 @@ const SavingAccountListView = ({ data }) => {
 
                     <td>
                         <Link state={{ data: data }} to={`/saving_account_list_details/${_id}`}>
-                            <button className="btn btn-xs md:btn btn-info text-white">view</button>
+                            <button className="btn btn-xs md:btn-sm  btn-info text-white">view</button>
                         </Link>
 
                     </td>
