@@ -70,6 +70,7 @@ function BranchesNav() {
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">IMW Fund Collection</p>
                       </NavLink>
                     </li>
+                   
 
                   </ul>
                 </div>
