@@ -26,12 +26,12 @@ const Upcoming = () => {
           <div className="flex flex-col mt-8 ml-8 mr-8 mb-32">
             <div className="-m-1.5 overflow-x-auto">
               <div className="p-1.5 min-w-full inline-block align-middle">
-                <div className="border overflow-hidden border-black">
+                <div className="border overflow-hidden border-gray-500">
 
 
                   <table className="min-w-full divide-y divide-gray-200">
 
-                    <thead className="bg-slate-800">
+                    <thead className="bg-teal-700">
 
                       <tr>
                         <th scope="col" className="px-6 py-3 text-start text-xs font-bold text-white uppercase">SL No.</th>
