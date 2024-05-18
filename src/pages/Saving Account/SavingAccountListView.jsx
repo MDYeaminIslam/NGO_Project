@@ -11,6 +11,7 @@ const SavingAccountListView = ({ data }) => {
         onMatureAmount,
         openingDate,
         balance,
+        memberDetails
     } = data
     return (
         <div>
