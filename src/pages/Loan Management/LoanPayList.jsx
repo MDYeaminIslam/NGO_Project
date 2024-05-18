@@ -20,6 +20,7 @@ const LoanPayList = () => {
                         isFetched ?
                             data.map((data, idx) => <LoanPayCardView data={data} key={idx} />)
                             : null
+                            
                     }
                 </div>
             </section>
