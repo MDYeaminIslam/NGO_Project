@@ -13,14 +13,14 @@ const initialState = {
 };
 const Login = () => {
   const [formData, setFormData] = useState(initialState);
-  const { setUser, getUser } = useUserType();
-  const role = getUser()
+  const { setUser } = useUserType();
   const navigate = useNavigate();
   const { mutate, isError, errorMessage } = useMutationHook(
     loginAdminCollector,
     {
       onSuccess: (data) => {
-        setUser(data.type);
+        console.log(data);
+        setUser(data);
         toast.success("Done");
         navigate("/");
       },
@@ -35,7 +35,7 @@ const Login = () => {
     mutate(formData);
   }
   const minHeightStyle = {
-    minHeight: `calc(100vh - 50px)`
+    minHeight: `calc(100vh - 50px)`,
   };
 
   // useEffect(() => {
@@ -46,7 +46,7 @@ const Login = () => {
   return (
     <div>
       <section>
-        <div className="hero  bg-teal-800 w-full" style={minHeightStyle} >
+        <div className="hero  bg-teal-800 w-full" style={minHeightStyle}>
           <div className="hero-content flex flex-col lg:flex-row">
             <div className="text-center lg:text-left w-full md:w-1/2 hidden md:block">
               <h1 className="text-5xl font-bold text-white">Login now!</h1>
@@ -151,9 +151,9 @@ const Login = () => {
             </div>
           </div>
         </div>
-      </section >
+      </section>
       <section></section>
-    </div >
+    </div>
   );
 };
 

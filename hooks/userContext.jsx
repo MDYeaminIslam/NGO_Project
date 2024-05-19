@@ -24,9 +24,11 @@ export const UserTypeProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false); // Set initial loading state to false
 
   // Function to set user type
-  const setUser = (type) => {
-    setUserType(type);
-    localStorage.setItem("userType", type); // Update localStorage
+  const setUser = (data) => {
+    setUserType(data.type);
+    localStorage.setItem("userType", data.type); // Update localStorage
+    localStorage.setItem("accessToken", data.accessToken);
+    localStorage.setItem("refreshToken", data.refreshToken);
   };
 
   // Function to get user type
@@ -38,6 +40,8 @@ export const UserTypeProvider = ({ children }) => {
   const logout = () => {
     setUserType(null);
     localStorage.removeItem("userType"); // Remove userType from localStorage
+    localStorage.removeItem("refreshToken"); // Remove refreshToken from localStorage
+    localStorage.removeItem("accessToken"); // Remove accessToken from localStorage
   };
 
   useEffect(() => {
