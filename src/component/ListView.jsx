@@ -15,7 +15,7 @@ const ListView = ({ data }) => {
                 <td>
                     <Link
                         to={`/members_details/${mobileNumber}`}
-                        className="btn btn-xs md:btn btn-info text-white"
+                        className="btn btn-xs md:btn-sm btn-info text-white"
                     >
                         View
                     </Link>

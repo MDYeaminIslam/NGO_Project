@@ -1,3 +1,4 @@
+import EditBtn from "../../component/button/EditBtn";
 import { dateToString } from "../../utils/DateHelper";
 
 
@@ -24,12 +25,12 @@ const MemberCards = ({ data }) => {
         samityName,
     } = data;
 
-    const { name: nomineeName, address:nomineeAddress, relation:nomineeRelation, share:nomineeShare, occupation:nomineeOccupation, } = nominee;
+    const { name: nomineeName, address: nomineeAddress, relation: nomineeRelation, share: nomineeShare, occupation: nomineeOccupation, } = nominee;
     console.log(nominee);
 
     console.log(data);
     return (
-        <section className="p-4 max-w-4xl mx-auto  md:mt-8 rounded ">
+        <section className="p-4 max-w-5xl mx-auto  md:mt-8 rounded ">
             <div className="flex flex-col md:flex-row gap-4 border-b-4 pb-4">
                 <div className=" ">
                     <img className=" rounded h-52 object-cover " src={photo} alt="" />
@@ -47,7 +48,7 @@ const MemberCards = ({ data }) => {
                     <p className=" font-medium"> NID :<span className="font-normal pl-2">{nidNumber}</span></p>
                 </div>
             </div>
-            <div className=" font-bold grid grid-cols-1e md:grid-cols-4 py-4">
+            <div className=" font-bold grid grid-cols-1 md:grid-cols-4 py-4 space-y-3 tracking-wide ">
                 <p>Education: <br /> <span className="font-normal text-base ">{educationalQualification}</span></p>
                 <p>Date of Birth: <br /> <span className="font-normal text-base ">{dateToString(dateOfBirth)}</span></p>
                 <p>Present Address: <br /> <span className="font-normal text-base ">{presentAddress}</span></p>
@@ -70,7 +71,7 @@ const MemberCards = ({ data }) => {
             <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
                 Nominee Details
             </h1>
-            <div className=" font-bold grid grid-cols-1e md:grid-cols-4 py-4">
+            <div className=" font-bold grid grid-cols-1 md:grid-cols-4 py-4 space-y-3 tracking-wide ">
                 <p>Name: <br /> <span className="font-normal text-base ">{nomineeName}</span></p>
                 {/* <p>Address: <br /> <span className="font-normal text-base ">{dateToString(dateOfBirth)}</span></p> */}
                 <p>Address: <br /> <span className="font-normal text-base ">{nomineeAddress}</span></p>
@@ -83,7 +84,8 @@ const MemberCards = ({ data }) => {
             <div className="divider"></div>
             <div className=" flex gap-2 max-w-4xl justify-end   ">
                 <button className="btn btn-sm bg-teal-700 text-white">Print</button>
-                <button className="btn btn-sm  btn-success text-white">Edit</button>
+                {/* <button className="btn btn-sm  btn-success text-white">Edit</button> */}
+                <EditBtn data={data} />
                 <button className="btn btn-sm  btn-error text-white ">Delete</button>
             </div>
         </section>
