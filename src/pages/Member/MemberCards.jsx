@@ -3,17 +3,31 @@ import { dateToString } from "../../utils/DateHelper";
 
 const MemberCards = ({ data }) => {
     const { name,
-        dateOfBirth,
-        educationalQualification,
-        status,
-        mobileNumber,
         fathersName,
         mothersName,
         spouseName,
-        nidNumber,
-        photo,
+        occupation,
+        occupationBrief,
         presentAddress,
+        permanentAddress,
+        educationalQualification,
+        dateOfBirth,
+        nidNumber,
+        mobileNumber,
+        emergencyContactNumber,
+        religion,
+        membershipFee,
+        photo,
+        status,
+        nominee,
+        branchName,
+        samityName,
     } = data;
+
+    const { name: nomineeName, address:nomineeAddress, relation:nomineeRelation, share:nomineeShare, occupation:nomineeOccupation, } = nominee;
+    console.log(nominee);
+
+    console.log(data);
     return (
         <section className="p-4 max-w-4xl mx-auto  md:mt-8 rounded ">
             <div className="flex flex-col md:flex-row gap-4 border-b-4 pb-4">
@@ -36,10 +50,35 @@ const MemberCards = ({ data }) => {
             <div className=" font-bold grid grid-cols-1e md:grid-cols-4 py-4">
                 <p>Education: <br /> <span className="font-normal text-base ">{educationalQualification}</span></p>
                 <p>Date of Birth: <br /> <span className="font-normal text-base ">{dateToString(dateOfBirth)}</span></p>
-                <p>Address: <br /> <span className="font-normal text-base ">{presentAddress}</span></p>
+                <p>Present Address: <br /> <span className="font-normal text-base ">{presentAddress}</span></p>
+                <p>Permanent Address: <br /> <span className="font-normal text-base ">{permanentAddress}</span></p>
                 <p>Father Name: <br /> <span className="font-normal text-base ">{fathersName}</span></p>
                 <p>Mother Name: <br /> <span className="font-normal text-base ">{mothersName}</span></p>
                 <p>Spouse Name: <br /> <span className="font-normal text-base ">{spouseName}</span></p>
+                <p>Occupation: <br /> <span className="font-normal text-base ">{occupation}</span></p>
+                <p>Occupation Description: <br /> <span className="font-normal text-base ">{occupationBrief}</span></p>
+                <p>Educational Qualification: <br /> <span className="font-normal text-base ">{educationalQualification}</span></p>
+                <p>Emergency Contact: <br /> <span className="font-normal text-base ">{emergencyContactNumber}</span></p>
+                <p>Religion: <br /> <span className="font-normal text-base ">{religion}</span></p>
+                <p>Membership Fee: <br /> <span className="font-normal text-base ">{membershipFee}</span></p>
+                <p>Branch Name: <br /> <span className="font-normal text-base ">{branchName}</span></p>
+                <p>Samity Name: <br /> <span className="font-normal text-base ">{samityName}</span></p>
+                {/* <p>: <br /> <span className="font-normal text-base ">{occupationBrief}</span></p> */}
+
+            </div>
+
+            <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
+                Nominee Details
+            </h1>
+            <div className=" font-bold grid grid-cols-1e md:grid-cols-4 py-4">
+                <p>Name: <br /> <span className="font-normal text-base ">{nomineeName}</span></p>
+                {/* <p>Address: <br /> <span className="font-normal text-base ">{dateToString(dateOfBirth)}</span></p> */}
+                <p>Address: <br /> <span className="font-normal text-base ">{nomineeAddress}</span></p>
+                <p>Relation: <br /> <span className="font-normal text-base ">{nomineeRelation}</span></p>
+                <p>Share: <br /> <span className="font-normal text-base ">{nomineeShare}</span></p>
+                <p>Occupation: <br /> <span className="font-normal text-base ">{nomineeOccupation}</span></p>
+                {/* <p>: <br /> <span className="font-normal text-base ">{occupationBrief}</span></p> */}
+
             </div>
             <div className="divider"></div>
             <div className=" flex gap-2 max-w-4xl justify-end   ">
