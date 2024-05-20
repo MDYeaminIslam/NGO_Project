@@ -47,6 +47,10 @@ const EditBtn = ({ data }) => {
         setFormData({ ...formData, [name]: type === "file" ? files[0] : value });
 
     }
+    function handleSubmit(e){
+        e.preventDefault();
+        console.log(formData);
+    }
 
 
     useEffect(() => {
@@ -93,6 +97,7 @@ const EditBtn = ({ data }) => {
                                             onChange={handleChange}
                                             className="input input-bordered input-sm  hover:border-teal-500"
                                             id="fathers_name"
+                                            value= {formData.fathersName}
                                             type="text"
                                             name="fathersName"
                                         />
@@ -106,6 +111,7 @@ const EditBtn = ({ data }) => {
                                             onChange={handleChange}
                                             className="input input-bordered input-sm  hover:border-teal-500"
                                             id="mothers_name"
+                                            value={formData.mothersName}
                                             type="text"
                                             name="mothersName"
                                         />
@@ -119,6 +125,7 @@ const EditBtn = ({ data }) => {
                                             onChange={handleChange}
                                             className="input input-bordered input-sm  hover:border-teal-500"
                                             id="spouse_name"
+                                            value={formData.spouseName}
                                             type="text"
                                             name="spouseName"
                                         />
@@ -132,6 +139,7 @@ const EditBtn = ({ data }) => {
                                             onChange={handleChange}
                                             className="input input-bordered input-sm  hover:border-teal-500"
                                             id="occupation"
+                                            value={formData.occupation}
                                             type="text"
                                             name="occupation"
                                         />
@@ -145,6 +153,7 @@ const EditBtn = ({ data }) => {
                                             onChange={handleChange}
                                             className="input input-bordered input-sm  hover:border-teal-500"
                                             id="religion"
+                                            value={formData.religion}
                                             type="text"
                                             name="religion"
                                         />
@@ -161,6 +170,7 @@ const EditBtn = ({ data }) => {
                                             onChange={handleChange}
                                             name="occupationBrief"
                                             id="short_brief_of_occupation"
+                                            value={formData.occupationBrief}
                                             cols="10"
                                             rows="2"
                                             className="input input-bordered input-sm  hover:border-teal-500  "
@@ -176,6 +186,7 @@ const EditBtn = ({ data }) => {
                                             onChange={handleChange}
                                             name="presentAddress"
                                             id=" present_address"
+                                            value={formData.presentAddress}
                                             cols="10"
                                             rows="2"
                                             className="input input-bordered input-sm  hover:border-teal-500"
@@ -191,6 +202,7 @@ const EditBtn = ({ data }) => {
                                             onChange={handleChange}
                                             name="permanentAddress"
                                             id="  permanent_address"
+                                            value={formData.permanentAddress}
                                             cols="10"
                                             rows="2"
                                             className="input input-bordered input-sm  hover:border-teal-500"
@@ -205,6 +217,7 @@ const EditBtn = ({ data }) => {
                                             onChange={handleChange}
                                             className="input input-bordered input-sm  hover:border-teal-500"
                                             id="nid_number"
+                                            value={formData.nidNumber}
                                             type="number"
                                             name="nidNumber"
                                         />
@@ -218,6 +231,7 @@ const EditBtn = ({ data }) => {
                                             onChange={handleChange}
                                             className="input input-bordered input-sm  hover:border-teal-500"
                                             id="mobile_number"
+                                            value={formData.mobileNumber}
                                             type="number"
                                             placeholder="+880"
                                             name="mobileNumber"
@@ -232,6 +246,7 @@ const EditBtn = ({ data }) => {
                                             onChange={handleChange}
                                             className="input input-bordered input-sm  hover:border-teal-500"
                                             id="emergency_number"
+                                            value={formData.emergencyContactNumber}
                                             type="number"
                                             placeholder="+880"
                                             name="emergencyContactNumber"
@@ -246,6 +261,7 @@ const EditBtn = ({ data }) => {
                                             onChange={handleChange}
                                             className="input input-bordered input-sm  hover:border-teal-500"
                                             id="membership_fee "
+                                            value={formData.membershipFee}
                                             type="number"
                                             name="membershipFee"
                                         />
@@ -275,6 +291,7 @@ const EditBtn = ({ data }) => {
                                             onChange={handleChange}
                                             className="input input-bordered input-sm  hover:border-teal-500"
                                             name="educationalQualification"
+                                            defaultValue={formData.educationalQualification}
                                         >
                                             <option disabled defaultValue>
                                                 --Select Education Qualification--
@@ -295,6 +312,7 @@ const EditBtn = ({ data }) => {
                                             onChange={handleChange}
                                             className="fill-black hover:border-teal-500 "
                                             id="Attach_Photo "
+                                            
                                             type="file"
                                             name="photo"
                                         />
@@ -317,6 +335,7 @@ const EditBtn = ({ data }) => {
                                                 onChange={handleChangeNominie}
                                                 className="input input-bordered input-sm  hover:border-teal-500"
                                                 id="name"
+                                                value={formData.nominee.name}
                                                 type="text"
                                                 name="name"
                                             />
@@ -331,6 +350,7 @@ const EditBtn = ({ data }) => {
                                                 onChange={handleChangeNominie}
                                                 name="address"
                                                 id="address"
+                                                value={formData.nominee.address}           
                                                 cols="10"
                                                 rows="2"
                                                 className="input input-bordered input-sm  hover:border-teal-500  "
@@ -345,6 +365,7 @@ const EditBtn = ({ data }) => {
                                                 onChange={handleChangeNominie}
                                                 className="input input-bordered input-sm  hover:border-teal-500  "
                                                 id="relation_with_member"
+                                                value={formData.nominee.relation}
                                                 type="text"
                                                 name="relation"
                                             />
@@ -358,6 +379,7 @@ const EditBtn = ({ data }) => {
                                                 onChange={handleChangeNominie}
                                                 className="input input-bordered input-sm  hover:border-teal-500  "
                                                 id="share"
+                                                value={formData.nominee.share}
                                                 type="number"
                                                 name="share"
                                             />
@@ -371,17 +393,19 @@ const EditBtn = ({ data }) => {
                                                 onChange={handleChangeNominie}
                                                 className="input input-bordered input-sm  hover:border-teal-500  "
                                                 id="occupation"
+                                                value={formData.nominee.occupation}
                                                 type="text"
                                                 name="occupation"
                                             />
                                         </div>
                                     </section>
                                 </section>
+                                
 
                                 <section></section>
                                 {/* {isError ? errorMessage : null} */}
                                 <div className="w-full flex flex-col md:flex-row justify-center  mt-8">
-                                    <button
+                                    <button onClick={handleSubmit}
 
                                         className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium     text-white"
 
