@@ -3,7 +3,6 @@ import HRMNav from "./HRMNav/HRMNav";
 import { IconSearch } from "../../../icons/icons";
 import {
   createMonthlyPaySlipApplication,
-  searchEmployeeByPhoneNumber,
   searchEmployeeByPhoneNumberPaySlip,
 } from "../../../api/admin";
 import { MoonLoader } from "react-spinners";
@@ -48,7 +47,6 @@ const PaySlip = () => {
       const due = formData.total - Number(value);
       setFormData((prev) => ({ ...prev, due: due }));
     }
-    console.log(type, name);
     setFormData((prev) => {
       return { ...prev, [name]: type === "number" ? Number(value) : value };
     });
@@ -80,10 +78,13 @@ const PaySlip = () => {
           ...prev,
           basicSalary: salaryAmount,
           employeeId: userData[0]._id,
+          branchId: userData[0].branchId,
+          samityId: userData[0].samityId,
           mobileBill,
           deduction: {
             ...prev.deduction,
             advance: userData[0].advance,
+            absent: userData[0].totalAbsent,
           },
         }));
       } else {
@@ -106,7 +107,6 @@ const PaySlip = () => {
       Number(basicSalary) +
       Number(mobileBill) +
       searchedUser.salaryDue;
-    console.log(total);
 
     const { advance, ait, others, providentFund } = formData.deduction;
     const aitCalculation = Number(basicSalary) * (Number(ait) / 100);
