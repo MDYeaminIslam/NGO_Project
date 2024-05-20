@@ -115,6 +115,7 @@ const EditEmployee = ({ data }) => {
   useEffect(() => {
     setFormData((prev) => ({ ...prev, ...data }));
   }, []);
+  console.log(formData);
   return (
     <div>
       {/* You can open the modal using document.getElementById('ID').showModal() method */}
