@@ -139,7 +139,7 @@ const EditEmployee = ({ data }) => {
             <section>
               <section className="m-4">
                 <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
-                  Employee Add{" "}
+                  Employee Edit{" "}
                 </h1>
                 <form className="my-8">
                   <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
@@ -165,6 +165,7 @@ const EditEmployee = ({ data }) => {
                       <input
                         className="input input-bordered input-sm  hover:border-teal-500  "
                         id="father_name"
+                        value={formData.fatherName}
                         name="fatherName"
                         onChange={handleChange}
                         type="text"
@@ -179,6 +180,7 @@ const EditEmployee = ({ data }) => {
                       <input
                         className="input input-bordered input-sm  hover:border-teal-500  "
                         id="mother_name"
+                        value={formData.motherName}
                         name="motherName"
                         onChange={handleChange}
                         type="text"
@@ -207,6 +209,7 @@ const EditEmployee = ({ data }) => {
                         onChange={handleChange}
                         className="border-2 hover:border-teal-500 rounded "
                         id="nid_number"
+                        value={formData.nidNumber}
                         type="number"
                         name="nidNumber"
                       />
@@ -220,6 +223,7 @@ const EditEmployee = ({ data }) => {
                       <textarea
                         className="input input-bordered hover:border-teal-500 "
                         id=" present_address"
+                        value={formData.presentAddress}
                         name="presentAddress"
                         onChange={handleChange}
                         cols="10"
@@ -238,6 +242,7 @@ const EditEmployee = ({ data }) => {
                       <textarea
                         className="input input-bordered hover:border-teal-500 "
                         id=" permanent_address"
+                        value={formData.permanentAddress}
                         name="permanentAddress"
                         onChange={handleChange}
                         cols="10"
@@ -285,6 +290,7 @@ const EditEmployee = ({ data }) => {
                       <input
                         className="input input-bordered input-sm  hover:border-teal-500  "
                         id="mobile_no"
+                        value={formData.mobileNumber}
                         name="mobileNumber"
                         onChange={handleChange}
                         type="text"
@@ -299,6 +305,7 @@ const EditEmployee = ({ data }) => {
                       <input
                         className="input input-bordered input-sm  hover:border-teal-500  "
                         id="email"
+                        value={formData.email}
                         name="email"
                         onChange={handleChange}
                         type="email"
@@ -316,6 +323,7 @@ const EditEmployee = ({ data }) => {
                       <input
                         className="input input-bordered input-sm  hover:border-teal-500  "
                         id="emergency_contact_number"
+                        value={formData.emergencyContactNumber}
                         name="emergencyContactNumber"
                         onChange={handleChange}
                         type="text"
@@ -329,6 +337,7 @@ const EditEmployee = ({ data }) => {
                       </label>
                       <select
                         name="religion"
+                        value={formData.religion}
                         onChange={handleChange}
                         className=" input input-bordered input-sm hover:border-teal-500 "
                       >
@@ -389,6 +398,7 @@ const EditEmployee = ({ data }) => {
                       <input
                         className="input input-bordered input-sm  hover:border-teal-500  "
                         id="name"
+                        value={formData.previousOrganization.name}
                         name="name"
                         onChange={previousHandleChange}
                         type="text"
@@ -404,6 +414,7 @@ const EditEmployee = ({ data }) => {
                       <textarea
                         className="input input-bordered hover:border-teal-500 "
                         id="address"
+                        value={formData.previousOrganization.address}
                         name="address"
                         onChange={previousHandleChange}
                         cols="10"
@@ -429,6 +440,7 @@ const EditEmployee = ({ data }) => {
                       <input
                         className="input input-bordered input-sm  hover:border-teal-500  "
                         id="position"
+                        value={formData.previousOrganization.position}
                         name="position"
                         onChange={previousHandleChange}
                         type="text"
@@ -443,6 +455,7 @@ const EditEmployee = ({ data }) => {
                       <input
                         className="input input-bordered input-sm  hover:border-teal-500  "
                         id="salary"
+                        value={formData.previousOrganization.salary}
                         name="salary"
                         onChange={previousHandleChange}
                         type="text"
@@ -457,6 +470,7 @@ const EditEmployee = ({ data }) => {
                       <input
                         className="input input-bordered input-sm  hover:border-teal-500  "
                         id="switch_reason"
+                        value={formData.previousOrganization.switchReason}
                         name="switchReason"
                         onChange={previousHandleChange}
                         type="text"
@@ -480,6 +494,7 @@ const EditEmployee = ({ data }) => {
                       </label>
                       <select
                         name="designation"
+                        value={formData.presentPosition.designation}
                         onChange={handleChangePresent}
                         className=" input input-bordered input-sm hover:border-teal-500 "
                       >
@@ -540,6 +555,7 @@ const EditEmployee = ({ data }) => {
                       <input
                         className="input input-bordered input-sm  hover:border-teal-500  "
                         id="salary_amount"
+                        value={formData.presentPosition.salaryAmount}
                         name="salaryAmount"
                         onChange={handleChangePresent}
                         type="text"
@@ -554,6 +570,7 @@ const EditEmployee = ({ data }) => {
                       <input
                         className="input input-bordered input-sm  hover:border-teal-500  "
                         id="mobile_bill"
+                        value={formData.presentPosition.mobileBill}
                         name="mobileBill"
                         onChange={handleChangePresent}
                         type="text"
@@ -568,6 +585,7 @@ const EditEmployee = ({ data }) => {
                       <input
                         className="input input-bordered input-sm  hover:border-teal-500  "
                         id="salary_amount"
+                        value={formData.presentPosition.taDa}
                         name="taDa"
                         onChange={handleChangePresent}
                         type="text"
@@ -582,6 +600,7 @@ const EditEmployee = ({ data }) => {
                       <input
                         className="input input-bordered input-sm  hover:border-teal-500  "
                         id="additional_total"
+                        value={formData.presentPosition.additionalTotal}
                         name="additionalTotal"
                         onChange={handleChangePresent}
                         type="text"
@@ -599,6 +618,7 @@ const EditEmployee = ({ data }) => {
                       <input
                         className="input input-bordered input-sm  hover:border-teal-500  "
                         id="employee_security_fund"
+                        value={formData.presentPosition.employeeSecurityFund}
                         name="employeeSecurityFund"
                         onChange={handleChangePresent}
                         type="text"
@@ -623,6 +643,7 @@ const EditEmployee = ({ data }) => {
                       <input
                         className="input input-bordered input-sm  hover:border-teal-500  "
                         id="name"
+                        value={formData.guarantorDetails.name}
                         name="name"
                         onChange={handleChangeGurantor}
                         type="text"
@@ -638,6 +659,7 @@ const EditEmployee = ({ data }) => {
                       <textarea
                         className="input input-bordered hover:border-teal-500 "
                         id=" address"
+                        value={formData.guarantorDetails.address}
                         name="address"
                         onChange={handleChangeGurantor}
                         cols="10"
@@ -652,6 +674,7 @@ const EditEmployee = ({ data }) => {
                       <input
                         className="input input-bordered input-sm  hover:border-teal-500  "
                         id="relation"
+                        value={formData.guarantorDetails.relation}
                         name="relation"
                         onChange={handleChangeGurantor}
                         type="text"
@@ -666,6 +689,7 @@ const EditEmployee = ({ data }) => {
                       <input
                         className="input input-bordered input-sm  hover:border-teal-500  "
                         id="occupation"
+                        value={formData.guarantorDetails.occupation}
                         name="occupation"
                         onChange={handleChangeGurantor}
                         type="text"
