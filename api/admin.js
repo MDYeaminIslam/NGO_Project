@@ -25,6 +25,19 @@ export async function createMember(data) {
   const response = await axiosAdmin.post(`/localuser/add`, data);
   return response.data;
 }
+//update user
+export async function updateUserSettings(data) {
+  if (data.photo instanceof File || data.photo instanceof Blob) {
+    const photoUrl = await uploadPhoto(data.photo);
+    data["photo"] = photoUrl;
+  }
+  const id = data._id;
+  delete data._id;
+  delete data.branchName;
+  delete data.samityName;
+  const response = await axiosAdmin.put(`/localuser/update/${id}`, data);
+  return response.data;
+}
 
 //get member using phoneNumber
 export async function searchUserByPhoneNumber(number) {

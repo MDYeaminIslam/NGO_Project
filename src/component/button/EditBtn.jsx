@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-
+import useMutationHook from "../../../hooks/useMutationHook";
+import toast from "react-hot-toast";
+import { updateUserSettings } from "../../../api/admin";
 const initialState = {
   name: "",
   branchId: "",
@@ -32,9 +34,21 @@ const initialState = {
 
 const EditBtn = ({ data }) => {
   const [formData, setFormData] = useState(initialState);
-
-  const handleChangeNominie = () => {
-    return;
+  const { mutate } = useMutationHook(updateUserSettings, {
+    key: ["member", data._id],
+    onSuccess: () => {
+      toast.success("User Settings Updated");
+    },
+  });
+  const handleChangeNominie = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      nominee: {
+        ...prevState.nominee,
+        [name]: value,
+      },
+    }));
   };
   const handleChange = (e) => {
     const { name, value, files, type } = e.target;
@@ -43,13 +57,12 @@ const EditBtn = ({ data }) => {
   };
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(formData);
+    mutate(formData);
   }
 
   useEffect(() => {
     setFormData((prev) => ({ ...prev, ...data }));
   }, []);
-  console.log(formData);
   return (
     <div>
       {/* You can open the modal using document.getElementById('ID').showModal() method */}
