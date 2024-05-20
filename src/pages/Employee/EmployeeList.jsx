@@ -15,6 +15,7 @@ const EmployeeList = () => {
     getAllEmployeeByBranchIdAndSmityId,
     {
       onSuccess: (data) => {
+        console.log(data);
         setEmployee(data.data);
       },
     }
@@ -35,10 +36,14 @@ const EmployeeList = () => {
           Employee List{" "}
         </h1>
 
-
         <section className="flex flex-col md:flex-row items-center justify-around gap-2 my-8 pb-8 border-b-2 max-w-5xl mx-auto">
           <BranchSamitySelector callBackFn={setFormData} />
-          <button className="btn bg-teal-700 text-white mt-4 " onClick={handleSubmit}>Search</button>
+          <button
+            className="btn bg-teal-700 text-white mt-4 "
+            onClick={handleSubmit}
+          >
+            Search
+          </button>
         </section>
         {/* Local User List */}
         <section>
@@ -49,22 +54,17 @@ const EmployeeList = () => {
               <th className="hidden md:block">Email</th>
               <th className="hidden md:block"> Address</th>
               <th>action</th>
-
             </tr>
           </div>
           <div>
             {employee.length
-              ? employee.map((user, key) => <EmployeeListView key={key} data={user} />)
+              ? employee.map((user, key) => (
+                  <EmployeeListView key={key} data={user} />
+                ))
               : null}
           </div>
         </section>
-
-
       </section>
-
-
-
-
     </div>
   );
 };
