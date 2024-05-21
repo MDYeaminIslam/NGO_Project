@@ -38,6 +38,20 @@ export async function updateUserSettings(data) {
   const response = await axiosAdmin.put(`/localuser/update/${id}`, data);
   return response.data;
 }
+//update emoloyee
+export  async function updateEmployeeSettings(data) {
+  if(data.photo instanceof File || data.photo instanceof Blob){
+    const photoUrl = await uploadPhoto(data.photo);
+    data["photo"] = photoUrl;
+  }
+  const id = data._id;
+  delete data._id;
+  delete data.salaryDue;
+  delete data.advance;
+  const response = await axiosAdmin.put(`/employee/update/${id}`, data);
+  return response.data;
+
+}
 
 //get member using phoneNumber
 export async function searchUserByPhoneNumber(number) {

@@ -37,6 +37,7 @@ const EditBtn = ({ data }) => {
   const { mutate } = useMutationHook(updateUserSettings, {
     key: ["member", data._id],
     onSuccess: () => {
+      document.getElementById("my_modal_3").close()
       toast.success("User Settings Updated");
     },
   });

@@ -6,7 +6,7 @@ import EmployeeCard from "./EmployeeCard";
 const EmployeeDetailsPage = () => {
   const { id } = useParams();
   const { data, isFetched } = useQuery({
-    queryKey: [`employee-${id}`],
+    queryKey: [`employee`,id],
     queryFn: () => searchEmployeeByPhoneNumber(id),
   });
  console.log(data);

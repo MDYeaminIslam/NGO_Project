@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 
 import DatePicker from "react-datepicker";
 import BranchSamitySelector from "../../component/branchSamitySelector";
+import  useMutationHook from '../../../hooks/useMutationHook'
+import { updateEmployeeSettings } from "../../../api/admin";
+import toast from "react-hot-toast";
 const initialState = {
   name: "",
   fatherName: "",
@@ -45,6 +48,13 @@ const initialState = {
 
 const EditEmployee = ({ data }) => {
   const [formData, setFormData] = useState(initialState);
+  const {mutate} = useMutationHook(updateEmployeeSettings,{
+    key: ['employee',data._id],
+    onSuccess: () => {
+      document.getElementById("my_modal_3").close()
+      toast.success("Employee Setting Updated.")
+    }
+  })
   const handleChange = (e) => {
     const { name, value, files, type } = e.target;
     console.log(name, value);
@@ -110,7 +120,7 @@ const EditEmployee = ({ data }) => {
   };
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(formData);
+    mutate(formData)
   }
   useEffect(() => {
     setFormData((prev) => ({ ...prev, ...data }));
@@ -518,34 +528,6 @@ const EditEmployee = ({ data }) => {
                         dateFormat="dd/MM/yyyy"
                       />
                     </div>
-
-                    {/* <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="branch_name">
-                  Branch Name :
-                </label>
-                <input
-                  className="input input-bordered input-sm  hover:border-teal-500  "
-                  id="branch_name"
-                  name="branchName"
-                  onChange={handleChangePresent}
-                  type="text"
-                  placeholder="Enter your branch name"
-                />
-              </div>
-
-              <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="samity_name">
-                  Samity Name :
-                </label>
-                <input
-                  className="input input-bordered input-sm  hover:border-teal-500  "
-                  id="samity_name"
-                  name="samityName"
-                  onChange={handleChangePresent}
-                  type="text"
-                  placeholder="Enter your samity name"
-                />
-              </div> */}
                     <BranchSamitySelector callBackFn={setFormData} />
 
                     <div className="flex flex-col gap-1">
