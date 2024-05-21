@@ -100,6 +100,7 @@ import LoanPayDetails from "../pages/Loan Management/LoanPayDetails";
 import SavingAccountList from "../pages/Saving Account/SavingAccountList";
 import SavingAccountListDetails from "../pages/Saving Account/SavingAccountListDetails";
 import LoanTransactionPostingDetails from "../pages/Loan Management/LoanTransactionPostingDetails";
+import EmployeeLeaveApplication from "../component/EmployeeLeaveApplication";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -114,6 +115,13 @@ const router = createBrowserRouter([
           </AdminRoute>
         ),
       },
+
+      //Employee leave application routes
+      {
+        path: "employee_leave_application",
+        element: <AdminRoute roles={[ROLES.Collector]}> <EmployeeLeaveApplication/></AdminRoute> 
+      },
+      
       // members routes
       {
         path: "add_member",
