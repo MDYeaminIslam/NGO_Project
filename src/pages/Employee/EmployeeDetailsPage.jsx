@@ -9,7 +9,7 @@ const EmployeeDetailsPage = () => {
     queryKey: [`employee-${id}`],
     queryFn: () => searchEmployeeByPhoneNumber(id),
   });
-
+ console.log(data);
   return <div>{isFetched ? <EmployeeCard data={data[0]} /> : null}</div>;
 };
 

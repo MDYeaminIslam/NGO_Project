@@ -23,6 +23,7 @@ const EmployeeCard = ({ data }) => {
     guarantorDetails,
   } = data;
 
+
   return (
     <div>
       <section className="p-4 max-w-5xl mx-auto bg-gray-100 md:mt-8 rounded ">
