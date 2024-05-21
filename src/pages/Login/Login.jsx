@@ -51,7 +51,7 @@ const Login = () => {
             <div className="text-center lg:text-left w-full md:w-1/2 hidden md:block">
               <h1 className="text-5xl font-bold text-white">Login now!</h1>
               <p className="py-6 text-base-300">
-                For over 7 years, ATC Tech Limited has been dedicated to
+                <span className="">ATC</span> Tech Limited has been dedicated to
                 providing innovative and sustainable solutions. Our team of
                 skilled engineers is passionate about creating high-quality
                 products that meet your needs while minimizing environmental
@@ -130,7 +130,17 @@ const Login = () => {
                     </Link>
                   </label>
                 </div>
-                {isError ? errorMessage : null}
+
+                {isError ?
+                  <div className="toast toast-top toast-start  ">
+                    <div className="alert alert-error">
+                      <span> <p className="text-white">
+                        {isError ? errorMessage : null}
+                      </p></span>
+                    </div>
+                  </div>
+                  : null
+                }
                 <div className="form-control mt-6">
                   <button
                     onClick={handleSubmit}

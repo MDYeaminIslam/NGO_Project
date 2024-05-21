@@ -1,6 +1,5 @@
 import { useEffect, useReducer } from "react";
 import { getAllBranches } from "../../api/admin";
-import { useQuery } from "@tanstack/react-query";
 import axiosAdmin from "../../axios/admin";
 
 function stateReducer(state, action) {
@@ -69,7 +68,7 @@ export default function BranchSamitySelector({ callBackFn }) {
   return (
     <>
       {/* Branch List */}
-      <div className="flex flex-col gap-1 w-full">
+      <div className="flex flex-col gap-1 w-full pr-4">
         <label className="font-medium" htmlFor="name">
           Branch Name:
         </label>
