@@ -5,7 +5,6 @@ import useMutationHook from "../../../hooks/useMutationHook";
 
 function LeaveApplicationCard({ data }) {
   const { _id, reason, employeeName, branchName, samityName, days } = data;
-  console.log(data);
   const {mutate} = useMutationHook(employeeLeaveApplicationAcceptReject,{
     key: ["leave-applications"]
   })
