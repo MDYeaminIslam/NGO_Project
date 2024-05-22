@@ -6,29 +6,36 @@ import useMutationHook from "../../../hooks/useMutationHook";
 function LeaveApplicationCard({ data }) {
   const { _id, reason, employeeName, branchName, samityName, days } = data;
   console.log(data);
-  const {mutate} = useMutationHook(employeeLeaveApplicationAcceptReject,{
+  const { mutate } = useMutationHook(employeeLeaveApplicationAcceptReject, {
     key: ["leave-applications"]
   })
   return (
-    <div>
-      <div>
-        <p className="text-xl font-bold">{employeeName}</p>
-        <p className="text-sm">{samityName}</p>
-        <p className="text-sm">{branchName}</p>
-        <p className="text-sm">{reason}</p>
-        <p className="text-sm">{days} Days</p>
+    <div className="mx-6">
+      <div className="card min-h-64 bg-base-100 shadow-xl">
+        <div className="card-body mb-10">
+          <p className="text-xl font-bold mt-2 mb-4">{employeeName}</p>
+          <p className="text-lg "><span className="font-semibold">Samity Name:</span>  {samityName}</p>
+          <p className="text-lg "><span className="font-semibold">Branch Name:</span>  {branchName}</p>
+          <p className="text-lg "><span className="font-semibold">Leave Needed:</span>  {days} Days</p>
+          <p className="text-lg "><span className="font-semibold">Reason:</span>   {reason}</p>
+
+        </div>
+
+        <div className="flex flex-col md:flex-row items-center justify-center">
+
+          <button onClick={() => mutate({ status: 'accepted', id: _id })} className="bg-green-500 hover:bg-green-700 px-4 py-2 ml-2 mb-4 rounded font-medium     text-white">
+            Accept
+          </button>
+
+
+          <button onClick={() => mutate({ status: 'rejected', id: _id })} className="bg-red-500 hover:bg-red-700 px-4 py-2 ml-2 mb-4 rounded font-medium     text-white">
+            Reject
+          </button>
+
+        </div>
       </div>
-       <div className="flex">
-       <button onClick={()=>mutate({status: 'accepted',id:_id})} className="bg-green-500 hover:bg-green-700 px-10 py-2 rounded font-medium     text-white">
-          Accept
-        </button>
-      
-      
-        <button onClick={()=>mutate({status: 'rejected',id:_id})} className="bg-red-500 hover:bg-red-700 px-10 py-2 rounded font-medium     text-white">
-          Reject
-        </button>
-       </div>
-     
+
+
     </div>
   );
 }
@@ -51,11 +58,11 @@ const LeaveApplication = () => {
           Leave Applications{" "}
         </h1>
         <div className="flex flex-col w-fit mt-8">
-         {
-          data.length ? data.map((data, idx) => <LeaveApplicationCard data={data} key={idx} />) : <div>No data</div>
-         }
+          {
+            data.length ? data.map((data, idx) => <LeaveApplicationCard data={data} key={idx} />) : <div>No data</div>
+          }
         </div>
-        <div>div</div>
+
       </section>
     </div>
   );
