@@ -335,3 +335,9 @@ export async function employeeLeaveApplicationAcceptReject(data) {
   const response = await axiosAdmin.put('/employee/leave-application-accept-or-reject', data);
   return response.data;
 }
+// salary sheet 
+export async function salarySheetList(data) {
+  const {branchId, samityId, date} = data;
+  const response = await axiosAdmin.get(`/pay-slip/list?branchId=${branchId}&samityId=${samityId}&date=${date}`);
+  return response.data;
+}
