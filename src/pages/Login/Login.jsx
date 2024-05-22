@@ -19,7 +19,7 @@ const Login = () => {
     loginAdminCollector,
     {
       onSuccess: (data) => {
-        console.log(data);
+       console.log(data);
         setUser(data);
         toast.success("Done");
         navigate("/");

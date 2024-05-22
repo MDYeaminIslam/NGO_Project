@@ -24,7 +24,6 @@ axiosAdmin.interceptors.response.use(
   async (error) => {
     console.log("refesh");
     const originalRequest = error.config;
-    console.log(error);
     if (
       error.response &&
       error.response.status === 401 &&
@@ -33,7 +32,6 @@ axiosAdmin.interceptors.response.use(
       originalRequest._retry = true;
 
       try {
-        console.log("1");
         const refreshToken = localStorage.getItem("refreshToken");
         console.log(refreshToken);
         const response = await axios.post(`${url}/auth/refresh`, {
@@ -42,11 +40,11 @@ axiosAdmin.interceptors.response.use(
         const { token } = response.data;
 
         localStorage.setItem("accessToken", token);
-        console.log("acces");
 
         originalRequest.headers.Authorization = `Bearer ${token}`;
         return axios(originalRequest);
       } catch (refreshError) {
+        localStorage.removeItem("id");
         localStorage.removeItem("userType");
         localStorage.removeItem("accessToken");
         localStorage.removeItem("refreshToken");

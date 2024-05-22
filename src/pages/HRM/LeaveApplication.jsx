@@ -1,35 +1,44 @@
-import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import HRMNav from "./HRMNav/HRMNav";
+import { employeeLeaveApplicationAcceptReject, employeeLeaveApplicationPendingList } from "../../../api/admin";
+import useMutationHook from "../../../hooks/useMutationHook";
 
-const initialState = {
-  employeeId: "",
-  date: "",
-  prayingLeave: "",
-  reason: "",
-};
-
+function LeaveApplicationCard({ data }) {
+  const { _id, reason, employeeName, branchName, samityName, days } = data;
+  console.log(data);
+  const {mutate} = useMutationHook(employeeLeaveApplicationAcceptReject,{
+    key: ["leave-applications"]
+  })
+  return (
+    <div>
+      <div>
+        <p className="text-xl font-bold">{employeeName}</p>
+        <p className="text-sm">{samityName}</p>
+        <p className="text-sm">{branchName}</p>
+        <p className="text-sm">{reason}</p>
+        <p className="text-sm">{days} Days</p>
+      </div>
+       <div className="flex">
+       <button onClick={()=>mutate({status: 'accepted',id:_id})} className="bg-green-500 hover:bg-green-700 px-10 py-2 rounded font-medium     text-white">
+          Accept
+        </button>
+      
+      
+        <button onClick={()=>mutate({status: 'rejected',id:_id})} className="bg-red-500 hover:bg-red-700 px-10 py-2 rounded font-medium     text-white">
+          Reject
+        </button>
+       </div>
+     
+    </div>
+  );
+}
 const LeaveApplication = () => {
-
-  const [getFormData, setFormData] = useState(initialState);
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    console.log(name, value);
-    setFormData((prev) => {
-      return { ...prev, [name]: value };
-    });
-  };
-  const handleSubmit = (event, buttonAction) => {
-    event.preventDefault();
-    console.log(getFormData);
-
-    if (buttonAction === "accept") {
-      console.log("Accepted");
-    } else if (buttonAction === "reject") {
-      console.log("Rejected");
-    }
-    setFormData();
-  };
-
+  const { data } = useQuery({
+    queryKey: ["leave-applications"],
+    queryFn: employeeLeaveApplicationPendingList,
+    initialData: [],
+  });
+  console.log(data);
   return (
     <div>
       <section>
@@ -37,69 +46,20 @@ const LeaveApplication = () => {
       </section>
 
       <section className="m-4">
-        <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 "> Leave Application </h1>
-        <form className="my-8" >
-          <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
-
-            <div className="flex flex-col gap-1">
-              <label className="font-medium" htmlFor="employee_id">Employee ID:</label>
-              <input className="input input-bordered input-sm  hover:border-teal-500  "
-                id="employee_id"
-                name="employeeId"
-                onChange={handleChange}
-                type="number" placeholder="enter your phone number" />
-            </div>
-
-            <div className="flex flex-col gap-1 ">
-              <label className="font-medium" htmlFor="date"> Date:</label>
-              <input className="input input-bordered input-sm  hover:border-teal-500  "
-                id="date"
-                name="date"
-                onChange={handleChange}
-                type="date" placeholder="" />
-            </div>
-
-            <div className="flex flex-col gap-1">
-              <label className="font-medium" htmlFor="praying_leave">Praying Leave:</label>
-              <input className="input input-bordered input-sm  hover:border-teal-500  "
-                id="praying_leave"
-                name="prayingLeave"
-                onChange={handleChange}
-                type="text" placeholder="how many days" />
-            </div>
-
-
-            <div className="flex flex-col gap-1">
-              <label className="font-medium" htmlFor="reason"> Reason:</label>
-              <textarea className="input input-bordered hover:border-teal-500 " id="reason"
-                name="reason"
-                onChange={handleChange}
-                cols="10" rows="1"></textarea>
-            </div>
-
-          </section>
-
-        </form>
-
-        <div className="flex flex-col md:flex-row gap-6 justify-center items-center mt-6   col-span-2">
-          <label className="font-medium pt-10" htmlFor="grant_leave">Grant Leave:</label>
-          <div className="flex w-fit mt-8">
-            <button className="bg-green-500 hover:bg-green-700 px-10 py-2 rounded font-medium     text-white"
-              onClick={(e) => handleSubmit(e, "accept")} >
-              Accept
-            </button>
-          </div>
-          <div className=" flex w-fit  mt-8">
-            <button className="bg-red-500 hover:bg-red-700 px-10 py-2 rounded font-medium     text-white"
-              onClick={(e) => handleSubmit(e, "reject")}>
-              Reject
-            </button>
-          </div>
+        <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
+          {" "}
+          Leave Applications{" "}
+        </h1>
+        <div className="flex flex-col w-fit mt-8">
+         {
+          data.length ? data.map((data, idx) => <LeaveApplicationCard data={data} key={idx} />) : <div>No data</div>
+         }
         </div>
-
+        <div>div</div>
       </section>
     </div>
   );
 };
 
 export default LeaveApplication;
+

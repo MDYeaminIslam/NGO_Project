@@ -310,3 +310,28 @@ export async function ngoLiability() {
   console.log(response.data);
   return response.data.data;
 }
+
+//create employee leave application
+export async function employeeLeaveApplication(data) {
+  const response = await axiosAdmin.post("/employee/leave-application", data);
+  console.log(response.data);
+  return response.data;
+}
+// emoloyee leave application list by id
+export async function employeeLeaveApplicationList(id) {
+  const response = await axiosAdmin.get(`/employee/leave-application-list/${id}`);
+  console.log(response.data);
+  return response.data.data;
+}
+// hrm get employee leave application pending list
+export async function employeeLeaveApplicationPendingList() {
+  const response = await axiosAdmin.get("/employee/leave-application-pending-list");
+  console.log(response.data);
+  return response.data.data;
+}
+
+// hrm employee application accept or reject
+export async function employeeLeaveApplicationAcceptReject(data) {
+  const response = await axiosAdmin.put('/employee/leave-application-accept-or-reject', data);
+  return response.data;
+}

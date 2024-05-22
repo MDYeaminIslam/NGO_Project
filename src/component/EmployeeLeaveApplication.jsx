@@ -1,4 +1,8 @@
 import { useState } from "react";
+import useMutationHook from "../../hooks/useMutationHook";
+import { employeeLeaveApplication, employeeLeaveApplicationList } from "../../api/admin";
+
+import { useQuery } from "@tanstack/react-query";
 const initialState = {
     days: null,
     reason: '',
@@ -6,13 +10,26 @@ const initialState = {
 };
 
 const EmployeeLeaveApplication = () => {
+     const {mutate} = useMutationHook(employeeLeaveApplication,{key: ['application',localStorage.getItem('id')]})
+     const {data} = useQuery({
+         queryKey: ['application',localStorage.getItem('id')],
+        queryFn: () => employeeLeaveApplicationList(localStorage.getItem('id')),
+        initialData: []
+     })
     const [formData, setFormData] = useState(initialState);
     const onChangeHandle = (e) => {
         const { name, value } = e.target;
-        console.log(name, value);
         setFormData((prev) => ({ ...prev, [name]: value }));
     }
-    console.log(formData);
+    function handleSubmit(e){
+        e.preventDefault();
+        const data = {
+            ...formData,
+            employeeId: localStorage.getItem('id'),
+        }
+        console.log(data);
+        mutate(data)
+    }
     return (
         <div>
             <section>
@@ -51,10 +68,15 @@ const EmployeeLeaveApplication = () => {
                 </section>
                 <div className="w-full flex flex-col md:flex-row justify-center  mt-8">
                     <button
+                    
+                    onClick={handleSubmit}
                         className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium     text-white">
-                        Submit
+                        Submit 1
                     </button>
                 </div>
+            </section>
+            <section>
+                {data.length}
             </section>
         </div>
     );

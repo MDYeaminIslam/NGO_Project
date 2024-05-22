@@ -76,6 +76,7 @@ const EditEmployee = ({ data }) => {
         [name]: value,
       },
     }));
+    
   };
 
   const handleChangeDatePrevious = (date) => {
