@@ -21,15 +21,15 @@ const SalarySheet = () => {
     e.preventDefault();
     mutate(formData);
   }
+  console.log(formData);
   return (
-    <div>
+    <div >
       <section>
         <HRMNav />
       </section>
-      <div className="flex justify-center items-center">
-        <BranchSamitySelector callBackFn={setFormData} />
-        <div>
-          <label htmlFor="" className="font-medium">
+      <div className="flex flex-col md:flex-row gap-4  justify-between items-center max-w-5xl mx-auto pt-4 px-2">
+        <div className="flex flex-col w-full md:w-fit ">
+          <label htmlFor="" className="font-medium mt-1">
             Year And Month
           </label>
           <DatePicker
@@ -41,10 +41,15 @@ const SalarySheet = () => {
             className="input input-bordered input-sm  hover:border-teal-500 w-full"
           />
         </div>
+        <div className="flex flex-col md:flex-row items-center w-full">
+          <BranchSamitySelector callBackFn={setFormData} />
+        </div>
+
+      </div>
+      <div className="w-full flex justify-center items-center h-28">
         <button
           onClick={handleSubmit}
-          className="bg-green-500 hover:bg-green-700 px-4 py-2 ml-2 mb-4 rounded font-medium text-white mt-5"
-        >
+          className="btn btn-wide  bg-teal-500 text-white">
           Search
         </button>
       </div>
