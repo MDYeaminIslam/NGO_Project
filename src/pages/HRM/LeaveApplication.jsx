@@ -5,36 +5,50 @@ import useMutationHook from "../../../hooks/useMutationHook";
 
 function LeaveApplicationCard({ data }) {
   const { _id, reason, employeeName, branchName, samityName, days } = data;
-  const {mutate} = useMutationHook(employeeLeaveApplicationAcceptReject,{
+  const { mutate } = useMutationHook(employeeLeaveApplicationAcceptReject, {
     key: ["leave-applications"]
   })
   return (
-    <div className="mx-6">
-      <div className="card min-h-64 bg-base-100 shadow-xl">
-        <div className="card-body mb-10">
-          <p className="text-xl font-bold mt-2 mb-4">{employeeName}</p>
-          <p className="text-lg "><span className="font-semibold">Samity Name:</span>  {samityName}</p>
-          <p className="text-lg "><span className="font-semibold">Branch Name:</span>  {branchName}</p>
-          <p className="text-lg "><span className="font-semibold">Leave Needed:</span>  {days} Days</p>
-          <p className="text-lg "><span className="font-semibold">Reason:</span>   {reason}</p>
-
-        </div>
-
-        <div className="flex flex-col md:flex-row items-center justify-center">
-
-          <button onClick={() => mutate({ status: 'accepted', id: _id })} className="bg-green-500 hover:bg-green-700 px-4 py-2 ml-2 mb-4 rounded font-medium     text-white">
-            Accept
-          </button>
 
 
-          <button onClick={() => mutate({ status: 'rejected', id: _id })} className="bg-red-500 hover:bg-red-700 px-4 py-2 ml-2 mb-4 rounded font-medium     text-white">
-            Reject
-          </button>
 
-        </div>
+    <div className="mx-8">
+
+      <div className="">
+        <table className="table">
+          <thead className='grid grid-cols-7 w-full bg-teal-500 text-white rounded-md'>
+            <th>Name</th>
+            <th>Branch Name</th>
+            <th>Samity Name</th>
+            <th>Leave Needed</th>
+            <th>Reason</th>
+            <th>Date</th>
+            <th>Action</th>
+          </thead>
+          <tbody className="grid grid-cols-7 w-full text-black rounded-md border-b-2 mt-4">
+            <td>{employeeName}</td>
+            <td>{branchName}</td>
+            <td>{samityName}</td>
+            <td>{days} days</td>
+            <td>{reason}</td>
+            <td>12 july, 2024</td>
+            <td>
+              <div className="flex flex-col md:flex-row ">
+
+                <button onClick={() => mutate({ status: 'accepted', id: _id })} className="bg-green-500 hover:bg-green-700 px-2 py-1 ml-2 rounded font-medium     text-white">
+                  Accept
+                </button>
+
+                <button onClick={() => mutate({ status: 'rejected', id: _id })} className="bg-red-500 hover:bg-red-700 px-2 py-1 ml-2 rounded font-medium     text-white">
+                  Reject
+                </button>
+
+              </div>
+            </td>
+
+          </tbody>
+        </table>
       </div>
-
-
     </div>
   );
 }
@@ -54,9 +68,9 @@ const LeaveApplication = () => {
       <section className="m-4">
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
           {" "}
-          Leave Applications{" "}
+          Leave Application{" "}
         </h1>
-        <div className="flex flex-col w-fit mt-8">
+        <div className="flex flex-col w-full mt-8">
           {
             data.length ? data.map((data, idx) => <LeaveApplicationCard data={data} key={idx} />) : <div>No data</div>
           }
