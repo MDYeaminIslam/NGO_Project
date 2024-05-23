@@ -341,3 +341,16 @@ export async function salarySheetList(data) {
   const response = await axiosAdmin.get(`/pay-slip/list?branchId=${branchId}&samityId=${samityId}&date=${date}`);
   return response.data;
 }
+
+// get user pending list 
+export async function userPendingList() {
+  const response = await axiosAdmin.get("/localuser/pending");
+  return response.data.data
+}
+//accepet user request 
+export async function accepetUserPendingList(data){
+  const {id,status} = data;
+  console.log(id,status);
+  const response = await axiosAdmin.get(`/localuser/accept/${id}?status=${status}`)
+  return response.data
+}
