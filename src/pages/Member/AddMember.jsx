@@ -26,8 +26,6 @@ const initialState = {
   emergencyContactNumber: "",
   membershipFee: "",
   photo: "",
-  status: "Active",
-  fromAdmin: true,
   nominee: {
     name: "",
     address: "",
@@ -37,7 +35,6 @@ const initialState = {
   },
 };
 const AddMember = () => {
-  const [selectedDate, setSelectedDate] = useState(null);
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(createMember, {
       key: ["user"],
@@ -50,11 +47,13 @@ const AddMember = () => {
   const handleChange = (e) => {
     const { name, value, files, type } = e.target;
     console.log(name, value);
-    setFormData({ ...formData, [name]: type === "file" ? files[0] : value });
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "file" ? files[0] : value,
+    }));
   };
   const handleChangeNominie = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
     setFormData((prevState) => ({
       ...prevState,
       nominee: {
@@ -71,7 +70,15 @@ const AddMember = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    mutate(formData);
+    console.log(formData);
+    let mock = {};
+    let role = localStorage.getItem("userType");
+    if (role === "admin") {
+      mock = { ...formData, status: "accepted" };
+    } else {
+      mock = { ...formData, status: "pending" };
+    }
+    mutate(mock);
   };
   return (
     <div>
