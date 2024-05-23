@@ -43,20 +43,22 @@ export default function BranchSamitySelector({ callBackFn }) {
     dispatch({ type: "samity", payload: null });
 
     // Pass branch and null samity to the parent component
-    callBackFn({
+    callBackFn((prev) => ({
+      ...prev,
       branchId: event.target.value,
       samityId: null,
-    });
+    }));
   };
 
   const handleSamityChange = (event) => {
     dispatch({ type: "samity", payload: event.target.value });
 
     // Pass branch and selected samity to the parent component
-    callBackFn({
+    callBackFn((prev) => ({
+      ...prev,
       branchId: state.branch,
       samityId: event.target.value,
-    });
+    }));
   };
 
   useEffect(() => {
