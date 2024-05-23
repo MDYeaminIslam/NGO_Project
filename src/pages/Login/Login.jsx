@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import useMutationHook from "../../../hooks/useMutationHook";
 import { loginAdminCollector } from "../../../api/admin";
@@ -19,7 +19,7 @@ const Login = () => {
     loginAdminCollector,
     {
       onSuccess: (data) => {
-       console.log(data);
+        console.log(data);
         setUser(data);
         toast.success("Done");
         navigate("/");

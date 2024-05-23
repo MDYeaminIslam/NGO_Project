@@ -101,6 +101,7 @@ import SavingAccountList from "../pages/Saving Account/SavingAccountList";
 import SavingAccountListDetails from "../pages/Saving Account/SavingAccountListDetails";
 import LoanTransactionPostingDetails from "../pages/Loan Management/LoanTransactionPostingDetails";
 import EmployeeLeaveApplication from "../component/EmployeeLeaveApplication";
+import SalarySheetDetails from "../pages/HRM/SalarySheetDetails";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -119,9 +120,9 @@ const router = createBrowserRouter([
       //Employee leave application routes
       {
         path: "employee_leave_application",
-        element: <AdminRoute roles={[ROLES.Collector]}> <EmployeeLeaveApplication/></AdminRoute> 
+        element: <AdminRoute roles={[ROLES.Collector]}> <EmployeeLeaveApplication /></AdminRoute>
       },
-      
+
       // members routes
       {
         path: "add_member",
@@ -429,6 +430,10 @@ const router = createBrowserRouter([
       {
         path: "salary_sheet",
         element: <AdminRoute roles={[ROLES.Admin]}><SalarySheet /></AdminRoute>,
+      },
+      {
+        path: 'salary_sheet_details/:id',
+        element: <AdminRoute roles={[ROLES.Admin]}><SalarySheetDetails /></AdminRoute>
       },
       {
         path: "paying_amount_application",

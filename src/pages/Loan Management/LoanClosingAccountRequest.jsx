@@ -20,8 +20,6 @@ const LoanClosingAccountRequest = () => {
                                 <input className="input input-bordered input-sm  hover:border-teal-500  " id="member_id" type="text" placeholder="auto refill" />
                             </div>
 
-
-
                             <div className="flex flex-col gap-1">
                                 <label className="font-medium" htmlFor="account_id">Account Id:</label>
                                 <input className="input input-bordered input-sm  hover:border-teal-500  " id="account_id" type="text" placeholder="" />

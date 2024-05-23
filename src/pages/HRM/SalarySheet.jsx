@@ -5,6 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import BranchSamitySelector from "../../component/branchSamitySelector";
 import useMutationHook from "../../../hooks/useMutationHook";
 import { salarySheetList } from "../../../api/admin";
+import SalarySheetList from "./SalarySheetList";
 const initialData = {
   branchId: "",
   samityId: "",
@@ -15,6 +16,7 @@ const SalarySheet = () => {
   const { mutate } = useMutationHook(salarySheetList, {
     onSuccess: (data) => {
       console.log(data);
+      setFormData(data)
     },
   });
   function handleSubmit(e) {
@@ -53,7 +55,25 @@ const SalarySheet = () => {
           Search
         </button>
       </div>
-      <section></section>
+      <section>
+        <div className="md:m-4 mt-0">
+          <table className="w-full mt-12 ">
+            <tr className="grid grid-cols-4  text-xs md:text-base bg-teal-700  py-4 text-white md:grid-cols-4 items-center justify-center gap-1 text-center">
+              <th>Name</th>
+              <th>Salary</th>
+              <th>Total</th>
+
+              <th className="hidden md:block">action</th>
+            </tr>
+
+            {formData.length
+              ? formData.map((data, key) => (
+                <SalarySheetList key={key} data={data} />
+              ))
+              : null}
+          </table>
+        </div>
+      </section>
     </div>
   );
 };
