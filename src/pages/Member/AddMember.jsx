@@ -298,7 +298,7 @@ const AddMember = () => {
                 className="input input-bordered input-sm  hover:border-teal-500"
                 name="educationalQualification"
               >
-                <option disabled defaultValue>
+                <option disabled defaultValue> 
                   --Select Education Qualification--
                 </option>
                 <option value="SSC">SSC</option>
