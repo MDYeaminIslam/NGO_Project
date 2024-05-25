@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import SavingAccountNav from "./SavingAccountNav/SavingAccountNav";
 import DatePicker from "react-datepicker";
 import moment from "moment";
@@ -69,24 +69,43 @@ const Deposit = () => {
       },
     });
   // * handleChange
+  const periodOfTimeInMonths = useMemo(() => {
+    const tempMatureDate = moment()
+      .add(formData.periodOfTimeInMonths, "months")
+      .format("YYYY-MM-DD");
+    setFormData((prev) => ({ ...prev, matureDate: tempMatureDate }));
+  }, [formData.periodOfTimeInMonths]);
+  const profitPercentage = useMemo(() => {
+    const total = getDepositDates(
+      formData.periodOfTimeInMonths,
+      formData.paymentTerm,
+      formData.perInstallment,
+      formData.profitPercentage
+    );
+    setFormData((prev) => ({ ...prev, onMatureAmount: total }));
+  }, [
+    formData.periodOfTimeInMonths,
+    formData.perInstallment,
+    formData.paymentTerm,
+    formData.profitPercentage,
+  ]);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    if (name === "periodOfTimeInMonths") {
-      const tempMatureDate = moment().add(value, "months").format("YYYY-MM-DD");
-      setFormData((prev) => ({ ...prev, matureDate: tempMatureDate }));
-    }
-    if (name === "profitPercentage") {
-      const { periodOfTimeInMonths, perInstallment, paymentTerm } = formData;
-
-      const total = getDepositDates(
-        periodOfTimeInMonths,
-        paymentTerm,
-        perInstallment,
-        value
-      );
-      setFormData((prev) => ({ ...prev, onMatureAmount: total }));
-    }
+    // if (name === "periodOfTimeInMonths") {
+    //   const tempMatureDate = moment().add(value, "months").format("YYYY-MM-DD");
+    //   setFormData((prev) => ({ ...prev, matureDate: tempMatureDate }));
+    // }
+    // if (name === "profitPercentage") {
+    //   const { periodOfTimeInMonths, perInstallment, paymentTerm } = formData;
+    //   const total = getDepositDates(
+    //     periodOfTimeInMonths,
+    //     paymentTerm,
+    //     perInstallment,
+    //     value
+    //   );
+    //   setFormData((prev) => ({ ...prev, onMatureAmount: total }));
+    // }
   };
   // * handleSearchUser
   const handleSearchUser = async (event) => {
@@ -108,10 +127,16 @@ const Deposit = () => {
   //* !handleSubmit
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (searchedUser.status === "pending") {
+      return toast.error("Please contact Admin for member request approval");
+    }
+    let userType = localStorage.getItem("userType");
+    let status = userType === "admin" ? "approved" : "pending";
     const data = {
       branchId: searchedUser.branchId,
       samityId: searchedUser.samityId,
       memberId: searchedUser._id,
+      status: status,
       ...formData,
     };
     mutate(data);
@@ -130,6 +155,13 @@ const Deposit = () => {
         <section className="m-4">
           <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
             Open Deposit Account{" "}
+          </h1>
+          <h1>
+            {searchedUser?.status === "pending" ? (
+              <h1 className="w-full">
+                {"Please Contact Admin for member request approval."}
+              </h1>
+            ) : null}
           </h1>
           <form className="my-8">
             <section className="grid grid-cols-1 md:grid-col-3 w-full md:max-w-5xl mx-auto gap-4">
@@ -272,7 +304,7 @@ const Deposit = () => {
               </div>
 
               <div className="flex flex-col gap-1 md:col-span-3">
-                <label className="font-medium" htmlFor="first_due_date">
+                {/* <label className="font-medium" htmlFor="first_due_date">
                   {" "}
                   First Due Date:
                 </label>
@@ -281,7 +313,7 @@ const Deposit = () => {
                   id="first_due_date"
                   type="date"
                   placeholder=""
-                />
+                /> */}
               </div>
             </section>
             {isError ? errorMessage : null}

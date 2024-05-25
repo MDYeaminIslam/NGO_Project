@@ -1,15 +1,8 @@
 import LoanManagementNav from "./LoanManagementNav/LoanManagementNav";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useEffect, useState } from "react";
-import {
-  makeDeposit,
-  payLoanAccount,
-  searchLoanAccount,
-} from "../../../api/admin";
+import { useState } from "react";
+import { searchLoanAccount } from "../../../api/admin";
 import toast from "react-hot-toast";
-import { IconSearch } from "../../../icons/icons";
-import { MoonLoader } from "react-spinners";
 import useMutationHook from "../../../hooks/useMutationHook";
 import UserDetailsCard from "../../component/UserDetailsCard";
 import LoanAccountsCard from "../../component/LoanAccountsCard";
@@ -18,18 +11,17 @@ const Loan_transaction_posting = () => {
   const [userDetails, setUserDetails] = useState(null);
   const [loanAccounts, setLoanAccounts] = useState([]);
   const [userPhoneNumber, setUserPhoneNumber] = useState(null);
-  const { mutate, isSuccess, isError, errorMessage, isPending } =
-    useMutationHook(searchLoanAccount, {
-      onSuccess: (data) => {
-        const { userDetails, loanAccounts } = data[0];
-        setLoanAccounts(loanAccounts);
-        setUserDetails(userDetails);
-        console.log();
-      },
-      onError: () => {
-        toast.error("No Data Found");
-      },
-    });
+  const { mutate } = useMutationHook(searchLoanAccount, {
+    onSuccess: (data) => {
+      const { userDetails, loanAccounts } = data[0];
+      setLoanAccounts(loanAccounts);
+      setUserDetails(userDetails);
+      console.log();
+    },
+    onError: () => {
+      toast.error("No Data Found");
+    },
+  });
   const handleChange = (e) => {
     const { name, value, type } = e.target;
     setUserPhoneNumber(value);
@@ -39,10 +31,6 @@ const Loan_transaction_posting = () => {
     event.preventDefault();
     mutate(userPhoneNumber);
   }
-  console.log(loanAccounts);
-  console.log(userPhoneNumber);
-  console.log(userDetails);
-  // 01679806197
   return (
     <div>
       <section>
@@ -62,19 +50,23 @@ const Loan_transaction_posting = () => {
               className="input input-bordered input-sm w-full   hover:border-teal-500  "
               onChange={handleChange}
             />
-            <button className="btn btn-sm  hover:bg-teal-500 hover:text-white" onClick={handleSubmit}>Search</button>
+            <button
+              className="btn btn-sm  hover:bg-teal-500 hover:text-white"
+              onClick={handleSubmit}
+            >
+              Search
+            </button>
           </div>
         </section>
         <section>
-          {
-            userDetails ?
-              <UserDetailsCard data={{ ...userDetails, userPhoneNumber }} />
-              : null
-          }</section>
+          {userDetails ? (
+            <UserDetailsCard data={{ ...userDetails, userPhoneNumber }} />
+          ) : null}
+        </section>
         <section>
           <div className="overflow-x-auto">
             <table className="table">
-              <thead className='grid grid-cols-4 w-full bg-teal-500 text-white rounded-md'>
+              <thead className="grid grid-cols-4 w-full bg-teal-500 text-white rounded-md">
                 <th>Name</th>
                 <th>Payment</th>
                 <th>date</th>
@@ -83,11 +75,11 @@ const Loan_transaction_posting = () => {
             </table>
           </div>
 
-          {
-            loanAccounts ?
-              loanAccounts.map((data, idx) => <LoanAccountsCard value={userDetails} key={idx} data={data} />)
-              : null
-          }
+          {loanAccounts
+            ? loanAccounts.map((data, idx) => (
+                <LoanAccountsCard value={userDetails} key={idx} data={data} />
+              ))
+            : null}
         </section>
       </section>
     </div>

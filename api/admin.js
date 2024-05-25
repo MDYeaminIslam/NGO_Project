@@ -39,8 +39,8 @@ export async function updateUserSettings(data) {
   return response.data;
 }
 //update emoloyee
-export  async function updateEmployeeSettings(data) {
-  if(data.photo instanceof File || data.photo instanceof Blob){
+export async function updateEmployeeSettings(data) {
+  if (data.photo instanceof File || data.photo instanceof Blob) {
     const photoUrl = await uploadPhoto(data.photo);
     data["photo"] = photoUrl;
   }
@@ -337,7 +337,7 @@ export async function employeeLeaveApplicationAcceptReject(data) {
 }
 // salary sheet 
 export async function salarySheetList(data) {
-  const {branchId, samityId, date} = data;
+  const { branchId, samityId, date } = data;
   const response = await axiosAdmin.get(`/pay-slip/list?branchId=${branchId}&samityId=${samityId}&date=${date}`);
   return response.data;
 }
@@ -348,9 +348,26 @@ export async function userPendingList() {
   return response.data.data
 }
 //accepet user request 
-export async function accepetUserPendingList(data){
-  const {id,status} = data;
-  console.log(id,status);
+export async function accepetUserPendingList(data) {
+  const { id, status } = data;
+  console.log(id, status);
   const response = await axiosAdmin.get(`/localuser/accept/${id}?status=${status}`)
   return response.data
+}
+//get pending deposit accounts
+export async function pendingDepositAccountList(data) {
+  const { branchId, samityId } = data;
+  const response = await axiosAdmin.get(`/deposit/pending?branchId=${branchId}&samityId=${samityId}`);
+  return response.data.data;
+}
+export async function acceptDepositPendingAccount(data) {
+  const { id, status } = data;
+  const response = await axiosAdmin.get(`/deposit/accept/${id}?status=${status}`);
+  return response.data;
+}
+// get user deposit account list
+export async function getDepositAccountListsOfUser(number) {
+  const response = await axiosAdmin.get(`/deposit/account/list/${number}`);
+  console.log(response.data);
+  return response.data.data;
 }
