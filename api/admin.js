@@ -371,3 +371,8 @@ export async function getDepositAccountListsOfUser(number) {
   console.log(response.data);
   return response.data.data;
 }
+//get deposit account single
+export async function getDepositAccountDetailsById(id) {
+  const response = await axiosAdmin.get(`/deposit/deposit-account/${id}`);
+  return response.data.data;
+}
