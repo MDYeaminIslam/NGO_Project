@@ -86,7 +86,16 @@ export async function makeDeposit(data) {
   const response = await axiosAdmin.post(`/deposit/makeDeposit`, data);
   return response.data;
 }
-
+// deposit transaction list
+export async function depositTransactionList(id) {
+  const response = await axiosAdmin.get(`/deposit/transaction/${id}`);
+  return response.data.data;
+}
+// deposit transaction list
+export async function withdrawTransactionList(id) {
+  const response = await axiosAdmin.get(`/deposit/withdraw/${id}`);
+  return response.data.data;
+}
 // make withdraw
 export async function makeWithdraw(data) {
   const response = await axiosAdmin.post(`/deposit/makeWithdraw`, data);
