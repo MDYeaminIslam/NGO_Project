@@ -111,18 +111,22 @@ const MobileNav = () => {
                                 <span>Payroll</span>
                             </a>
                             </li> */}
-                                <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
-                                    {
-                                        role == "collector" ?
-                                            <NavLink to={'/employee_leave_application'}>
-                                                <p className="flex items-center p-2 space-x-3 rounded-md">
-                                                    <img className="w-4" src="/NGO Dashboard icon/application.png" alt="" />
-                                                    <span>Leave Application</span>
-                                                </p>
-                                            </NavLink> : <></>
-                                    }
+                                {
+                                    role == 'collector' ?
+                                        <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
+                                            {
+                                                role == "collector" ?
+                                                    <NavLink to={'/employee_leave_application'}>
+                                                        <p className="flex items-center p-2 space-x-3 rounded-md">
+                                                            <img className="w-4" src="/NGO Dashboard icon/application.png" alt="" />
+                                                            <span>Leave Application</span>
+                                                        </p>
+                                                    </NavLink> : <></>
+                                            }
 
-                                </li>
+                                        </li>
+                                        : null
+                                }
 
                                 <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                                     {

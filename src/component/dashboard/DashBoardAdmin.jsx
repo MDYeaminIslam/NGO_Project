@@ -49,7 +49,7 @@ const DashBoardAdmin = () => {
 
             <section className="grid grid-cols-2 md:grid-cols-4 md:gap-4 gap-2 w-fit p-4 pt-0 md:p-0   ">
                 {/* card */}
-                <div className="bg-teal-700 hover:bg-teal-500 text-white p-4 rounded-md md:col-span-2 ">
+                <div className="bg-teal-700 hover:bg-teal-500 text-white p-4 rounded-md md:col-span-2 transform hover:scale-105 duration-500 ">
                     <div>
                         <img className="w-10" src="/Admin Dashboard icon/Total capital.png" alt="" />
                     </div>
@@ -59,7 +59,7 @@ const DashBoardAdmin = () => {
                     </div>
                 </div>
                 {/* card */}
-                <div className="bg-teal-700 hover:bg-teal-500 text-white p-4 rounded-md">
+                <div className="bg-teal-700 hover:bg-teal-500 text-white p-4 rounded-md transform hover:scale-105 duration-500">
                     <div>
                         <img className="w-10" src="/Admin Dashboard icon/Number of center.png  " alt="" />
                     </div>
@@ -69,7 +69,7 @@ const DashBoardAdmin = () => {
                     </div>
                 </div>
                 {/* card */}
-                <div className="bg-teal-700 hover:bg-teal-500 text-white p-4 rounded-md">
+                <div className="bg-teal-700 hover:bg-teal-500 text-white p-4 rounded-md transform hover:scale-105 duration-500">
                     <div>
                         <img className="w-10" src="/Admin Dashboard icon/Loan in field.png  " alt="" />
                     </div>
@@ -79,7 +79,7 @@ const DashBoardAdmin = () => {
                     </div>
                 </div>
                 {/* card */}
-                <div className="bg-teal-700 hover:bg-teal-500 text-white p-4 rounded-md">
+                <div className="bg-teal-700 hover:bg-teal-500 text-white p-4 rounded-md transform hover:scale-105 duration-500">
                     <div>
                         <img className="w-10" src="/Admin Dashboard icon/Total collection.png " alt="" />
                     </div>
@@ -89,7 +89,7 @@ const DashBoardAdmin = () => {
                     </div>
                 </div>
                 {/* card */}
-                <div className="bg-teal-700 hover:bg-teal-500 text-white p-4 rounded-md">
+                <div className="bg-teal-700 hover:bg-teal-500 text-white p-4 rounded-md transform hover:scale-105 duration-500">
                     <div>
                         <img className="w-10" src="/Admin Dashboard icon/Total members.png  " alt="" />
                     </div>
@@ -99,7 +99,7 @@ const DashBoardAdmin = () => {
                     </div>
                 </div>
                 {/* card */}
-                <div className="bg-teal-700 hover:bg-teal-500 text-white p-4 rounded-md">
+                <div className="bg-teal-700 hover:bg-teal-500 text-white p-4 rounded-md transform hover:scale-105 duration-500">
                     <div>
                         <img className="w-10" src="/Admin Dashboard icon/Balance in bank.png  " alt="" />
                     </div>
@@ -109,7 +109,7 @@ const DashBoardAdmin = () => {
                     </div>
                 </div>
                 {/* card */}
-                <div className="bg-teal-700 hover:bg-teal-500 text-white p-4 rounded-md">
+                <div className="bg-teal-700 hover:bg-teal-500 text-white p-4 rounded-md transform hover:scale-105 duration-500">
                     <div>
                         <img className="w-10" src="/Admin Dashboard icon/drawer cash.png " alt="" />
                     </div>
@@ -119,7 +119,7 @@ const DashBoardAdmin = () => {
                     </div>
                 </div>
                 {/* card */}
-                <div className="bg-teal-700 hover:bg-teal-500 text-white p-4 rounded-md">
+                <div className="bg-teal-700 hover:bg-teal-500 text-white p-4 rounded-md transform hover:scale-105 duration-500">
                     <div>
                         <img className="w-10" src="/Admin Dashboard icon/Regular loan.png " alt="" />
                     </div>
@@ -129,7 +129,7 @@ const DashBoardAdmin = () => {
                     </div>
                 </div>
                 {/* card */}
-                <div className="bg-teal-700 hover:bg-teal-500 text-white p-4 rounded-md">
+                <div className="bg-teal-700 hover:bg-teal-500 text-white p-4 rounded-md transform hover:scale-105 duration-500">
                     <div>
                         <img className="w-10" src="/Admin Dashboard icon/Irregular loan.png " alt="" />
                     </div>
