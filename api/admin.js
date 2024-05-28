@@ -385,3 +385,24 @@ export async function getDepositAccountDetailsById(id) {
   const response = await axiosAdmin.get(`/deposit/deposit-account/${id}`);
   return response.data.data;
 }
+
+//pay loan from deposit account
+export async function payLoanFromDepositAccount(data) {
+  const { depositAccountId, loanAccountId, amount } = data;
+  const withdrawBody = {
+    id: depositAccountId,
+    date: new Date(),
+    amount: amount,
+    description: "For loan"
+  }
+  const loanPaymentBody = {
+    loanId: loanAccountId,
+    amount: amount,
+    addFineAmount: 0,
+    fineReason: "",
+    payFineAmount: 0,
+  };
+  const response = await makeWithdraw(withdrawBody);
+  const response2 = await payLoanAccount(loanPaymentBody);
+
+}

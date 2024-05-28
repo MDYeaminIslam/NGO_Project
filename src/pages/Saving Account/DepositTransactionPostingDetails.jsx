@@ -12,6 +12,7 @@ import { SavingAccountPerUserDetails } from "./SavingAccountListDetails";
 import { useState } from "react";
 import useMutationHook from "../../../hooks/useMutationHook";
 import { dateToString } from "../../utils/DateHelper";
+import toast from "react-hot-toast";
 const initialData = {
   date: new Date(),
   amount: 0,
@@ -36,7 +37,6 @@ const DepositTransactionPostingDetails = () => {
     queryFn: () => withdrawTransactionList(id),
     initialData: null,
   });
-  console.log(withdraws);
 
   return (
     <>
@@ -111,6 +111,7 @@ function AddMoney({ id }) {
   }
   function handleSubmit(e) {
     e.preventDefault();
+    console.log("clicked");
     let data = {
       ...formData,
       id: id,
@@ -161,6 +162,12 @@ function WithdrawMoney({ id }) {
   const [formData, setFormData] = useState(initialData);
   const { mutate } = useMutationHook(makeWithdraw, {
     key: [`saving-account-${id}`],
+    onError: () => {
+      toast.error("wrong");
+    },
+    onSuccess: () => {
+      toast.success("Succ");
+    },
   });
   function handleChange(e) {
     const { name, value, type } = e.target;
@@ -180,7 +187,7 @@ function WithdrawMoney({ id }) {
   return (
     <section className="m-4">
       <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2">
-        Add Money
+        Withdraw Money
       </h1>
       <form>
         <div className="grid grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto gap-4 my-8">

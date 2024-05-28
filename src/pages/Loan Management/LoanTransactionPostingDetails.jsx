@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import {
   getLoanTransactionDetailsById,
   payLoanAccount,
+  payLoanFromDepositAccount,
 } from "../../../api/admin";
 import useMutationHook from "../../../hooks/useMutationHook";
 import toast from "react-hot-toast";
@@ -45,9 +46,7 @@ const LoanTransactionPostingDetails = () => {
     e.preventDefault();
     let data = { ...formData, loanId: id };
     mutate(data);
-    console.log(data);
   }
-
   return (
     <>
       <section>
@@ -113,7 +112,11 @@ const LoanTransactionPostingDetails = () => {
           </div>
         </form>
       </section>
-
+      <section>
+        {data ? (
+          <PayFromDepositAccounts data={data.depositAccounts} loanId={id} />
+        ) : null}
+      </section>
       <section>
         <table className="w-full mt-12 ">
           <tr className="grid grid-cols-3  text-xs md:text-base bg-teal-700  py-4 text-white md:grid-cols-5 items-center justify-center gap-1 text-center">
@@ -132,6 +135,75 @@ const LoanTransactionPostingDetails = () => {
         </table>
       </section>
     </>
+  );
+};
+const DepositAccountCard = ({ data, callBackFn }) => {
+  const { _id, balance } = data;
+  return (
+    <div className="border" onClick={() => callBackFn(_id)}>
+      <p>{_id}</p>
+      <p>{balance}</p>
+    </div>
+  );
+};
+const PayFromDepositAccounts = ({ data, loanId }) => {
+  const [amount, setAmount] = useState(0);
+  const [id, setId] = useState(null);
+  const { mutate } = useMutationHook(payLoanFromDepositAccount, {
+    key: [`loan-transaction-${loanId}`],
+    onSuccess: () => {
+      toast.success("Done");
+    },
+    onError: (data) => {
+      toast.error(data.response.data.message);
+    },
+  });
+  function handleSubmit(e) {
+    e.preventDefault();
+    const body = {
+      depositAccountId: id,
+      loanAccountId: loanId,
+      amount: amount,
+    };
+    if (!id) {
+      return toast.error("Please Choose A Account");
+    }
+    mutate(body);
+  }
+
+  function handleChange(e) {
+    const { value } = e.target;
+    setAmount(Number(value));
+  }
+
+  return (
+    <div>
+      {data.map((data, idx) => (
+        <DepositAccountCard data={data} key={idx} callBackFn={setId} />
+      ))}
+      <div>
+        <div className="flex flex-col gap-1">
+          <label htmlFor="">Account ID</label>
+          <input
+            disabled
+            placeholder={id}
+            type="number"
+            name="acountid"
+            className="input input-sm hover:border-teal-500 input-bordered flex items-center gap-2"
+          />
+        </div>
+        <div className="flex flex-col gap-1">
+          <label htmlFor="">Amount</label>
+          <input
+            type="number"
+            name="amount"
+            onChange={handleChange}
+            className="input input-sm hover:border-teal-500 input-bordered flex items-center gap-2"
+          />
+        </div>
+        <button onClick={handleSubmit}>Pay From Loan</button>
+      </div>
+    </div>
   );
 };
 const Mockdata = ({ data }) => {
