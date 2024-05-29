@@ -406,3 +406,15 @@ export async function payLoanFromDepositAccount(data) {
   const response2 = await payLoanAccount(loanPaymentBody);
 
 }
+
+//get pending loan accounts
+export async function pendingLoanAccountList(data) {
+  const { branchId, samityId } = data;
+  const response = await axiosAdmin.get(`/loan/pending?branchId=${branchId}&samityId=${samityId}`);
+  return response.data.data;
+}
+export async function acceptLoanPendingAccount(data) {
+  const { id, status } = data;
+  const response = await axiosAdmin.get(`/loan/accept/${id}?status=${status}`);
+  return response.data;
+}

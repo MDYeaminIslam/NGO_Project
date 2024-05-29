@@ -25,6 +25,7 @@ const LoanTransactionPostingDetails = () => {
     queryFn: () => getLoanTransactionDetailsById(id),
     initialData: null,
   });
+  console.log(data);
   const { mutate } = useMutationHook(payLoanAccount, {
     key: [`loan-transaction-${id}`],
     onSuccess: () => {
@@ -47,6 +48,7 @@ const LoanTransactionPostingDetails = () => {
     let data = { ...formData, loanId: id };
     mutate(data);
   }
+
   return (
     <>
       <section>
@@ -55,6 +57,7 @@ const LoanTransactionPostingDetails = () => {
       <section>
         {data ? <Mockdata data={data.loanAccountDetails} /> : null}
       </section>
+      <section></section>
       <section className="m-4">
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2">
           Pay Loan

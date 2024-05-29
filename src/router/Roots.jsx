@@ -14,7 +14,6 @@ import AllCollection from "../pages/Loan Management/AllCollection";
 import AllLoan from "../pages/Loan Management/AllLoan";
 import ApplyLoan from "../pages/Loan Management/ApplyLoan";
 import LoanCollection from "../pages/Loan Management/LoanCollection";
-import LoanEvaluation from "../pages/Loan Management/LoanEvaluation";
 import LoanRequest from "../pages/Loan Management/LoanRequest";
 import PaidLoan from "../pages/Loan Management/PaidLoan";
 import RunningLoan from "../pages/Loan Management/RunningLoan";
@@ -61,14 +60,11 @@ import Liabilities from "../pages/Report/Liabilities";
 import TdsTaxVat from "../pages/Report/TdsTaxVat";
 import GeneralSettings from "../pages/Setting General/GeneralSettings";
 import TransactionnPosting from "../pages/Saving Account/TransactionnPosting";
-import AccountClosing from "../pages/Saving Account/AccountClosing";
 import ClosingAccountRequest from "../pages/Saving Account/ClosingAccountRequest";
 import OpenLoanAccount from "../pages/Loan Management/OpenLoanAccount";
 import LoanAccountList from "../pages/Loan Management/LoanAccountList";
 import Loan_transaction_posting from "../pages/Loan Management/Loan_transaction_posting";
-import LoanAccountClosing from "../pages/Loan Management/LoanAccountClosing";
 import LoanAccountRequest from "../pages/Loan Management/LoanAccountRequest";
-import LoanClosingAccountRequest from "../pages/Loan Management/LoanClosingAccountRequest";
 import EmployeeLoginCredentials from "../pages/Employee/EmployeeLoginCredentials";
 import EditFixedAsset from "../pages/Assets/Fixed Asset/EditFixedAsset";
 import RemoveWastedAsset from "../pages/Assets/Fixed Asset/RemoveWastedAsset";
@@ -98,7 +94,6 @@ import ROLES from "../../config/roles";
 import LoanPayList from "../pages/Loan Management/LoanPayList";
 import LoanPayDetails from "../pages/Loan Management/LoanPayDetails";
 import SavingAccountList from "../pages/Saving Account/SavingAccountList";
-import SavingAccountListDetails from "../pages/Saving Account/SavingAccountListDetails";
 import LoanTransactionPostingDetails from "../pages/Loan Management/LoanTransactionPostingDetails";
 import EmployeeLeaveApplication from "../component/EmployeeLeaveApplication";
 import SalarySheetDetails from "../pages/HRM/SalarySheetDetails";
@@ -255,14 +250,7 @@ const router = createBrowserRouter([
           </AdminRoute>
         ),
       },
-      {
-        path: "account_closing",
-        element: (
-          <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}>
-            <AccountClosing />
-          </AdminRoute>
-        ),
-      },
+
       {
         path: "saving_account_request",
         element: (
@@ -288,10 +276,7 @@ const router = createBrowserRouter([
           </AdminRoute>
         ),
       },
-      {
-        path: "saving_account_list_details/:id",
-        element: <SavingAccountListDetails />,
-      },
+
       {
         path: "deposit_transaction_posting_details/:id",
         element: <DepositTransactionPostingDetails />,
@@ -315,14 +300,6 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "loan_evaluation",
-        element: (
-          <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}>
-            <LoanEvaluation />
-          </AdminRoute>
-        ),
-      },
-      {
         path: "loan_transaction_posting",
         element: (
           <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}>
@@ -330,14 +307,7 @@ const router = createBrowserRouter([
           </AdminRoute>
         ),
       },
-      {
-        path: "loan_account_closing",
-        element: (
-          <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}>
-            <LoanAccountClosing />
-          </AdminRoute>
-        ),
-      },
+
       {
         path: "loan_received_money",
         element: (
@@ -352,14 +322,6 @@ const router = createBrowserRouter([
         element: (
           <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}>
             <LoanAccountRequest />
-          </AdminRoute>
-        ),
-      },
-      {
-        path: "loan_closing_account_request",
-        element: (
-          <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}>
-            <LoanClosingAccountRequest />
           </AdminRoute>
         ),
       },

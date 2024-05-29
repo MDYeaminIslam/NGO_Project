@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const SavingAccountNav = () => {
-
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -14,118 +13,125 @@ const SavingAccountNav = () => {
       <nav className="bg-teal-700 text-white">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-4">
           <div className="relative flex items-center justify-between h-16">
-
             <div className="block sm:hidden relative">
               <button
                 onClick={toggleDropdown}
                 className="ml-4 text-black bg-white focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
-                type="button">
-
+                type="button"
+              >
                 Select Menu
                 <svg
                   className="w-2.5 h-2.5 ms-3"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
-                  viewBox="0 0 10 6">
-
-                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="m1 1 4 4 4-4"
+                  />
                 </svg>
               </button>
 
               {isOpen && (
                 <div className="ml-4 absolute right-0 mt-2 bg-white divide-y divide-gray-100 rounded-lg shadow-lg">
-
-
-                  <ul className="py-2 text-sm text-black" aria-labelledby="dropdownDefaultButton">
-
-
+                  <ul
+                    className="py-2 text-sm text-black"
+                    aria-labelledby="dropdownDefaultButton"
+                  >
                     <li>
-                      <NavLink to={'/deposit'}>
-                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Deposit</p>
+                      <NavLink to={"/deposit"}>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
+                          Deposit
+                        </p>
                       </NavLink>
                     </li>
 
                     <li>
-                      <NavLink to={'/transactionn_posting'}>
-                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Transaction Posting</p>
+                      <NavLink to={"/transactionn_posting"}>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
+                          Transaction Posting
+                        </p>
                       </NavLink>
                     </li>
 
                     <li>
-                      <NavLink to={'/withdraw_money'}>
-                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Withdraw Money</p>
+                      <NavLink to={"/withdraw_money"}>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
+                          Withdraw Money
+                        </p>
                       </NavLink>
                     </li>
 
                     <li>
-                      <NavLink to={'/account_closing'}>
-                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Account Closing</p>
+                      <NavLink to={"/saving_account_request"}>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
+                          Saving Account Request
+                        </p>
                       </NavLink>
                     </li>
 
                     <li>
-                      <NavLink to={'/saving_account_request'}>
-                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Saving Account Request</p>
+                      <NavLink to={"/closing_account_request"}>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
+                          Closing Account Request
+                        </p>
                       </NavLink>
                     </li>
 
                     <li>
-                      <NavLink to={'/closing_account_request'}>
-                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Closing Account Request</p>
+                      <NavLink to={"/saving_account_list"}>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
+                          Saving Account List
+                        </p>
                       </NavLink>
                     </li>
-
-                    <li>
-                      <NavLink to={'/saving_account_list'}>
-                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Saving Account List</p>
-                      </NavLink>
-                    </li>
-
                   </ul>
                 </div>
               )}
             </div>
 
-
-
             <div className="hidden md:block ">
               <div className="flex flex-wrap w-full  ">
-
-
-
-                <NavLink to={'/deposit'}>
-                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Deposit</p>
+                <NavLink to={"/deposit"}>
+                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    Deposit
+                  </p>
                 </NavLink>
 
-                <NavLink to={'/transactionn_posting'}>
-                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Transaction Posting</p>
+                <NavLink to={"/transactionn_posting"}>
+                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    Transaction Posting
+                  </p>
                 </NavLink>
 
-                <NavLink to={'/withdraw_money'}>
-                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Withdraw Money</p>
+                <NavLink to={"/withdraw_money"}>
+                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    Withdraw Money
+                  </p>
                 </NavLink>
 
-                <NavLink to={'/account_closing'}>
-                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Account Closing</p>
+                <NavLink to={"/saving_account_request"}>
+                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    Saving Account Request
+                  </p>
                 </NavLink>
 
-                <NavLink to={'/saving_account_request'}>
-                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Saving Account Request</p>
+                <NavLink to={"/closing_account_request"}>
+                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    Closing Account Request
+                  </p>
                 </NavLink>
 
-
-                <NavLink to={'/closing_account_request'}>
-                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Closing Account Request</p>
+                <NavLink to={"/saving_account_list"}>
+                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    Saving Account List
+                  </p>
                 </NavLink>
-
-
-
-                <NavLink to={'/saving_account_list'}>
-                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Saving Account List</p>
-                </NavLink>
-
-
               </div>
             </div>
           </div>

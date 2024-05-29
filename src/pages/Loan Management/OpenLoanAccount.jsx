@@ -3,11 +3,7 @@ import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
-import {
-  createDepositAccount,
-  createLoanAccount,
-  searchUserByPhoneNumber,
-} from "../../../api/admin";
+import { createLoanAccount, searchUserByPhoneNumber } from "../../../api/admin";
 import { MoonLoader } from "react-spinners";
 import toast from "react-hot-toast";
 import useMutationHook from "../../../hooks/useMutationHook";
@@ -110,14 +106,16 @@ const OpenLoanAccount = () => {
     event.preventDefault();
     const { branchId, samityId } = searchedUser;
     console.log(branchId, samityId);
-
+    const status =
+      localStorage.getItem("userType") === "admin" ? "approved" : "pending";
     const data = {
       memberId: searchedUser._id,
       branchId: branchId,
       samityId: samityId,
+      status: status,
       ...formData,
     };
-    console.log(data);
+
     mutate(data);
   };
   useEffect(() => {

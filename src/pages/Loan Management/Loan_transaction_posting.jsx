@@ -16,7 +16,6 @@ const Loan_transaction_posting = () => {
       const { userDetails, loanAccounts } = data[0];
       setLoanAccounts(loanAccounts);
       setUserDetails(userDetails);
-      console.log();
     },
     onError: () => {
       toast.error("No Data Found");

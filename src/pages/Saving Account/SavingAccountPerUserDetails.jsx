@@ -1,8 +1,6 @@
-import { useLocation } from "react-router-dom";
-import SavingAccountNav from "./SavingAccountNav/SavingAccountNav";
 import { dateToString } from "../../utils/DateHelper";
 
-export const SavingAccountPerUserDetails = ({ data }) => {
+const SavingAccountPerUserDetails = ({ data }) => {
   const {
     memberId,
     paymentTerm,
@@ -128,88 +126,4 @@ export const SavingAccountPerUserDetails = ({ data }) => {
   );
 };
 
-export const TransactionsTable = ({ data }) => {
-  console.log(data);
-
-  const { date, amount, description, _id } = data;
-
-  return (
-    <div>
-      <tr className="grid grid-cols-3 text-xs md:text-base bg-gray-100  border-b-4   md:grid-cols-3 items-center w-full justify-between text-center py-3">
-        <td>{dateToString(date)}</td>
-        <td>{amount}</td>
-        <td className="hidden md:block">{description}</td>
-      </tr>
-    </div>
-  );
-};
-
-export const WithdrawsTable = ({ data }) => {
-  const { date, amount, description, _id } = data;
-  return (
-    <div>
-      <tr className="grid grid-cols-2 text-xs md:text-base bg-gray-100  border-b-4   md:grid-cols-2 items-center w-full justify-between text-center py-3">
-        <td>{dateToString(date)}</td>
-        <td>{amount}</td>
-      </tr>
-    </div>
-  );
-};
-
-const SavingAccountListDetails = () => {
-  const location = useLocation();
-  const { data } = location.state;
-  return (
-    <div>
-      <div>
-        <SavingAccountNav />
-      </div>
-      <section className="max-w-5xl mx-auto ">
-        <SavingAccountPerUserDetails data={data} />
-      </section>
-      <div className="grid  md:grid-cols-2 ">
-        <section>
-          <div className="md:m-8">
-            <h1 className="md:text-lg md:font-medium mt-3 text-center ">
-              Transactions Table
-            </h1>
-            <div className="divider"></div>
-            <table className="w-full  ">
-              <tr className="grid grid-cols-3  text-xs md:text-base bg-teal-700  py-4 text-white md:grid-cols-3 items-center justify-center gap-1 text-center">
-                <th>Date</th>
-                <th>Amount</th>
-                <th>Description</th>
-              </tr>
-              {data.transactions
-                ? data.transactions.map((data, idx) => (
-                    <TransactionsTable data={data} key={idx} />
-                  ))
-                : null}
-            </table>
-          </div>
-        </section>
-        <section>
-          <div className="md:m-8">
-            <h1 className="md:text-lg md:font-medium mt-4 text-center ">
-              Withdraws Table
-            </h1>
-            <div className="divider"></div>
-            <table className="w-full  ">
-              <tr className="grid grid-cols-2  text-xs md:text-base bg-teal-700  py-4 text-white md:grid-cols-2 items-center justify-center gap-1 text-center">
-                <th>Date</th>
-                <th>Amount</th>
-              </tr>
-              {data.withdraws
-                ? data.withdraws.map((data, idx) => (
-                    <WithdrawsTable data={data} key={idx} />
-                  ))
-                : null}
-            </table>
-          </div>
-        </section>
-      </div>
-    </div>
-  );
-};
-
-export default SavingAccountListDetails;
+export default SavingAccountPerUserDetails;

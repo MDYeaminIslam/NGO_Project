@@ -1,61 +1,24 @@
+import { useState } from "react";
 import SavingAccountNav from "./SavingAccountNav/SavingAccountNav";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { useEffect, useState } from "react";
-import { makeDeposit, searchDepositAccount } from "../../../api/admin";
-import toast from "react-hot-toast";
-import { IconSearch } from "../../../icons/icons";
-import { MoonLoader } from "react-spinners";
-import useMutationHook from "../../../hooks/useMutationHook";
-const initialState = {
-  description: "",
-  date: "",
-  amount: "",
-};
+import { useQuery } from "@tanstack/react-query";
+import { getDepositAccountListsOfUser } from "../../../api/admin";
+import UserDetailsCard from "../../component/UserDetailsCard";
+import DepositAccountCard from "../../component/DepositAccountCard";
 const TransactionnPosting = () => {
-  const [searchedUser, setSearchedUser] = useState(null);
-  const [formData, setFormData] = useState(initialState);
-  const [showLoadingIcon, setShowLoadingIcon] = useState(false);
-  const { mutate, isSuccess, isError, errorMessage, isPending } =
-    useMutationHook(makeDeposit, {
-      onSuccess: () => {
-        toast.success("Deposit Added Successfully!");
-      },
-    });
-
+  const [userPhoneNumber, setUserPhoneNumber] = useState(null);
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    console.log(name, value);
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const { value } = e.target;
+    setUserPhoneNumber(value);
   };
+  const { data } = useQuery({
+    queryKey: ["user-deposit-account-list"],
+    queryFn: () => getDepositAccountListsOfUser(userPhoneNumber),
+    initialData: null,
+    enabled: userPhoneNumber?.length === 11 ? true : false,
+  });
+  console.log(data);
 
-  // * handleSearchUser
-  const handleSearchUser = async (event) => {
-    const { value } = event.target;
-    if (value.length >= 11) {
-      const userData = await searchDepositAccount(value);
-      console.log(userData);
-      if (userData.length) {
-        setShowLoadingIcon(false);
-        setSearchedUser(userData[0]);
-      } else {
-        toast.error("No Data Found");
-        setShowLoadingIcon(false);
-      }
-    } else {
-      setShowLoadingIcon(true);
-    }
-  };
-  // * handleSubmit
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = { memberId: searchedUser._id, ...formData };
-    mutate(data);
-  };
-  useEffect(() => {
-    setFormData((prev) => ({ ...prev, date: new Date() }));
-  }, []);
-
+  function handleSubmit() {}
   return (
     <div>
       <section>
@@ -65,156 +28,50 @@ const TransactionnPosting = () => {
       <section>
         <section className="m-4">
           <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
-            Transaction Posting
+            Deposit Transaction Posting
           </h1>
-          <form className="my-8">
-            <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
-              <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="acc_id">
-                  Account Id:{" "}
-                </label>
-                <label className="input input-sm hover:border-teal-500 input-bordered flex items-center gap-2">
-                  <input
-                    type="number"
-                    id="acc_id"
-                    className="grow  "
-                    placeholder="Search"
-                    onChange={handleSearchUser}
-                  />
-                  {!showLoadingIcon ? (
-                    <IconSearch className="w-6 h-6 opacity-50" />
-                  ) : (
-                    <MoonLoader size={15} />
-                  )}
-                </label>
-              </div>
+          <div className=" flex flex-col md:flex-row gap-4 w-full p-4">
+            <input
+              type="number"
+              name="phoneNumber"
+              placeholder="Search by PhoneNumber"
+              className="input input-bordered input-sm w-full   hover:border-teal-500  "
+              onChange={handleChange}
+            />
+            <button
+              className="btn btn-sm  hover:bg-teal-500 hover:text-white"
+              onClick={handleSubmit}
+            >
+              Search
+            </button>
+          </div>
+        </section>
+        <section>
+          {data && userPhoneNumber?.length == 11 ? (
+            <UserDetailsCard data={{ ...data.userDetails, userPhoneNumber }} />
+          ) : null}
+        </section>
+        <section>
+          <div className="overflow-x-auto">
+            <table className="table">
+              <thead className="grid grid-cols-4 w-full bg-teal-500 text-white rounded-md">
+                <th>Name</th>
+                <th>Payment</th>
+                <th>date</th>
+                <th>Action</th>
+              </thead>
+            </table>
+          </div>
 
-              <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="member_name">
-                  Member Name:
-                </label>
-                <input
-                  className="input input-bordered input-sm  hover:border-teal-500  "
-                  id="member_name"
-                  type="text"
-                  placeholder="auto refill"
-                  value={searchedUser ? searchedUser.name : "No Available Data"}
-                  disabled
+          {data && userPhoneNumber?.length == 11 && data?.depositAccounts
+            ? data.depositAccounts.map((account, idx) => (
+                <DepositAccountCard
+                  value={data.userDetails}
+                  key={idx}
+                  data={account}
                 />
-              </div>
-
-              <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="description">
-                  Description:
-                </label>
-                <input
-                  className="input input-bordered input-sm  hover:border-teal-500  "
-                  id="description"
-                  type="text"
-                  name="description"
-                  onChange={handleChange}
-                  value={formData.description}
-                  placeholder="write description here"
-                />
-              </div>
-
-              <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="installment_amount">
-                  Installment Amount:
-                </label>
-                <input
-                  className="input input-bordered input-sm  hover:border-teal-500  "
-                  id="installment_amount"
-                  name="amount"
-                  type="number"
-                  onChange={handleChange}
-                  value={formData.amount}
-                />
-              </div>
-
-              <div className="flex flex-col gap-1 ">
-                <label className="font-medium" htmlFor="date">
-                  {" "}
-                  Date:
-                </label>
-                <DatePicker
-                  className="input input-bordered input-sm  hover:border-teal-500  "
-                  dateFormat="dd/MM/yyyy"
-                  disabled
-                  showIcon
-                  selected={formData.date}
-                />
-              </div>
-
-              <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="payment_term">
-                  Payment Term:
-                </label>
-                <input
-                  className="input input-bordered input-sm  hover:border-teal-500  "
-                  id="payment_term"
-                  type="text"
-                  placeholder="auto refill"
-                  value={
-                    searchedUser
-                      ? searchedUser.paymentTerm
-                      : "No Data Available"
-                  }
-                  disabled
-                />
-              </div>
-
-              <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="installment_payment">
-                  Installment Payment:
-                </label>
-                <input
-                  className="input input-bordered input-sm  hover:border-teal-500  "
-                  id="installment_payment"
-                  type="text"
-                  placeholder="auto refill"
-                  value={
-                    searchedUser
-                      ? searchedUser.perInstallment
-                      : "No Data Available"
-                  }
-                  disabled
-                />
-              </div>
-
-              <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="balance">
-                  {" "}
-                  Total Deposit:
-                </label>
-                <input
-                  className="input input-bordered input-sm  hover:border-teal-500  "
-                  id="balance"
-                  type="text"
-                  placeholder=""
-                  value={
-                    searchedUser ? searchedUser.balance : "No Data Available"
-                  }
-                  disabled
-                />
-              </div>
-            </section>
-            {isError ? errorMessage : null}
-
-            <div className="w-full flex flex-col md:flex-row  justify-center  mt-12 gap-6">
-              <button
-                onClick={handleSubmit}
-                className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
-              >
-                Submit
-              </button>
-              <input
-                className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
-                type="submit"
-                value="Save and Print"
-              />
-            </div>
-          </form>
+              ))
+            : null}
         </section>
       </section>
     </div>

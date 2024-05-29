@@ -20,7 +20,6 @@ const SavingAccountRequest = () => {
     initialData: [],
     enabled: formData.branchId && formData.samityId ? true : false,
   });
-  console.log(d);
 
   return (
     <div>
