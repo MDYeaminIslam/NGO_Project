@@ -65,6 +65,7 @@ const DepositTransactionPostingDetails = () => {
               </table>
             </div>
           </section>
+
           <section>
             <div className="md:m-8">
               <h1 className="md:text-lg md:font-medium mt-4 text-center ">
@@ -72,9 +73,10 @@ const DepositTransactionPostingDetails = () => {
               </h1>
               <div className="divider"></div>
               <table className="w-full  ">
-                <tr className="grid grid-cols-2  text-xs md:text-base bg-teal-700  py-4 text-white md:grid-cols-2 items-center justify-center gap-1 text-center">
+                <tr className="grid grid-cols-3  text-xs md:text-base bg-teal-700  py-4 text-white md:grid-cols-3 items-center justify-center gap-1 text-center">
                   <th>Date</th>
                   <th>Amount</th>
+                  <th>Description</th>
                 </tr>
                 {withdraws
                   ? withdraws.map((data, idx) => (

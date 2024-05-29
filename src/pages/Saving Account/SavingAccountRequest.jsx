@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BranchSamitySelector from "../../component/branchSamitySelector";
 import SavingAccountNav from "./SavingAccountNav/SavingAccountNav";
 import useMutationHook from "../../../hooks/useMutationHook";
@@ -6,13 +6,14 @@ import {
   acceptDepositPendingAccount,
   pendingDepositAccountList,
 } from "../../../api/admin";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 const initialState = {
   branchId: "",
   samityId: "",
 };
 const SavingAccountRequest = () => {
+  let [searchParams, setSearchParams] = useSearchParams();
   const [formData, setFormData] = useState(initialState);
   const { data: d } = useQuery({
     queryKey: ["pending-deposit-list"],
@@ -20,6 +21,19 @@ const SavingAccountRequest = () => {
     initialData: [],
     enabled: formData.branchId && formData.samityId ? true : false,
   });
+  useEffect(() => {
+    const branchId = searchParams.get("branchId");
+    const samityId = searchParams.get("samityId");
+    if (branchId && samityId) {
+      setFormData({ branchId, samityId });
+    }
+    if (formData.branchId && formData.samityId) {
+      setSearchParams({
+        branchId: formData.branchId,
+        samityId: formData.samityId,
+      });
+    }
+  }, [formData.branchId, formData.samityId]);
 
   return (
     <div>

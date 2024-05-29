@@ -3,12 +3,10 @@ import App from "../App";
 import DashBoardAdmin from "../component/dashboard/DashBoardAdmin";
 import AddMember from "../pages/Member/AddMember";
 import MembersList from "../pages/Member/MembersList";
-import MemberClosing from "../pages/Member/MemberClosing";
 import MemberRequest from "../pages/Member/MemberRequest";
 import CloseSavingAccount from "../pages/Saving Account/CloseSavingAccount";
 import Deposit from "../pages/Saving Account/Deposit";
 import SavingAccountRequest from "../pages/Saving Account/SavingAccountRequest";
-import WithdrawMoney from "../pages/Saving Account/WithdrawMoney";
 import AddLoanPlan from "../pages/Loan Management/AddLoanPlan";
 import AllCollection from "../pages/Loan Management/AllCollection";
 import AllLoan from "../pages/Loan Management/AllLoan";
@@ -44,12 +42,6 @@ import BranchSubNavbar from "../pages/Branches/BranchSubNavbar";
 import SamityList from "../pages/Branches/SamityList";
 import DrawerCash from "../pages/Manage Drawer Cash/DrawerCash";
 import DrawerCashtoBank from "../pages/Manage Drawer Cash/DrawerCashtoBank";
-// import BankCash from "../pages/Manage Bank Cash/BankCash";
-// import BankCashtoDrawer from "../pages/Manage Bank Cash/BankCashtoDrawer";
-// import AddNewUser from "../pages/User Maintenance/AddNewUser";
-// import AddNewUserType from "../pages/User Maintenance/AddNewUserType";
-// import UserList from "../pages/User Maintenance/UserList";
-// import UserType from "../pages/User Maintenance/UserType";
 import Upcoming from "../pages/Liabilities/Upcoming";
 import Asset from "../pages/Report/Asset";
 import BalanceSheet from "../pages/Report/BalanceSheet";
@@ -141,14 +133,7 @@ const router = createBrowserRouter([
           </AdminRoute>
         ),
       },
-      {
-        path: "member_closing",
-        element: (
-          <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}>
-            <MemberClosing />
-          </AdminRoute>
-        ),
-      },
+
       {
         path: "member_request",
         element: (
@@ -234,14 +219,6 @@ const router = createBrowserRouter([
         ),
       },
 
-      {
-        path: "withdraw_money",
-        element: (
-          <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}>
-            <WithdrawMoney />
-          </AdminRoute>
-        ),
-      },
       {
         path: "transactionn_posting",
         element: (

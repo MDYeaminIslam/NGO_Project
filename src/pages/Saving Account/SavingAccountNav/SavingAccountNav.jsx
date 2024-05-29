@@ -60,14 +60,6 @@ const SavingAccountNav = () => {
                     </li>
 
                     <li>
-                      <NavLink to={"/withdraw_money"}>
-                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
-                          Withdraw Money
-                        </p>
-                      </NavLink>
-                    </li>
-
-                    <li>
                       <NavLink to={"/saving_account_request"}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
                           Saving Account Request
@@ -106,12 +98,6 @@ const SavingAccountNav = () => {
                 <NavLink to={"/transactionn_posting"}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                     Transaction Posting
-                  </p>
-                </NavLink>
-
-                <NavLink to={"/withdraw_money"}>
-                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                    Withdraw Money
                   </p>
                 </NavLink>
 

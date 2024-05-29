@@ -14,8 +14,9 @@ const SavingAccountPerUserDetails = ({ data }) => {
     createdAt,
     updatedAt,
     memberDetails,
+    status,
   } = data;
-  console.log(data);
+  console.log(status);
 
   return (
     <div>

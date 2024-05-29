@@ -1,9 +1,11 @@
 import MemberNav from "./MemberNav/MemberNav";
 import BranchSamitySelector from "../../component/branchSamitySelector";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useMutationHook from "../../../hooks/useMutationHook";
 import { getLocalUsersByBranchIdAndSmityId } from "../../../api/admin";
 import ListView from "../../component/ListView";
+import { useSearchParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 const initalState = {
   branchId: null,
   samityId: null,
@@ -11,23 +13,26 @@ const initalState = {
 
 const MembersList = () => {
   const [formData, setFormData] = useState(initalState);
-  const [localUsers, setLocalUsers] = useState([]);
-
-  const { mutate, isPending } = useMutationHook(
-    getLocalUsersByBranchIdAndSmityId,
-    {
-      onSuccess: (data) => {
-        console.log(data);
-        setLocalUsers(data.data);
-      },
+  let [searchParams, setSearchParams] = useSearchParams();
+  const { data } = useQuery({
+    queryKey: ["member-list"],
+    queryFn: () => getLocalUsersByBranchIdAndSmityId(formData),
+    enabled: formData.branchId && formData.samityId ? true : false,
+    initialData: null,
+  });
+  useEffect(() => {
+    const branchId = searchParams.get("branchId");
+    const samityId = searchParams.get("samityId");
+    if (branchId && samityId) {
+      setFormData({ branchId, samityId });
     }
-  );
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    console.log(formData);
-    mutate(formData);
-  }
+    if (formData.branchId && formData.samityId) {
+      setSearchParams({
+        branchId: formData.branchId,
+        samityId: formData.samityId,
+      });
+    }
+  }, [formData.branchId, formData.samityId]);
   return (
     <div>
       <section>
@@ -43,14 +48,6 @@ const MembersList = () => {
           <div className="w-full flex flex-col md:flex-row gap-4">
             <BranchSamitySelector callBackFn={setFormData} />
           </div>
-          <div className="w-fit mx-auto mt-5">
-            <button
-              className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium text-white mt-2"
-              onClick={handleSubmit}
-            >
-              Search
-            </button>
-          </div>
         </section>
 
         {/* Local User List */}
@@ -65,8 +62,8 @@ const MembersList = () => {
                 <th className="hidden md:block">action</th>
               </tr>
 
-              {localUsers.length
-                ? localUsers.map((user, key) => (
+              {data
+                ? data.data.map((user, key) => (
                     <ListView key={key} data={user} />
                   ))
                 : null}
