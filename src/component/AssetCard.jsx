@@ -10,20 +10,20 @@ export default function AssetCard({ data }) {
     remarks,
     date,
   } = data;
-
+  console.log(data);
   return (
     <div>
       <section>
         <section>
-          <div className="max-w-5xl mx-auto bg-teal-700 text-white py-4 mt-12">
-            <tr className="grid text-xs md:text-base grid-cols-4 md:grid-cols-5  items-center justify-center gap-1 text-start">
+          <div className="max-w-5xl mx-auto bg-gray-100  border-b-2 py-4 ">
+            <tr className="grid text-xs md:text-base grid-cols-4 md:grid-cols-4  items-center justify-center gap-1 text-center">
               <td>{productName}</td>
               <td>{quantity}</td>
               <td>{amount}</td>
 
               <td>
                 <Link to={`/someLInks`}>
-                  <button className="btn btn-xs md:btn btn-info text-white">
+                  <button className="btn btn-xs md:btn-sm  btn-info text-white">
                     view
                   </button>
                 </Link>

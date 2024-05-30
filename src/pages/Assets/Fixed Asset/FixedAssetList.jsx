@@ -47,7 +47,7 @@ const FixedAssetList = () => {
       </section>
       <section>
         <div className="max-w-5xl mx-auto bg-teal-700 text-white py-4 mt-12">
-          <tr className="grid text-xs md:text-base grid-cols-4 md:grid-cols-5  items-center justify-center gap-1 text-start">
+          <tr className="grid text-xs md:text-base grid-cols-4 md:grid-cols-4  items-center justify-center gap-1 text-start">
             <th>Product<span className="hidden md:inline"> Name</span></th>
             <th>Measurement<span className="hidden md:inline">/Quantity</span></th>
             <th>Amount</th>
