@@ -122,7 +122,7 @@ const LoanTransactionPostingDetails = () => {
           <PayFromDepositAccounts data={data.depositAccounts} loanId={id} />
         ) : null}
       </section>
-      <section>
+      <section className="m-10">
         <table className="w-full mt-12 ">
           <tr className="grid grid-cols-3  text-xs md:text-base bg-teal-700  py-4 text-white md:grid-cols-5 items-center justify-center gap-1 text-center">
             <th>Loan Id</th>
