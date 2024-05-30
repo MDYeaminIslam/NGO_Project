@@ -32,7 +32,7 @@ const MembersList = () => {
         samityId: formData.samityId,
       });
     }
-  }, [formData.branchId, formData.samityId]);
+  }, []);
   return (
     <div>
       <section>
@@ -41,7 +41,7 @@ const MembersList = () => {
 
       <section className="m-2">
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
-          Members List{" "}
+          Members List
         </h1>
 
         <section className="flex flex-col md:flex-row gap-4 my-8 pb-8 md:max-w-5xl mx-auto items-center  border-b-2">
@@ -64,8 +64,8 @@ const MembersList = () => {
 
               {data
                 ? data.data.map((user, key) => (
-                    <ListView key={key} data={user} />
-                  ))
+                  <ListView key={key} data={user} />
+                ))
                 : null}
             </table>
           </div>

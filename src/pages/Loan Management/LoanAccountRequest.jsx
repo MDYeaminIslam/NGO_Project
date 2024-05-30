@@ -30,19 +30,19 @@ const LoanAccountRequest = () => {
       <section>
         <section className="m-4">
           <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
-            Saving Account Request
+            Loan Account Request
           </h1>
           <section className=" flex flex-col md:flex-row p-2 gap-2 items-center max-w-5xl mx-auto">
             <BranchSamitySelector callBackFn={setFormData} />
           </section>
         </section>
         <section>
-          <div className="flex flex-col">
+          <div className="flex flex-col max-w-5xl mx-auto">
             <div className="-m-1.5 overflow-x-auto">
               <div className="p-1.5 min-w-full inline-block align-middle">
-                <div className="border overflow-hidden border-black">
+                <div className="border overflow-hidden ">
                   <table className="min-w-full divide-y divide-gray-200">
-                    <thead className="bg-slate-800">
+                    <thead className="bg-teal-700 ">
                       <tr>
                         <th
                           scope="col"
@@ -86,8 +86,8 @@ const LoanAccountRequest = () => {
                     <tbody className="divide-y divide-gray-200">
                       {d.length
                         ? d.map((data, idx) => (
-                            <TableRow data={data} key={idx} />
-                          ))
+                          <TableRow data={data} key={idx} />
+                        ))
                         : null}
                     </tbody>
                   </table>

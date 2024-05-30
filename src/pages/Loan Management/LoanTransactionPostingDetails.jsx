@@ -122,12 +122,12 @@ const LoanTransactionPostingDetails = () => {
           <PayFromDepositAccounts data={data.depositAccounts} loanId={id} />
         ) : null}
       </section>
-      <section className="m-10">
+      <section className="m-10 w-full md:max-w-5xl mx-auto">
         <table className="w-full mt-12 ">
-          <tr className="grid grid-cols-3  text-xs md:text-base bg-teal-700  py-4 text-white md:grid-cols-5 items-center justify-center gap-1 text-center">
+          <tr className="grid grid-cols-2  text-xs md:text-base bg-teal-700  py-4 text-white md:grid-cols-5 items-center justify-center gap-1 text-center">
             <th>Loan Id</th>
             <th>Amount</th>
-            <th>Fine Amount</th>
+            <th className="hidden md:block">Fine Amount</th>
             <th className="hidden md:block">Fine Reason</th>
             <th className="hidden md:block">date</th>
           </tr>
@@ -147,14 +147,14 @@ const DepositAccountCard = ({ data, callBackFn }) => {
 
   return (
 
-    <section>
+    <section className="max-w-5xl mx-auto p-2">
       <div>
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2">
           Paying from Deposit Account
         </h1>
       </div>
 
-      <div className="border-2 m-10" onClick={() => callBackFn(_id)}>
+      <div className="border-2 flex flex-col md:flex-row md:justify-evenly  mt-8" onClick={() => callBackFn(_id)}>
         <p className="font-bold m-4">Account Id: <span className="font-bold text-emerald-500">{_id}</span></p>
         <p className="font-bold m-4">Total Balance: <span className="font-bold text-emerald-500">{balance}</span></p>
       </div>
@@ -200,8 +200,8 @@ const PayFromDepositAccounts = ({ data, loanId }) => {
 
 
 
-      <div className="m-10">
-        <div className="flex flex-col gap-1">
+      <div className="m-10 flex flex-col md:flex-row w-full gap-4 max-w-5xl mx-auto p-2">
+        <div className="flex flex-col gap-1 flex-1">
           <label htmlFor="">Account ID</label>
           <input
             disabled
@@ -211,7 +211,7 @@ const PayFromDepositAccounts = ({ data, loanId }) => {
             className="input input-sm hover:border-teal-500 input-bordered flex items-center gap-2"
           />
         </div>
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 flex-1">
           <label htmlFor="">Amount</label>
           <input
             type="number"
@@ -221,12 +221,9 @@ const PayFromDepositAccounts = ({ data, loanId }) => {
           />
         </div>
 
-        <div className="w-full flex justify-center  mt-12">
-          <button className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium  text-white" onClick={handleSubmit}>Pay From Loan</button>
-        </div>
-
-
-
+      </div>
+      <div className="w-full flex justify-center  mt-12">
+        <button className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium  text-white" onClick={handleSubmit}>Pay From Loan</button>
       </div>
     </div>
   );
@@ -260,21 +257,14 @@ const Mockdata = ({ data }) => {
         </span>{" "}
         User Details
       </h1>
-      <div className=" border-b-4 text-base font-medium tracking-wide divide-y-1 space-y-3 grid grid-cols-2 leading-6 p-6 py-3 bg-teal-50 rounded-md ">
+      <div className=" border-b-4 text-base font-medium tracking-wide divide-y-1 space-y-3 grid grid-cols-1 md:grid-cols-2 leading-6 p-6 py-3 bg-teal-50 rounded-md ">
         <p className="flex items-center gap-2">
           <span>
             <img className="w-4" src="/NGO Dashboard icon/Member.png" alt="" />
           </span>{" "}
           Member Name : <span className="font-normal pl-2">Mr. Yo </span>
         </p>
-        <p className="flex items-center gap-2">
-          {" "}
-          <img className="w-5" src="/NGO Dashboard icon/expense.png" alt="" />
-          Member Id:{" "}
-          <span className="font-normal px-2 bg-green-500 text-white rounded">
-            {memberId}
-          </span>
-        </p>
+
         <p className="flex items-center gap-2">
           {" "}
           <img className="w-5" src="/NGO Dashboard icon/report.png" alt="" />
@@ -385,8 +375,8 @@ const TransactionDetailsTable = ({ data }) => {
   } = data;
 
   return (
-    <div className="">
-      <tr className="px-2 grid grid-cols-3 text-xs md:text-base bg-gray-100  border-b-4   md:grid-cols-5 items-center w-full justify-between text-center py-3">
+    <div className=" w-full">
+      <tr className="px-2 grid grid-cols-2 text-xs md:text-base bg-gray-100  border-b-4   md:grid-cols-5 items-center w-full justify-between text-center py-3">
         <td>{loanId}</td>
         <td>{amount}</td>
         <td className="hidden md:block">{addFineAmount}</td>

@@ -15,7 +15,7 @@ const MobileNav = () => {
         <div>
             <div className=" drawer drawer-end z-50 bg-teal-700">
                 <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex items-center ">
+                <div className="drawer-content flex items-center  ">
                     {/* Page content here */}
                     <button className="btn btn-link">
                         <label htmlFor="my-drawer-4" className=" bg-teal-700 text-white px-2 ">

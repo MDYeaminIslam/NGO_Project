@@ -30,7 +30,7 @@ const SavingAccountList = () => {
         samityId: formData.samityId,
       });
     }
-  }, [formData.branchId, formData.samityId]);
+  }, []);
   return (
     <div>
       <section>
@@ -55,8 +55,8 @@ const SavingAccountList = () => {
         <div>
           {data
             ? data.data.map((data, idx) => (
-                <SavingAccountListView data={data} key={idx} />
-              ))
+              <SavingAccountListView data={data} key={idx} />
+            ))
             : null}
         </div>
       </section>

@@ -33,7 +33,7 @@ const SavingAccountRequest = () => {
         samityId: formData.samityId,
       });
     }
-  }, [formData.branchId, formData.samityId]);
+  }, []);
 
   return (
     <div>
@@ -100,8 +100,8 @@ const SavingAccountRequest = () => {
                     <tbody className="divide-y divide-gray-200">
                       {d.length
                         ? d.map((data, idx) => (
-                            <TableRow data={data} key={idx} />
-                          ))
+                          <TableRow data={data} key={idx} />
+                        ))
                         : null}
                     </tbody>
                   </table>

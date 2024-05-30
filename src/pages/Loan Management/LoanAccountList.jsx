@@ -33,7 +33,8 @@ const LoanAccountList = () => {
         samityId: formData.samityId,
       });
     }
-  }, [formData.branchId, formData.samityId]);
+  }, []);
+  // [formData.branchId, formData.samityId]
   return (
     <div>
       <section>
@@ -62,7 +63,7 @@ const LoanAccountList = () => {
         </div> */}
       </section>
 
-      <section className="mt-8">
+      <section className="mt-8 grid  grid-cols-3 gap-4 p-4 max-w-7xl mx-auto">
         {data
           ? data.map((loan, idx) => <LoanCard data={loan} key={idx} />)
           : null}
