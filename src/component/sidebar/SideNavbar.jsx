@@ -268,7 +268,7 @@ const SideNavbar = () => {
                             }
 
                         </li>
-                        <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md transform hover:scale-105 duration-500">
+                        {/* <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md transform hover:scale-105 duration-500">
                             {
                                 role == 'admin' ?
                                     <NavLink to={'/asset'}>
@@ -279,7 +279,7 @@ const SideNavbar = () => {
                                     </NavLink> : <></>
                             }
 
-                        </li>
+                        </li> */}
                     </ul>
                     <ul className="pt-4 pb-2 space-y-1 text-sm">
 

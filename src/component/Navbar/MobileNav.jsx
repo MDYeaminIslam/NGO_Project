@@ -283,7 +283,7 @@ const MobileNav = () => {
                                     }
 
                                 </li>
-                                <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
+                                {/* <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                                     {
                                         role == 'admin' ?
 
@@ -295,7 +295,7 @@ const MobileNav = () => {
                                             </NavLink> : <></>
                                     }
 
-                                </li>
+                                </li> */}
                             </ul>
                             <ul className="pt-4 pb-2 space-y-1 text-sm text-white font-medium">
                                 <li>
