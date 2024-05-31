@@ -80,13 +80,13 @@ const HRMNav = () => {
 
                     <li>
                       <NavLink to={'/profile'}>
-                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Profile</p>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal hidden">Profile</p>
                       </NavLink>
                     </li>
 
                     <li>
                       <NavLink to={'/salary_posting'}>
-                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Salary Posting</p>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal hidden">Salary Posting</p>
                       </NavLink>
                     </li>
 
