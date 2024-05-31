@@ -18,7 +18,7 @@ const TransactionnPosting = () => {
   });
   console.log(data);
 
-  function handleSubmit() {}
+  function handleSubmit() { }
   return (
     <div>
       <section>
@@ -65,12 +65,12 @@ const TransactionnPosting = () => {
 
           {data && userPhoneNumber?.length == 11 && data?.depositAccounts
             ? data.depositAccounts.map((account, idx) => (
-                <DepositAccountCard
-                  value={data.userDetails}
-                  key={idx}
-                  data={account}
-                />
-              ))
+              <DepositAccountCard
+                value={data.userDetails}
+                key={idx}
+                data={account}
+              />
+            ))
             : null}
         </section>
       </section>
