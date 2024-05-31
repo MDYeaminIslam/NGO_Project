@@ -28,7 +28,7 @@ const MemberRequest = () => {
             <div className="p-1.5 min-w-full inline-block align-middle">
               <div className="border overflow-hidden border-black">
                 <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="bg-slate-800">
+                  <thead className="bg-teal-700">
                     <tr>
                       <th
                         scope="col"
@@ -61,8 +61,8 @@ const MemberRequest = () => {
                   <tbody className="divide-y divide-gray-200">
                     {data.length
                       ? data.map((data, idx) => (
-                          <TableRow data={data} key={idx} />
-                        ))
+                        <TableRow data={data} key={idx} />
+                      ))
                       : null}
                   </tbody>
                 </table>
