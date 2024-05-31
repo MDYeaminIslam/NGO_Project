@@ -49,7 +49,7 @@ const SavingAccountList = () => {
             <th>Opening Date</th>
             <th className="hidden md:block">On Mature Amount</th>
             <th className="">Balance</th>
-            <th>action</th>
+            <th>Action</th>
           </tr>
         </div>
         <div>

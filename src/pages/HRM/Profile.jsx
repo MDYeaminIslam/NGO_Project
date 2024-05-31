@@ -4,7 +4,7 @@ const Profile = () => {
   return (
     <div>
       <section>
-        <HRMNav/>
+        <HRMNav />
       </section>
       <h1>Profile</h1>
     </div>
