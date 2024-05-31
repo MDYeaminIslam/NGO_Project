@@ -199,7 +199,7 @@ const SideNavbar = () => {
                         <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md transform hover:scale-105 duration-500">
                             {
                                 role == 'admin' ?
-                                    <NavLink to={'/advance'}>
+                                    <NavLink to={'/attendance'}>
                                         <p className="flex items-center p-2 space-x-3 rounded-md">
                                             <img className="w-4" src="/NGO Dashboard icon/hrm.png" alt="" />
                                             <span>HRM</span>
