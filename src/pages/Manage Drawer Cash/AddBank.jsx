@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { createBank, getAllBank } from "../../../api/admin";
 import toast from "react-hot-toast";
 import useMutationHook from "../../../hooks/useMutationHook";
-
+import swal from "sweetalert";
 import { useQuery } from "@tanstack/react-query";
 const initialState = {
   name: "",
@@ -27,7 +27,8 @@ const AddBank = () => {
     createBank,
     {
       onSuccess: () => {
-        toast.success("Bank added successfully!");
+        swal("Bank Added Successfully", "Press Ok To Continue", "success");
+        setFormData(initialState);
       },
       key: ["bank"],
     }
@@ -62,6 +63,7 @@ const AddBank = () => {
                     onChange={handleChange}
                     className="grow  "
                     placeholder="Enter Bank Name"
+                    value={formData.name}
                   />
                 </label>
               </div>

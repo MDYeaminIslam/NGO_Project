@@ -6,7 +6,7 @@ import BranchSamitySelector from "../../component/branchSamitySelector";
 import useMutationHook from "../../../hooks/useMutationHook";
 import { createMember } from "../../../api/admin";
 import toast from "react-hot-toast";
-
+import swal from 'sweetalert';
 const initialState = {
   name: "",
   branchId: "",
@@ -40,6 +40,7 @@ const AddMember = () => {
       key: ["user"],
       onSuccess: () => {
         toast.success("User added successfully!");
+        swal("User Added Successfully!", "Press Ok To Continue", "success");
         setFormData(initialState)
       },
     });

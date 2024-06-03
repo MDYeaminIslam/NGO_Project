@@ -22,7 +22,8 @@ const DrawerCashtoBank = () => {
     addDrawerToBank,
     {
       onSuccess: () => {
-        toast.success("Done!");
+        swal("Completed!", "Press Ok To Continue", "success");
+        setFormData(initialState);
       },
     }
   );
@@ -67,6 +68,7 @@ const DrawerCashtoBank = () => {
                   onChange={handleChangeDate}
                   className=" hover:border-teal-500 rounded  w-full  input input-bordered input-sm"
                   dateFormat="dd/MM/yyyy"
+                  
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -78,6 +80,7 @@ const DrawerCashtoBank = () => {
                   name="type"
                   onChange={handleChange}
                   className=" input input-bordered input-sm hover:border-teal-500 "
+                  value={formData.type}
                 >
                   <option disabled defaultValue>
                     --Select--
@@ -97,6 +100,7 @@ const DrawerCashtoBank = () => {
                   onChange={handleChange}
                   type="number"
                   placeholder="Enter your amount"
+                  value={formData.amount}
                 />
               </div>
             </section>
