@@ -139,9 +139,7 @@ const HRMNav = () => {
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Leave Application</p>
                 </NavLink>
 
-                <NavLink to={'/pay_slip'}>
-                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Pay Slip</p>
-                </NavLink>
+                
 
                 {/* <NavLink to={'/profile'}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Profile</p>
@@ -150,6 +148,10 @@ const HRMNav = () => {
                 {/* <NavLink to={'/salary_posting'}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Salary Posting</p>
                 </NavLink> */}
+
+                <NavLink to={'/pay_slip'}>
+                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Pay Slip</p>
+                </NavLink>
 
                 <NavLink to={'/salary_sheet'}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Salary Sheet</p>
