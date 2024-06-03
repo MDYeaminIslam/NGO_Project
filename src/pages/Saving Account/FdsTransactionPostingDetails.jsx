@@ -3,37 +3,44 @@ import SavingAccountNav from "./SavingAccountNav/SavingAccountNav";
 import { useQuery } from "@tanstack/react-query";
 import {
   depositTransactionList,
+  fdrTransactionList,
+  fdrWithdrawTransactionList,
+  getFdrAccountDetailsById,
   getSavingAccountDetailsById,
   savingsTransactionList,
   savingsWithdrawTransactionList,
   withdrawTransactionList,
 } from "../../../api/admin";
-import SavingAccountPerUserDetails from "./SavingAccountPerUserDetails";
-import WithdrawMoney from "./MakeWithDraw";
-import AddMoney from "./AddMoney";
+import SavingAccountPerUserDetails, {
+  FdrAccountPerUserDetails,
+} from "./SavingAccountPerUserDetails";
+
 import WithdrawsTable from "./WithdrawsTable";
 import TransactionsTable from "./TransactionsTable";
 import AddMoneySavings from "./AddMoneySavings";
 import WithdrawMoneySavings from "./WithdrawMoneySavings";
+import AddMoneyFdr from "./AddMoneyFdr";
+import WithdrawMoneyFdr from "./WithdrawMoneyFdr";
 
-const SavingsTransactionPostingDetails = () => {
+const FdrTransactionPostingDetails = () => {
   const { id } = useParams();
   const { data } = useQuery({
-    queryKey: [`saving-account-${id}`],
-    queryFn: () => getSavingAccountDetailsById(id),
+    queryKey: [`fdr-account-${id}`],
+    queryFn: () => getFdrAccountDetailsById(id),
     initialData: [],
     enabled: !!id,
   });
   const { data: transactions } = useQuery({
-    queryKey: [`saving-transactions-${id}`],
-    queryFn: () => savingsTransactionList(id),
+    queryKey: [`fdr-transactions-${id}`],
+    queryFn: () => fdrTransactionList(id),
     initialData: null,
   });
   const { data: withdraws } = useQuery({
-    queryKey: [`saving-withdraws-${id}`],
-    queryFn: () => savingsWithdrawTransactionList(id),
+    queryKey: [`fdr-withdraws-${id}`],
+    queryFn: () => fdrWithdrawTransactionList(id),
     initialData: null,
   });
+  console.log(withdraws);
 
   return (
     <>
@@ -41,11 +48,11 @@ const SavingsTransactionPostingDetails = () => {
         <SavingAccountNav />
       </section>
       <section>
-        {data.length ? <SavingAccountPerUserDetails data={data[0]} /> : null}
+        {data.length ? <FdrAccountPerUserDetails data={data[0]} /> : null}
       </section>
       <section>
-        <AddMoneySavings id={id} />
-        <WithdrawMoneySavings id={id} />
+        <AddMoneyFdr id={id} />
+        <WithdrawMoneyFdr id={id} />
       </section>
       <section>
         <div className="grid  md:grid-cols-2 ">
@@ -96,4 +103,4 @@ const SavingsTransactionPostingDetails = () => {
   );
 };
 
-export default SavingsTransactionPostingDetails;
+export default FdrTransactionPostingDetails;

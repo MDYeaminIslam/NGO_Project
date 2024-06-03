@@ -429,6 +429,7 @@ export async function createDpsAccount(data) {
   const response = await axiosAdmin.post(`/dps/create`, data);
   return response.data;
 }
+// Savings
 export async function getSavingAccountDetailsById(id) {
   const response = await axiosAdmin.get(`/savings/deposit-account/${id}`);
   return response.data.data;
@@ -436,4 +437,43 @@ export async function getSavingAccountDetailsById(id) {
 export async function savingsTransactionList(id) {
   const response = await axiosAdmin.get(`/savings/transaction/${id}`);
   return response.data.data;
+}
+
+export async function savingsWithdrawTransactionList(id) {
+  const response = await axiosAdmin.get(`/deposit/withdraw/${id}`);
+  return response.data.data;
+}
+export async function makeDepositSavings(data) {
+  const response = await axiosAdmin.post(`/savings/makeDeposit`, data);
+  return response.data;
+}
+
+export async function makeWithdrawSavings(data) {
+  const response = await axiosAdmin.post(`/savings/makeWithdraw`, data);
+  return response.data;
+}
+//FDR
+
+export async function getFdrAccountDetailsById(id) {
+  const response = await axiosAdmin.get(`/fdr/deposit-account/${id}`);
+  return response.data.data;
+}
+export async function fdrTransactionList(id) {
+  const response = await axiosAdmin.get(`/fdr/transaction/${id}`);
+  return response.data.data;
+}
+
+export async function fdrWithdrawTransactionList(id) {
+  console.log(id);
+  const response = await axiosAdmin.get(`/fdr/withdraw/${id}`);
+  return response.data.data;
+}
+export async function makeDepositFdr(data) {
+  const response = await axiosAdmin.post(`/fdr/makeDeposit`, data);
+  return response.data;
+}
+
+export async function makeWithdrawFdr(data) {
+  const response = await axiosAdmin.post(`/fdr/makeWithdraw`, data);
+  return response.data;
 }
