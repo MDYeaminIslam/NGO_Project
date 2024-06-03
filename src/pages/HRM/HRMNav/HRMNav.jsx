@@ -53,11 +53,11 @@ const HRMNav = () => {
                       </NavLink>
                     </li>
 
-                    <li>
+                    {/* <li>
                       <NavLink to={'/extra_bill'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Extra Bill</p>
                       </NavLink>
-                    </li>
+                    </li> */}
 
                     <li>
                       <NavLink to={'/fixation'}>
@@ -78,17 +78,17 @@ const HRMNav = () => {
 
                     </li>
 
-                    <li>
+                    {/* <li>
                       <NavLink to={'/profile'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal hidden">Profile</p>
                       </NavLink>
-                    </li>
+                    </li> */}
 
-                    <li>
+                    {/* <li>
                       <NavLink to={'/salary_posting'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal hidden">Salary Posting</p>
                       </NavLink>
-                    </li>
+                    </li> */}
 
                     <li>
                       <NavLink to={'/salary_sheet'}>
@@ -124,15 +124,15 @@ const HRMNav = () => {
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Attendance</p>
                 </NavLink>
 
-                <NavLink to={'/extra_bill'}>
+                {/* <NavLink to={'/extra_bill'}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Extra Bill</p>
-                </NavLink>
+                </NavLink> */}
 
                 {/*
-              <Link to={'/fixation'}>
-              <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Fixation</p>
-              </Link>
-              */}
+                <Link to={'/fixation'}>
+                <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Fixation</p>
+                </Link>
+                }
 
 
                 <NavLink to={'/leave_application'}>
@@ -143,13 +143,13 @@ const HRMNav = () => {
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Pay Slip</p>
                 </NavLink>
 
-                <NavLink to={'/profile'}>
+                {/* <NavLink to={'/profile'}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Profile</p>
-                </NavLink>
+                </NavLink> */}
 
-                <NavLink to={'/salary_posting'}>
+                {/* <NavLink to={'/salary_posting'}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Salary Posting</p>
-                </NavLink>
+                </NavLink> */}
 
                 <NavLink to={'/salary_sheet'}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Salary Sheet</p>
