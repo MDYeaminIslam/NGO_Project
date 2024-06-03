@@ -24,6 +24,7 @@ const EmployeeLoginCredentials = () => {
     useMutationHook(setEmployeeCredentials, {
       onSuccess: () => {
         toast.success("Credentials set successfully!");
+        setFormData(initialState);
       },
     });
   const [showLoadingIcon, setShowLoadingIcon] = useState(false);

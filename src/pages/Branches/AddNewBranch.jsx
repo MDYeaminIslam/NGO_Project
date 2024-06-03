@@ -3,6 +3,7 @@ import useMutationHook from "../../../hooks/useMutationHook";
 import BranchesNav from "./BranchesNav/BranchesNav";
 import { addBranch } from "../../../api/admin";
 import { SpinnerButton } from "../../component/SpinnerButton";
+import toast from "react-hot-toast";
 const initialState = {
   hostBranch: false,
   branchCode: "",
@@ -14,6 +15,11 @@ const AddNewBranch = () => {
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(addBranch, {
       key: ["branches"],
+      onSuccess: () => {
+        toast.success("New Branch Added Successfully.");
+        setFormData(initialState);
+      }
+
     });
   const [formData, setFormData] = useState(initialState);
 

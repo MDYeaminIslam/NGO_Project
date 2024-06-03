@@ -117,6 +117,7 @@ const EmployeeAdd = () => {
     useMutationHook(createEmployee, {
       onSuccess: () => {
         toast.success("Employee added successfully!");
+        setFormData(initialState);
       },
     });
   const handleSubmit = (event) => {
