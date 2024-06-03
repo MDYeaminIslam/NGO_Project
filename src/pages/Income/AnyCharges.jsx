@@ -15,6 +15,7 @@ const AnyCharges = () => {
     onSuccess: (data) => {
       console.log(data);
       setData(data.data);
+      setFormData(initalState);
     },
   });
   function handleSubmit(event) {

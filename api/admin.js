@@ -429,3 +429,11 @@ export async function createDpsAccount(data) {
   const response = await axiosAdmin.post(`/dps/create`, data);
   return response.data;
 }
+export async function getSavingAccountDetailsById(id) {
+  const response = await axiosAdmin.get(`/savings/deposit-account/${id}`);
+  return response.data.data;
+}
+export async function savingsTransactionList(id) {
+  const response = await axiosAdmin.get(`/savings/transaction/${id}`);
+  return response.data.data;
+}
