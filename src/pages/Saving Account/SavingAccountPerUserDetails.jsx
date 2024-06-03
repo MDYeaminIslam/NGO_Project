@@ -1,18 +1,15 @@
 import { dateToString } from "../../utils/DateHelper";
 
 const SavingAccountPerUserDetails = ({ data }) => {
+  console.log(data);
   const {
     memberId,
     paymentTerm,
     periodOfTimeInMonths,
-    perInstallment,
     profitPercentage,
-    onMatureAmount,
+    balanceWithProfit,
     openingDate,
-    matureDate,
     balance,
-    createdAt,
-    updatedAt,
     memberDetails,
     status,
   } = data;
@@ -55,28 +52,7 @@ const SavingAccountPerUserDetails = ({ data }) => {
             {paymentTerm}
           </span>
         </p>
-        <p className="flex items-center gap-2">
-          {" "}
-          <img
-            className="w-5"
-            src="./../../../public/NGO Dashboard icon/report.png"
-            alt=""
-          />
-          Period Of Months:{" "}
-          <span className="font-normal text-white rounded px-2 bg-teal-500">
-            {periodOfTimeInMonths}
-          </span>
-        </p>
-        <p className="flex items-center gap-2">
-          {" "}
-          <img
-            className="w-5"
-            src="./../../../public/NGO Dashboard icon/payroll.png"
-            alt=""
-          />
-          Per Installment:{" "}
-          <span className="font-normal pl-2">{perInstallment} </span>
-        </p>
+
         <p className="flex items-center gap-2">
           {" "}
           <img
@@ -90,6 +66,16 @@ const SavingAccountPerUserDetails = ({ data }) => {
           {" "}
           <img
             className="w-5"
+            src="./../../../public/NGO Dashboard icon/bank-building.png"
+            alt=""
+          />
+          Balance Wit Profit:{" "}
+          <span className="font-normal pl-2">{balanceWithProfit} </span>
+        </p>
+        <p className="flex items-center gap-2">
+          {" "}
+          <img
+            className="w-5"
             src="./../../../public/NGO Dashboard icon/manage-drawer-cash.png"
             alt=""
           />
@@ -97,18 +83,6 @@ const SavingAccountPerUserDetails = ({ data }) => {
           <span className="font-normal pl-2">{profitPercentage} %</span>
         </p>
         <div className="flex flex-wrap  gap-4 border-t-2 pt-2">
-          <p className="flex items-center gap-2 ">
-            <span>
-              <img
-                width="22"
-                height="22"
-                src="https://img.icons8.com/ios/50/calendar--v1.png"
-                alt="calendar--v1"
-              />
-            </span>
-            On Mature Date :{" "}
-            <span className="font-normal ">{dateToString(matureDate)} </span>
-          </p>
           <p className="flex items-center gap-2 ">
             <span>
               <img
