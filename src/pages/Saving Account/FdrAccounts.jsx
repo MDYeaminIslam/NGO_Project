@@ -96,7 +96,7 @@ const Deposit = () => {
       perInstallment: isNaN(pI) ? 0 : pI,
       profitPerInstalment: isNaN(profitPerInstalment)
         ? 0
-        : Math.floor(profitPerInstalment),
+        : profitPerInstalment.toFixed(2),
     }));
   }, [
     formData.periodOfTimeInMonths,

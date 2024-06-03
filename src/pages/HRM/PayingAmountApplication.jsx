@@ -10,7 +10,7 @@ import useMutationHook from "../../../hooks/useMutationHook";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import toast from "react-hot-toast";
-
+import swal from 'sweetalert';
 const initialState = {
   employeeId: "",
   reason: "",
@@ -27,7 +27,8 @@ const PayingAmountApplication = () => {
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(createPrayingAmountApplication, {
       onSuccess: () => {
-        toast.success("successfully!");
+        swal("Competed", "Press Ok To Continue", "success");
+        setFormData(initialState);
       },
     });
   const adjustment_amount = useMemo(() => {
@@ -88,6 +89,7 @@ const PayingAmountApplication = () => {
                 onChange={handleChange}
                 type="text"
                 placeholder="Enter your id here"
+                value={formData.employeeId}
               />
             </div>
 
@@ -125,6 +127,7 @@ const PayingAmountApplication = () => {
                 onChange={handleChange}
                 type="number"
                 placeholder="Enter your amount"
+                value={formData.totalAmount}
               />
             </div>
             <div className="flex flex-col gap-1">
@@ -138,6 +141,7 @@ const PayingAmountApplication = () => {
                 onChange={handleChange}
                 type="number"
                 placeholder=""
+                value={formData.adjustmentDuration}
               />
             </div>
             <div className="flex flex-col gap-1">
@@ -152,6 +156,7 @@ const PayingAmountApplication = () => {
                 value={formData.adjustmentAmount}
                 type="number"
                 placeholder="Enter your amount"
+                
               />
             </div>
 
@@ -166,6 +171,7 @@ const PayingAmountApplication = () => {
                 onChange={handleChange}
                 cols="10"
                 rows="1"
+                value={formData.reason}
               ></textarea>
             </div>
           </section>

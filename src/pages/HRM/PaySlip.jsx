@@ -8,6 +8,7 @@ import {
 import { MoonLoader } from "react-spinners";
 import toast from "react-hot-toast";
 import useMutationHook from "../../../hooks/useMutationHook";
+import swal from 'sweetalert';
 const initialState = {
   employeeId: "",
   branchId: "",
@@ -39,6 +40,8 @@ const PaySlip = () => {
     useMutationHook(createMonthlyPaySlipApplication, {
       onSuccess: () => {
         toast.success("successfully!");
+        swal("Completed!", "Press Ok To Continue", "success");
+        setFormData(initialState);
       },
     });
   const handleChange = (event) => {
@@ -88,7 +91,7 @@ const PaySlip = () => {
           },
         }));
       } else {
-        toast.error("No Data Found");
+        swal("Error", "Try again", "error");
         setShowLoadingIcon(false);
       }
     } else {
@@ -155,6 +158,7 @@ const PaySlip = () => {
                     className="grow  "
                     placeholder="Search"
                     onChange={handleSearchUser}
+                    
                   />
                   {!showLoadingIcon ? (
                     <IconSearch className="w-6 h-6 opacity-50" />

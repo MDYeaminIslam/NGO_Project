@@ -6,7 +6,7 @@ import { useEffect, useMemo, useState } from "react";
 import { createPurchaseExpense } from "../../../api/admin";
 import useMutationHook from "../../../hooks/useMutationHook";
 import toast from "react-hot-toast";
-
+import swal from 'sweetalert';
 const initialState = {
   branchId: "",
   samityId: "",
@@ -28,7 +28,8 @@ const Purchase = () => {
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(createPurchaseExpense, {
       onSuccess: () => {
-        toast.success("Purchase added successfully!");
+        swal("Purchase Add Successfully", "Press Ok To Continue", "success");
+        setFormData(initialState);
       },
     });
   const totalPayment = useMemo(() => {
@@ -102,6 +103,7 @@ const Purchase = () => {
                 onChange={handleChange}
                 type="text"
                 placeholder="type expense name here"
+                value={formData.expenseName}
               />
             </div>
 
@@ -116,6 +118,7 @@ const Purchase = () => {
                 onChange={handleChange}
                 cols="10"
                 rows="1"
+                value={formData.description}
               ></textarea>
             </div>
 
@@ -130,6 +133,7 @@ const Purchase = () => {
                 onChange={handleChange}
                 type="number"
                 placeholder="type unit amount here"
+                value={formData.unitAmount}
               />
             </div>
 
@@ -144,6 +148,7 @@ const Purchase = () => {
                 onChange={handleChange}
                 type="number"
                 placeholder="Enter unit price here"
+                value={formData.unitPrice}
               />
             </div>
 
@@ -158,6 +163,7 @@ const Purchase = () => {
                 onChange={handleChange}
                 type="number"
                 placeholder="Enter TDS amount here"
+                value={formData.tds}
               />
             </div>
 
@@ -172,6 +178,7 @@ const Purchase = () => {
                 onChange={handleChange}
                 type="number"
                 placeholder="Enter TAX amount here"
+                value={formData.tax}
               />
             </div>
 
@@ -186,6 +193,7 @@ const Purchase = () => {
                 onChange={handleChange}
                 type="number"
                 placeholder="Enter VAT amount here"
+                value={formData.vat}
               />
             </div>
             <div className="flex flex-col gap-1">
@@ -231,6 +239,7 @@ const Purchase = () => {
                 onChange={handleChange}
                 cols="10"
                 rows="1"
+                value={formData.remarks}
               ></textarea>
             </div>
           </section>

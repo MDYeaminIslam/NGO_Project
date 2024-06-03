@@ -70,7 +70,7 @@ export const SavingsAccountsTable = ({ data }) => {
     balance,
     status,
     openingDate,
-    matureDate,
+    totalDeposit,
     balanceWithProfit,
     value,
   } = data;
@@ -108,8 +108,7 @@ export const SavingsAccountsTable = ({ data }) => {
           </span>{" "}
           <br />
           <span className="badge badge-ghost badge-sm">
-            Balance With Profit:{" "}
-            <span className="pl-2">{balanceWithProfit}</span>
+            Total Deposit: <span className="pl-2">{totalDeposit}</span>
           </span>
         </td>
         <td className="space-y-2">
@@ -190,7 +189,7 @@ export const FdrAccountsTable = ({ data }) => {
         </td>
         <th>
           <Link
-            to={`/deposit_transaction_posting_details/${_id}`}
+            to={`/fdr_transaction_posting_details/${_id}`}
             className="btn bg-teal-500 text-white btn-xs"
           >
             Details
@@ -260,7 +259,7 @@ export const DpsAccountsTable = ({ data }) => {
         </td>
         <th>
           <Link
-            to={`/deposit_transaction_posting_details/${_id}`}
+            to={`/dps_transaction_posting_details/${_id}`}
             className="btn bg-teal-500 text-white btn-xs"
           >
             Details

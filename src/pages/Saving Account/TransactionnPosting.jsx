@@ -19,7 +19,6 @@ const TransactionnPosting = () => {
     initialData: null,
     enabled: userPhoneNumber?.length === 11 ? true : false,
   });
-  console.log(data);
   return (
     <div>
       <section>

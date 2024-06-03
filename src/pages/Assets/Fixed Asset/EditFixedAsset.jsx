@@ -6,6 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { addAsset } from "../../../../api/admin";
 import useMutationHook from "../../../../hooks/useMutationHook";
 import toast from "react-hot-toast";
+import swal from 'sweetalert';
 const initialState = {
   branchId: "",
   samityId: "",
@@ -27,6 +28,8 @@ const EditFixedAsset = () => {
     useMutationHook(addAsset, {
       onSuccess: () => {
         toast.success("Asset Added Successfully!");
+        swal("Completed", "Press Ok To Continue", "success");
+        setFormData(initialState);
       },
     });
   const handleChange = (event) => {
@@ -108,6 +111,7 @@ const EditFixedAsset = () => {
                 id="name"
                 type="text"
                 name="productName"
+                value={formData.productName}
               />
             </div>
             <div className="flex flex-col gap-1">
@@ -120,6 +124,7 @@ const EditFixedAsset = () => {
                 id="measure"
                 type="number"
                 name="quantity"
+                value={formData.quantity}
               />
             </div>
             <div className="flex flex-col gap-1">
@@ -132,6 +137,7 @@ const EditFixedAsset = () => {
                 id="unit"
                 type="number"
                 name="unitPrice"
+                value={formData.unitPrice}
               />
             </div>
             <div className="flex flex-col gap-1">
@@ -144,6 +150,7 @@ const EditFixedAsset = () => {
                 id="des"
                 type="number"
                 name="depreciation"
+                value={formData.depreciation}
               />
             </div>
             <div className="flex flex-col gap-1">
@@ -170,6 +177,7 @@ const EditFixedAsset = () => {
                 id="des"
                 type="text"
                 name="description"
+                value={formData.description}
               />
             </div>
             <div className="flex flex-col gap-1">
@@ -182,6 +190,7 @@ const EditFixedAsset = () => {
                 id="remarks"
                 type="text"
                 name="remarks"
+                value={formData.remarks}
               />
             </div>
           </section>
