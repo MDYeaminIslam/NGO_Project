@@ -47,11 +47,11 @@ const FixedAssetNav = () => {
                                             </NavLink>
                                         </li>
 
-                                        <li>
+                                        {/* <li>
                                             <NavLink to={'/remove_wasted_asset'}>
                                                 <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Remove Wasted Asset</p>
                                             </NavLink>
-                                        </li>
+                                        </li> */}
 
                                         <li>
                                             <NavLink to={'/fixed_asset_list'}>
@@ -91,9 +91,9 @@ const FixedAssetNav = () => {
                                     <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Edit  Asset</p>
                                 </NavLink>
 
-                                <NavLink to={'/remove_wasted_asset'}>
+                                {/* <NavLink to={'/remove_wasted_asset'}>
                                     <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Remove Wasted Asset</p>
-                                </NavLink>
+                                </NavLink> */}
 
                                 <NavLink to={'/fixed_asset_list'}>
                                     <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Fixed Asset List</p>
