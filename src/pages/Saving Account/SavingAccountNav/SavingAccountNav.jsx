@@ -50,6 +50,27 @@ const SavingAccountNav = () => {
                         </p>
                       </NavLink>
                     </li>
+                    <li>
+                      <NavLink to={"/savings"}>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
+                          Savings
+                        </p>
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to={"/fdr"}>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
+                          Fdr Account
+                        </p>
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to={"/dps"}>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
+                          DPS Account
+                        </p>
+                      </NavLink>
+                    </li>
 
                     <li>
                       <NavLink to={"/transactionn_posting"}>
@@ -94,7 +115,21 @@ const SavingAccountNav = () => {
                     Deposit
                   </p>
                 </NavLink>
-
+                <NavLink to={"/savings"}>
+                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    Savings
+                  </p>
+                </NavLink>
+                <NavLink to={"/fdr"}>
+                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    Fdr Account
+                  </p>
+                </NavLink>
+                <NavLink to={"/dps"}>
+                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    DPS Account
+                  </p>
+                </NavLink>
                 <NavLink to={"/transactionn_posting"}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                     Transaction Posting

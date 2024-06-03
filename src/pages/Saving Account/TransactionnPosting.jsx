@@ -16,9 +16,7 @@ const TransactionnPosting = () => {
     initialData: null,
     enabled: userPhoneNumber?.length === 11 ? true : false,
   });
-  console.log(data);
 
-  function handleSubmit() { }
   return (
     <div>
       <section>
@@ -38,12 +36,6 @@ const TransactionnPosting = () => {
               className="input input-bordered input-sm w-full   hover:border-teal-500  "
               onChange={handleChange}
             />
-            <button
-              className="btn btn-sm  hover:bg-teal-500 hover:text-white"
-              onClick={handleSubmit}
-            >
-              Search
-            </button>
           </div>
         </section>
         <section>
@@ -65,12 +57,12 @@ const TransactionnPosting = () => {
 
           {data && userPhoneNumber?.length == 11 && data?.depositAccounts
             ? data.depositAccounts.map((account, idx) => (
-              <DepositAccountCard
-                value={data.userDetails}
-                key={idx}
-                data={account}
-              />
-            ))
+                <DepositAccountCard
+                  value={data.userDetails}
+                  key={idx}
+                  data={account}
+                />
+              ))
             : null}
         </section>
       </section>

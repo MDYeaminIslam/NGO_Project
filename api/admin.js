@@ -377,7 +377,6 @@ export async function acceptDepositPendingAccount(data) {
 // get user deposit account list
 export async function getDepositAccountListsOfUser(number) {
   const response = await axiosAdmin.get(`/deposit/account/list/${number}`);
-  console.log(response.data);
   return response.data.data;
 }
 //get deposit account single
@@ -416,5 +415,17 @@ export async function pendingLoanAccountList(data) {
 export async function acceptLoanPendingAccount(data) {
   const { id, status } = data;
   const response = await axiosAdmin.get(`/loan/accept/${id}?status=${status}`);
+  return response.data;
+}
+export async function createSavingsAccount(data) {
+  const response = await axiosAdmin.post(`/savings/create`, data);
+  return response.data;
+}
+export async function createFdrAccount(data) {
+  const response = await axiosAdmin.post(`/fdr/create`, data);
+  return response.data;
+}
+export async function createDpsAccount(data) {
+  const response = await axiosAdmin.post(`/dps/create`, data);
   return response.data;
 }

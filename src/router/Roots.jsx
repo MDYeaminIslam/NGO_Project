@@ -90,6 +90,9 @@ import LoanTransactionPostingDetails from "../pages/Loan Management/LoanTransact
 import EmployeeLeaveApplication from "../component/EmployeeLeaveApplication";
 import SalarySheetDetails from "../pages/HRM/SalarySheetDetails";
 import DepositTransactionPostingDetails from "../pages/Saving Account/DepositTransactionPostingDetails";
+import SavingsAccounts from "../pages/Saving Account/SavingsAccounts";
+import FdrAccounts from "../pages/Saving Account/FdrAccounts";
+import DpsAccounts from "../pages/Saving Account/DpsAccounts";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -215,6 +218,30 @@ const router = createBrowserRouter([
         element: (
           <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}>
             <Deposit />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "savings",
+        element: (
+          <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}>
+            <SavingsAccounts />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "fdr",
+        element: (
+          <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}>
+            <FdrAccounts />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "dps",
+        element: (
+          <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}>
+            <DpsAccounts />
           </AdminRoute>
         ),
       },
