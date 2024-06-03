@@ -26,3 +26,26 @@ export function IconNotFound(props) {
     </svg>
   );
 }
+export function IconTickCircle(props) {
+  return (
+    <svg fill="none" viewBox="0 0 15 15" height="1em" width="1em" {...props}>
+      <path
+        stroke="currentColor"
+        d="M4 7.5L7 10l4-5m-3.5 9.5a7 7 0 110-14 7 7 0 010 14z"
+      />
+    </svg>
+  );
+}
+export function IconLockClosed(props) {
+  return (
+    <svg
+      viewBox="0 0 512 512"
+      fill="currentColor"
+      height="1em"
+      width="1em"
+      {...props}
+    >
+      <path d="M368 192h-16v-80a96 96 0 10-192 0v80h-16a64.07 64.07 0 00-64 64v176a64.07 64.07 0 0064 64h224a64.07 64.07 0 0064-64V256a64.07 64.07 0 00-64-64zm-48 0H192v-80a64 64 0 11128 0z" />
+    </svg>
+  );
+}

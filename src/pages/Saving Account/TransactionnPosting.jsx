@@ -3,7 +3,10 @@ import SavingAccountNav from "./SavingAccountNav/SavingAccountNav";
 import { useQuery } from "@tanstack/react-query";
 import { getDepositAccountListsOfUser } from "../../../api/admin";
 import UserDetailsCard from "../../component/UserDetailsCard";
-import DepositAccountCard from "../../component/DepositAccountCard";
+import DepositAccountCard, {
+  FdsAccountCard,
+  SavingsAccountCard,
+} from "../../component/DepositAccountCard";
 const TransactionnPosting = () => {
   const [userPhoneNumber, setUserPhoneNumber] = useState(null);
   const handleChange = (e) => {
@@ -16,7 +19,7 @@ const TransactionnPosting = () => {
     initialData: null,
     enabled: userPhoneNumber?.length === 11 ? true : false,
   });
-
+  console.log(data);
   return (
     <div>
       <section>
@@ -43,21 +46,47 @@ const TransactionnPosting = () => {
             <UserDetailsCard data={{ ...data.userDetails, userPhoneNumber }} />
           ) : null}
         </section>
+        {/* Deposit  Accounts */}
         <section>
-          <div className="overflow-x-auto">
-            <table className="table">
-              <thead className="grid grid-cols-4 w-full bg-teal-500 text-white rounded-md">
-                <th>Name</th>
-                <th>Payment</th>
-                <th>date</th>
-                <th>Action</th>
-              </thead>
-            </table>
-          </div>
-
           {data && userPhoneNumber?.length == 11 && data?.depositAccounts
             ? data.depositAccounts.map((account, idx) => (
                 <DepositAccountCard
+                  value={data.userDetails}
+                  key={idx}
+                  data={account}
+                />
+              ))
+            : null}
+        </section>
+        {/* Saving Accounts */}
+        <section>
+          {data && userPhoneNumber?.length == 11 && data?.savingsAccounts
+            ? data.savingsAccounts.map((account, idx) => (
+                <SavingsAccountCard
+                  value={data.userDetails}
+                  key={idx}
+                  data={account}
+                />
+              ))
+            : null}
+        </section>
+        {/* FDs Accounts */}
+        <section>
+          {data && userPhoneNumber?.length == 11 && data?.fdrAccounts
+            ? data.fdrAccounts.map((account, idx) => (
+                <FdsAccountCard
+                  value={data.userDetails}
+                  key={idx}
+                  data={account}
+                />
+              ))
+            : null}
+        </section>
+        {/* Dps Accounts */}
+        <section>
+          {data && userPhoneNumber?.length == 11 && data?.dpsAccounts
+            ? data.dpsAccounts.map((account, idx) => (
+                <FdsAccountCard
                   value={data.userDetails}
                   key={idx}
                   data={account}
