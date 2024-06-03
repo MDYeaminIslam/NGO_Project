@@ -40,6 +40,7 @@ const AddMember = () => {
       key: ["user"],
       onSuccess: () => {
         toast.success("User added successfully!");
+        setFormData(initialState)
       },
     });
 

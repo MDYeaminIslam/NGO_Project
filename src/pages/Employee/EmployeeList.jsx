@@ -17,6 +17,7 @@ const EmployeeList = () => {
       onSuccess: (data) => {
         console.log(data);
         setEmployee(data.data);
+        setFormData(initalState);
       },
     }
   );

@@ -120,7 +120,7 @@ export const SavingsAccountsTable = ({ data }) => {
         </td>
         <th>
           <Link
-            to={`/deposit_transaction_posting_details/${_id}`}
+            to={`/savings_transaction_posting_details/${_id}`}
             className="btn bg-teal-500 text-white btn-xs"
           >
             Details

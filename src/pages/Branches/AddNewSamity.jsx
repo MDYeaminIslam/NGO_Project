@@ -16,7 +16,8 @@ const AddNewSamity = () => {
     useMutationHook(addSamity, {
       key: ["samity"],
       onSuccess: () => {
-        toast.success('new samity added')
+        toast.success('New Samity Added Successfully');
+        setFormData(initialState);
       }
     });
   const handleChange = (e) => {

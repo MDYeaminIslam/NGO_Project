@@ -6,6 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { addDrawerCashInOut } from "../../../api/admin";
 import useMutationHook from "../../../hooks/useMutationHook";
 import toast from "react-hot-toast";
+import swal from 'sweetalert';
 const initialState = {
   amount: 0,
   branchId: "",
@@ -21,7 +22,8 @@ const DrawerCash = () => {
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(addDrawerCashInOut, {
       onSuccess: () => {
-        toast.success("Done!");
+        swal("Completed", "Press Ok To Continue", "success");
+        setFormData(initialState);
       },
       onError: () => {
         toast.error("Error!");
@@ -99,6 +101,7 @@ const DrawerCash = () => {
                   name="amount"
                   onChange={handleChange}
                   type="number"
+                  value={formData.amount}
                   placeholder="Enter your amount"
                 />
               </div>
@@ -114,6 +117,7 @@ const DrawerCash = () => {
                   onChange={handleChange}
                   cols="10"
                   rows="1"
+                  value={formData.sourceDetails}
                 ></textarea>
               </div>
 
@@ -129,10 +133,13 @@ const DrawerCash = () => {
                   onChange={handleChange}
                   cols="10"
                   rows="1"
+                  value={formData.remarks}
                 ></textarea>
               </div>
             </section>
+            <div className=" text-center font-medium m-4 w-fit mx-auto bg-red-500 text-white p-1 rounded-md">
             {isError ? errorMessage : null}
+            </div>
             <div className="w-full flex justify-center  mt-12">
               <button
                 className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"

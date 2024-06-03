@@ -93,6 +93,7 @@ import DepositTransactionPostingDetails from "../pages/Saving Account/DepositTra
 import SavingsAccounts from "../pages/Saving Account/SavingsAccounts";
 import FdrAccounts from "../pages/Saving Account/FdrAccounts";
 import DpsAccounts from "../pages/Saving Account/DpsAccounts";
+import SavingsTransactionPostingDetails from "../pages/Saving Account/SavingsTransactionPostingDetails";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -285,7 +286,10 @@ const router = createBrowserRouter([
         path: "deposit_transaction_posting_details/:id",
         element: <DepositTransactionPostingDetails />,
       },
-
+      {
+        path: "savings_transaction_posting_details/:id",
+        element: <SavingsTransactionPostingDetails />,
+      },
       // loan handling routes
       {
         path: "open_loan_account",
