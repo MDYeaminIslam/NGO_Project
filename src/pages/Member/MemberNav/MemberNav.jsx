@@ -1,12 +1,18 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useUserType } from "../../../../hooks/userContext";
 
 const MemberNav = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
+
+
   };
+  const { getUser } = useUserType();
+  const role = getUser();
+  console.log(role);
 
   return (
     <div>
@@ -51,13 +57,16 @@ const MemberNav = () => {
                       </NavLink>
                     </li>
 
-                    <li>
-                      <NavLink to={"/member_request"}>
-                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
-                          Member Request
-                        </p>
-                      </NavLink>
-                    </li>
+                    {
+                      role == 'admin' &&
+                      <li>
+                        <NavLink to={"/member_request"}>
+                          <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
+                            Member Request
+                          </p>
+                        </NavLink>
+                      </li>
+                    }
 
                     <li>
                       <NavLink to={"/members_list"}>
