@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import SavingAccountNav from "./SavingAccountNav/SavingAccountNav";
 import { useQuery } from "@tanstack/react-query";
 import { getDepositAccountListsOfUser } from "../../../api/admin";
@@ -8,11 +8,13 @@ import {
   FdsAccountCard,
   SavingsAccountCard,
 } from "../../component/DepositAccountCard";
+import { useSearchParams } from "react-router-dom";
 const TransactionnPosting = () => {
   const [userPhoneNumber, setUserPhoneNumber] = useState(null);
+  let [searchParams, setSearchParams] = useSearchParams();
   const handleChange = (e) => {
     const { value } = e.target;
-    setUserPhoneNumber(value);
+    setUserPhoneNumber(Number(value));
   };
   const { data } = useQuery({
     queryKey: ["user-deposit-account-list"],
@@ -20,6 +22,19 @@ const TransactionnPosting = () => {
     initialData: null,
     enabled: userPhoneNumber?.length === 11 ? true : false,
   });
+  const setParam = useMemo(() => {
+    const number = searchParams.get("number");
+
+    if (number) {
+      setUserPhoneNumber(number);
+    }
+    if (Number(useEffect).length == 11) {
+      setSearchParams({
+        number: userPhoneNumber,
+      });
+    }
+  }, [userPhoneNumber, searchParams, setSearchParams]);
+
   return (
     <div>
       <section>

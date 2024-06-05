@@ -23,6 +23,7 @@ const MembersList = () => {
   useEffect(() => {
     const branchId = searchParams.get("branchId");
     const samityId = searchParams.get("samityId");
+    console.log(branchId, samityId);
     if (branchId && samityId) {
       setFormData({ branchId, samityId });
     }
@@ -66,8 +67,8 @@ const MembersList = () => {
 
               {data
                 ? data.data.map((user, key) => (
-                  <ListView key={key} data={user} />
-                ))
+                    <ListView key={key} data={user} />
+                  ))
                 : null}
             </table>
           </div>

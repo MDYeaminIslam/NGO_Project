@@ -274,6 +274,7 @@ export const DpsAccountPerUserDetails = ({ data }) => {
     memberDetails,
     status,
     totalWithdraw,
+    totalDeposit,
   } = data;
   status;
 
@@ -314,25 +315,7 @@ export const DpsAccountPerUserDetails = ({ data }) => {
             {paymentTerm}
           </span>
         </p>
-        <p className="flex items-center gap-2">
-          {" "}
-          <img
-            className="w-5"
-            src="./../../../public/NGO Dashboard icon/bank-building.png"
-            alt=""
-          />
-          Amount: <span className="font-normal pl-2">{amount} </span>
-        </p>
-        <p className="flex items-center gap-2">
-          {" "}
-          <img
-            className="w-5"
-            src="./../../../public/NGO Dashboard icon/bank-building.png"
-            alt=""
-          />
-          On Mature Balance:{" "}
-          <span className="font-normal pl-2">{onMatureAmount} </span>
-        </p>
+
         <p className="flex items-center gap-2">
           {" "}
           <img
@@ -345,16 +328,7 @@ export const DpsAccountPerUserDetails = ({ data }) => {
             {periodOfTimeInMonths}
           </span>
         </p>
-        <p className="flex items-center gap-2">
-          {" "}
-          <img
-            className="w-5"
-            src="./../../../public/NGO Dashboard icon/payroll.png"
-            alt=""
-          />
-          Per Installment:{" "}
-          <span className="font-normal pl-2">{perInstallment} </span>
-        </p>
+
         <p className="flex items-center gap-2">
           {" "}
           <img
@@ -372,6 +346,16 @@ export const DpsAccountPerUserDetails = ({ data }) => {
             alt=""
           />
           Total Deposit:{" "}
+          <span className="font-normal pl-2">{totalDeposit} </span>
+        </p>
+        <p className="flex items-center gap-2">
+          {" "}
+          <img
+            className="w-5"
+            src="./../../../public/NGO Dashboard icon/bank-building.png"
+            alt=""
+          />
+          Total Withdraw:{" "}
           <span className="font-normal pl-2">{totalWithdraw} </span>
         </p>
         <p className="flex items-center gap-2">

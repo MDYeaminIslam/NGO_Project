@@ -173,10 +173,6 @@ export const FdrAccountsTable = ({ data }) => {
             Total Balance: <span className="pl-2">{balance}</span>
           </span>{" "}
           <br />
-          <span className="badge badge-ghost badge-sm">
-            Balance With Profit:{" "}
-            <span className="pl-2">{balanceWithProfit}</span>
-          </span>
         </td>
         <td className="space-y-2">
           {" "}
@@ -243,10 +239,6 @@ export const DpsAccountsTable = ({ data }) => {
             Total Balance: <span className="pl-2">{balance}</span>
           </span>{" "}
           <br />
-          <span className="badge badge-ghost badge-sm">
-            Balance With Profit:{" "}
-            <span className="pl-2">{balanceWithProfit}</span>
-          </span>
         </td>
         <td className="space-y-2">
           {" "}
