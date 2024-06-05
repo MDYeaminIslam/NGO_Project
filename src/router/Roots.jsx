@@ -133,7 +133,7 @@ const router = createBrowserRouter([
       {
         path: "members_list",
         element: (
-          <AdminRoute roles={[ROLES.Admin]}>
+          <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}>
             <MembersList />
           </AdminRoute>
         ),
