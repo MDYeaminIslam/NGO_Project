@@ -60,7 +60,7 @@ const SavingAccountNav = () => {
                     <li>
                       <NavLink to={"/fdr"}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
-                          Fdr Account
+                          FDR Account
                         </p>
                       </NavLink>
                     </li>
