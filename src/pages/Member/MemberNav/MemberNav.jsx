@@ -88,11 +88,13 @@ const MemberNav = () => {
                   </p>
                 </NavLink>
 
-                <NavLink to={"/member_request"}>
-                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                    Member Request
-                  </p>
-                </NavLink>
+                {role == 'admin' &&
+                  <NavLink to={"/member_request"}>
+                    <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                      Member Request
+                    </p>
+                  </NavLink>
+                }
 
                 <NavLink to={"/members_list"}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
