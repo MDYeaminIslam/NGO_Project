@@ -50,7 +50,7 @@ const AnyCharges = () => {
               <th>Loan Profit</th>
               <th>Member Fees</th>
               <th className="hidden md:block">Penalty</th>
-              <th className="hidden md:block">Any Charges</th>
+              <th className="hidden md:block">Miscellaneous</th>
               <th>Total Profit</th>
             </tr>
             <tr className="grid border-b-2 grid-cols-3 md:grid-cols-5 items-center w-full justify-between text-center">

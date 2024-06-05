@@ -54,12 +54,14 @@ const MembersList = () => {
         <section>
           <div className="md:m-8">
             <table className="w-full mt-12 ">
-              <tr className="grid grid-cols-3  text-xs md:text-base bg-teal-700  py-4 text-white md:grid-cols-5 items-center justify-center gap-1 text-center">
+              <tr className="grid grid-cols-3  text-xs md:text-base bg-teal-700  py-4 text-white md:grid-cols-7 items-center justify-center gap-1 text-center">
+                <th>Sl No.</th>
+                <th>Joining Date</th>
                 <th>Member Name</th>
                 <th>Phone Number</th>
                 <th>Occupation</th>
                 <th className="hidden md:block">Present Address</th>
-                <th className="hidden md:block">action</th>
+                <th className="hidden md:block">Action</th>
               </tr>
 
               {data
