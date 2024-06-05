@@ -17,37 +17,7 @@ const initialState = {
   openingDate: "",
   matureDate: "",
   paymentTerm: "Monthly",
-  amount: 0,
   profitPercentage: 0,
-  profitPerInstalment: 0,
-};
-const getDepositDates = (
-  periodInMonths,
-  paymentTerm,
-  amount,
-  profitPercentage
-) => {
-  let installmentCount = 0;
-  switch (paymentTerm) {
-    case "Monthly":
-      installmentCount = periodInMonths;
-      break;
-    case "Quarterly":
-      installmentCount = Math.ceil(periodInMonths / 4);
-      break;
-    case "Half-yearly":
-      installmentCount = Math.ceil(periodInMonths / 6);
-      break;
-    case "Yearly":
-      installmentCount = Math.ceil(periodInMonths / 12);
-      break;
-    default:
-      break;
-  }
-  let profit =
-    ((amount * (profitPercentage / 100)) / 365) * (periodInMonths * 30);
-
-  return [installmentCount, profit];
 };
 
 const DpsAccounts = () => {
@@ -67,30 +37,6 @@ const DpsAccounts = () => {
       .format("YYYY-MM-DD");
     setFormData((prev) => ({ ...prev, matureDate: tempMatureDate }));
   }, [formData.periodOfTimeInMonths]);
-  const profitPercentage = useMemo(() => {
-    const [installmentCount, profit] = getDepositDates(
-      formData.periodOfTimeInMonths,
-      formData.paymentTerm,
-      formData.amount,
-      formData.profitPercentage
-    );
-    let mA = formData.amount + profit;
-    let pI = formData.amount / installmentCount;
-    let profitPerInstalment = profit / installmentCount;
-    setFormData((prev) => ({
-      ...prev,
-      onMatureAmount: Math.floor(mA),
-      perInstallment: isNaN(pI) ? 0 : pI,
-      profitPerInstalment: isNaN(profitPerInstalment)
-        ? 0
-        : Math.floor(profitPerInstalment),
-    }));
-  }, [
-    formData.periodOfTimeInMonths,
-    formData.amount,
-    formData.paymentTerm,
-    formData.profitPercentage,
-  ]);
   const handleChange = (e) => {
     const { name, value, type } = e.target;
     setFormData((prev) => ({
@@ -221,7 +167,7 @@ const DpsAccounts = () => {
               </div>
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="period_of_time">
-                  Period of Time:
+                  Period of Time(Months):
                 </label>
                 <input
                   name="periodOfTimeInMonths"
@@ -231,48 +177,6 @@ const DpsAccounts = () => {
                   placeholder="In months"
                   value={formData.periodOfTimeInMonths}
                   onChange={handleChange}
-                />
-              </div>
-
-              <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="per_installment">
-                  Total Amount:
-                </label>
-                <input
-                  onChange={handleChange}
-                  name="amount"
-                  className="input input-bordered input-sm  hover:border-teal-500  "
-                  id="per_installment"
-                  type="number"
-                  placeholder="money amount"
-                />
-              </div>
-              <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="per_installment">
-                  Per Installment:
-                </label>
-                <input
-                  name="perInstallment"
-                  value={formData.perInstallment}
-                  className="input input-bordered input-sm  hover:border-teal-500  "
-                  id="per_installment"
-                  disabled
-                  placeholder={formData.perInstallment}
-                />
-              </div>
-
-              <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="on_mature_amount">
-                  {" "}
-                  On Mature Amount:
-                </label>
-                <input
-                  className="input input-bordered input-sm  hover:border-teal-500  "
-                  id="on_mature_amount"
-                  type="number"
-                  disabled
-                  value={formData.onMatureAmount}
-                  placeholder="500 tk"
                 />
               </div>
 

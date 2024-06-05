@@ -1,31 +1,8 @@
-import DepositAccountsTable, {
+import {
   DpsAccountsTable,
   FdrAccountsTable,
   SavingsAccountsTable,
 } from "./DepositAccountTable";
-const DepositAccountCard = ({ data, value }) => {
-  return (
-    <div>
-      <div className="overflow-x-auto">
-        <table className="table">
-          <thead className="grid grid-cols-4 w-full bg-teal-500 text-white rounded-md">
-            <th>Name</th>
-            <th>Payment</th>
-            <th>date</th>
-            <th>Action</th>
-          </thead>
-        </table>
-      </div>
-      <div>
-        <table className="table ">
-          <tbody>
-            <DepositAccountsTable data={{ ...data, value }} />
-          </tbody>
-        </table>
-      </div>
-    </div>
-  );
-};
 
 export function SavingsAccountCard({ data, value }) {
   return (
@@ -53,16 +30,6 @@ export function SavingsAccountCard({ data, value }) {
 export function FdsAccountCard({ data, value }) {
   return (
     <div>
-      <div className="overflow-x-auto">
-        <table className="table">
-          <thead className="grid grid-cols-4 w-full bg-teal-500 text-white rounded-md">
-            <th>Name</th>
-            <th>Payment</th>
-            <th>date</th>
-            <th>Action</th>
-          </thead>
-        </table>
-      </div>
       <div>
         <table className="table ">
           <tbody>
@@ -76,16 +43,6 @@ export function FdsAccountCard({ data, value }) {
 export function DpsAccountCard({ data, value }) {
   return (
     <div>
-      <div className="overflow-x-auto">
-        <table className="table">
-          <thead className="grid grid-cols-4 w-full bg-teal-500 text-white rounded-md">
-            <th>Name</th>
-            <th>Payment</th>
-            <th>date</th>
-            <th>Action</th>
-          </thead>
-        </table>
-      </div>
       <div>
         <table className="table ">
           <tbody>
@@ -96,4 +53,3 @@ export function DpsAccountCard({ data, value }) {
     </div>
   );
 }
-export default DepositAccountCard;

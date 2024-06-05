@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
 import { IconSearch } from "../../../icons/icons";
+//Payment Term ==== Profit Withdraw Term
 import {
   createDepositAccount,
   createFdrAccount,
@@ -16,13 +17,14 @@ const initialState = {
   periodOfTimeInMonths: 0,
   openingDate: "",
   matureDate: "",
-  paymentTerm: "Monthly",
+  paymentTerm: "At a Time",
   amount: 0,
   profitPercentage: 0,
   onMatureAmount: 0,
-  perInstallment: 0,
+  totalProfit: 0,
+  profitPerInstallment: 0,
   type: "flat",
-  profitPerInstalment: 0,
+  totalInstallment: 0,
 };
 const getDepositDates = (
   periodInMonths,
@@ -33,13 +35,16 @@ const getDepositDates = (
 ) => {
   let installmentCount = 0;
   switch (paymentTerm) {
+    case "At a Time":
+      installmentCount = 1;
+      break;
     case "Monthly":
       installmentCount = periodInMonths;
       break;
     case "Quarterly":
       installmentCount = Math.ceil(periodInMonths / 4);
       break;
-    case "Half-yearly":
+    case "Half-Yearly":
       installmentCount = Math.ceil(periodInMonths / 6);
       break;
     case "Yearly":
@@ -56,7 +61,8 @@ const getDepositDates = (
       ((amount * (profitPercentage / 100)) / 365) * (periodInMonths * 30);
   }
   console.log(installmentCount, paymentTerm);
-  return [installmentCount, profit];
+  console.log(profit);
+  return [installmentCount, Math.ceil(profit)];
 };
 
 const Deposit = () => {
@@ -86,15 +92,16 @@ const Deposit = () => {
     );
     let mA = formData.amount + profit;
     let profitPerInstalment = profit / installmentCount;
-
-    let pI = formData.amount / installmentCount;
-    console.log(installmentCount);
+    // let pI = formData.amount / installmentCount;
+    // console.log(installmentCount);
+    // console.log(profitPerInstalment);
     console.log(profitPerInstalment);
     setFormData((prev) => ({
       ...prev,
-      onMatureAmount: Math.floor(mA),
-      perInstallment: isNaN(pI) ? 0 : pI,
-      profitPerInstalment: isNaN(profitPerInstalment)
+      onMatureAmount: mA,
+      totalProfit: profit,
+      totalInstallment: installmentCount,
+      profitPerInstallment: isNaN(profitPerInstalment)
         ? 0
         : profitPerInstalment.toFixed(2),
     }));
@@ -205,7 +212,7 @@ const Deposit = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium " htmlFor="occupation">
-                  Payment Term:
+                  Profit Withdraw Term:
                 </label>
                 <select
                   onChange={handleChange}
@@ -213,6 +220,7 @@ const Deposit = () => {
                   className=" input input-bordered input-sm hover:border-teal-500 "
                 >
                   <option disabled>Select a Value</option>
+                  <option value="At a Time">At a Time</option>
                   <option value="Monthly">Monthly</option>
                   <option value="Quarterly">Quarterly</option>
                   <option value="Half-Yearly">Half-Yearly</option>
@@ -248,7 +256,7 @@ const Deposit = () => {
               </div>
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="period_of_time">
-                  Period of Time:
+                  Period of Time(Months):
                 </label>
                 <input
                   name="periodOfTimeInMonths"
@@ -276,15 +284,28 @@ const Deposit = () => {
               </div>
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="per_installment">
-                  Per Installment:
+                  Profit Per Installment:
                 </label>
                 <input
-                  name="perInstallment"
-                  value={formData.perInstallment}
+                  name="profitPerInstallment"
+                  value={formData.profitPerInstallment}
                   className="input input-bordered input-sm  hover:border-teal-500  "
                   id="per_installment"
                   disabled
-                  placeholder={formData.perInstallment}
+                  placeholder={formData.profitPerInstallment}
+                />
+              </div>
+              <div className="flex flex-col gap-1">
+                <label className="font-medium" htmlFor="per_installment1">
+                  Total Profit:
+                </label>
+                <input
+                  name="totalProfit"
+                  value={formData.totalProfit}
+                  className="input input-bordered input-sm  hover:border-teal-500  "
+                  id="per_installment1"
+                  disabled
+                  placeholder={formData.totalProfit}
                 />
               </div>
 

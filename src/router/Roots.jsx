@@ -95,6 +95,7 @@ import FdrAccounts from "../pages/Saving Account/FdrAccounts";
 import DpsAccounts from "../pages/Saving Account/DpsAccounts";
 import SavingsTransactionPostingDetails from "../pages/Saving Account/SavingsTransactionPostingDetails";
 import FdrTransactionPostingDetails from "../pages/Saving Account/FdsTransactionPostingDetails";
+import DpsTransactionPostingDetails from "../pages/Saving Account/DpsTransactionPostingDetails";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -294,6 +295,10 @@ const router = createBrowserRouter([
       {
         path: "fdr_transaction_posting_details/:id",
         element: <FdrTransactionPostingDetails />,
+      },
+      {
+        path: "dps_transaction_posting_details/:id",
+        element: <DpsTransactionPostingDetails />,
       },
       // loan handling routes
       {

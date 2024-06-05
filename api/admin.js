@@ -477,3 +477,27 @@ export async function makeWithdrawFdr(data) {
   const response = await axiosAdmin.post(`/fdr/makeWithdraw`, data);
   return response.data;
 }
+//Dps
+export async function getDpsAccountDetailsById(id) {
+  const response = await axiosAdmin.get(`/dps/deposit-account/${id}`);
+  return response.data.data;
+}
+export async function dpsTransactionList(id) {
+  const response = await axiosAdmin.get(`/dps/transaction/${id}`);
+  return response.data.data;
+}
+
+export async function dpsWithdrawTransactionList(id) {
+  console.log(id);
+  const response = await axiosAdmin.get(`/dps/withdraw/${id}`);
+  return response.data.data;
+}
+export async function makeDepositDps(data) {
+  const response = await axiosAdmin.post(`/dps/makeDeposit`, data);
+  return response.data;
+}
+
+export async function makeWithdrawDps(data) {
+  const response = await axiosAdmin.post(`/dps/makeWithdraw`, data);
+  return response.data;
+}
