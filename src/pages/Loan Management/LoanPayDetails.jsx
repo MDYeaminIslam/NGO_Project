@@ -57,56 +57,41 @@ const LoanPayDetails = () => {
   }
   const totalAmount = isFetched ? data.ngoLoanDetails.totalAmount : null;
   const totalPaid = isFetched ? data.ngoLoanDetails.totalPaid : null;
-  const perInstallment = isFetched ? data.ngoLoanDetails.perInstallment.toFixed(2) : null;
-  const statsData = { totalAmount, totalPaid, perInstallment, isFetched }
+  const perInstallment = isFetched
+    ? data.ngoLoanDetails.perInstallment.toFixed(2)
+    : null;
+  const statsData = { totalAmount, totalPaid, perInstallment, isFetched };
   console.log(statsData);
 
   return (
     <div className="max-w-5xl mx-auto ">
       <h1 className="  text-lg md:rounded-md bg-teal-700 text-white font-normal  mx-2  mt-4  p-3 text-center ">
-        Name Of The Institute:   <span className="text-teal-100 text-2xl pl-2 "> {
-          isFetched ? data.ngoLoanDetails.nameOfInstitute : null
-        }
+        Name Of The Institute:{" "}
+        <span className="text-teal-100 text-2xl pl-2 ">
+          {" "}
+          {isFetched ? data.ngoLoanDetails.nameOfInstitute : null}
         </span>
       </h1>
       <div className="flex justify-center items-center w-full mt-4">
         <Stats data={statsData} />
       </div>
-      <form className="flex flex-col w-full md:max-w-2xl mx-auto md:flex-row items-center p-6 gap-4">
-        <input
-          className="input w-full  input-bordered input-sm  hover:border-teal-500  "
-          type="number"
-          name="amount"
-          onChange={handleChange}
-          placeholder="Amount"
-        />
-        <input
-          className="input w-full  input-bordered input-sm  hover:border-teal-500  "
-          type="text"
-          name="remark"
-          onChange={handleChange}
-          placeholder="Remark"
-        />
 
-        <button className="btn w-full btn-sm md:w-fit bg-teal-700 text-white" onClick={handleSubmit}>
-          Submit
-        </button>
-      </form>
       <div>
         <div className="max-w-5xl mx-auto">
           <div className=" bg-teal-700 text-white py-4 mx-1 rounded-t-md  ">
             <tr className="grid grid-cols-3 md:grid-cols-5  items-center justify-center gap-1 text-start ">
-              <th>Remark</th>
+              <th>Key</th>
               <th>Date</th>
               <th>Amount</th>
-              <th className="hidden md:block">NGO Loan ID</th>
+              <th>Status</th>
+              <th>Action</th>
             </tr>
           </div>
         </div>
         {isFetched
           ? data.transactionDetails.map((data, idx) => (
-            <LoanPayDetailsList data={data} key={idx} />
-          ))
+              <LoanPayDetailsList data={data} key={idx} index={idx} />
+            ))
           : null}
       </div>
     </div>
@@ -114,4 +99,3 @@ const LoanPayDetails = () => {
 };
 
 export default LoanPayDetails;
-
