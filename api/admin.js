@@ -19,11 +19,69 @@ export async function addSamity(data) {
 
 //create member
 export async function createMember(data) {
-  const photoUrl = await uploadPhoto(data.photo);
-  data["photo"] = photoUrl;
+  const { t1, t2, nidDetails, birthCertificate } = data;
+  console.log(t1, t2);
+  console.log(data);
+  const uploadPromises = [];
+  // first index user photo 
+  uploadPromises.push(uploadPhoto(data.photo));
+  //second index nominee photo
+  uploadPromises.push(uploadPhoto(data.nominee.photo));
+  if (data.t1 === "NID") {
+    const { nidPhotoFront, nidPhotoBack } = data.nidDetails;
+    uploadPromises.push(uploadPhoto(nidPhotoFront));
+    uploadPromises.push(uploadPhoto(nidPhotoBack));
+
+  } else {
+    const { photo } = data.birthCertificate;
+    uploadPromises.push(uploadPhoto(photo));
+  }
+  if (t2 === "NID") {
+    const { nidPhotoFront, nidPhotoBack } = data.nominee.nidDetails;
+    uploadPromises.push(uploadPhoto(nidPhotoFront));
+    uploadPromises.push(uploadPhoto(nidPhotoBack));
+
+  } else {
+    const { photo } = data.nominee.birthCertificate;
+    uploadPromises.push(uploadPhoto(photo));
+  }
+  // Await all uploads
+  const uploadResults = await Promise.all(uploadPromises);
+
+  // Assign URLs back to the data object
+  let uploadIndex = 0;
+
+  // Assign member photo URL
+  data.photo = uploadResults[uploadIndex++];
+
+  // Assign nominee photo URL
+  data.nominee.photo = uploadResults[uploadIndex++];
+
+  if (t1 === "NID") {
+    data.nidDetails.nidPhotoFront = uploadResults[uploadIndex++];
+    data.nidDetails.nidPhotoBack = uploadResults[uploadIndex++];
+    delete data.birthCertificate;
+  } else {
+    data.birthCertificate.photo = uploadResults[uploadIndex++];
+    delete data.nidDetails;
+  }
+
+  if (t2 === "NID") {
+    data.nominee.nidDetails.nidPhotoFront = uploadResults[uploadIndex++];
+    data.nominee.nidDetails.nidPhotoBack = uploadResults[uploadIndex++];
+    delete data.nominee.birthCertificate;
+  } else {
+    data.nominee.birthCertificate.photo = uploadResults[uploadIndex++];
+    delete data.nominee.nidDetails;
+  }
+  delete data.t1;
+  delete data.t2;
   console.log(data);
   const response = await axiosAdmin.post(`/localuser/add`, data);
+
   return response.data;
+
+
 }
 //update user
 export async function updateUserSettings(data) {

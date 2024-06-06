@@ -6,7 +6,16 @@ import BranchSamitySelector from "../../component/branchSamitySelector";
 import useMutationHook from "../../../hooks/useMutationHook";
 import { createMember } from "../../../api/admin";
 import toast from "react-hot-toast";
-import swal from 'sweetalert';
+import swal from "sweetalert";
+const birthCertificate = {
+  birthCertificateNumber: "",
+  photo: "",
+};
+const nidDetails = {
+  nidNumber: "",
+  nidPhotoFront: "",
+  nidPhotoBack: "",
+};
 const initialState = {
   name: "",
   branchId: "",
@@ -25,6 +34,14 @@ const initialState = {
   educationalQualification: "SSC",
   emergencyContactNumber: "",
   membershipFee: "",
+  formFee: "",
+  memberSalary: "",
+  birthCertificate,
+  nidDetails,
+  referenceSection: {
+    employeeName: "",
+    employeeNumber: "",
+  },
   photo: "",
   nominee: {
     name: "",
@@ -32,6 +49,10 @@ const initialState = {
     relation: "",
     share: "",
     occupation: "",
+    phoneNumber: "",
+    photo: "",
+    birthCertificate,
+    nidDetails,
   },
 };
 const AddMember = () => {
@@ -41,29 +62,77 @@ const AddMember = () => {
       onSuccess: () => {
         toast.success("User added successfully!");
         swal("User Added Successfully!", "Press Ok To Continue", "success");
-        setFormData(initialState)
       },
     });
 
   const [formData, setFormData] = useState(initialState);
 
-  {/**Rafi */ }
-  const [selectedDocumentType, setSelectedDocumentType] = useState("");
-  {/**Rafi */ }
+  {
+    /**Rafi */
+  }
+  const [selectedDocumentType, setSelectedDocumentType] = useState("NID");
+  const [nomineeSelectedType, setNomineeSelectedType] = useState("NID");
 
-
-
+  function handleChangeUserDocumentType(e) {
+    const { value, name } = e.target;
+    setSelectedDocumentType(value);
+  }
+  function handleChangeNomineeDocuments(e) {
+    const { value } = e.target;
+    setNomineeSelectedType(value);
+  }
+  function handleChangeUserDocument(e) {
+    const { name, value, files, type } = e.target;
+    console.log(name, value);
+    if (selectedDocumentType === "NID") {
+      setFormData((prev) => ({
+        ...prev,
+        nidDetails: {
+          ...prev.nidDetails,
+          [name]: type === "file" ? files[0] : value,
+        },
+      }));
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        birthCertificate: {
+          ...prev.birthCertificate,
+          [name]: type === "file" ? files[0] : value,
+        },
+      }));
+    }
+  }
+  function handleChangeNomineeDocument(e) {
+    const { name, value, files, type } = e.target;
+    console.log(selectedDocumentType);
+    if (nomineeSelectedType === "NID") {
+      console.log(name, value);
+      setFormData((prev) => ({
+        ...prev,
+        nominee: {
+          ...prev.nominee,
+          nidDetails: {
+            ...prev.nominee.nidDetails,
+            [name]: type === "file" ? files[0] : value,
+          },
+        },
+      }));
+    } else {
+      console.log(name, value);
+      setFormData((prev) => ({
+        ...prev,
+        nominee: {
+          ...prev.nominee,
+          birthCertificate: {
+            ...prev.nominee.birthCertificate,
+            [name]: type === "file" ? files[0] : value,
+          },
+        },
+      }));
+    }
+  }
   const handleChange = (e) => {
     const { name, value, files, type } = e.target;
-
-    {/**Rafi */ }
-    if (name === "selectDocument") {
-      setSelectedDocumentType(value);
-    }
-    {/**Rafi */ }
-
-
-    console.log(name, value);
     setFormData((prev) => ({
       ...prev,
       [name]: type === "file" ? files[0] : value,
@@ -71,15 +140,26 @@ const AddMember = () => {
   };
 
   const handleChangeNominie = (e) => {
-    const { name, value } = e.target;
+    const { name, value, files, type } = e.target;
     setFormData((prevState) => ({
       ...prevState,
       nominee: {
         ...prevState.nominee,
+        [name]: type === "file" ? files[0] : value,
+      },
+    }));
+  };
+  const handleChangeRefSection = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      referenceSection: {
+        ...prev.referenceSection,
         [name]: value,
       },
     }));
   };
+
   const handleChangeDate = (date) => {
     setFormData((prev) => ({
       ...prev,
@@ -88,7 +168,7 @@ const AddMember = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+
     let mock = {};
     let role = localStorage.getItem("userType");
     if (role === "admin") {
@@ -96,8 +176,13 @@ const AddMember = () => {
     } else {
       mock = { ...formData, status: "pending" };
     }
-    console.log(formData);
-    // mutate(mock);
+    mock = {
+      t1: selectedDocumentType,
+      t2: nomineeSelectedType,
+      ...mock,
+    };
+
+    mutate(mock);
   };
   return (
     <div>
@@ -243,32 +328,31 @@ const AddMember = () => {
               ></textarea>
             </div>
 
-
             {/*-------------------------------------------
             Rafi Start
             -------------------------------------------*/}
-
 
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="Attach_Photo ">
                 Select Document Type:
               </label>
               <select
-                onChange={handleChange}
+                onChange={handleChangeUserDocumentType}
                 className="input input-bordered input-sm  hover:border-teal-500"
                 name="selectDocument"
-                required >
-                <option disabled defaultValue>--Select--</option>
+                required
+              >
+                <option disabled defaultValue>
+                  --Select--
+                </option>
                 <option value="NID">NID</option>
                 <option value="Birth Certificate">Birth Certificate</option>
               </select>
             </div>
 
-
             {/**Rafi */}
 
             {selectedDocumentType === "NID" && (
-
               <>
                 {/**Rafi */}
 
@@ -277,39 +361,45 @@ const AddMember = () => {
                     NID Number:
                   </label>
                   <input
-                    onChange={handleChange}
+                    onChange={handleChangeUserDocument}
                     className="input input-bordered input-sm  hover:border-teal-500"
                     id="member_nid_number"
                     type="number"
-                    name="memberNidNumber"
+                    name="nidNumber"
                     required
                   />
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <label className="font-medium" htmlFor="member_nid_front_photo">
+                  <label
+                    className="font-medium"
+                    htmlFor="member_nid_front_photo"
+                  >
                     NID Photo (Front):
                   </label>
                   <input
-                    onChange={handleChange}
+                    onChange={handleChangeUserDocument}
                     className="input input_bordered  hover:border-teal-500 "
                     id="member_nid_front_photo "
                     type="file"
-                    name="memberNidFrontPhoto"
+                    name="nidPhotoFront"
                     required
                   />
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <label className="font-medium" htmlFor="member_nid_back_photo">
+                  <label
+                    className="font-medium"
+                    htmlFor="member_nid_back_photo"
+                  >
                     NID Photo (Back):
                   </label>
                   <input
-                    onChange={handleChange}
+                    onChange={handleChangeUserDocument}
                     className="input input_bordered  hover:border-teal-500 "
                     id="member_nid_back_photo "
                     type="file"
-                    name="memberNidBackPhoto"
+                    name="nidPhotoBack"
                     required
                   />
                 </div>
@@ -319,48 +409,48 @@ const AddMember = () => {
             {/**Rafi */}
 
             {selectedDocumentType === "Birth Certificate" && (
-
               <>
-
                 {/**Rafi */}
 
                 <div className="flex flex-col gap-1">
-                  <label className="font-medium" htmlFor="member_birth_certificate_number">
+                  <label
+                    className="font-medium"
+                    htmlFor="member_birth_certificate_number"
+                  >
                     Birth Certificate Number:
                   </label>
                   <input
-                    onChange={handleChange}
+                    onChange={handleChangeUserDocument}
                     className="input input-bordered input-sm  hover:border-teal-500"
                     id="member_birth_certificate_number"
                     type="number"
-                    name="memberBirthCertificateNumber"
+                    name="birthCertificateNumber"
                     required
                   />
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <label className="font-medium" htmlFor="member_birth_certificate_photo">
+                  <label
+                    className="font-medium"
+                    htmlFor="member_birth_certificate_photo"
+                  >
                     Birth Certificate Photo:
                   </label>
                   <input
-                    onChange={handleChange}
+                    onChange={handleChangeUserDocument}
                     className="input input_bordered  hover:border-teal-500 "
                     id="member_birth_certificate_photo "
                     type="file"
-                    name="memberBirthCertificatePhoto"
+                    name="photo"
                     required
                   />
                 </div>
               </>
             )}
 
-
             {/*-------------------------------------------
             Rafi End
             -------------------------------------------*/}
-
-
-
 
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="mobile_number">
@@ -392,11 +482,9 @@ const AddMember = () => {
               />
             </div>
 
-
             {/*-------------------------------------------
             Rafi Start
             -------------------------------------------*/}
-
 
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="member_salary">
@@ -415,7 +503,6 @@ const AddMember = () => {
             Rafi End
             -------------------------------------------*/}
 
-
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="membership_fee ">
                 Membership Fee:
@@ -430,11 +517,9 @@ const AddMember = () => {
               />
             </div>
 
-
             {/*-------------------------------------------
             Rafi Start
             -------------------------------------------*/}
-
 
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="form_fee ">
@@ -453,7 +538,6 @@ const AddMember = () => {
             {/*-------------------------------------------
             Rafi End
             -------------------------------------------*/}
-
 
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="membership_fee ">
@@ -477,7 +561,7 @@ const AddMember = () => {
                 className="input input_bordered  hover:border-teal-500 "
                 id="member_photo "
                 type="file"
-                name="memberPhoto"
+                name="photo"
                 required
               />
             </div>
@@ -506,12 +590,9 @@ const AddMember = () => {
             <BranchSamitySelector callBackFn={setFormData} />
           </section>
 
-
-
           {/*-------------------------------------------
             Rafi Start
             -------------------------------------------*/}
-
 
           {/*Reference Section */}
           <section className="m-4">
@@ -520,32 +601,32 @@ const AddMember = () => {
             </h1>
             <form className="my-8" action="">
               <section className=" grid grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto gap-4 ">
-
                 <div className="flex flex-col gap-1">
                   <label className="font-medium" htmlFor="employee_name">
                     Employee Name:{" "}
                   </label>
                   <input
-                    onChange={handleChangeNominie}
+                    onChange={handleChangeRefSection}
                     className="input input-bordered input-sm  hover:border-teal-500"
                     id="employee_name"
                     type="text"
                     name="employeeName"
-                    required />
+                    required
+                  />
                 </div>
                 <div className="flex flex-col gap-1">
                   <label className="font-medium" htmlFor="Phone_Number">
                     Phone Number:{" "}
                   </label>
                   <input
-                    onChange={handleChangeNominie}
+                    onChange={handleChangeRefSection}
                     className="input input-bordered input-sm  hover:border-teal-500"
                     id="phone_number"
                     type="number"
-                    name="phoneNumber"
-                    required />
+                    name="employeeNumber"
+                    required
+                  />
                 </div>
-
               </section>
             </form>
           </section>
@@ -554,14 +635,12 @@ const AddMember = () => {
             Rafi End
             -------------------------------------------*/}
 
-
           {/* nominee section */}
           <section>
             <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
               Nominee Section
             </h1>
             <section className=" grid grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto gap-4 my-8">
-
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="name">
                   Name:{" "}
@@ -572,7 +651,8 @@ const AddMember = () => {
                   id="name"
                   type="text"
                   name="name"
-                  required />
+                  required
+                />
               </div>
 
               <div className="flex flex-col gap-1">
@@ -587,14 +667,13 @@ const AddMember = () => {
                   cols="10"
                   rows="2"
                   className="input input-bordered input-sm  hover:border-teal-500  "
-                  required />
+                  required
+                />
               </div>
-
 
               {/*-------------------------------------------
             Rafi Start
             -------------------------------------------*/}
-
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="phone_number">
@@ -606,7 +685,8 @@ const AddMember = () => {
                   id="phone_number"
                   type="number"
                   name="phoneNumber"
-                  required />
+                  required
+                />
               </div>
 
               <div className="flex flex-col gap-1">
@@ -614,12 +694,13 @@ const AddMember = () => {
                   Nominee Photo:
                 </label>
                 <input
-                  onChange={handleChange}
+                  onChange={handleChangeNominie}
                   className="input input_bordered  hover:border-teal-500 "
                   id="nominee_photo "
                   type="file"
-                  name="nomineePhoto"
-                  required />
+                  name="photo"
+                  required
+                />
               </div>
 
               <div className="flex flex-col gap-1">
@@ -627,7 +708,7 @@ const AddMember = () => {
                   Select Document Type:
                 </label>
                 <select
-                  onChange={handleChange}
+                  onChange={handleChangeNomineeDocuments}
                   className="input input-bordered input-sm  hover:border-teal-500"
                   name="selectDocument"
                   required
@@ -637,14 +718,12 @@ const AddMember = () => {
                   </option>
                   <option value="NID">NID</option>
                   <option value="Birth Certificate">Birth Certificate</option>
-
                 </select>
               </div>
 
               {/**Rafi */}
 
-              {selectedDocumentType === "NID" && (
-
+              {nomineeSelectedType === "NID" && (
                 <>
                   {/**Rafi */}
 
@@ -653,39 +732,45 @@ const AddMember = () => {
                       NID Number:
                     </label>
                     <input
-                      onChange={handleChange}
+                      onChange={handleChangeNomineeDocument}
                       className="input input-bordered input-sm  hover:border-teal-500"
                       id="nominee_nid_number"
                       type="number"
-                      name="nomineeNidNumber"
+                      name="nidNumber"
                       required
                     />
                   </div>
 
                   <div className="flex flex-col gap-1">
-                    <label className="font-medium" htmlFor="nominne_nid_front_photo ">
+                    <label
+                      className="font-medium"
+                      htmlFor="nominne_nid_front_photo "
+                    >
                       NID Photo (Front):
                     </label>
                     <input
-                      onChange={handleChange}
+                      onChange={handleChangeNomineeDocument}
                       className="input input_bordered  hover:border-teal-500 "
                       id="nominee_nid_front_photo "
                       type="file"
-                      name="nomineeNidFrontPhoto"
+                      name="nidPhotoFront"
                       required
                     />
                   </div>
 
                   <div className="flex flex-col gap-1">
-                    <label className="font-medium" htmlFor="nominee_nid_back_photo ">
+                    <label
+                      className="font-medium"
+                      htmlFor="nominee_nid_back_photo "
+                    >
                       NID Photo (Back):
                     </label>
                     <input
-                      onChange={handleChange}
+                      onChange={handleChangeNomineeDocument}
                       className="input input_bordered  hover:border-teal-500 "
                       id="nominee_nid_back_photo "
                       type="file"
-                      name="nomineeNidBackPhoto"
+                      name="nidPhotoBack"
                       required
                     />
                   </div>
@@ -694,48 +779,49 @@ const AddMember = () => {
 
               {/**Rafi */}
 
-              {selectedDocumentType === "Birth Certificate" && (
-
+              {nomineeSelectedType === "Birth Certificate" && (
                 <>
                   {/**Rafi */}
 
                   <div className="flex flex-col gap-1">
-                    <label className="font-medium" htmlFor="nominee_birth_certificate_number">
+                    <label
+                      className="font-medium"
+                      htmlFor="nominee_birth_certificate_number"
+                    >
                       Birth Certificate Number:
                     </label>
                     <input
-                      onChange={handleChange}
+                      onChange={handleChangeNomineeDocument}
                       className="input input-bordered input-sm  hover:border-teal-500"
                       id="nomminee_birth_certificate_number"
                       type="number"
-                      name="nomineeBirthCertificateNumber"
+                      name="birthCertificateNumber"
                       required
                     />
                   </div>
 
                   <div className="flex flex-col gap-1">
-                    <label className="font-medium" htmlFor="nominee_birth_certificate_photo ">
+                    <label
+                      className="font-medium"
+                      htmlFor="nominee_birth_certificate_photo "
+                    >
                       Birth Certificate Photo:
                     </label>
                     <input
-                      onChange={handleChange}
+                      onChange={handleChangeNomineeDocument}
                       className="input input_bordered  hover:border-teal-500 "
                       id="nominee_birth_certificate_photo "
                       type="file"
-                      name="nomineeBirthCertificatePhoto"
+                      name="photo"
                       required
                     />
                   </div>
                 </>
               )}
 
-
               {/*-------------------------------------------
             Rafi End
             -------------------------------------------*/}
-
-
-
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="relation_with_member">
