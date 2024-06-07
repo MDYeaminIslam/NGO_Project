@@ -39,7 +39,7 @@ function AddIncomeHead() {
         </h1>
         <div className="w-full flex justify-between gap-4">
           <input type="text" className="input input-sm input-bordered w-full " placeholder="Add Income Head Here.." onChange={handleChange} />
-          <button className="btn btn-sm " onClick={handleSubmit}>Submit</button>
+          <button className="btn btn-sm hover:bg-teal-500 hover:text-white " onClick={handleSubmit}>Submit</button>
         </div>
         {/* Income Head List */}
         <section className="mt-4">
@@ -48,7 +48,7 @@ function AddIncomeHead() {
             {data.length ? (
               data.map((data, idx) => <div className="bg-teal-500 rounded mb-1 text-white font-medium p-2 text-center " key={idx}>{data.head}</div>)
             ) : (
-              <div>No data</div>
+              <div className="text-center bg-red-400 p-2 w-full rounded m-4">No data</div>
             )}
           </div>
         </section>

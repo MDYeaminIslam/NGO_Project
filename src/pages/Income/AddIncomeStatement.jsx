@@ -41,8 +41,8 @@ export default function AddIncomeStatement() {
       <section>
         <IncomeNav />
       </section>
-      <section>
-        <IncomeStatementSelector callbackFn={setFormData} />
+      <section className="grid grid-cols-2 items-center justify-center gap-4 max-w-5xl mx-auto p-4">
+        <div><IncomeStatementSelector callbackFn={setFormData} /></div>
         <div className="flex flex-col gap-1">
           <label className="font-medium" htmlFor="membership_fee ">
             DOB (DD/MM/YYYY):
@@ -56,7 +56,7 @@ export default function AddIncomeStatement() {
           />
         </div>
 
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 col-span-2">
           <label className="font-medium" htmlFor="amount">
             Amount:
           </label>
@@ -69,8 +69,11 @@ export default function AddIncomeStatement() {
             value={formData.amount}
           />
         </div>
-        <button onClick={handleSubmit}>Add</button>
+
       </section>
+      <div className=" max-w-5xl mx-auto p-4 flex items-center justify-center">
+        <button className="btn  btn-sm hover:bg-teal-400 bg-teal-700 text-white" onClick={handleSubmit}>Submit</button>
+      </div>
     </div>
   );
 }
