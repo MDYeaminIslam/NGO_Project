@@ -33,20 +33,29 @@ function AddIncomeHead() {
         <IncomeNav />
       </section>
       {/* Add income head */}
-      <section>
-        <input type="text" className="border" onChange={handleChange} />
+      <section className="max-w-5xl mx-auto p-4">
+        <h1 className="text-xl font-bold text-start max-w-5xl mx-auto   border-b-4 pb-2 my-4 ">
+          Income Head
+        </h1>
+        <div className="w-full flex justify-between gap-4">
+          <input type="text" className="input input-sm input-bordered w-full " placeholder="Add Income Head Here.." onChange={handleChange} />
+          <button className="btn btn-sm " onClick={handleSubmit}>Submit</button>
+        </div>
+        {/* Income Head List */}
+        <section className="mt-4">
+          <div className="grid grid-cols-2 gap-2 ">
 
-        <button onClick={handleSubmit}>Add</button>
+            {data.length ? (
+              data.map((data, idx) => <div className="bg-teal-500 rounded mb-1 text-white font-medium p-2 text-center " key={idx}>{data.head}</div>)
+            ) : (
+              <div>No data</div>
+            )}
+          </div>
+        </section>
       </section>
-      {/* Income Head List */}
 
-      <section>
-        {data.length ? (
-          data.map((data, idx) => <div key={idx}>{data.head}</div>)
-        ) : (
-          <div>No data</div>
-        )}
-      </section>
+
+
     </div>
   );
 }
