@@ -21,7 +21,7 @@ const Login = () => {
       onSuccess: (data) => {
         console.log(data);
         setUser(data);
-        toast.success("Done");
+        toast.success("Successfully Logged In");
         navigate("/");
       },
     }
