@@ -96,6 +96,8 @@ import DpsAccounts from "../pages/Saving Account/DpsAccounts";
 import SavingsTransactionPostingDetails from "../pages/Saving Account/SavingsTransactionPostingDetails";
 import FdrTransactionPostingDetails from "../pages/Saving Account/FdsTransactionPostingDetails";
 import DpsTransactionPostingDetails from "../pages/Saving Account/DpsTransactionPostingDetails";
+import AddIncomeHead from "../pages/Income/AddIncomeHead";
+import AddIncomeStatement from "../pages/Income/AddIncomeStatement";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -495,10 +497,26 @@ const router = createBrowserRouter([
 
       //  Income routes
       {
-        path: "any_charges",
+        path: "income",
         element: (
           <AdminRoute roles={[ROLES.Admin]}>
             <AnyCharges />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "income_head",
+        element: (
+          <AdminRoute roles={[ROLES.Admin]}>
+            <AddIncomeHead />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "income_head_statement",
+        element: (
+          <AdminRoute roles={[ROLES.Admin]}>
+            <AddIncomeStatement />
           </AdminRoute>
         ),
       },

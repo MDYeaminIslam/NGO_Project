@@ -560,3 +560,13 @@ export async function makeWithdrawDps(data) {
   const response = await axiosAdmin.post(`/dps/makeWithdraw`, data);
   return response.data;
 }
+// create income head
+export async function createIncomeHead(data) {
+  const response = await axiosAdmin.post(`/income/create`, data);
+  return response.data;
+}
+// get all income head
+export async function getAllIncomeHead() {
+  const response = await axiosAdmin.get(`/income/all`);
+  return response.data.data;
+}

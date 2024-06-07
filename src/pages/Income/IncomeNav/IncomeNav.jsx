@@ -1,106 +1,90 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-const IncomeNav = () => {
-
+function BranchesNav() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
-
   return (
-    <div className="hidden">
-      <nav className="bg-gray-800">
+    <div>
+      <nav className="bg-teal-700 text-white">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
           <div className="relative flex items-center justify-between h-16">
-
-
             <div className="block sm:hidden relative">
               <button
                 onClick={toggleDropdown}
                 className="ml-4 text-black bg-white focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
-                type="button">
-
+                type="button"
+              >
                 Select Menu
                 <svg
                   className="w-2.5 h-2.5 ms-3"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
-                  viewBox="0 0 10 6">
-
-                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="m1 1 4 4 4-4"
+                  />
                 </svg>
               </button>
 
               {isOpen && (
-                <div className="ml-4 absolute right-0 mt-2 bg-white divide-y divide-gray-100 rounded-lg shadow-lg">
-
-
-                  <ul className="py-2 text-sm text-black" aria-labelledby="dropdownDefaultButton">
-
-
+                <div className="ml-4 absolute right-0 mt-2ransa bg-white divide-y divide-gray-100 rounded-lg shadow-lg">
+                  <ul
+                    className="py-2 text-sm text-black"
+                    aria-labelledby="dropdownDefaultButton"
+                  >
                     <li>
-                      <NavLink to={'/any_charges'}>
-                        <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Any Charges</p>
+                      <NavLink to={"/income"}>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
+                          Income Status
+                        </p>
                       </NavLink>
                     </li>
-
                     <li>
-                      <NavLink to={'/category_wise_income'}>
-                        <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Catagory Wise Income</p>
+                      <NavLink to={"/income_head"}>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
+                          Add Income Head
+                        </p>
                       </NavLink>
                     </li>
-
                     <li>
-                      <NavLink to={'/loan_profit'}>
-                        <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Loan Profit</p>
+                      <NavLink to={"/income_head_statement"}>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
+                          Add Income Head
+                        </p>
                       </NavLink>
                     </li>
-
-                    <li>
-                      <NavLink to={'/member_fees'}>
-                        <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Member Fees</p>
-                      </NavLink>
-                    </li>
-
-                    <li>
-                      <NavLink to={'/penalty'}>
-                        <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Penalty</p>
-                      </NavLink>
-                    </li>
-
                   </ul>
                 </div>
               )}
             </div>
 
-
-
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4">
-
-                <NavLink to={'/any_charges'}>
-                  <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Any Charges</p>
+                <NavLink to={"/income"}>
+                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    Income Status
+                  </p>
                 </NavLink>
-
-                <NavLink to={'/category_wise_income'}>
-                  <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Catagory Wise Income</p>
+                <NavLink to={"/income_head"}>
+                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    Add Income Head
+                  </p>
                 </NavLink>
-
-                <NavLink to={'/loan_profit'}>
-                  <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Loan Profit</p>
+                <NavLink to={"/income_head_statement"}>
+                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    Add Income Statement
+                  </p>
                 </NavLink>
-
-                <NavLink to={'/member_fees'}>
-                  <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Member Fees</p>
-                </NavLink>
-
-                <NavLink to={'/penalty'}>
-                  <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Penalty</p>
-                </NavLink>
-
               </div>
             </div>
           </div>
@@ -108,6 +92,6 @@ const IncomeNav = () => {
       </nav>
     </div>
   );
-};
+}
 
-export default IncomeNav;
+export default BranchesNav;
