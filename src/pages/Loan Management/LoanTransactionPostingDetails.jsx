@@ -10,6 +10,7 @@ import toast from "react-hot-toast";
 import { useState } from "react";
 import LoanManagementNav from "./LoanManagementNav/LoanManagementNav";
 import { dateToString } from "../../utils/DateHelper";
+
 const initialData = {
   amount: 0,
   addFineAmount: 0,
@@ -130,8 +131,8 @@ const LoanTransactionPostingDetails = () => {
 
           {data
             ? data.transactionDetails.map((data, idx) => (
-                <TransactionDetailsTable key={idx} data={data} />
-              ))
+              <TransactionDetailsTable key={idx} data={data} />
+            ))
             : null}
         </table>
       </section>

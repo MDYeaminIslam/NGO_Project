@@ -53,22 +53,20 @@ const MembersList = () => {
 
         {/* Local User List */}
         <section>
-          <div className="md:m-8">
-            <table className="w-full mt-12 ">
-              <tr className="grid grid-cols-3  text-xs md:text-base bg-teal-700  py-4 text-white md:grid-cols-7 items-center justify-center gap-1 text-center">
+          <div className="md:m-2 xl:m-8">
+            <table className="w-full ">
+              <tr className="grid grid-cols-5   text-xs md:text-base bg-teal-700  py-2 text-white md:grid-cols-9 items-center justify-center gap-1 text-center">
                 <th>Sl No.</th>
-                <th>Joining Date</th>
-                <th>Member Name</th>
-                <th>Phone Number</th>
-                <th>Occupation</th>
-                <th className="hidden md:block">Present Address</th>
-                <th className="hidden md:block">Action</th>
+                <th className="col-span-2 hidden md:block">Joining Date</th>
+                <th className="col-span-2">Member Name</th>
+                <th className="col-span-2 hidden md:block">Phone Number</th>
+                <th className=" col-span-2">Action</th>
               </tr>
 
               {data
                 ? data.data.map((user, key) => (
-                    <ListView key={key} data={user} />
-                  ))
+                  <ListView key={key} data={user} idx={key} />
+                ))
                 : null}
             </table>
           </div>
