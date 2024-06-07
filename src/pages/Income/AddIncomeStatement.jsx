@@ -1,23 +1,38 @@
 import React, { useState } from "react";
 import IncomeNav from "./IncomeNav/IncomeNav";
-import { useQuery } from "@tanstack/react-query";
-import { getAllIncomeHead } from "../../../api/admin";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import {
+  createIncomeHeadTransaction,
+  getAllIncomeHead,
+} from "../../../api/admin";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import useMutationHook from "../../../hooks/useMutationHook";
+import toast from "react-hot-toast";
 const initialState = {
+  headId: "",
   date: new Date(),
-  amount: 0,
+  amount: "",
 };
 export default function AddIncomeStatement() {
   const [formData, setFormData] = useState(initialState);
+  const { mutate } = useMutationHook(createIncomeHeadTransaction, {
+    onSuccess: () => {
+      toast.success("Done!");
+    },
+  });
 
   function handleChangeDate(date) {
     setFormData((prev) => ({ ...prev, date: date }));
   }
   function handleChange(e) {
     const { value } = e.target;
-    console.log(value);
     setFormData((prev) => ({ ...prev, amount: Number(value) }));
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    mutate(formData);
   }
 
   return (
@@ -27,7 +42,7 @@ export default function AddIncomeStatement() {
         <IncomeNav />
       </section>
       <section>
-        <IncomeStatementSelector />
+        <IncomeStatementSelector callbackFn={setFormData} />
         <div className="flex flex-col gap-1">
           <label className="font-medium" htmlFor="membership_fee ">
             DOB (DD/MM/YYYY):
@@ -43,7 +58,7 @@ export default function AddIncomeStatement() {
 
         <div className="flex flex-col gap-1">
           <label className="font-medium" htmlFor="amount">
-            Religion:
+            Amount:
           </label>
           <input
             onChange={handleChange}
@@ -51,15 +66,16 @@ export default function AddIncomeStatement() {
             id="amount"
             type="number"
             name="amount"
-            required
+            value={formData.amount}
           />
         </div>
+        <button onClick={handleSubmit}>Add</button>
       </section>
     </div>
   );
 }
 
-function IncomeStatementSelector() {
+function IncomeStatementSelector({ callbackFn }) {
   const { data } = useQuery({
     queryFn: getAllIncomeHead,
     queryKey: ["income-head"],
@@ -67,7 +83,7 @@ function IncomeStatementSelector() {
   });
   function handleChange(e) {
     const { value } = e.target;
-    console.log(value);
+    callbackFn((prev) => ({ ...prev, headId: value }));
   }
   return (
     <>

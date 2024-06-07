@@ -570,3 +570,8 @@ export async function getAllIncomeHead() {
   const response = await axiosAdmin.get(`/income/all`);
   return response.data.data;
 }
+//create income head transaction
+export async function createIncomeHeadTransaction(data) {
+  const response = await axiosAdmin.post(`/income/create/transaction`, data);
+  return response.data;
+}
