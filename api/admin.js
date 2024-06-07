@@ -460,7 +460,7 @@ export async function payLoanFromDepositAccount(data) {
     fineReason: "",
     payFineAmount: 0,
   };
-  const response = await makeWithdraw(withdrawBody);
+  const response = await makeWithdrawSavings(withdrawBody);
   const response2 = await payLoanAccount(loanPaymentBody);
 
 }

@@ -30,7 +30,6 @@ const LoanPayDetailsList = ({ data, index }) => {
       ngoLoanId: ngoLoanId,
       transactionId: _id,
       amount: Number(amount.toFixed(2)),
-      status: "unpaid",
     };
     mutate(body);
   }
@@ -51,7 +50,9 @@ const LoanPayDetailsList = ({ data, index }) => {
                 Pay{" "}
               </button>
             ) : (
-              <h1>Paid</h1>
+              <button className="bg-green-600 text-white px-3 py-2" disabled>
+                Pay
+              </button>
             )}
           </td>
         </tr>

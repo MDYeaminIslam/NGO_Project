@@ -25,12 +25,10 @@ const LoanTransactionPostingDetails = () => {
     queryFn: () => getLoanTransactionDetailsById(id),
     initialData: null,
   });
-  console.log(data);
   const { mutate } = useMutationHook(payLoanAccount, {
     key: [`loan-transaction-${id}`],
     onSuccess: () => {
       toast.success("Done");
-      console.log();
     },
     onError: () => {
       toast.error("Something went wrong with your transaction");
@@ -113,9 +111,7 @@ const LoanTransactionPostingDetails = () => {
               Add Transaction
             </button>
           </div>
-
         </form>
-
       </section>
       <section>
         {data ? (
@@ -134,8 +130,8 @@ const LoanTransactionPostingDetails = () => {
 
           {data
             ? data.transactionDetails.map((data, idx) => (
-              <TransactionDetailsTable key={idx} data={data} />
-            ))
+                <TransactionDetailsTable key={idx} data={data} />
+              ))
             : null}
         </table>
       </section>
@@ -146,7 +142,6 @@ const DepositAccountCard = ({ data, callBackFn }) => {
   const { _id, balance } = data;
 
   return (
-
     <section className="max-w-5xl mx-auto p-2">
       <div>
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2">
@@ -154,12 +149,19 @@ const DepositAccountCard = ({ data, callBackFn }) => {
         </h1>
       </div>
 
-      <div className="border-2 flex flex-col md:flex-row md:justify-evenly  mt-8" onClick={() => callBackFn(_id)}>
-        <p className="font-bold m-4">Account Id: <span className="font-bold text-emerald-500">{_id}</span></p>
-        <p className="font-bold m-4">Total Balance: <span className="font-bold text-emerald-500">{balance}</span></p>
+      <div
+        className="border-2 flex flex-col md:flex-row md:justify-evenly  mt-8"
+        onClick={() => callBackFn(_id)}
+      >
+        <p className="font-bold m-4">
+          Account Id: <span className="font-bold text-emerald-500">{_id}</span>
+        </p>
+        <p className="font-bold m-4">
+          Total Balance:{" "}
+          <span className="font-bold text-emerald-500">{balance}</span>
+        </p>
       </div>
     </section>
-
   );
 };
 const PayFromDepositAccounts = ({ data, loanId }) => {
@@ -198,8 +200,6 @@ const PayFromDepositAccounts = ({ data, loanId }) => {
         <DepositAccountCard data={data} key={idx} callBackFn={setId} />
       ))}
 
-
-
       <div className="m-10 flex flex-col md:flex-row w-full gap-4 max-w-5xl mx-auto p-2">
         <div className="flex flex-col gap-1 flex-1">
           <label htmlFor="">Account ID</label>
@@ -220,10 +220,14 @@ const PayFromDepositAccounts = ({ data, loanId }) => {
             className="input input-sm hover:border-teal-500 input-bordered flex items-center gap-2"
           />
         </div>
-
       </div>
       <div className="w-full flex justify-center  mt-12">
-        <button className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium  text-white" onClick={handleSubmit}>Pay From Loan</button>
+        <button
+          className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium  text-white"
+          onClick={handleSubmit}
+        >
+          Pay From Loan
+        </button>
       </div>
     </div>
   );

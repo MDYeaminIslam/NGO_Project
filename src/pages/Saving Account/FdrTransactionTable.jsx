@@ -1,10 +1,24 @@
+import { makeDepositFdr, makeWithdrawFdr } from "../../../api/admin";
+import useMutationHook from "../../../hooks/useMutationHook";
 import { dateToString } from "../../utils/DateHelper";
+import WithdrawMoneyFdr from "./WithdrawMoneyFdr";
 
 function FdrTransactionsTable({ data, index }) {
   console.log(data);
 
   const { date, amount, description, _id, accountId, status } = data;
-
+  const { mutate } = useMutationHook(makeWithdrawFdr, {
+    key: [`fdr-account-${accountId}`],
+  });
+  function handleSubmit(e) {
+    e.preventDefault();
+    const transaction = {
+      accountId,
+      amount,
+      transactionId: _id,
+    };
+    mutate(transaction);
+  }
   return (
     <div className="max-w-5xl mx-auto">
       <section className="mx-1">
@@ -13,7 +27,13 @@ function FdrTransactionsTable({ data, index }) {
           <td>{dateToString(date)}</td>
           <td>{amount}</td>
           <td>{status}</td>
-          <td className="hidden md:block">{description}</td>
+          <td>
+            {status === "unpaid" ? (
+              <button onClick={handleSubmit}>Pay</button>
+            ) : (
+              <button disabled>Pay</button>
+            )}
+          </td>
         </tr>
       </section>
     </div>
