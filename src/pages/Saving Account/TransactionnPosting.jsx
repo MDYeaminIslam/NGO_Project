@@ -14,7 +14,12 @@ const TransactionnPosting = () => {
   let [searchParams, setSearchParams] = useSearchParams();
   const handleChange = (e) => {
     const { value } = e.target;
+    console.log(value);
     setUserPhoneNumber(Number(value));
+    if (value.length === 11) {
+      console.log("hii");
+      setSearchParams({ number: value });
+    }
   };
   const { data } = useQuery({
     queryKey: ["user-deposit-account-list"],
@@ -22,18 +27,12 @@ const TransactionnPosting = () => {
     initialData: null,
     enabled: userPhoneNumber?.length === 11 ? true : false,
   });
-  const setParam = useMemo(() => {
-    const number = searchParams.get("number");
 
-    if (number) {
-      setUserPhoneNumber(number);
+  useEffect(() => {
+    if (searchParams.get("number")) {
+      setUserPhoneNumber(searchParams.get("number"));
     }
-    if (Number(useEffect).length == 11) {
-      setSearchParams({
-        number: userPhoneNumber,
-      });
-    }
-  }, [userPhoneNumber, searchParams, setSearchParams]);
+  }, [searchParams]);
 
   return (
     <div>

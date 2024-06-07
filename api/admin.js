@@ -434,6 +434,7 @@ export async function acceptDepositPendingAccount(data) {
 }
 // get user deposit account list
 export async function getDepositAccountListsOfUser(number) {
+  console.log(number);
   const response = await axiosAdmin.get(`/deposit/account/list/${number}`);
   return response.data.data;
 }

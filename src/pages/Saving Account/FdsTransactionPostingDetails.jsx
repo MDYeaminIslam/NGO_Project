@@ -21,6 +21,7 @@ import AddMoneySavings from "./AddMoneySavings";
 import WithdrawMoneySavings from "./WithdrawMoneySavings";
 import AddMoneyFdr from "./AddMoneyFdr";
 import WithdrawMoneyFdr from "./WithdrawMoneyFdr";
+import FdrTransactionsTable from "./FdrTransactionTable";
 
 const FdrTransactionPostingDetails = () => {
   const { id } = useParams();
@@ -35,12 +36,6 @@ const FdrTransactionPostingDetails = () => {
     queryFn: () => fdrTransactionList(id),
     initialData: null,
   });
-  const { data: withdraws } = useQuery({
-    queryKey: [`fdr-withdraws-${id}`],
-    queryFn: () => fdrWithdrawTransactionList(id),
-    initialData: null,
-  });
-  console.log(withdraws);
 
   return (
     <>
@@ -50,52 +45,29 @@ const FdrTransactionPostingDetails = () => {
       <section>
         {data.length ? <FdrAccountPerUserDetails data={data[0]} /> : null}
       </section>
-      <section>
-        <AddMoneyFdr id={id} />
-        <WithdrawMoneyFdr id={id} />
-      </section>
-      <section>
-        <div className="grid  md:grid-cols-2 ">
-          <section>
-            <div className="md:m-8">
-              <h1 className="md:text-lg md:font-medium mt-3 text-center ">
-                Transactions Table
-              </h1>
-              <div className="divider"></div>
-              <table className="w-full  ">
-                <tr className="grid grid-cols-3  text-xs md:text-base bg-teal-700  py-4 text-white md:grid-cols-3 items-center justify-center gap-1 text-center">
-                  <th>Date</th>
-                  <th>Amount</th>
-                  <th>Description</th>
-                </tr>
-                {transactions
-                  ? transactions.map((data, idx) => (
-                      <TransactionsTable data={data} key={idx} />
-                    ))
-                  : null}
-              </table>
-            </div>
-          </section>
 
+      <section>
+        <div className="">
           <section>
-            <div className="md:m-8">
-              <h1 className="md:text-lg md:font-medium mt-4 text-center ">
-                Withdraws Table
-              </h1>
-              <div className="divider"></div>
-              <table className="w-full  ">
-                <tr className="grid grid-cols-3  text-xs md:text-base bg-teal-700  py-4 text-white md:grid-cols-3 items-center justify-center gap-1 text-center">
-                  <th>Date</th>
-                  <th>Amount</th>
-                  <th>Description</th>
-                </tr>
-                {withdraws
-                  ? withdraws.map((data, idx) => (
-                      <WithdrawsTable data={data} key={idx} />
-                    ))
-                  : null}
-              </table>
+            <div>
+              <div className="max-w-5xl mx-auto">
+                <div className=" bg-teal-700 text-white py-4 mx-1 rounded-t-md  ">
+                  <tr className="grid grid-cols-3 md:grid-cols-5  items-center justify-center gap-1 text-start ">
+                    <th>SL</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </div>
+              </div>
+              {transactions
+                ? transactions.map((data, idx) => (
+                    <FdrTransactionsTable data={data} key={idx} index={idx} />
+                  ))
+                : null}
             </div>
+            {/* New */}
           </section>
         </div>
       </section>

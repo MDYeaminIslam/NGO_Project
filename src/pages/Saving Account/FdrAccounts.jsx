@@ -14,7 +14,7 @@ import { MoonLoader } from "react-spinners";
 import toast from "react-hot-toast";
 import useMutationHook from "../../../hooks/useMutationHook";
 const initialState = {
-  periodOfTimeInMonths: 0,
+  periodOfTimeInMonths: "",
   openingDate: "",
   matureDate: "",
   paymentTerm: "At a Time",
@@ -42,13 +42,13 @@ const getDepositDates = (
       installmentCount = periodInMonths;
       break;
     case "Quarterly":
-      installmentCount = Math.ceil(periodInMonths / 4);
+      installmentCount = Math.trunc(periodInMonths / 4);
       break;
     case "Half-Yearly":
-      installmentCount = Math.ceil(periodInMonths / 6);
+      installmentCount = Math.trunc(periodInMonths / 6);
       break;
     case "Yearly":
-      installmentCount = Math.ceil(periodInMonths / 12);
+      installmentCount = Math.trunc(periodInMonths / 12);
       break;
     default:
       break;
@@ -95,7 +95,6 @@ const Deposit = () => {
     // let pI = formData.amount / installmentCount;
     // console.log(installmentCount);
     // console.log(profitPerInstalment);
-    console.log(profitPerInstalment);
     setFormData((prev) => ({
       ...prev,
       onMatureAmount: mA,
@@ -103,7 +102,7 @@ const Deposit = () => {
       totalInstallment: installmentCount,
       profitPerInstallment: isNaN(profitPerInstalment)
         ? 0
-        : profitPerInstalment.toFixed(2),
+        : Number(profitPerInstalment.toFixed(2)),
     }));
   }, [
     formData.periodOfTimeInMonths,
@@ -151,6 +150,7 @@ const Deposit = () => {
       status: status,
       ...formData,
     };
+    console.log(data);
     mutate(data);
   };
   useEffect(() => {
@@ -262,7 +262,7 @@ const Deposit = () => {
                   name="periodOfTimeInMonths"
                   className="input input-bordered input-sm  hover:border-teal-500  "
                   id="period_of_time"
-                  type="text"
+                  type="number"
                   placeholder="In months"
                   value={formData.periodOfTimeInMonths}
                   onChange={handleChange}

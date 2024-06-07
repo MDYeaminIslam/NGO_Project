@@ -2,7 +2,6 @@ import toast from "react-hot-toast";
 import { ngoLoanPayment } from "../../../api/admin";
 import useMutationHook from "../../../hooks/useMutationHook";
 import { dateToString } from "../../utils/DateHelper";
-import { IconTickCircle } from "../../../icons/icons";
 
 const LoanPayDetailsList = ({ data, index }) => {
   const { amount, date, ngoLoanId, remark, _id, status } = data;
@@ -49,15 +48,10 @@ const LoanPayDetailsList = ({ data, index }) => {
                 onClick={handleSubmit}
                 className="bg-green-600 text-white px-3 py-2"
               >
-                Paid
+                Pay{" "}
               </button>
             ) : (
-              <button
-                onClick={handleSubmitX}
-                className="bg-green-600 text-white px-3 py-2"
-              >
-                Unpaid
-              </button>
+              <h1>Paid</h1>
             )}
           </td>
         </tr>
