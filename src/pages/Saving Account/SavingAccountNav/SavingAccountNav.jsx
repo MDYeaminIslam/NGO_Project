@@ -122,7 +122,7 @@ const SavingAccountNav = () => {
                 </NavLink>
                 <NavLink to={"/fdr"}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                    Fdr Account
+                    FDR Account
                   </p>
                 </NavLink>
                 <NavLink to={"/dps"}>
