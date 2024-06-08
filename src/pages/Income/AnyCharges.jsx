@@ -22,10 +22,8 @@ const AnyCharges = () => {
     event.preventDefault();
     mutate(date);
   }
-<<<<<<< HEAD
   // console.log(income);
-=======
->>>>>>> 15a764e4b6002f29ddf92fb79b917edfdba7c093
+  //asif
 
   return (
     <div>
