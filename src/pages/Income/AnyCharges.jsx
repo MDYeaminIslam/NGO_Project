@@ -11,7 +11,11 @@ const initalState = {
 
 const AnyCharges = () => {
   const [date, setDate] = useState(new Date());
-  const { mutate, isPending } = useMutationHook(getIncome);
+  const { mutate, isPending } = useMutationHook(getIncome, {
+    onSuccess: (data) => {
+      console.log(data);
+    },
+  });
   function handleSubmit(event) {
     event.preventDefault();
     mutate(date);
