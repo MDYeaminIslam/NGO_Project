@@ -189,6 +189,15 @@ const AddMember = () => {
       <section>
         <MemberNav />
       </section>
+      <section className="m-4 ">
+        <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
+          Branch Samity Selector{" "}
+        </h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 my-8 max-w-5xl mx-auto">
+          <BranchSamitySelector callBackFn={setFormData} />
+        </div>
+      </section>
       <section className="m-4">
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
           New Member Add{" "}
@@ -597,7 +606,7 @@ const AddMember = () => {
               </select>
             </div>
 
-            <BranchSamitySelector callBackFn={setFormData} />
+            {/* <BranchSamitySelector callBackFn={setFormData} /> */}
           </section>
 
           {/*-------------------------------------------

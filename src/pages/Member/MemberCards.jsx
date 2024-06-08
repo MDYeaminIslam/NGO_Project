@@ -60,7 +60,7 @@ const MemberCards = ({ data }) => {
                 }
                 <div className="flex flex-col md:flex-row gap-4 border-b-4 pb-4">
                     <div className=" ">
-                        <img className=" rounded h-52 object-cover " src={photo} alt="" />
+                        {/* <img className=" rounded h-52 object-cover " src={photo} alt="" /> */}
                     </div>
                     <div className=" space-y-2 p-4 ">
                         <h1 className="md:text-4xl">{name}</h1>
