@@ -8,7 +8,7 @@ import Expense from "../../component/Expense";
 const initalState = {
   branchId: null,
   samityId: null,
-  type: 'monthly',
+  type: "monthly",
 };
 const AllExpense = () => {
   const [formData, setFormData] = useState(initalState);
@@ -27,7 +27,7 @@ const AllExpense = () => {
     event.preventDefault();
     mutate(formData);
   }
-  console.log(expenses);
+
   return (
     <div>
       <section>
@@ -66,9 +66,9 @@ const AllExpense = () => {
       </div>
 
       <section className="px-4">
-        {expenses.length
-          ? formData.type === "purchase"
-            ? <section>
+        {expenses.length ? (
+          formData.type === "purchase" ? (
+            <section>
               <section>
                 <div className="max-w-5xl mx-auto bg-teal-700 text-white py-4 mt-8 ">
                   <tr className="grid grid-cols-5 text-xs md:text-base md:grid-cols-5  items-center justify-center gap-1 text-start">
@@ -81,12 +81,13 @@ const AllExpense = () => {
                 </div>
               </section>
               <section>
-                {
-                  expenses.map((data, idx) => <Purchase data={data} key={idx} />)
-                }
+                {expenses.map((data, idx) => (
+                  <Purchase data={data} key={idx} />
+                ))}
               </section>
             </section>
-            : <section>
+          ) : (
+            <section>
               <section>
                 <div className="max-w-5xl mx-auto bg-teal-700 text-white py-4 mt-8 ">
                   <tr className="text-xs md:text-base  grid grid-cols-3 md:grid-cols-3  items-center justify-center gap-1 text-start">
@@ -97,12 +98,13 @@ const AllExpense = () => {
                 </div>
               </section>
               <section>
-                {
-                  expenses.map((data, idx) => <Expense data={data} key={idx} />)
-                }
+                {expenses.map((data, idx) => (
+                  <Expense data={data} key={idx} />
+                ))}
               </section>
             </section>
-          : null}
+          )
+        ) : null}
       </section>
     </div>
   );

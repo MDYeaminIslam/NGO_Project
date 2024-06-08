@@ -44,13 +44,13 @@ const AddBank = () => {
       <section>
         <ManageDrawerCashNav />
       </section>
-      <section>
+      <section className=" max-w-5xl mx-auto">
         <section className="m-4">
-          <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
+          <h1 className="text-xl font-bold text-start max-w-5xl mx-auto p-2  pt-4 border-b-4 pb-2 ">
             Add Bank
           </h1>
-          <form className="my-8">
-            <section className="m-1 md:m-8">
+          <form className="my-8 ">
+            <section className="m-2 ">
               <div className="grid grid-cols-1 gap-1">
                 <label className="font-medium" htmlFor="bankName">
                   Bank Name:{" "}
@@ -69,9 +69,9 @@ const AddBank = () => {
               </div>
             </section>
             {isError ? errorMessage : null}
-            <div className="w-full flex justify-center  mt-12">
+            <div className="w-full flex items-center justify-center  mt-8">
               <button
-                className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
+                className="btn  bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
                 type="submit"
                 onClick={handleSubmit}
               >
@@ -82,15 +82,20 @@ const AddBank = () => {
         </section>
       </section>
       {/* Bank List */}
-      <section className="m-12">
+      <section className=" max-w-5xl mx-auto mb-8">
         {isFetched
           ? data.map((bank, idx) => {
-              return <div key={idx}>{bank.name}</div>;
-            })
+            return <div className=" flex items-center  gap-2 " key={idx}>
+              <p className="p-1 px-3 mb-2 w-14 bg-teal-500 text-white">{idx + 1}</p>
+              <p className=" bg-base-200 p-1 pl-4 mb-2 w-full">{bank.name}</p>
+            </div>
+          })
           : "No Bank Data"}
-      </section>
-    </div>
+      </section >
+    </div >
   );
 };
+
+
 
 export default AddBank;

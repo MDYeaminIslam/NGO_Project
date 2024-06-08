@@ -11,6 +11,7 @@ const initialState = {
   amount: 0,
   totalAmount: 0,
   perInstallment: 0,
+  date: new Date(),
   remark: "",
 };
 const LoanReceivedMoney = () => {

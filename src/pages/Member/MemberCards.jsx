@@ -75,47 +75,153 @@ const MemberCards = ({ data }) => {
                         <p className=" font-medium"> NID :<span className="font-normal pl-2">{nidNumber}</span></p>
                     </div>
                 </div>
-                <div className=" font-bold grid grid-cols-1 md:grid-cols-4 py-4 space-y-3 tracking-wide ">
-                    <p>Education: <br /> <span className="font-normal text-base ">{educationalQualification}</span></p>
-                    <p>Date of Birth: <br /> <span className="font-normal text-base ">{dateToString(dateOfBirth)}</span></p>
-                    <p>Present Address: <br /> <span className="font-normal text-base ">{presentAddress}</span></p>
-                    <p>Permanent Address: <br /> <span className="font-normal text-base ">{permanentAddress}</span></p>
-                    <p>Father Name: <br /> <span className="font-normal text-base ">{fathersName}</span></p>
-                    <p>Mother Name: <br /> <span className="font-normal text-base ">{mothersName}</span></p>
-                    <p>Spouse Name: <br /> <span className="font-normal text-base ">{spouseName}</span></p>
-                    <p>Occupation: <br /> <span className="font-normal text-base ">{occupation}</span></p>
-                    <p>Job Description: <br /> <span className="font-normal text-base ">{occupationBrief}</span></p>
-                    <p>Educational Qualification: <br /> <span className="font-normal text-base ">{educationalQualification}</span></p>
-                    <p>Emergency Contact: <br /> <span className="font-normal text-base ">{emergencyContactNumber}</span></p>
-                    <p>Religion: <br /> <span className="font-normal text-base ">{religion}</span></p>
-                    <p>Membership Fee: <br /> <span className="font-normal text-base ">{membershipFee}</span></p>
-                    <p>Branch Name: <br /> <span className="font-normal text-base ">{branchName}</span></p>
-                    <p>Samity Name: <br /> <span className="font-normal text-base ">{samityName}</span></p>
-                    {/* <p>: <br /> <span className="font-normal text-base ">{occupationBrief}</span></p> */}
+                {/* <div className=" font-bold grid grid-cols-1 md:grid-cols-1 gap-4 py-4 space-y-2 tracking-wide  ">
+                    <div>
 
-                </div>
+                        <p className="flex justify-between pl-4 bg-base-200 p-2 border-b-2 items-center">Education:  <span className="font-normal text-base ">{educationalQualification}</span></p>
+                        <p className="flex justify-between pl-4 bg-base-200 p-2 border-b-2 items-center">Date of Birth:  <span className="font-normal text-base ">{dateToString(dateOfBirth)}</span></p>
+                        <p className="flex justify-between pl-4 bg-base-200 p-2 border-b-2 items-center">Present Address:  <span className="font-normal text-base ">{presentAddress}</span></p>
+                        <p className="flex justify-between pl-4 bg-base-200 p-2 border-b-2 items-center">Permanent Address:  <span className="font-normal text-base ">{permanentAddress}</span></p>
+                        <p className="flex justify-between pl-4 bg-base-200 p-2 border-b-2 items-center">Father Name:  <span className="font-normal text-base ">{fathersName}</span></p>
+                        <p className="flex justify-between pl-4 bg-base-200 p-2 border-b-2 items-center">Mother Name:  <span className="font-normal text-base ">{mothersName}</span></p>
+                        <p className="flex justify-between pl-4 bg-base-200 p-2 border-b-2 items-center">Spouse Name:  <span className="font-normal text-base ">{spouseName}</span></p>
+                        <p className="flex justify-between pl-4 bg-base-200 p-2 border-b-2 items-center">Occupation:  <span className="font-normal text-base ">{occupation}</span></p>
+                        <p className="flex justify-between pl-4 bg-base-200 p-2 border-b-2 items-center">Job Description:  <span className="font-normal text-base ">{occupationBrief}</span></p>
+                        <p className="flex justify-between pl-4 bg-base-200 p-2 border-b-2 items-center">Educational Qualification: <span className="font-normal text-base ">{educationalQualification}</span></p>
+                        <p className="flex justify-between pl-4 bg-base-200 p-2 border-b-2 items-center">Emergency Contact:  <span className="font-normal text-base ">{emergencyContactNumber}</span></p>
+                        <p className="flex justify-between pl-4 bg-base-200 p-2 border-b-2 items-center">Religion:  <span className="font-normal text-base ">{religion}</span></p>
+                        <p className="flex justify-between pl-4 bg-base-200 p-2 border-b-2 items-center">Membership Fee:  <span className="font-normal text-base ">{membershipFee}</span></p>
+                        <p className="flex justify-between pl-4 bg-base-200 p-2 border-b-2 items-center">Branch Name:  <span className="font-normal text-base ">{branchName}</span></p>
+                        <p className="flex justify-between pl-4 bg-base-200 p-2 border-b-2 items-center">Samity Name:  <span className="font-normal text-base ">{samityName}</span></p>
+
+                    </div>
+                </div > */}
+                <section  >
+
+                    <div className="container mx-auto py-4">
+                        <table className="min-w-full bg-base-100 border">
+                            <tbody>
+                                <tr className="border-b  bg-teal-500 text-white ">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Title</td>
+                                    <td className="p-2  text-base font-bold" style={{ width: '60%' }}>Description</td>
+                                </tr>
+                                <tr className="border-b ">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Branch Name:</td>
+                                    <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{branchName}</td>
+                                </tr>
+                                <tr className="border-b ">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Samity Name:</td>
+                                    <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{samityName}</td>
+                                </tr>
+                                <tr className="border-b  ">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Education:</td>
+                                    <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{educationalQualification}</td>
+                                </tr>
+                                <tr className="border-b">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Date of Birth:</td>
+                                    <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{dateToString(dateOfBirth)}</td>
+                                </tr>
+                                <tr className="border-b">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Present Address:</td>
+                                    <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{presentAddress}</td>
+                                </tr>
+                                <tr className="border-b">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Permanent Address:</td>
+                                    <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{permanentAddress}</td>
+                                </tr>
+                                <tr className="border-b">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Father Name:</td>
+                                    <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{fathersName}</td>
+                                </tr>
+                                <tr className="border-b">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Mother Name:</td>
+                                    <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{mothersName}</td>
+                                </tr>
+                                <tr className="border-b">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Spouse Name:</td>
+                                    <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{spouseName}</td>
+                                </tr>
+                                <tr className="border-b">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Occupation:</td>
+                                    <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{occupation}</td>
+                                </tr>
+                                <tr className="border-b ">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Job Description:</td>
+                                    <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{occupationBrief}</td>
+                                </tr>
+                                <tr className="border-b ">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Educational Qualification:</td>
+                                    <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{educationalQualification}</td>
+                                </tr>
+                                <tr className="border-b ">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Emergency Contact:</td>
+                                    <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{emergencyContactNumber}</td>
+                                </tr>
+                                <tr className="border-b ">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Religion:</td>
+                                    <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{religion}</td>
+                                </tr>
+                                <tr className="border-b ">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Membership Fee:</td>
+                                    <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{membershipFee}</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </section >
 
                 <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
                     Nominee Details
                 </h1>
-                <div className=" font-bold grid grid-cols-1 md:grid-cols-4 py-4 space-y-3 tracking-wide ">
+                {/* <div className=" font-bold grid grid-cols-1 md:grid-cols-4 py-4 space-y-3 tracking-wide ">
                     <p>Name: <br /> <span className="font-normal text-base ">{nomineeName}</span></p>
-                    {/* <p>Address: <br /> <span className="font-normal text-base ">{dateToString(dateOfBirth)}</span></p> */}
                     <p>Address: <br /> <span className="font-normal text-base ">{nomineeAddress}</span></p>
                     <p>Relation: <br /> <span className="font-normal text-base ">{nomineeRelation}</span></p>
                     <p>Share: <br /> <span className="font-normal text-base ">{nomineeShare}</span></p>
                     <p>Occupation: <br /> <span className="font-normal text-base ">{nomineeOccupation}</span></p>
-                    {/* <p>: <br /> <span className="font-normal text-base ">{occupationBrief}</span></p> */}
+                </div> */}
+                <section>
+                    <div className="container mx-auto py-4">
+                        <table className="min-w-full bg-base-100 border">
+                            <tbody>
+                                <tr className="border-b bg-teal-500 text-white">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Title</td>
+                                    <td className="p-2 text-base font-bold" style={{ width: '60%' }}>Description</td>
+                                </tr>
+                                <tr className="border-b">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Name:</td>
+                                    <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{nomineeName}</td>
+                                </tr>
+                                <tr className="border-b">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Address:</td>
+                                    <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{nomineeAddress}</td>
+                                </tr>
+                                <tr className="border-b">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Relation:</td>
+                                    <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{nomineeRelation}</td>
+                                </tr>
+                                <tr className="border-b">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Share:</td>
+                                    <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{nomineeShare}</td>
+                                </tr>
+                                <tr className="border-b">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Occupation:</td>
+                                    <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{nomineeOccupation}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                </div>
+                </section>
                 <div className="divider"></div>
-                <div className={` flex gap-2 max-w-4xl justify-end `}  >
-                    <button onClick={printFun} className="btn btn-sm bg-teal-700 text-white">Print</button>
-                    {/* <button className="btn btn-sm  btn-success text-white">Edit</button> */}
-                    <EditBtn data={data} />
 
+                <div className=" flex gap-2 max-w-4xl justify-end "  >
+                    <button onClick={printFun} className="btn btn-sm bg-teal-700 text-white">Print</button>
+                    <EditBtn data={data} />
                 </div>
-            </section>
+            </section >
 
         </>
 
