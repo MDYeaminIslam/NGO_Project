@@ -11,16 +11,17 @@ const initalState = {
 
 const AnyCharges = () => {
   const [date, setDate] = useState(new Date());
+  const [data, setData] = useState(null);
   const { mutate, isPending } = useMutationHook(getIncome, {
     onSuccess: (data) => {
       console.log(data);
+      setData(data.data);
     },
   });
   function handleSubmit(event) {
     event.preventDefault();
     mutate(date);
   }
-  console.log(income);
 
   return (
     <div>
@@ -40,8 +41,45 @@ const AnyCharges = () => {
             dateFormat="dd/MM/yyyy"
             required
           />
-          <button className="btn btn-sm w-fit bg-teal-500 text-white hover:bg-teal-700 mx-auto mt-4" onClick={handleSubmit}>Search</button>
+          <button
+            className="btn btn-sm w-fit bg-teal-500 text-white hover:bg-teal-700 mx-auto mt-4"
+            onClick={handleSubmit}
+          >
+            Search
+          </button>
         </div>
+      </section>
+      <section>
+        {data
+          ? data.incomeHeadTransaction.map((a, idx) => {
+              return (
+                <>
+                  <h1>Head : {a._id}</h1>
+                  <h1>Profit : {a.total}</h1>
+                </>
+              );
+            })
+          : null}
+        {data
+          ? data.loanProfit.map((a, idx) => {
+              return (
+                <>
+                  <h1>Head : {a._id}</h1>
+                  <h1>Profit : {a.total}</h1>
+                </>
+              );
+            })
+          : null}{" "}
+        {data
+          ? data.memberProfit.map((a, idx) => {
+              return (
+                <>
+                  <h1>Head : {a._id}</h1>
+                  <h1>Profit : {a.total}</h1>
+                </>
+              );
+            })
+          : null}
       </section>
     </div>
   );
