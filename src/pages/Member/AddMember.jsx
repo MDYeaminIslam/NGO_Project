@@ -236,6 +236,7 @@ const AddMember = () => {
                 type="text"
                 name="mothersName"
                 required
+                value={formData.mothersName}
               />
             </div>
 
@@ -250,6 +251,7 @@ const AddMember = () => {
                 type="text"
                 name="spouseName"
                 required
+                value={formData.spouseName}
               />
             </div>
 
@@ -264,6 +266,7 @@ const AddMember = () => {
                 type="text"
                 name="occupation"
                 required
+                value={formData.occupation}
               />
             </div>
 
@@ -278,6 +281,7 @@ const AddMember = () => {
                 type="text"
                 name="religion"
                 required
+                value={formData.religion}
               />
             </div>
 
@@ -369,6 +373,7 @@ const AddMember = () => {
                     type="number"
                     name="nidNumber"
                     required
+                    value={formData.nidNumber}
                   />
                 </div>
 
@@ -386,6 +391,7 @@ const AddMember = () => {
                     type="file"
                     name="nidPhotoFront"
                     required
+                    value={formData.nidPhotoFront}
                   />
                 </div>
 
@@ -403,6 +409,7 @@ const AddMember = () => {
                     type="file"
                     name="nidPhotoBack"
                     required
+                    value={formData.nidPhotoBack}
                   />
                 </div>
               </>
@@ -428,6 +435,7 @@ const AddMember = () => {
                     type="number"
                     name="birthCertificateNumber"
                     required
+                    value={formData.birthCertificateNumber}
                   />
                 </div>
 

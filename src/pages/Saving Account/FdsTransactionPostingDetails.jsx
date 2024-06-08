@@ -48,7 +48,7 @@ const FdrTransactionPostingDetails = () => {
 
       <section>
         <div className="">
-          <section>
+          <section className="mt-12">
             <div>
               <div className="max-w-5xl mx-auto">
                 <div className=" bg-teal-700 text-white py-4 mx-1 rounded-t-md  ">

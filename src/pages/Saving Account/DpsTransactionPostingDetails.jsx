@@ -65,14 +65,15 @@ const DpsTransactionPostingDetails = () => {
               </h1>
               <div className="divider"></div>
               <table className="w-full  ">
-                <tr className="grid grid-cols-3  text-xs md:text-base bg-teal-700  py-4 text-white md:grid-cols-3 items-center justify-center gap-1 text-center">
+                <tr className="grid grid-cols-4  text-xs md:text-base bg-teal-700  py-4 text-white md:grid-cols-4 items-center justify-center gap-1 text-center">
+                  <th>SL</th>
                   <th>Date</th>
                   <th>Amount</th>
                   <th>Description</th>
                 </tr>
                 {transactions
                   ? transactions.map((data, idx) => (
-                      <TransactionsTable data={data} key={idx} />
+                      <TransactionsTable data={data} key={idx} index={idx}/>
                     ))
                   : null}
               </table>
@@ -86,14 +87,15 @@ const DpsTransactionPostingDetails = () => {
               </h1>
               <div className="divider"></div>
               <table className="w-full  ">
-                <tr className="grid grid-cols-3  text-xs md:text-base bg-teal-700  py-4 text-white md:grid-cols-3 items-center justify-center gap-1 text-center">
+                <tr className="grid grid-cols-4  text-xs md:text-base bg-teal-700  py-4 text-white md:grid-cols-4 items-center justify-center gap-1 text-center">
+                  <th>SL</th>
                   <th>Date</th>
                   <th>Amount</th>
                   <th>Description</th>
                 </tr>
                 {withdraws
                   ? withdraws.map((data, idx) => (
-                      <WithdrawsTable data={data} key={idx} />
+                      <WithdrawsTable data={data} key={idx} index={idx}/>
                     ))
                   : null}
               </table>
