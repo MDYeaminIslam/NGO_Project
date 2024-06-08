@@ -63,7 +63,7 @@ const SalarySheet = () => {
               <th>Salary</th>
               <th>Total</th>
 
-              <th className="hidden md:block">action</th>
+              <th className="hidden md:block">Action</th>
             </tr>
 
             {formData.length

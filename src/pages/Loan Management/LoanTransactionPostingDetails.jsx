@@ -115,6 +115,12 @@ const LoanTransactionPostingDetails = () => {
         </form>
       </section>
       <section>
+        <div>
+          <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2">
+            Pay from Savings Account
+          </h1>
+        </div>
+
         {data ? (
           <PayFromDepositAccounts data={data.depositAccounts} loanId={id} />
         ) : null}
@@ -126,7 +132,7 @@ const LoanTransactionPostingDetails = () => {
             <th>Amount</th>
             <th className="hidden md:block">Fine Amount</th>
             <th className="hidden md:block">Fine Reason</th>
-            <th className="hidden md:block">date</th>
+            <th className="hidden md:block">Date</th>
           </tr>
 
           {data
@@ -144,11 +150,6 @@ const DepositAccountCard = ({ data, callBackFn }) => {
 
   return (
     <section className="max-w-5xl mx-auto p-2">
-      <div>
-        <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2">
-          Pay from Deposit Account
-        </h1>
-      </div>
 
       <div
         className="border-2 flex flex-col md:flex-row md:justify-evenly  mt-8"
