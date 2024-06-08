@@ -62,6 +62,10 @@ const SavingAccounts = () => {
     useMutationHook(createSavingsAccount, {
       onSuccess: () => {
         toast.success("User added successfully!");
+      
+        swal({
+          title: "User added successfully!",
+        });
       },
     });
   // * handleChange

@@ -56,7 +56,7 @@ const MembersList = () => {
           <div className="md:m-2 xl:m-8">
             <table className="w-full ">
               <tr className="grid grid-cols-5   text-xs md:text-base bg-teal-700  py-2 text-white md:grid-cols-9 items-center justify-center gap-1 text-center">
-                <th>Sl No.</th>
+                <th>SL No.</th>
                 <th className="col-span-2 hidden md:block">Joining Date</th>
                 <th className="col-span-2">Member Name</th>
                 <th className="col-span-2 hidden md:block">Phone Number</th>
