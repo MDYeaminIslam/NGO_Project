@@ -85,7 +85,7 @@ const AddBank = () => {
       <section className=" max-w-5xl mx-auto mb-8">
         {isFetched
           ? data.map((bank, idx) => {
-            return <div className=" flex items-center  gap-2 " key={idx}>
+            return <div className=" flex items-center gap-2 m-6" key={idx}>
               <p className="p-1 px-3 mb-2 w-14 bg-teal-500 text-white">{idx + 1}</p>
               <p className=" bg-base-200 p-1 pl-4 mb-2 w-full">{bank.name}</p>
             </div>
