@@ -20,7 +20,7 @@ const AnyCharges = () => {
     event.preventDefault();
     mutate(date);
   }
-  console.log(income);
+  // console.log(income);
 
   return (
     <div>
