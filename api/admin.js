@@ -330,9 +330,8 @@ export async function getAllAssets(data) {
 
 //get income
 export async function getIncome(data) {
-  const { branchId, samityId } = data;
   const response = await axiosAdmin.get(
-    `/loan/profit?branchId=${branchId}&samityId=${samityId}`
+    `/income/day-wise?date=${data}`
   );
   return response.data;
 }
