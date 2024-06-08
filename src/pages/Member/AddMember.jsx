@@ -121,6 +121,7 @@ const AddMember = () => {
                 name="name"
                 type="text"
                 required
+                value={formData.name}
               />
             </div>
 
@@ -135,6 +136,7 @@ const AddMember = () => {
                 type="text"
                 name="fathersName"
                 required
+                value={formData.fathersName}
               />
             </div>
 
