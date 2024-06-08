@@ -498,7 +498,7 @@ const AddMember = () => {
 
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="member_salary">
-                Member Salary:
+                Member Earning (Monthly):
               </label>
               <input
                 onChange={handleChange}
