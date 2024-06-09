@@ -51,7 +51,7 @@ const SavingAccountRequest = () => {
           </section>
         </section>
         <section>
-          <div className="flex flex-col">
+          <div className="flex flex-col m-10">
             <div className="-m-1.5 overflow-x-auto">
               <div className="p-1.5 min-w-full inline-block align-middle">
                 <div className="border overflow-hidden border-black">
@@ -60,37 +60,43 @@ const SavingAccountRequest = () => {
                       <tr>
                         <th
                           scope="col"
-                          className="px-6 py-3 text-start text-xs font-bold text-white uppercase"
+                          className="px-6 py-3 text-start text-xs font-bold text-white"
+                        >
+                          Sl No.
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-start text-xs font-bold text-white"
                         >
                           Name
                         </th>
                         <th
                           scope="col"
-                          className="px-6 py-3 text-start text-xs font-bold text-white uppercase"
+                          className="px-6 py-3 text-start text-xs font-bold text-white"
                         >
                           Branch Name
                         </th>
                         <th
                           scope="col"
-                          className="px-6 py-3 text-start text-xs font-bold text-white uppercase"
+                          className="px-6 py-3 text-start text-xs font-bold text-white"
                         >
                           Samity Name
                         </th>
                         <th
                           scope="col"
-                          className="px-6 py-3 text-start text-xs font-bold text-white uppercase"
+                          className="px-6 py-3 text-start text-xs font-bold text-white"
                         >
-                          Profit Percentage
+                          Profit (%)
                         </th>
                         <th
                           scope="col"
-                          className="px-6 py-3 text-start text-xs font-bold text-white uppercase"
+                          className="px-6 py-3 text-start text-xs font-bold text-white "
                         >
                           On Mature Amount
                         </th>
                         <th
                           scope="col"
-                          className="px-6 py-3 text-center text-xs font-bold text-white uppercase"
+                          className="px-6 py-3 text-center text-xs font-bold text-white"
                         >
                           Action
                         </th>

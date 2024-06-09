@@ -45,7 +45,7 @@ const TransactionnPosting = () => {
           <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2  ">
             Deposit Transaction Posting
           </h1>
-          <div className=" flex flex-col md:flex-row gap-4 w-full py-4">
+          <div className=" flex flex-col md:flex-row gap-4 w-full py-4 font-medium">
             <input
               type="number"
               name="phoneNumber"

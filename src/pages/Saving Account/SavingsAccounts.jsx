@@ -62,7 +62,7 @@ const SavingAccounts = () => {
     useMutationHook(createSavingsAccount, {
       onSuccess: () => {
         toast.success("User added successfully!");
-      
+
         swal({
           title: "User added successfully!",
         });
@@ -186,7 +186,7 @@ const SavingAccounts = () => {
               </div>
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="profit">
-                  Profit Percentage:
+                  Profit (%):
                 </label>
                 <input
                   name="profitPercentage"
@@ -202,7 +202,7 @@ const SavingAccounts = () => {
             </section>
             {isError ? errorMessage : null}
 
-            <div className="md:w-full flex justify-center  mt-8">
+            <div className="md:w-full flex justify-center  mt-24">
               <button
                 className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
                 onClick={handleSubmit}

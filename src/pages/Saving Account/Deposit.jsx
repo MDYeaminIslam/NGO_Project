@@ -249,7 +249,7 @@ const Deposit = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="profit">
-                  Profit:
+                  Profit (%):
                 </label>
                 <input
                   name="profitPercentage"
@@ -318,7 +318,7 @@ const Deposit = () => {
             </section>
             {isError ? errorMessage : null}
 
-            <div className="md:w-full flex justify-center  mt-8">
+            <div className="md:w-full flex justify-center  mt-24">
               <button
                 className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
                 onClick={handleSubmit}

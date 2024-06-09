@@ -211,7 +211,7 @@ const Deposit = () => {
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="font-medium " htmlFor="occupation">
+                <label className="font-medium " htmlFor="payment_schedule">
                   Payment Schedule:
                 </label>
                 <select
@@ -219,7 +219,7 @@ const Deposit = () => {
                   name="paymentTerm"
                   className=" input input-bordered input-sm hover:border-teal-500 "
                 >
-                  <option disabled>Select a Value</option>
+                  <option>--Select--</option>
                   <option value="At a Time">At a Time</option>
                   <option value="Monthly">Monthly</option>
                   <option value="Quarterly">Quarterly</option>
@@ -243,7 +243,7 @@ const Deposit = () => {
               </div>
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="profit">
-                  Profit:
+                  Profit (%):
                 </label>
                 <input
                   name="profitPercentage"
@@ -256,7 +256,7 @@ const Deposit = () => {
               </div>
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="period_of_time">
-                  Period of Time(Months):
+                  Period of Time (In Month):
                 </label>
                 <input
                   name="periodOfTimeInMonths"
@@ -279,7 +279,7 @@ const Deposit = () => {
                   className="input input-bordered input-sm  hover:border-teal-500  "
                   id="per_installment"
                   type="number"
-                  placeholder="money amount"
+                  placeholder="Type money amount here"
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -356,7 +356,7 @@ const Deposit = () => {
             </section>
             {isError ? errorMessage : null}
 
-            <div className="md:w-full flex justify-center  mt-8">
+            <div className="md:w-full flex justify-center  mt-10">
               <button
                 className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
                 onClick={handleSubmit}

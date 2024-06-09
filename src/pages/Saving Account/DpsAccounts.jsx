@@ -154,7 +154,7 @@ const DpsAccounts = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="profit">
-                  Profit:
+                  Profit (%):
                 </label>
                 <input
                   name="profitPercentage"
