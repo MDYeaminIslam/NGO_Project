@@ -12,6 +12,7 @@ const initialState = {
   samityId: "",
   date: "",
   expenseName: "",
+  voucharNo: "",
   description: "",
   unitAmount: 0,
   unitPrice: 0,
@@ -102,10 +103,33 @@ const Purchase = () => {
                 name="expenseName"
                 onChange={handleChange}
                 type="text"
-                placeholder="type expense name here"
+                placeholder="Type expense name here"
                 value={formData.expenseName}
               />
             </div>
+
+            {/**---------------------------
+             * Rafi start 
+             * ----------------------------*/}
+
+            <div className="flex flex-col gap-1">
+              <label className="font-medium" htmlFor="vouchar_no">
+                Vouchar No:
+              </label>
+              <input
+                className="input input-bordered input-sm  hover:border-teal-500  "
+                id="vouchar_no"
+                name="voucharNo"
+                onChange={handleChange}
+                type="number"
+                placeholder="Type vouchar no here"
+                value={formData.voucharNo}
+              />
+            </div>
+
+            {/**---------------------------
+             * Rafi end 
+             * ----------------------------*/}
 
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="description">

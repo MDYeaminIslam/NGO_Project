@@ -21,7 +21,7 @@ const MemberRequest = () => {
           Member Request
         </h1>
 
-        <p className="mb-3">You have {data.length} Member request pending!!</p>
+        <p className="mb-3 font-medium">You have <span className="text-red-500 font-bold">{data.length}</span> Member request pending!!</p>
 
         <div className="flex flex-col">
           <div className="-m-1.5 overflow-x-auto">

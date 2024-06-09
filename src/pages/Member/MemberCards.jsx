@@ -55,7 +55,7 @@ const MemberCards = ({ data }) => {
             <section ref={componentRef} className="p-4 max-w-5xl mx-auto  md:mt-8 rounded ">
                 {print &&
                     <div className={``} >
-                        <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur commodi, nisi quasi nam, nesciunt molestias suscipit quibusdam recusandae aperiam necessitatibus in, laudantium quam autem ipsa voluptas debitis. Rem, veritatis beatae!</h1>
+                        <h1></h1>
                     </div>
                 }
                 <div className="flex flex-col md:flex-row gap-4 border-b-4 pb-4">
