@@ -191,7 +191,7 @@ const AddMember = () => {
       </section>
       <section className="m-4 ">
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
-          Branch Samity Selector{" "}
+          Branch & Samity Selector{" "}
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 my-8 max-w-5xl mx-auto">
@@ -510,7 +510,7 @@ const AddMember = () => {
 
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="member_salary">
-                Member Salary:
+                Member Earning (Monthly):
               </label>
               <input
                 onChange={handleChange}
@@ -891,7 +891,7 @@ const AddMember = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="share">
-                  Share %:{" "}
+                  Share (%):{" "}
                 </label>
                 <input
                   onChange={handleChangeNominie}
@@ -920,9 +920,9 @@ const AddMember = () => {
             </section>
           </section>
 
-          <section></section>
+
           {isError ? errorMessage : null}
-          <div className="w-full flex flex-col md:flex-row justify-center  mt-8">
+          <div className="w-full flex flex-col md:flex-row justify-center  mt-24 mb-24">
             <button
               onClick={handleSubmit}
               className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium     text-white"

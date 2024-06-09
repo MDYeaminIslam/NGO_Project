@@ -212,7 +212,7 @@ const Deposit = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium " htmlFor="occupation">
-                  Profit Withdraw Term:
+                  Payment Schedule:
                 </label>
                 <select
                   onChange={handleChange}
