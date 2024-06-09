@@ -462,6 +462,7 @@ const AddMember = () => {
                     type="file"
                     name="photo"
                     required
+                    value={formData.photo}
                   />
                 </div>
               </>
@@ -483,6 +484,7 @@ const AddMember = () => {
                 placeholder="+880"
                 name="mobileNumber"
                 required
+                value={formData.mobileNumber}
               />
             </div>
 
@@ -498,6 +500,7 @@ const AddMember = () => {
                 placeholder="+880"
                 name="emergencyContactNumber"
                 required
+                value={formData.emergencyContactNumber}
               />
             </div>
 
@@ -515,6 +518,7 @@ const AddMember = () => {
                 id="member_salary"
                 type="number"
                 name="memberSalary"
+                value={formData.memberSalary}
               />
             </div>
 
@@ -533,6 +537,7 @@ const AddMember = () => {
                 type="number"
                 name="membershipFee"
                 required
+                value={formData.membershipFee}
               />
             </div>
 
@@ -551,6 +556,7 @@ const AddMember = () => {
                 type="number"
                 name="formFee"
                 required
+                value={formData.formFee}
               />
             </div>
 
@@ -582,6 +588,7 @@ const AddMember = () => {
                 type="file"
                 name="photo"
                 required
+                value={formData.photo}
               />
             </div>
 
@@ -631,6 +638,7 @@ const AddMember = () => {
                     type="text"
                     name="employeeName"
                     required
+                    value={formData.employeeName}
                   />
                 </div>
                 <div className="flex flex-col gap-1">
@@ -644,6 +652,7 @@ const AddMember = () => {
                     type="number"
                     name="employeeNumber"
                     required
+                    value={formData.employeeNumber}
                   />
                 </div>
               </section>
@@ -671,6 +680,7 @@ const AddMember = () => {
                   type="text"
                   name="name"
                   required
+                  value={formData.name}
                 />
               </div>
 
@@ -685,6 +695,7 @@ const AddMember = () => {
                   type="number"
                   name="age"
                   required
+                  value={formData.age}
                 />
               </div>
 
@@ -719,6 +730,7 @@ const AddMember = () => {
                   type="number"
                   name="phoneNumber"
                   required
+                  value={formData.phoneNumber}
                 />
               </div>
 
@@ -733,6 +745,7 @@ const AddMember = () => {
                   type="file"
                   name="photo"
                   required
+                  value={formData.photo}
                 />
               </div>
 
@@ -771,6 +784,7 @@ const AddMember = () => {
                       type="number"
                       name="nidNumber"
                       required
+                      value={formData.nidNumber}
                     />
                   </div>
 
@@ -788,6 +802,7 @@ const AddMember = () => {
                       type="file"
                       name="nidPhotoFront"
                       required
+                      value={formData.nidPhotoFront}
                     />
                   </div>
 
@@ -805,6 +820,7 @@ const AddMember = () => {
                       type="file"
                       name="nidPhotoBack"
                       required
+                      value={formData.nidPhotoBack}
                     />
                   </div>
                 </>
@@ -830,6 +846,7 @@ const AddMember = () => {
                       type="number"
                       name="birthCertificateNumber"
                       required
+                      value={formData.birthCertificateNumber}
                     />
                   </div>
 
@@ -847,6 +864,7 @@ const AddMember = () => {
                       type="file"
                       name="photo"
                       required
+                      value={formData.photo}
                     />
                   </div>
                 </>
@@ -867,6 +885,7 @@ const AddMember = () => {
                   type="text"
                   name="relation"
                   required
+                  value={formData.relation}
                 />
               </div>
 
@@ -881,6 +900,7 @@ const AddMember = () => {
                   type="number"
                   name="share"
                   required
+                  value={formData.share}
                 />
               </div>
 
@@ -894,6 +914,7 @@ const AddMember = () => {
                   id="occupation"
                   type="text"
                   name="occupation"
+                  value={formData.occupation}
                 />
               </div>
             </section>
