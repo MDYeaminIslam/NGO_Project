@@ -116,8 +116,10 @@ const EmployeeAdd = () => {
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(createEmployee, {
       onSuccess: () => {
-        toast.success("Employee added successfully!");
+
+        {/**Rafi */ }
         setFormData(initialState);
+        swal("Employee Added Successfully!");
       },
     });
   const handleSubmit = (event) => {
@@ -662,7 +664,7 @@ const EmployeeAdd = () => {
           </form>
         </section>
         {isError ? errorMessage : null}
-        <div className="w-fit mx-auto m-8">
+        <div className="w-fit mx-auto m-16">
           <button
             className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
             onClick={handleSubmit}

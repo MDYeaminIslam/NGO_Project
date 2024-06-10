@@ -11,8 +11,8 @@ const LoanManagementNav = () => {
   return (
     <div>
       <nav className="bg-teal-700 text-white">
-        <div className=" px-2  ">
-          <div className="relative flex items-center justify-between h-24">
+        <div className=" px-4  ">
+          <div className="relative flex items-center justify-between h-16">
             <div className="block sm:hidden relative">
               <button
                 onClick={toggleDropdown}

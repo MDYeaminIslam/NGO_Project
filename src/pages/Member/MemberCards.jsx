@@ -5,7 +5,6 @@ import { useRef, useState } from 'react';
 import { useReactToPrint } from 'react-to-print';
 // react print
 
-
 const MemberCards = ({ data }) => {
     const { name,
         fathersName,

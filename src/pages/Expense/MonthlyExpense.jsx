@@ -37,7 +37,10 @@ const MonthlyExpense = () => {
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(addMonthlyExpense, {
       onSuccess: () => {
-        toast.success("Employee added successfully!");
+
+        {/**Rafi */ }
+        setFormData(initialState);
+        swal("Monthly Expense Added Successfully!");
       },
     });
   const handleSubmit = (event) => {

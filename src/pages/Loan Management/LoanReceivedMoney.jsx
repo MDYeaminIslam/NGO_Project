@@ -19,7 +19,10 @@ const LoanReceivedMoney = () => {
   const { mutate, isError, errorMessage } = useMutationHook(ngoLoansCreate, {
     key: ["ngo-loan"],
     onSuccess: () => {
-      toast.success("Done");
+
+      {/**Rafi */ }
+      setFormData(initialState);
+      swal("Received Loan Money Successfully!");
     },
   });
   const handleChange = (e) => {
@@ -102,7 +105,7 @@ const LoanReceivedMoney = () => {
 
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="rate">
-                Rate:
+                Rate (%):
               </label>
               <input
                 className="input input-bordered input-sm  hover:border-teal-500  "

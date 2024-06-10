@@ -4,6 +4,7 @@ import BranchesNav from "./BranchesNav/BranchesNav";
 import useMutationHook from "../../../hooks/useMutationHook";
 import { addSamity } from "../../../api/admin";
 import toast from "react-hot-toast";
+import swal from "sweetalert";
 const initialState = {
   samityName: "",
   samityCode: "",
@@ -16,8 +17,11 @@ const AddNewSamity = () => {
     useMutationHook(addSamity, {
       key: ["samity"],
       onSuccess: () => {
-        toast.success('New Samity Added Successfully');
+
+        {/**Rafi */ }
         setFormData(initialState);
+        swal('New Samity Added Successfully');
+
       }
     });
   const handleChange = (e) => {

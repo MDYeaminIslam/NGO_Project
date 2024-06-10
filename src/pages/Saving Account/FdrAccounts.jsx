@@ -72,7 +72,11 @@ const Deposit = () => {
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(createFdrAccount, {
       onSuccess: () => {
-        toast.success("User added successfully!");
+
+        {/**Rafi */ }
+        setFormData(initialState);
+        swal("FDR Account Opened Successfully!");
+
       },
     });
   // * handleChange
@@ -166,7 +170,7 @@ const Deposit = () => {
         {/* input container */}
         <section className="m-4">
           <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
-            Open Deposit Account{" "}
+            Open FDR Account{" "}
           </h1>
           <h1>
             {searchedUser?.status === "pending" ? (

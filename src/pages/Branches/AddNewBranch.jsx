@@ -4,6 +4,7 @@ import BranchesNav from "./BranchesNav/BranchesNav";
 import { addBranch } from "../../../api/admin";
 import { SpinnerButton } from "../../component/SpinnerButton";
 import toast from "react-hot-toast";
+import swal from "sweetalert";
 const initialState = {
   hostBranch: false,
   branchCode: "",
@@ -16,8 +17,11 @@ const AddNewBranch = () => {
     useMutationHook(addBranch, {
       key: ["branches"],
       onSuccess: () => {
-        toast.success("New Branch Added Successfully.");
+
+        {/**RAFI */ }
         setFormData(initialState);
+        swal("New Branch Added Successfully.");
+
       }
 
     });

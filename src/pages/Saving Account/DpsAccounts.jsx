@@ -27,7 +27,10 @@ const DpsAccounts = () => {
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(createDpsAccount, {
       onSuccess: () => {
-        toast.success("User added successfully!");
+
+        {/**Rafi */ }
+        setFormData(initialState);
+        swal("DPS Account Opened Successfully!");
       },
     });
   // * handleChange

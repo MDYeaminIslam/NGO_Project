@@ -50,7 +50,7 @@ function calculateEmi(totalAmount, paymentTerm, loanPeriodInMonths) {
 
   return [numberOfInstallments, emi.toFixed(2)]; // Round to two decimal places
 }
-// ! Component
+{/** ! Component*/ }
 const OpenLoanAccount = () => {
   const [formData, setFormData] = useState(initialState);
   const [searchedUser, setSearchedUser] = useState(null);
@@ -58,7 +58,11 @@ const OpenLoanAccount = () => {
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(createLoanAccount, {
       onSuccess: () => {
-        toast.success("Loan Account Created Successfully!");
+
+        {/**Rafi */ }
+        setFormData(initialState);
+        swal("Loan Account Opened Successfully!");
+
       },
     });
   // * handleChange

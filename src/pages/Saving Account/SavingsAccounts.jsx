@@ -61,11 +61,11 @@ const SavingAccounts = () => {
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(createSavingsAccount, {
       onSuccess: () => {
-        toast.success("User added successfully!");
 
-        swal({
-          title: "User added successfully!",
-        });
+        {/**Rafi */ }
+        setFormData(initialState);
+        swal("Savings Account Opened Successfully!");
+
       },
     });
   // * handleChange

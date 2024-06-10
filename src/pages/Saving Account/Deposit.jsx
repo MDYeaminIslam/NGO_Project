@@ -11,6 +11,7 @@ import {
 import { MoonLoader } from "react-spinners";
 import toast from "react-hot-toast";
 import useMutationHook from "../../../hooks/useMutationHook";
+import swal from "sweetalert";
 const initialState = {
   periodOfTimeInMonths: "",
   openingDate: "",
@@ -65,7 +66,11 @@ const Deposit = () => {
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(createDepositAccount, {
       onSuccess: () => {
-        toast.success("User added successfully!");
+
+        {/**Rafi */ }
+        setFormData(initialState);
+        swal("Deposit Account Opened Successfully!");
+
       },
     });
   // * handleChange
