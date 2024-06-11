@@ -98,6 +98,9 @@ import FdrTransactionPostingDetails from "../pages/Saving Account/FdsTransaction
 import DpsTransactionPostingDetails from "../pages/Saving Account/DpsTransactionPostingDetails";
 import AddIncomeHead from "../pages/Income/AddIncomeHead";
 import AddIncomeStatement from "../pages/Income/AddIncomeStatement";
+import BankCash from "../pages/Manage Drawer Cash/BankCash";
+import SamityCashDetails from "../pages/Manage Drawer Cash/SamityCashDetails";
+import BankCashDetails from "../pages/Manage Drawer Cash/BankCashDetails";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -562,6 +565,31 @@ const router = createBrowserRouter([
           </AdminRoute>
         ),
       },
+      {
+        path: "drawer_cash/:id",
+        element: (
+          <AdminRoute roles={[ROLES.Admin]}>
+            <SamityCashDetails />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "bank_cash",
+        element: (
+          <AdminRoute roles={[ROLES.Admin]}>
+            <BankCash />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "bank_cash/:id",
+        element: (
+          <AdminRoute roles={[ROLES.Admin]}>
+            <BankCashDetails />
+          </AdminRoute>
+        ),
+      },
+
       {
         path: "drawer_cash_to_bank",
         element: (

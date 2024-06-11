@@ -48,6 +48,8 @@ axiosAdmin.interceptors.response.use(
         localStorage.removeItem("userType");
         localStorage.removeItem("accessToken");
         localStorage.removeItem("refreshToken");
+        localStorage.removeItem("name");
+        localStorage.removeItem("phone");
         window.location.href = "/auth/login";
         return Promise.reject(refreshError);
       }

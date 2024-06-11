@@ -27,8 +27,6 @@ const LoanPayDetails = () => {
     initialData: [],
   });
 
-  console.log(data);
-
   const { mutate, errorMessage, isError } = useMutationHook(ngoLoanPayment, {
     key: [`nog-loan-${id}`],
     onSuccess: () => {

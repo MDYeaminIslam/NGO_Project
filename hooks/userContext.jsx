@@ -5,6 +5,7 @@ const UserTypeContext = createContext({
   userType: null,
   setUser: () => {},
   getUser: () => null,
+  userDetails: () => null,
   logout: () => {},
   isLoading: true, // Add isLoading state for loading indicator
 });
@@ -26,7 +27,9 @@ export const UserTypeProvider = ({ children }) => {
   // Function to set user type
   const setUser = (data) => {
     setUserType(data.type);
-    localStorage.setItem("id",data.id)
+    localStorage.setItem("id", data.id);
+    localStorage.setItem("name", data.name);
+    localStorage.setItem("phone", data.phone);
     localStorage.setItem("userType", data.type); // Update localStorage
     localStorage.setItem("accessToken", data.accessToken);
     localStorage.setItem("refreshToken", data.refreshToken);
@@ -36,14 +39,23 @@ export const UserTypeProvider = ({ children }) => {
   const getUser = () => {
     return userType;
   };
+  const userDetails = () => {
+    const name = localStorage.getItem("name");
+    const phone = localStorage.getItem("phone");
+    const type = localStorage.getItem("userType");
+
+    return { name, phone, type };
+  };
 
   // Function to logout user
   const logout = () => {
     setUserType(null);
-    localStorage.removeItem("id")
+    localStorage.removeItem("id");
     localStorage.removeItem("userType"); // Remove userType from localStorage
     localStorage.removeItem("refreshToken"); // Remove refreshToken from localStorage
     localStorage.removeItem("accessToken"); // Remove accessToken from localStorage
+    localStorage.removeItem("name"); // Remove name from localStorage
+    localStorage.removeItem("phone"); // Remove phone from localStorage
   };
 
   useEffect(() => {
@@ -60,6 +72,7 @@ export const UserTypeProvider = ({ children }) => {
     getUser,
     logout,
     isLoading, // Include isLoading in the provided value
+    userDetails,
   };
 
   return (

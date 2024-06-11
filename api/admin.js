@@ -272,7 +272,7 @@ export async function getAllBank() {
 // add drawerToBank transaction
 export async function addDrawerToBank(data) {
   const response = await axiosAdmin.post(
-    "/bank/from_drawer_to_bank/transaction",
+    "/bank/money-add",
     data
   );
   return response.data;
@@ -573,4 +573,27 @@ export async function getAllIncomeHead() {
 export async function createIncomeHeadTransaction(data) {
   const response = await axiosAdmin.post(`/income/create/transaction`, data);
   return response.data;
+}
+export async function drawerCashDetails() {
+  console.log('data');
+  const response = await axiosAdmin.get('/drawer/details');
+  return response.data.data;
+}
+
+export async function addMoneyToBank(data) {
+  const response = await axiosAdmin.post(
+    "/bank/money-add",
+    data
+  );
+  return response.data;
+}
+// all bank cash details
+export async function bankCashDetails() {
+  const response = await axiosAdmin.get('/bank/cash/all');
+  return response.data.data;
+}
+// drawer cash details by samityid
+export async function drawerCashDetailsBySamityId(samityId) {
+  const response = await axiosAdmin.get(`/drawer/samity/${samityId}`);
+  return response.data.data;
 }
