@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { dateToString } from "../../utils/DateHelper";
 
-export default function SamityDrawerCashTable({ data, index }) {
+export default function BankCashTable({ data, index }) {
   const { transactionDetails, amount, type } = data;
   const { by, date, sourceDetails } = transactionDetails;
   const { name, phone, type: userType } = by;

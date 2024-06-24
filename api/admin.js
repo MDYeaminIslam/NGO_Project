@@ -597,3 +597,8 @@ export async function drawerCashDetailsBySamityId(samityId) {
   const response = await axiosAdmin.get(`/drawer/samity/${samityId}`);
   return response.data.data;
 }
+// bank cash by id
+export async function bankCashById(id) {
+  const response = await axiosAdmin.get(`/bank/bank/${id}`);
+  return response.data.data;
+}

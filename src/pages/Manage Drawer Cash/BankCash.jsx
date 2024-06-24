@@ -34,7 +34,7 @@ const DrawerCash = () => {
   const user = userDetails(); // Get the user object
 
   const { data: cashDetails } = useQuery({
-    queryKey: ["bank-cash"], // Query key for bank cash details
+    queryKey: ["bank-cash-details"], // Query key for bank cash details
     queryFn: bankCashDetails, // Function to fetch bank cash details
     initialData: [], // Initial data for bank cash
   });
@@ -45,7 +45,7 @@ const DrawerCash = () => {
     useMutationHook(
       addMoneyToBank, // Function to add money to bank
       {
-        key: ["drawer-cash"], // Query key for drawer cash
+        key: ["bank-cash-details"], // Query key for drawer cash
         onSuccess: () => {
           swal("Completed", "Press Ok To Continue", "success"); // Show success message
           setFormData(initialState); // Reset form data
@@ -91,11 +91,12 @@ const DrawerCash = () => {
     mutate(newData); // Submit the form data
   };
 
-  const { data } = useQuery({
-    queryKey: ["drawer-cash"], // Query key for drawer cash
+  const { data, isFetched } = useQuery({
+    queryKey: ["bank-cash"], // Query key for drawer cash
     queryFn: drawerCashDetails, // Function to fetch drawer cash details
     initialData: [], // Initial data for drawer cash
   });
+  console.log(data);
   return (
     <div>
       <section>
@@ -169,7 +170,7 @@ const DrawerCash = () => {
         </section>
       </section>
       {/* Bank Details Card */}
-      {cashDetails.length ? (
+      {isFetched ? (
         cashDetails.map((data, idx) => (
           <BankDetailsCard data={data} key={idx} />
         ))
