@@ -8,6 +8,8 @@ import { MoonLoader } from "react-spinners";
 import toast from "react-hot-toast";
 import useMutationHook from "../../../hooks/useMutationHook";
 import { IconSearch } from "../../../icons/icons";
+import DrawerBankCashSelector from "../../component/DrawerBankCashSelector";
+import { useUserType } from "../../../hooks/userContext";
 const initialState = {
   openingDate: "",
   expiryDate: "",
@@ -18,6 +20,7 @@ const initialState = {
   numberOfInstallment: 0,
   periodOfTimeInMonths: "",
   installmentAmount: 0,
+  payFrom: null,
 };
 
 function calculateNumberOfInstallments(paymentTerm, loanPeriodInMonths) {
@@ -50,25 +53,32 @@ function calculateEmi(totalAmount, paymentTerm, loanPeriodInMonths) {
 
   return [numberOfInstallments, emi.toFixed(2)]; // Round to two decimal places
 }
-{/** ! Component*/ }
+{
+  /** ! Component*/
+}
 const OpenLoanAccount = () => {
   const [formData, setFormData] = useState(initialState);
   const [searchedUser, setSearchedUser] = useState(null);
   const [showLoadingIcon, setShowLoadingIcon] = useState(false);
+  const { userDetails } = useUserType(); // Get user details from user context
+  const user = userDetails();
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(createLoanAccount, {
       onSuccess: () => {
-
-        {/**Rafi */ }
+        {
+          /**Rafi */
+        }
         setFormData(initialState);
         swal("Loan Account Opened Successfully!");
-
       },
     });
   // * handleChange
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const { name, value, type } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "number" ? Number(value) : value,
+    }));
     if (name === "profitPercentage") {
       const { loanAmount } = formData;
       const profit = loanAmount * (value / 100);
@@ -95,6 +105,7 @@ const OpenLoanAccount = () => {
       const userData = await searchUserByPhoneNumber(value);
       console.log(userData);
       if (userData.length) {
+        console.log(userData[0]);
         setShowLoadingIcon(false);
         setSearchedUser(userData[0]);
       } else {
@@ -118,6 +129,7 @@ const OpenLoanAccount = () => {
       samityId: samityId,
       status: status,
       ...formData,
+      openedBy: user,
     };
 
     mutate(data);
@@ -171,18 +183,6 @@ const OpenLoanAccount = () => {
                 />
               </div>
 
-              {/* <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="cycle_no">
-                  Cycle No :
-                </label>
-                <input
-                  className="input input-bordered input-sm  hover:border-teal-500  "
-                  id="cycle_no"
-                  type="text"
-                  placeholder="how many times loan taken"
-                />
-              </div> */}
-
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="loan_amount">
                   Loan Amount:
@@ -190,7 +190,7 @@ const OpenLoanAccount = () => {
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
                   id="loan_amount"
-                  type="text"
+                  type="number"
                   placeholder=""
                   name="loanAmount"
                   onChange={handleChange}
@@ -312,20 +312,10 @@ const OpenLoanAccount = () => {
                   showIcon
                 />
               </div>
-
-              {/* <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="first_due_date">
-                  {" "}
-                  First Due Date:
-                </label>
-                <input
-                  className="input input-bordered input-sm  hover:border-teal-500  "
-                  id="first_due_date"
-                  type="date"
-                  placeholder=""
-                />
-              </div> */}
-
+              <DrawerBankCashSelector
+                samityId={searchedUser ? searchedUser.samityId : null}
+                callBackFn={setFormData}
+              />
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="gurantor_info">
                   Guarantor Info:
