@@ -1,71 +1,32 @@
 import { useEffect, useMemo, useState } from "react";
 import SavingAccountNav from "./SavingAccountNav/SavingAccountNav";
-import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
 import { IconSearch } from "../../../icons/icons";
 import {
-  createDepositAccount,
   createSavingsAccount,
   searchUserByPhoneNumber,
 } from "../../../api/admin";
 import { MoonLoader } from "react-spinners";
 import toast from "react-hot-toast";
 import useMutationHook from "../../../hooks/useMutationHook";
+import { useUserType } from "../../../hooks/userContext";
 const initialState = {
   openingDate: "",
   paymentTerm: "Daily",
   profitPercentage: "",
 };
-const getDepositDates = (periodInMonths, status, perInstallment, profit) => {
-  let installmentCount;
-  const startDate = moment();
-  const endDate = moment().add(periodInMonths, "months");
-  const daysInPeriod = endDate.diff(startDate, "days");
-  console.log({ daysInPeriod });
-  switch (status) {
-    case "Daily":
-      installmentCount = daysInPeriod;
-      break;
-    case "Weekly":
-      installmentCount = Math.ceil(daysInPeriod / 7);
-      break;
-    case "Fortnightly":
-      installmentCount = Math.ceil(daysInPeriod / 14);
-      break;
-    case "Monthly":
-      installmentCount = periodInMonths;
-      break;
-    case "Quarterly":
-      installmentCount = Math.ceil(periodInMonths / 4);
-      break;
-    case "Half-yearly":
-      installmentCount = Math.ceil(periodInMonths / 6);
-      break;
-    case "Yearly":
-      installmentCount = Math.ceil(periodInMonths / 12);
-      break;
-    default:
-      break;
-  }
-  const totalAmount = installmentCount * perInstallment;
-  const profitAmount = (profit / 100) * totalAmount;
-  const maturedAmount = totalAmount + profitAmount;
-
-  return maturedAmount;
-};
 
 const SavingAccounts = () => {
+  const { userDetails } = useUserType(); // Get user details from user context
+  const user = userDetails();
   const [formData, setFormData] = useState(initialState);
   const [searchedUser, setSearchedUser] = useState(null);
   const [showLoadingIcon, setShowLoadingIcon] = useState(false);
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(createSavingsAccount, {
       onSuccess: () => {
-
-        {/**Rafi */ }
         setFormData(initialState);
         swal("Savings Account Opened Successfully!");
-
       },
     });
   // * handleChange
@@ -104,6 +65,7 @@ const SavingAccounts = () => {
       samityId: searchedUser.samityId,
       memberId: searchedUser._id,
       status: status,
+      openedBy: user,
       ...formData,
     };
     mutate(data);

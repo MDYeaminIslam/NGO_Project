@@ -498,7 +498,7 @@ export async function savingsTransactionList(id) {
 }
 
 export async function savingsWithdrawTransactionList(id) {
-  const response = await axiosAdmin.get(`/deposit/withdraw/${id}`);
+  const response = await axiosAdmin.get(`/savings/withdraw/${id}`);
   return response.data.data;
 }
 export async function makeDepositSavings(data) {

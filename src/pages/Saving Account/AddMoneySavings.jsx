@@ -2,13 +2,18 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import useMutationHook from "../../../hooks/useMutationHook";
 import { makeDeposit, makeDepositSavings } from "../../../api/admin";
+import DrawerBankCashSelector from "../../component/DrawerBankCashSelector";
+import { useUserType } from "../../../hooks/userContext";
 const initialData = {
   date: new Date(),
   amount: 0,
   id: null,
   description: "",
+  payFrom: null,
 };
-function AddMoneySavings({ id }) {
+function AddMoneySavings({ id, samityId }) {
+  const { userDetails } = useUserType(); // Get user details from user context
+  const user = userDetails();
   const [formData, setFormData] = useState(initialData);
   const { mutate } = useMutationHook(makeDepositSavings, {
     key: [`saving-account-${id}`, `saving-transactions-${id}`],
@@ -31,6 +36,7 @@ function AddMoneySavings({ id }) {
     let data = {
       ...formData,
       id: id,
+      by: user,
     };
     mutate(data);
   }
@@ -61,6 +67,7 @@ function AddMoneySavings({ id }) {
             />
           </div>
         </div>
+        <DrawerBankCashSelector samityId={samityId} callBackFn={setFormData} />
 
         <div className="w-full flex justify-center  mt-12">
           <button
