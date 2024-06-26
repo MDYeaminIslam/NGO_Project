@@ -10,15 +10,22 @@ import toast from "react-hot-toast";
 import { useState } from "react";
 import LoanManagementNav from "./LoanManagementNav/LoanManagementNav";
 import { dateToString } from "../../utils/DateHelper";
+import DrawerBankCashSelector from "../../component/DrawerBankCashSelector";
+import { useUserType } from "../../../hooks/userContext";
 
 const initialData = {
   amount: 0,
   addFineAmount: 0,
   fineReason: "",
   payFineAmount: 0,
+  by: null,
+  payFrom: null,
+  date: new Date(),
 };
 
 const LoanTransactionPostingDetails = () => {
+  const { userDetails } = useUserType(); // Get user details from user context
+  const user = userDetails();
   const [formData, setFormData] = useState(initialData);
   const { id } = useParams();
   const { data } = useQuery({
@@ -44,7 +51,7 @@ const LoanTransactionPostingDetails = () => {
   }
   function handleSubmit(e) {
     e.preventDefault();
-    let data = { ...formData, loanId: id };
+    let data = { ...formData, loanId: id, by: user };
     mutate(data);
   }
 
@@ -103,6 +110,10 @@ const LoanTransactionPostingDetails = () => {
               />
             </div>
           </div>
+          <DrawerBankCashSelector
+            samityId={data?.loanAccountDetails?.samityId}
+            callBackFn={setFormData}
+          />
 
           <div className="w-full flex justify-center  mt-12">
             <button
@@ -137,8 +148,8 @@ const LoanTransactionPostingDetails = () => {
 
           {data
             ? data.transactionDetails.map((data, idx) => (
-              <TransactionDetailsTable key={idx} data={data} />
-            ))
+                <TransactionDetailsTable key={idx} data={data} />
+              ))
             : null}
         </table>
       </section>
@@ -150,7 +161,6 @@ const DepositAccountCard = ({ data, callBackFn }) => {
 
   return (
     <section className="max-w-5xl mx-auto p-2">
-
       <div
         className="border-2 flex flex-col md:flex-row md:justify-evenly  mt-8"
         onClick={() => callBackFn(_id)}
