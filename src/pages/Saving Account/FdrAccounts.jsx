@@ -13,6 +13,8 @@ import {
 import { MoonLoader } from "react-spinners";
 import toast from "react-hot-toast";
 import useMutationHook from "../../../hooks/useMutationHook";
+import DrawerBankCashSelector from "../../component/DrawerBankCashSelector";
+import { useUserType } from "../../../hooks/userContext";
 const initialState = {
   periodOfTimeInMonths: "",
   openingDate: "",
@@ -25,6 +27,7 @@ const initialState = {
   profitPerInstallment: 0,
   type: "flat",
   totalInstallment: 0,
+  payFrom: null,
 };
 const getDepositDates = (
   periodInMonths,
@@ -60,8 +63,6 @@ const getDepositDates = (
     profit =
       ((amount * (profitPercentage / 100)) / 365) * (periodInMonths * 30);
   }
-  console.log(installmentCount, paymentTerm);
-  console.log(profit);
   return [installmentCount, Math.ceil(profit)];
 };
 
@@ -69,14 +70,13 @@ const Deposit = () => {
   const [formData, setFormData] = useState(initialState);
   const [searchedUser, setSearchedUser] = useState(null);
   const [showLoadingIcon, setShowLoadingIcon] = useState(false);
+  const { userDetails } = useUserType(); // Get user details from user context
+  const user = userDetails();
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(createFdrAccount, {
       onSuccess: () => {
-
-        {/**Rafi */ }
         setFormData(initialState);
         swal("FDR Account Opened Successfully!");
-
       },
     });
   // * handleChange
@@ -96,9 +96,7 @@ const Deposit = () => {
     );
     let mA = formData.amount + profit;
     let profitPerInstalment = profit / installmentCount;
-    // let pI = formData.amount / installmentCount;
-    // console.log(installmentCount);
-    // console.log(profitPerInstalment);
+
     setFormData((prev) => ({
       ...prev,
       onMatureAmount: mA,
@@ -152,6 +150,7 @@ const Deposit = () => {
       samityId: searchedUser.samityId,
       memberId: searchedUser._id,
       status: status,
+      openedBy: user,
       ...formData,
     };
     console.log(data);
@@ -355,7 +354,10 @@ const Deposit = () => {
                   showIcon
                 />
               </div>
-
+              <DrawerBankCashSelector
+                samityId={searchedUser ? searchedUser.samityId : null}
+                callBackFn={setFormData}
+              />
               <div className="flex flex-col gap-1 md:col-span-3"></div>
             </section>
             {isError ? errorMessage : null}
