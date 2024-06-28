@@ -4,11 +4,8 @@ import DatePicker from "react-datepicker";
 import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
 import { IconSearch } from "../../../icons/icons";
-import {
-  createDepositAccount,
-  createDpsAccount,
-  searchUserByPhoneNumber,
-} from "../../../api/admin";
+import { useUserType } from "../../../hooks/userContext";
+import { createDpsAccount, searchUserByPhoneNumber } from "../../../api/admin";
 import { MoonLoader } from "react-spinners";
 import toast from "react-hot-toast";
 import useMutationHook from "../../../hooks/useMutationHook";
@@ -24,11 +21,11 @@ const DpsAccounts = () => {
   const [formData, setFormData] = useState(initialState);
   const [searchedUser, setSearchedUser] = useState(null);
   const [showLoadingIcon, setShowLoadingIcon] = useState(false);
+  const { userDetails } = useUserType(); // Get user details from user context
+  const user = userDetails();
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(createDpsAccount, {
       onSuccess: () => {
-
-        {/**Rafi */ }
         setFormData(initialState);
         swal("DPS Account Opened Successfully!");
       },
@@ -77,6 +74,7 @@ const DpsAccounts = () => {
       samityId: searchedUser.samityId,
       memberId: searchedUser._id,
       status: status,
+      openedBy: user,
       ...formData,
     };
     mutate(data);
