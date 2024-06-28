@@ -602,3 +602,13 @@ export async function bankCashById(id) {
   const response = await axiosAdmin.get(`/bank/bank/${id}`);
   return response.data.data;
 }
+//create expense head
+export async function createExpenseHead(data) {
+  const response = await axiosAdmin.post(`/expense/head/add`, data);
+  return response;
+}
+// get all expense head
+export async function getAllExpenseHead() {
+  const response = await axiosAdmin.get(`/expense/head/all`);
+  return response.data.data;
+}

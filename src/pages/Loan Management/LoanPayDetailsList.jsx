@@ -3,36 +3,44 @@ import { ngoLoanPayment } from "../../../api/admin";
 import useMutationHook from "../../../hooks/useMutationHook";
 import { dateToString } from "../../utils/DateHelper";
 
-const LoanPayDetailsList = ({ data, index }) => {
+const LoanPayDetailsList = ({ data, index, bankCash, drawerCash, user }) => {
   const { amount, date, ngoLoanId, remark, _id, status } = data;
-  console.log(amount);
   const { mutate } = useMutationHook(ngoLoanPayment, {
     key: [`nog-loan-${ngoLoanId}`],
     onSuccess: () => {
       toast.success("Done!");
     },
+    onError: () => {
+      toast.error("Something went wrong!");
+    },
   });
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("done");
+    let payFrom = null;
+    if (bankCash) {
+      payFrom = {
+        type: "bank",
+        _id: bankCash.bankId,
+      };
+    } else {
+      payFrom = {
+        type: "drawer",
+        _id: drawerCash.samityId,
+      };
+    }
+
     const body = {
       ngoLoanId: ngoLoanId,
       transactionId: _id,
       amount: Number(amount.toFixed(2)),
       status: "paid",
+      payFrom: payFrom,
+      by: user,
+      date: new Date(),
     };
     mutate(body);
   }
-  function handleSubmitX(e) {
-    e.preventDefault();
-    console.log("done");
-    const body = {
-      ngoLoanId: ngoLoanId,
-      transactionId: _id,
-      amount: Number(amount.toFixed(2)),
-    };
-    mutate(body);
-  }
+
   return (
     <div className="max-w-5xl mx-auto">
       <section className="mx-1">

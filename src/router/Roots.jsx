@@ -101,6 +101,7 @@ import AddIncomeStatement from "../pages/Income/AddIncomeStatement";
 import BankCash from "../pages/Manage Drawer Cash/BankCash";
 import SamityCashDetails from "../pages/Manage Drawer Cash/SamityCashDetails";
 import BankCashDetails from "../pages/Manage Drawer Cash/BankCashDetails";
+import AddExpenseHead from "../pages/Expense/AddExpenseHead";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -444,6 +445,14 @@ const router = createBrowserRouter([
         element: (
           <AdminRoute roles={[ROLES.Admin]}>
             <MonthlyExpense />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "add_expense_head",
+        element: (
+          <AdminRoute roles={[ROLES.Admin]}>
+            <AddExpenseHead />
           </AdminRoute>
         ),
       },

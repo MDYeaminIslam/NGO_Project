@@ -1,19 +1,19 @@
 import { useState } from "react";
 import useMutationHook from "../../../hooks/useMutationHook";
-import {
-  makeDepositSavings,
-  makeWithdrawDps,
-  makeWithdrawFdr,
-  makeWithdrawSavings,
-} from "../../../api/admin";
+import { makeWithdrawDps } from "../../../api/admin";
 import toast from "react-hot-toast";
+import { useUserType } from "../../../hooks/userContext";
+import DrawerBankCashSelector from "../../component/DrawerBankCashSelector";
 const initialData = {
   date: new Date(),
   amount: 0,
   id: null,
   description: "",
+  payFrom: null,
 };
-function WithdrawMoneyDps({ id }) {
+function WithdrawMoneyDps({ id, samityId }) {
+  const { userDetails } = useUserType(); // Get user details from user context
+  const user = userDetails();
   const [formData, setFormData] = useState(initialData);
   const { mutate } = useMutationHook(makeWithdrawDps, {
     key: [`dps-account-${id}`, `dps-withdraws-${id}`],
@@ -37,6 +37,7 @@ function WithdrawMoneyDps({ id }) {
     let data = {
       ...formData,
       id: id,
+      by: user,
     };
     mutate(data);
   }
@@ -67,7 +68,7 @@ function WithdrawMoneyDps({ id }) {
             />
           </div>
         </div>
-
+        <DrawerBankCashSelector samityId={samityId} callBackFn={setFormData} />
         <div className="w-full flex justify-center  mt-12">
           <button
             className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium  text-white"

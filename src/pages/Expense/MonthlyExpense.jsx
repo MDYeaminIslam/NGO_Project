@@ -6,6 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import useMutationHook from "../../../hooks/useMutationHook";
 import toast from "react-hot-toast";
 import { addMonthlyExpense } from "../../../api/admin";
+import ExpenseHeadSelector from "./ExpenseHeadSelector";
 
 const initialState = {
   branchId: "",
@@ -37,8 +38,9 @@ const MonthlyExpense = () => {
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(addMonthlyExpense, {
       onSuccess: () => {
-
-        {/**Rafi */ }
+        {
+          /**Rafi */
+        }
         setFormData(initialState);
         swal("Monthly Expense Added Successfully!");
       },
@@ -62,6 +64,7 @@ const MonthlyExpense = () => {
         <form className="my-8" action="">
           <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
             <BranchSamitySelector callBackFn={setFormData} />
+            <ExpenseHeadSelector />
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="date">
                 Date(DD/MM/YYYY):
