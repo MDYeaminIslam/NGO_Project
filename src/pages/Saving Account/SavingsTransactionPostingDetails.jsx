@@ -2,15 +2,12 @@ import { useParams } from "react-router-dom";
 import SavingAccountNav from "./SavingAccountNav/SavingAccountNav";
 import { useQuery } from "@tanstack/react-query";
 import {
-  depositTransactionList,
   getSavingAccountDetailsById,
   savingsTransactionList,
   savingsWithdrawTransactionList,
-  withdrawTransactionList,
 } from "../../../api/admin";
 import SavingAccountPerUserDetails from "./SavingAccountPerUserDetails";
-import WithdrawMoney from "./MakeWithDraw";
-import AddMoney from "./AddMoney";
+
 import WithdrawsTable from "./WithdrawsTable";
 import TransactionsTable from "./TransactionsTable";
 import AddMoneySavings from "./AddMoneySavings";
@@ -34,7 +31,7 @@ const SavingsTransactionPostingDetails = () => {
     queryFn: () => savingsWithdrawTransactionList(id),
     initialData: null,
   });
-
+  console.log(withdraws);
   return (
     <>
       <section>
@@ -44,8 +41,14 @@ const SavingsTransactionPostingDetails = () => {
         {data.length ? <SavingAccountPerUserDetails data={data[0]} /> : null}
       </section>
       <section>
-        <AddMoneySavings id={id} />
-        <WithdrawMoneySavings id={id} />
+        <AddMoneySavings
+          id={id}
+          samityId={data.length ? data[0].samityId : null}
+        />
+        <WithdrawMoneySavings
+          id={id}
+          samityId={data.length ? data[0].samityId : null}
+        />
       </section>
       <section>
         <div className="grid  md:grid-cols-2 ">
@@ -64,8 +67,8 @@ const SavingsTransactionPostingDetails = () => {
                 </tr>
                 {transactions
                   ? transactions.map((data, idx) => (
-                    <TransactionsTable data={data} key={idx} index={idx}/>
-                  ))
+                      <TransactionsTable data={data} key={idx} index={idx} />
+                    ))
                   : null}
               </table>
             </div>
@@ -86,8 +89,8 @@ const SavingsTransactionPostingDetails = () => {
                 </tr>
                 {withdraws
                   ? withdraws.map((data, idx) => (
-                    <WithdrawsTable data={data} key={idx} index={idx}/>
-                  ))
+                      <WithdrawsTable data={data} key={idx} index={idx} />
+                    ))
                   : null}
               </table>
             </div>

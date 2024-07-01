@@ -27,7 +27,7 @@ const EditFixedAsset = () => {
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(addAsset, {
       onSuccess: () => {
-        toast.success("Asset Added Successfully!");
+
         swal("Completed", "Press Ok To Continue", "success");
         setFormData(initialState);
       },

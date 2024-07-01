@@ -60,8 +60,8 @@ const AddMember = () => {
     useMutationHook(createMember, {
       key: ["user"],
       onSuccess: () => {
-        toast.success("User added successfully!");
-        swal("User Added Successfully!", "Press Ok To Continue", "success");
+        setFormData(initialState)
+        swal("Member Added Successfully!", "Press Ok To Continue", "Success");
       },
     });
 

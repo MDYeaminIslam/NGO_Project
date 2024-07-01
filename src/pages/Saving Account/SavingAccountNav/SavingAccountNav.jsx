@@ -43,13 +43,13 @@ const SavingAccountNav = () => {
                     className="py-2 text-sm text-black"
                     aria-labelledby="dropdownDefaultButton"
                   >
-                    <li>
+                    {/* <li>
                       <NavLink to={"/deposit"}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
                           Deposit
                         </p>
                       </NavLink>
-                    </li>
+                    </li> */}
                     <li>
                       <NavLink to={"/savings"}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
@@ -110,11 +110,11 @@ const SavingAccountNav = () => {
 
             <div className="hidden md:block ">
               <div className="flex flex-wrap w-full  ">
-                <NavLink to={"/deposit"}>
+                {/* <NavLink to={"/deposit"}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                     Deposit
                   </p>
-                </NavLink>
+                </NavLink> */}
                 <NavLink to={"/savings"}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                     Savings

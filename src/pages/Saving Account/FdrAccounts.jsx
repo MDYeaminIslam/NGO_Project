@@ -13,6 +13,8 @@ import {
 import { MoonLoader } from "react-spinners";
 import toast from "react-hot-toast";
 import useMutationHook from "../../../hooks/useMutationHook";
+import DrawerBankCashSelector from "../../component/DrawerBankCashSelector";
+import { useUserType } from "../../../hooks/userContext";
 const initialState = {
   periodOfTimeInMonths: "",
   openingDate: "",
@@ -25,6 +27,7 @@ const initialState = {
   profitPerInstallment: 0,
   type: "flat",
   totalInstallment: 0,
+  payFrom: null,
 };
 const getDepositDates = (
   periodInMonths,
@@ -60,8 +63,6 @@ const getDepositDates = (
     profit =
       ((amount * (profitPercentage / 100)) / 365) * (periodInMonths * 30);
   }
-  console.log(installmentCount, paymentTerm);
-  console.log(profit);
   return [installmentCount, Math.ceil(profit)];
 };
 
@@ -69,10 +70,13 @@ const Deposit = () => {
   const [formData, setFormData] = useState(initialState);
   const [searchedUser, setSearchedUser] = useState(null);
   const [showLoadingIcon, setShowLoadingIcon] = useState(false);
+  const { userDetails } = useUserType(); // Get user details from user context
+  const user = userDetails();
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(createFdrAccount, {
       onSuccess: () => {
-        toast.success("User added successfully!");
+        setFormData(initialState);
+        swal("FDR Account Opened Successfully!");
       },
     });
   // * handleChange
@@ -92,9 +96,7 @@ const Deposit = () => {
     );
     let mA = formData.amount + profit;
     let profitPerInstalment = profit / installmentCount;
-    // let pI = formData.amount / installmentCount;
-    // console.log(installmentCount);
-    // console.log(profitPerInstalment);
+
     setFormData((prev) => ({
       ...prev,
       onMatureAmount: mA,
@@ -148,6 +150,7 @@ const Deposit = () => {
       samityId: searchedUser.samityId,
       memberId: searchedUser._id,
       status: status,
+      openedBy: user,
       ...formData,
     };
     console.log(data);
@@ -166,7 +169,7 @@ const Deposit = () => {
         {/* input container */}
         <section className="m-4">
           <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
-            Open Deposit Account{" "}
+            Open FDR Account{" "}
           </h1>
           <h1>
             {searchedUser?.status === "pending" ? (
@@ -211,7 +214,7 @@ const Deposit = () => {
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="font-medium " htmlFor="occupation">
+                <label className="font-medium " htmlFor="payment_schedule">
                   Payment Schedule:
                 </label>
                 <select
@@ -219,7 +222,7 @@ const Deposit = () => {
                   name="paymentTerm"
                   className=" input input-bordered input-sm hover:border-teal-500 "
                 >
-                  <option disabled>Select a Value</option>
+                  <option>--Select--</option>
                   <option value="At a Time">At a Time</option>
                   <option value="Monthly">Monthly</option>
                   <option value="Quarterly">Quarterly</option>
@@ -243,7 +246,7 @@ const Deposit = () => {
               </div>
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="profit">
-                  Profit:
+                  Profit (%):
                 </label>
                 <input
                   name="profitPercentage"
@@ -256,7 +259,7 @@ const Deposit = () => {
               </div>
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="period_of_time">
-                  Period of Time(Months):
+                  Period of Time (In Month):
                 </label>
                 <input
                   name="periodOfTimeInMonths"
@@ -279,7 +282,7 @@ const Deposit = () => {
                   className="input input-bordered input-sm  hover:border-teal-500  "
                   id="per_installment"
                   type="number"
-                  placeholder="money amount"
+                  placeholder="Type money amount here"
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -351,12 +354,15 @@ const Deposit = () => {
                   showIcon
                 />
               </div>
-
+              <DrawerBankCashSelector
+                samityId={searchedUser ? searchedUser.samityId : null}
+                callBackFn={setFormData}
+              />
               <div className="flex flex-col gap-1 md:col-span-3"></div>
             </section>
             {isError ? errorMessage : null}
 
-            <div className="md:w-full flex justify-center  mt-8">
+            <div className="md:w-full flex justify-center  mt-10">
               <button
                 className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
                 onClick={handleSubmit}

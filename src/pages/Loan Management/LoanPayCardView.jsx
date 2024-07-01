@@ -76,7 +76,7 @@ const LoanPayCardView = ({ data }) => {
               state={data}
               className="btn btn-sm w-full   bg-emerald-500 text-white "
             >
-              view
+              View More
             </Link>
           </div>
         </div>

@@ -3,10 +3,9 @@ import useMutationHook from "../../../hooks/useMutationHook";
 import { dateToString } from "../../utils/DateHelper";
 import WithdrawMoneyFdr from "./WithdrawMoneyFdr";
 
-function FdrTransactionsTable({ data, index }) {
-  console.log(data);
-
+function FdrTransactionsTable({ data, index, additionalData }) {
   const { date, amount, description, _id, accountId, status } = data;
+
   const { mutate } = useMutationHook(makeWithdrawFdr, {
     key: [`fdr-account-${accountId}`],
   });
@@ -16,6 +15,8 @@ function FdrTransactionsTable({ data, index }) {
       accountId,
       amount,
       transactionId: _id,
+      date: new Date(),
+      ...additionalData,
     };
     mutate(transaction);
   }

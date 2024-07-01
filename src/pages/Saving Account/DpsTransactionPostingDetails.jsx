@@ -5,23 +5,10 @@ import {
   dpsTransactionList,
   fdrWithdrawTransactionList,
   getDpsAccountDetailsById,
-  getFdrAccountDetailsById,
-  getSavingAccountDetailsById,
-  savingsTransactionList,
-  savingsWithdrawTransactionList,
-  withdrawTransactionList,
 } from "../../../api/admin";
-import SavingAccountPerUserDetails, {
-  DpsAccountPerUserDetails,
-  FdrAccountPerUserDetails,
-} from "./SavingAccountPerUserDetails";
-
+import { DpsAccountPerUserDetails } from "./SavingAccountPerUserDetails";
 import WithdrawsTable from "./WithdrawsTable";
 import TransactionsTable from "./TransactionsTable";
-import AddMoneySavings from "./AddMoneySavings";
-import WithdrawMoneySavings from "./WithdrawMoneySavings";
-import AddMoneyFdr from "./AddMoneyFdr";
-import WithdrawMoneyFdr from "./WithdrawMoneyFdr";
 import AddMoneyDps from "./AddMoneyDps";
 import WithdrawMoneyDps from "./WithdrawMoneyDps";
 
@@ -53,8 +40,11 @@ const DpsTransactionPostingDetails = () => {
         {data.length ? <DpsAccountPerUserDetails data={data[0]} /> : null}
       </section>
       <section>
-        <AddMoneyDps id={id} />
-        <WithdrawMoneyDps id={id} />
+        <AddMoneyDps id={id} samityId={data.length ? data[0].samityId : null} />
+        <WithdrawMoneyDps
+          id={id}
+          samityId={data.length ? data[0].samityId : null}
+        />
       </section>
       <section>
         <div className="grid  md:grid-cols-2 ">
@@ -73,7 +63,7 @@ const DpsTransactionPostingDetails = () => {
                 </tr>
                 {transactions
                   ? transactions.map((data, idx) => (
-                      <TransactionsTable data={data} key={idx} index={idx}/>
+                      <TransactionsTable data={data} key={idx} index={idx} />
                     ))
                   : null}
               </table>
@@ -95,7 +85,7 @@ const DpsTransactionPostingDetails = () => {
                 </tr>
                 {withdraws
                   ? withdraws.map((data, idx) => (
-                      <WithdrawsTable data={data} key={idx} index={idx}/>
+                      <WithdrawsTable data={data} key={idx} index={idx} />
                     ))
                   : null}
               </table>

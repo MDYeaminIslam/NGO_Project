@@ -1,16 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams, useLocation } from "react-router-dom";
-import {
-  ngoLoanList,
-  ngoLoanPayment,
-  ngoLoanTransaction,
-} from "../../../api/admin";
+import { ngoLoanPayment, ngoLoanTransaction } from "../../../api/admin";
 import { useState } from "react";
 import useMutationHook from "../../../hooks/useMutationHook";
-
 import toast from "react-hot-toast";
 import LoanPayDetailsList from "./LoanPayDetailsList";
 import Stats from "../../component/Stats";
+import BranchSamitySelector from "../../component/branchSamitySelector";
+import BankSelector from "../../component/bankSelector";
+import { useUserType } from "../../../hooks/userContext";
 const initialState = {
   ngoLoanId: null,
   amount: 0,
@@ -20,6 +18,11 @@ const initialState = {
 
 const LoanPayDetails = () => {
   const [formData, setFormData] = useState(initialState);
+  const { userDetails } = useUserType(); // Get user details from user context
+  const user = userDetails();
+
+  const [drawerCash, setDrawerCash] = useState(null);
+  const [bankCash, setBankCash] = useState(null);
   const { id } = useParams();
   const { data, isFetched } = useQuery({
     queryKey: [`nog-loan-${id}`],
@@ -27,9 +30,7 @@ const LoanPayDetails = () => {
     initialData: [],
   });
 
-  console.log(data);
-
-  const { mutate, errorMessage, isError } = useMutationHook(ngoLoanPayment, {
+  const { mutate } = useMutationHook(ngoLoanPayment, {
     key: [`nog-loan-${id}`],
     onSuccess: () => {
       toast.success("Done!");
@@ -52,7 +53,6 @@ const LoanPayDetails = () => {
       ...formData,
       ngoLoanId: id,
     };
-    console.log(data);
     mutate(data);
   }
   const totalAmount = isFetched ? data.ngoLoanDetails.totalAmount : null;
@@ -61,8 +61,6 @@ const LoanPayDetails = () => {
     ? data.ngoLoanDetails.perInstallment.toFixed(2)
     : null;
   const statsData = { totalAmount, totalPaid, perInstallment, isFetched };
-  console.log(statsData);
-
   return (
     <div className="max-w-5xl mx-auto ">
       <h1 className="  text-lg md:rounded-md bg-teal-700 text-white font-normal  mx-2  mt-4  p-3 text-center ">
@@ -76,6 +74,15 @@ const LoanPayDetails = () => {
         <Stats data={statsData} />
       </div>
 
+      {/* Pay From Section   */}
+      <div>
+        <h1 className="text-xl">Pay From Drawer Cash</h1>
+        <div className="flex ">
+          <BranchSamitySelector callBackFn={setDrawerCash} />
+        </div>
+        <h1>Pay From</h1>
+        <BankSelector callBackFn={setBankCash} />
+      </div>
       <div>
         <div className="max-w-5xl mx-auto">
           <div className=" bg-teal-700 text-white py-4 mx-1 rounded-t-md  ">
@@ -90,7 +97,14 @@ const LoanPayDetails = () => {
         </div>
         {isFetched
           ? data.transactionDetails.map((data, idx) => (
-              <LoanPayDetailsList data={data} key={idx} index={idx} />
+              <LoanPayDetailsList
+                data={data}
+                key={idx}
+                index={idx}
+                drawerCash={drawerCash}
+                bankCash={bankCash}
+                user={user}
+              />
             ))
           : null}
       </div>

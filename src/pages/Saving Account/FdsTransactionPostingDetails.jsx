@@ -2,29 +2,23 @@ import { useParams } from "react-router-dom";
 import SavingAccountNav from "./SavingAccountNav/SavingAccountNav";
 import { useQuery } from "@tanstack/react-query";
 import {
-  depositTransactionList,
   fdrTransactionList,
-  fdrWithdrawTransactionList,
   getFdrAccountDetailsById,
-  getSavingAccountDetailsById,
-  savingsTransactionList,
-  savingsWithdrawTransactionList,
-  withdrawTransactionList,
 } from "../../../api/admin";
-import SavingAccountPerUserDetails, {
-  FdrAccountPerUserDetails,
-} from "./SavingAccountPerUserDetails";
-
-import WithdrawsTable from "./WithdrawsTable";
-import TransactionsTable from "./TransactionsTable";
-import AddMoneySavings from "./AddMoneySavings";
-import WithdrawMoneySavings from "./WithdrawMoneySavings";
-import AddMoneyFdr from "./AddMoneyFdr";
-import WithdrawMoneyFdr from "./WithdrawMoneyFdr";
+import { FdrAccountPerUserDetails } from "./SavingAccountPerUserDetails";
+import { useUserType } from "../../../hooks/userContext";
 import FdrTransactionsTable from "./FdrTransactionTable";
-
+import DrawerBankCashSelector from "../../component/DrawerBankCashSelector";
+import { useEffect, useState } from "react";
+const initialData = {
+  payFrom: null,
+  by: null,
+};
 const FdrTransactionPostingDetails = () => {
   const { id } = useParams();
+  const [formData, setFormData] = useState(initialData);
+  const { userDetails } = useUserType(); // Get user details from user context
+  const user = userDetails();
   const { data } = useQuery({
     queryKey: [`fdr-account-${id}`],
     queryFn: () => getFdrAccountDetailsById(id),
@@ -36,6 +30,9 @@ const FdrTransactionPostingDetails = () => {
     queryFn: () => fdrTransactionList(id),
     initialData: null,
   });
+  useEffect(() => {
+    setFormData((prev) => ({ ...prev, by: user }));
+  }, []);
 
   return (
     <>
@@ -45,7 +42,12 @@ const FdrTransactionPostingDetails = () => {
       <section>
         {data.length ? <FdrAccountPerUserDetails data={data[0]} /> : null}
       </section>
-
+      <section>
+        <DrawerBankCashSelector
+          samityId={data.length ? data[0].samityId : null}
+          callBackFn={setFormData}
+        />
+      </section>
       <section>
         <div className="">
           <section className="mt-12">
@@ -63,7 +65,12 @@ const FdrTransactionPostingDetails = () => {
               </div>
               {transactions
                 ? transactions.map((data, idx) => (
-                    <FdrTransactionsTable data={data} key={idx} index={idx} />
+                    <FdrTransactionsTable
+                      data={data}
+                      key={idx}
+                      index={idx}
+                      additionalData={formData}
+                    />
                   ))
                 : null}
             </div>

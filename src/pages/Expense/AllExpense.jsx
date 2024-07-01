@@ -15,6 +15,7 @@ const AllExpense = () => {
   const [expenses, setExpenses] = useState([]);
   const { mutate, isPending } = useMutationHook(getAllExpenses, {
     onSuccess: (data) => {
+
       setExpenses(data);
       setFormData(initalState);
     },

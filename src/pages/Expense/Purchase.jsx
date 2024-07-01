@@ -12,6 +12,7 @@ const initialState = {
   samityId: "",
   date: "",
   expenseName: "",
+  voucharNo: "",
   description: "",
   unitAmount: 0,
   unitPrice: 0,
@@ -28,7 +29,7 @@ const Purchase = () => {
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(createPurchaseExpense, {
       onSuccess: () => {
-        swal("Purchase Add Successfully", "Press Ok To Continue", "success");
+        swal("Purchase Added Successfully", "Press Ok To Continue", "success");
         setFormData(initialState);
       },
     });
@@ -74,7 +75,7 @@ const Purchase = () => {
       </section>
       <section className="m-4">
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
-          Open Purchase{" "}
+          Add Purchase{" "}
         </h1>
         <form className="my-8">
           <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
@@ -102,10 +103,33 @@ const Purchase = () => {
                 name="expenseName"
                 onChange={handleChange}
                 type="text"
-                placeholder="type expense name here"
+                placeholder="Type expense name here"
                 value={formData.expenseName}
               />
             </div>
+
+            {/**---------------------------
+             * Rafi start 
+             * ----------------------------*/}
+
+            <div className="flex flex-col gap-1">
+              <label className="font-medium" htmlFor="vouchar_no">
+                Vouchar No:
+              </label>
+              <input
+                className="input input-bordered input-sm  hover:border-teal-500  "
+                id="vouchar_no"
+                name="voucharNo"
+                onChange={handleChange}
+                type="number"
+                placeholder="Type vouchar no here"
+                value={formData.voucharNo}
+              />
+            </div>
+
+            {/**---------------------------
+             * Rafi end 
+             * ----------------------------*/}
 
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="description">

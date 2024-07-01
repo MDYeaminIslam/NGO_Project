@@ -5,7 +5,6 @@ import { useRef, useState } from 'react';
 import { useReactToPrint } from 'react-to-print';
 // react print
 
-
 const MemberCards = ({ data }) => {
     const { name,
         fathersName,
@@ -55,7 +54,7 @@ const MemberCards = ({ data }) => {
             <section ref={componentRef} className="p-4 max-w-5xl mx-auto  md:mt-8 rounded ">
                 {print &&
                     <div className={``} >
-                        <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur commodi, nisi quasi nam, nesciunt molestias suscipit quibusdam recusandae aperiam necessitatibus in, laudantium quam autem ipsa voluptas debitis. Rem, veritatis beatae!</h1>
+                        <h1></h1>
                     </div>
                 }
                 <div className="flex flex-col md:flex-row gap-4 border-b-4 pb-4">
@@ -210,10 +209,46 @@ const MemberCards = ({ data }) => {
                                     <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Occupation:</td>
                                     <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{nomineeOccupation}</td>
                                 </tr>
+
                             </tbody>
                         </table>
                     </div>
+                </section>
+                <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
+                    Details
+                </h1>
+                <section>
+                    <div className="container mx-auto py-4">
+                        <table className="min-w-full bg-base-100 border">
+                            <tbody>
+                                <tr className="border-b bg-teal-500 text-white">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Title</td>
+                                    <td className="p-2 text-base font-bold" style={{ width: '60%' }}>Description</td>
+                                </tr>
+                                <tr className="border-b">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Name:</td>
+                                    <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{nomineeName}</td>
+                                </tr>
+                                <tr className="border-b">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Address:</td>
+                                    <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{nomineeAddress}</td>
+                                </tr>
+                                <tr className="border-b">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Relation:</td>
+                                    <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{nomineeRelation}</td>
+                                </tr>
+                                <tr className="border-b">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Share:</td>
+                                    <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{nomineeShare}</td>
+                                </tr>
+                                <tr className="border-b">
+                                    <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Occupation:</td>
+                                    <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{nomineeOccupation}</td>
+                                </tr>
 
+                            </tbody>
+                        </table>
+                    </div>
                 </section>
                 <div className="divider"></div>
 

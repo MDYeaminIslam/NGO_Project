@@ -4,7 +4,11 @@ import BranchesNav from "./BranchesNav/BranchesNav";
 import useMutationHook from "../../../hooks/useMutationHook";
 import { addSamity } from "../../../api/admin";
 import toast from "react-hot-toast";
+<<<<<<< HEAD
 
+=======
+import swal from "sweetalert";
+>>>>>>> a33ed3a07fa625b33c9dda4ae9a7c86e116ecfd0
 const initialState = {
   samityName: "",
   samityCode: "",
@@ -18,8 +22,11 @@ const AddNewSamity = () => {
     useMutationHook(addSamity, {
       key: ["samity"],
       onSuccess: () => {
-        toast.success('New Samity Added Successfully');
+
+        {/**Rafi */ }
         setFormData(initialState);
+        swal('New Samity Added Successfully');
+
       }
     });
   const handleChange = (e) => {
@@ -67,7 +74,7 @@ const AddNewSamity = () => {
               
             />
           </div> */}
-          <div className="w-full flex flex-col md:flex-row gap-1">
+          <div className="w-full flex flex-col md:flex-row gap-1 font-medium">
             <BranchSelector callBackFn={setFormData} />
           </div>
 
@@ -124,7 +131,7 @@ const AddNewSamity = () => {
           </div>
         </div>
 
-        <div className="w-full flex justify-center  mt-12">
+        <div className="w-full flex justify-center  mt-24">
           <button onClick={handleSubmit}
             className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium     text-white" >
             submit

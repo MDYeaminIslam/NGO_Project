@@ -39,7 +39,7 @@ const PaySlip = () => {
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(createMonthlyPaySlipApplication, {
       onSuccess: () => {
-        toast.success("successfully!");
+
         swal("Completed!", "Press Ok To Continue", "success");
         setFormData(initialState);
       },
@@ -158,7 +158,7 @@ const PaySlip = () => {
                     className="grow  "
                     placeholder="Search"
                     onChange={handleSearchUser}
-                    
+
                   />
                   {!showLoadingIcon ? (
                     <IconSearch className="w-6 h-6 opacity-50" />
