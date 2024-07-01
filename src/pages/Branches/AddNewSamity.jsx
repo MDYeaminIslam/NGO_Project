@@ -4,14 +4,16 @@ import BranchesNav from "./BranchesNav/BranchesNav";
 import useMutationHook from "../../../hooks/useMutationHook";
 import { addSamity } from "../../../api/admin";
 import toast from "react-hot-toast";
+
 const initialState = {
   samityName: "",
   samityCode: "",
   address: "",
   branchId: "",
 };
+
 const AddNewSamity = () => {
-  const [formData, setFormData] = useState();
+  const [formData, setFormData] = useState(initialState);
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(addSamity, {
       key: ["samity"],
@@ -78,6 +80,7 @@ const AddNewSamity = () => {
               id="name"
               type="text"
               name="samityName"
+              value={formData.samityName}
               onChange={handleChange}
             />
           </div>
@@ -91,6 +94,7 @@ const AddNewSamity = () => {
               id="relation_with_member"
               type="text"
               name="samityCode"
+              value={formData.samityCode}
               onChange={handleChange}
             />
           </div>
@@ -104,6 +108,7 @@ const AddNewSamity = () => {
               id="share"
               type="text"
               name="address"
+              value={formData.address}
               onChange={handleChange}
             />
           </div>

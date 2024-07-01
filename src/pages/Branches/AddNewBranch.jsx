@@ -53,6 +53,7 @@ const AddNewBranch = () => {
             <input
               className="input input-bordered input-sm  hover:border-teal-500  "
               name="branchName"
+              value={formData.branchName}
               type="text"
               onChange={handleChange}
             />
@@ -65,6 +66,7 @@ const AddNewBranch = () => {
             <input
               className="input input-bordered input-sm  hover:border-teal-500  "
               name="branchCode"
+              value={formData.branchCode}
               type="text"
               onChange={handleChange}
             />
@@ -77,6 +79,7 @@ const AddNewBranch = () => {
             <input
               className="input input-bordered input-sm  hover:border-teal-500  "
               name="address"
+              value={formData.address}
               type="text"
               onChange={handleChange}
             />
