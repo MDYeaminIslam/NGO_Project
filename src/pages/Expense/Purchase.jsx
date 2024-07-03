@@ -3,45 +3,49 @@ import ExpenseNav from "./ExpenseNav/ExpenseNav";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useEffect, useMemo, useState } from "react";
-import { createPurchaseExpense } from "../../../api/admin";
+import { createAssetExpense, createPurchaseExpense } from "../../../api/admin";
 import useMutationHook from "../../../hooks/useMutationHook";
 import swal from "sweetalert";
 import AssetHeadSelector from "./AssetHeadSelector";
+import DrawerBankCashSelector from "../../component/DrawerBankCashSelector";
+import { useUserType } from "../../../hooks/userContext";
+
 const initialState = {
   branchId: "",
   samityId: "",
   date: "",
-  expenseName: "",
-  voucharNo: "",
   unitAmount: 0,
   unitPrice: 0,
   tds: 0,
   tax: 0,
   vat: 0,
-  status: "paid",
   remarks: "",
-  totalPayment: 0,
+  total: 0,
   headId: "",
-  description: "",
+  appreciation: 0,
+  depreciation: 0,
+  payFrom: null,
 };
 
 const Purchase = () => {
   const [formData, setFormData] = useState(initialState);
+  const { userDetails } = useUserType(); // Get user details from user context
+  const user = userDetails();
   const { mutate, isSuccess, isError, errorMessage, isPending } =
-    useMutationHook(createPurchaseExpense, {
+    useMutationHook(createAssetExpense, {
       onSuccess: () => {
         swal("Purchase Added Successfully", "Press Ok To Continue", "success");
         setFormData(initialState);
       },
     });
-  const totalPayment = useMemo(() => {
+  const totalMemo = useMemo(() => {
     const productCost = formData.unitAmount * formData.unitPrice;
     const total =
       productCost +
       (productCost * formData.tds) / 100 +
       (productCost * formData.vat) / 100 +
       (productCost * formData.tax) / 100;
-    setFormData((prev) => ({ ...prev, totalPayment: total }));
+    setFormData((prev) => ({ ...prev, total: total }));
     return total;
   }, [
     formData.unitAmount,
@@ -51,9 +55,9 @@ const Purchase = () => {
     formData.tax,
   ]);
   const handleChange = (event) => {
-    const { name, value } = event.target;
+    const { name, value, type } = event.target;
     setFormData((prev) => {
-      return { ...prev, [name]: value };
+      return { ...prev, [name]: type === "number" ? Number(value) : value };
     });
   };
   const handleChangeDate = (date) => {
@@ -64,7 +68,11 @@ const Purchase = () => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    mutate(formData);
+    const newData = {
+      ...formData,
+      by: user,
+    };
+    mutate(newData);
   };
   useEffect(() => {
     setFormData((prev) => ({ ...prev, date: new Date() }));
@@ -82,6 +90,10 @@ const Purchase = () => {
           <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
             <BranchSamitySelector callBackFn={setFormData} />
             <AssetHeadSelector callBackFn={setFormData} />
+            <DrawerBankCashSelector
+              samityId={formData.samityId}
+              callBackFn={setFormData}
+            />
 
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="date">
@@ -92,21 +104,6 @@ const Purchase = () => {
                 onChange={handleChangeDate}
                 className="border-2 hover:border-teal-500 rounded "
                 dateFormat="dd/MM/yyyy"
-              />
-            </div>
-
-            <div className="flex flex-col gap-1">
-              <label className="font-medium" htmlFor="vouchar_no">
-                Vouchar No:
-              </label>
-              <input
-                className="input input-bordered input-sm  hover:border-teal-500  "
-                id="vouchar_no"
-                name="voucharNo"
-                onChange={handleChange}
-                type="number"
-                placeholder="Type vouchar no here"
-                value={formData.voucharNo}
               />
             </div>
 
@@ -185,34 +182,42 @@ const Purchase = () => {
               />
             </div>
             <div className="flex flex-col gap-1">
-              <label className="font-medium" htmlFor="totalPayment">
+              <label className="font-medium" htmlFor="total">
                 Total Payment:
               </label>
               <input
                 className="input input-bordered input-sm  hover:border-teal-500  "
-                id="totalPayment"
+                id="total"
                 type="number"
-                value={formData.totalPayment}
+                value={formData.total}
                 disabled
               />
             </div>
-
             <div className="flex flex-col gap-1">
-              <label className="font-medium " htmlFor="status">
-                Status:
+              <label className="font-medium" htmlFor="appreciation">
+                Appreciation Price:
               </label>
-              <select
-                id="status"
-                name="status"
+              <input
+                className="input input-bordered input-sm  hover:border-teal-500  "
+                id="appreciation"
+                name="appreciation"
+                type="number"
                 onChange={handleChange}
-                className=" input input-bordered input-sm hover:border-teal-500 "
-              >
-                <option disabled defaultValue>
-                  --Select--
-                </option>
-                <option value="paid">Paid</option>
-                <option value="unpaid">Unpaid</option>
-              </select>
+                value={formData.appreciation}
+              />
+            </div>
+            <div className="flex flex-col gap-1">
+              <label className="font-medium" htmlFor="depreciation">
+                Depreciation Price:
+              </label>
+              <input
+                className="input input-bordered input-sm  hover:border-teal-500  "
+                id="depreciation"
+                name="depreciation"
+                type="number"
+                onChange={handleChange}
+                value={formData.depreciation}
+              />
             </div>
 
             <div className="flex flex-col gap-1">

@@ -622,3 +622,8 @@ export async function getAllAssetHead() {
   const response = await axiosAdmin.get(`/asset/head/all`);
   return response.data.data;
 }
+// create asset 
+export async function createAssetExpense(data) {
+  const response = await axiosAdmin.post("/asset/add", data);
+  return response.data;
+}
