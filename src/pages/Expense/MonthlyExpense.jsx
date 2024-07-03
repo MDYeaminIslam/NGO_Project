@@ -4,28 +4,28 @@ import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import useMutationHook from "../../../hooks/useMutationHook";
-import toast from "react-hot-toast";
 import { addMonthlyExpense } from "../../../api/admin";
 import ExpenseHeadSelector from "./ExpenseHeadSelector";
-
+import { useUserType } from "../../../hooks/userContext";
+import DrawerBankCashSelector from "../../component/DrawerBankCashSelector";
 const initialState = {
   branchId: "",
   samityId: "",
   date: "",
-  officeRent: "",
-  salary: "",
-  stationaryAndPrinting: "",
-  taDaAllowances: "",
-  anyBill: "",
+  headId: "",
+  amount: "",
   remarks: "",
+  payFrom: null,
 };
 
 const MonthlyExpense = () => {
   const [formData, setFormData] = useState(initialState);
+  const { userDetails } = useUserType(); // Get user details from user context
+  const user = userDetails();
   const handleChange = (event) => {
-    const { name, value } = event.target;
+    const { name, value, type } = event.target;
     setFormData((prev) => {
-      return { ...prev, [name]: value };
+      return { ...prev, [name]: type === "number" ? Number(value) : value };
     });
   };
   const handleChangeDate = (date) => {
@@ -38,16 +38,17 @@ const MonthlyExpense = () => {
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(addMonthlyExpense, {
       onSuccess: () => {
-        {
-          /**Rafi */
-        }
         setFormData(initialState);
         swal("Monthly Expense Added Successfully!");
       },
     });
   const handleSubmit = (event) => {
     event.preventDefault();
-    mutate(formData);
+    const newData = {
+      ...formData,
+      by: user,
+    };
+    mutate(newData);
   };
   useEffect(() => {
     setFormData((prev) => ({ ...prev, date: new Date() }));
@@ -64,7 +65,11 @@ const MonthlyExpense = () => {
         <form className="my-8" action="">
           <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
             <BranchSamitySelector callBackFn={setFormData} />
-            <ExpenseHeadSelector />
+            <ExpenseHeadSelector callBackFn={setFormData} />
+            <DrawerBankCashSelector
+              callBackFn={setFormData}
+              samityId={formData.samityId}
+            />
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="date">
                 Date(DD/MM/YYYY):
@@ -78,72 +83,16 @@ const MonthlyExpense = () => {
             </div>
 
             <div className="flex flex-col gap-1">
-              <label className="font-medium" htmlFor="office_rent">
-                Office Rent:
+              <label className="font-medium" htmlFor="amount">
+                Amount
               </label>
               <input
                 className="input input-bordered input-sm  hover:border-teal-500  "
-                id="office_rent"
-                name="officeRent"
+                id="amount"
+                name="amount"
                 onChange={handleChange}
                 type="number"
-                placeholder="Tk"
-              />
-            </div>
-
-            <div className="flex flex-col gap-1">
-              <label className="font-medium" htmlFor="salary">
-                Salary:
-              </label>
-              <input
-                className="input input-bordered input-sm  hover:border-teal-500  "
-                id="salary"
-                name="salary"
-                onChange={handleChange}
-                type="number"
-                placeholder="Tk"
-              />
-            </div>
-
-            <div className="flex flex-col gap-1">
-              <label className="font-medium" htmlFor="stationery">
-                Stationery & Printing:
-              </label>
-              <input
-                className="input input-bordered input-sm  hover:border-teal-500  "
-                id="stationery"
-                name="stationaryAndPrinting"
-                onChange={handleChange}
-                type="number"
-                placeholder="Type here"
-              />
-            </div>
-
-            <div className="flex flex-col gap-1">
-              <label className="font-medium" htmlFor="ta/da">
-                TA/DA Allowances:
-              </label>
-              <input
-                className="input input-bordered input-sm  hover:border-teal-500  "
-                id="ta/da"
-                name="taDaAllowances"
-                onChange={handleChange}
-                type="number"
-                placeholder="Enter TA/DA here"
-              />
-            </div>
-
-            <div className="flex flex-col gap-1">
-              <label className="font-medium" htmlFor="bill">
-                Any Bill:
-              </label>
-              <input
-                className="input input-bordered input-sm  hover:border-teal-500  "
-                id="bill"
-                name="anyBill"
-                onChange={handleChange}
-                type="number"
-                placeholder="Enter any bill here"
+                placeholder="Enter Amount"
               />
             </div>
 

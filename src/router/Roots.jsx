@@ -102,6 +102,7 @@ import BankCash from "../pages/Manage Drawer Cash/BankCash";
 import SamityCashDetails from "../pages/Manage Drawer Cash/SamityCashDetails";
 import BankCashDetails from "../pages/Manage Drawer Cash/BankCashDetails";
 import AddExpenseHead from "../pages/Expense/AddExpenseHead";
+import AddAssetHead from "../pages/Expense/AddAssetHead";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -453,6 +454,14 @@ const router = createBrowserRouter([
         element: (
           <AdminRoute roles={[ROLES.Admin]}>
             <AddExpenseHead />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "add_asset_head",
+        element: (
+          <AdminRoute roles={[ROLES.Admin]}>
+            <AddAssetHead />
           </AdminRoute>
         ),
       },

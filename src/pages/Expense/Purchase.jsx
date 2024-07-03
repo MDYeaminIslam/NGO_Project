@@ -5,15 +5,14 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useEffect, useMemo, useState } from "react";
 import { createPurchaseExpense } from "../../../api/admin";
 import useMutationHook from "../../../hooks/useMutationHook";
-import toast from "react-hot-toast";
-import swal from 'sweetalert';
+import swal from "sweetalert";
+import AssetHeadSelector from "./AssetHeadSelector";
 const initialState = {
   branchId: "",
   samityId: "",
   date: "",
   expenseName: "",
   voucharNo: "",
-  description: "",
   unitAmount: 0,
   unitPrice: 0,
   tds: 0,
@@ -22,6 +21,8 @@ const initialState = {
   status: "paid",
   remarks: "",
   totalPayment: 0,
+  headId: "",
+  description: "",
 };
 
 const Purchase = () => {
@@ -80,6 +81,7 @@ const Purchase = () => {
         <form className="my-8">
           <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
             <BranchSamitySelector callBackFn={setFormData} />
+            <AssetHeadSelector callBackFn={setFormData} />
 
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="date">
@@ -94,25 +96,6 @@ const Purchase = () => {
             </div>
 
             <div className="flex flex-col gap-1">
-              <label className="font-medium" htmlFor="expense_name">
-                Expense Name:
-              </label>
-              <input
-                className="input input-bordered input-sm  hover:border-teal-500  "
-                id="expense_name"
-                name="expenseName"
-                onChange={handleChange}
-                type="text"
-                placeholder="Type expense name here"
-                value={formData.expenseName}
-              />
-            </div>
-
-            {/**---------------------------
-             * Rafi start 
-             * ----------------------------*/}
-
-            <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="vouchar_no">
                 Vouchar No:
               </label>
@@ -125,25 +108,6 @@ const Purchase = () => {
                 placeholder="Type vouchar no here"
                 value={formData.voucharNo}
               />
-            </div>
-
-            {/**---------------------------
-             * Rafi end 
-             * ----------------------------*/}
-
-            <div className="flex flex-col gap-1">
-              <label className="font-medium" htmlFor="description">
-                Description:
-              </label>
-              <textarea
-                className="input input-bordered hover:border-teal-500 "
-                id="description"
-                name="description"
-                onChange={handleChange}
-                cols="10"
-                rows="1"
-                value={formData.description}
-              ></textarea>
             </div>
 
             <div className="flex flex-col gap-1">

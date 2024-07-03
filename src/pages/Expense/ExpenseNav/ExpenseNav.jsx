@@ -73,6 +73,13 @@ const ExpenseNav = () => {
                         </p>
                       </NavLink>
                     </li>
+                    <li>
+                      <NavLink to={"/add_asset_head"}>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                          Add Asset Purchase Head
+                        </p>
+                      </NavLink>
+                    </li>
                   </ul>
                 </div>
               )}
@@ -97,9 +104,15 @@ const ExpenseNav = () => {
                     Purchase
                   </p>
                 </NavLink>
+
                 <NavLink to={"/add_expense_head"}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                     Add Expense Head
+                  </p>
+                </NavLink>
+                <NavLink to={"/add_asset_head"}>
+                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    Add Asset Purchase Head
                   </p>
                 </NavLink>
               </div>

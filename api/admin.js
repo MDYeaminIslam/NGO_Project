@@ -612,3 +612,13 @@ export async function getAllExpenseHead() {
   const response = await axiosAdmin.get(`/expense/head/all`);
   return response.data.data;
 }
+//create asset head
+export async function createAssetHead(data) {
+  const response = await axiosAdmin.post(`/asset/head/add`, data);
+  return response;
+}
+// get all asset head
+export async function getAllAssetHead() {
+  const response = await axiosAdmin.get(`/asset/head/all`);
+  return response.data.data;
+}
