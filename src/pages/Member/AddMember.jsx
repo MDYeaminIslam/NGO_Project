@@ -133,6 +133,7 @@ const AddMember = () => {
   }
   const handleChange = (e) => {
     const { name, value, files, type } = e.target;
+    console.log(name, value, files, type);
     setFormData((prev) => ({
       ...prev,
       [name]: type === "file" ? files[0] : value,
@@ -400,7 +401,6 @@ const AddMember = () => {
                     type="file"
                     name="nidPhotoFront"
                     required
-                    value={formData.nidPhotoFront}
                   />
                 </div>
 
@@ -418,7 +418,6 @@ const AddMember = () => {
                     type="file"
                     name="nidPhotoBack"
                     required
-                    value={formData.nidPhotoBack}
                   />
                 </div>
               </>
@@ -444,7 +443,7 @@ const AddMember = () => {
                     type="number"
                     name="birthCertificateNumber"
                     required
-                    value={formData.birthCertificateNumber}
+                    value={formData.birthCertificate.birthCertificateNumber}
                   />
                 </div>
 
@@ -462,7 +461,6 @@ const AddMember = () => {
                     type="file"
                     name="photo"
                     required
-                    value={formData.photo}
                   />
                 </div>
               </>
@@ -588,7 +586,6 @@ const AddMember = () => {
                 type="file"
                 name="photo"
                 required
-                value={formData.photo}
               />
             </div>
 
@@ -680,22 +677,7 @@ const AddMember = () => {
                   type="text"
                   name="name"
                   required
-                  value={formData.name}
-                />
-              </div>
-
-              <div className="flex flex-col gap-1">
-                <label className="font-medium" htmlFor="age">
-                  Age:{" "}
-                </label>
-                <input
-                  onChange={handleChangeNominie}
-                  className="input input-bordered input-sm  hover:border-teal-500"
-                  id="age"
-                  type="number"
-                  name="age"
-                  required
-                  value={formData.age}
+                  value={formData.nominee.name}
                 />
               </div>
 
@@ -712,6 +694,7 @@ const AddMember = () => {
                   rows="2"
                   className="input input-bordered input-sm  hover:border-teal-500  "
                   required
+                  value={formData.nominee.address}
                 />
               </div>
 
@@ -730,7 +713,7 @@ const AddMember = () => {
                   type="number"
                   name="phoneNumber"
                   required
-                  value={formData.phoneNumber}
+                  value={formData.nominee.phoneNumber}
                 />
               </div>
 
@@ -745,7 +728,6 @@ const AddMember = () => {
                   type="file"
                   name="photo"
                   required
-                  value={formData.photo}
                 />
               </div>
 
@@ -784,7 +766,7 @@ const AddMember = () => {
                       type="number"
                       name="nidNumber"
                       required
-                      value={formData.nidNumber}
+                      value={formData.nominee.nidDetails.nidNumber}
                     />
                   </div>
 
@@ -802,7 +784,6 @@ const AddMember = () => {
                       type="file"
                       name="nidPhotoFront"
                       required
-                      value={formData.nidPhotoFront}
                     />
                   </div>
 
@@ -820,7 +801,6 @@ const AddMember = () => {
                       type="file"
                       name="nidPhotoBack"
                       required
-                      value={formData.nidPhotoBack}
                     />
                   </div>
                 </>
@@ -846,7 +826,9 @@ const AddMember = () => {
                       type="number"
                       name="birthCertificateNumber"
                       required
-                      value={formData.birthCertificateNumber}
+                      value={
+                        formData.nominee.birthCertificate.birthCertificateNumber
+                      }
                     />
                   </div>
 
@@ -864,7 +846,6 @@ const AddMember = () => {
                       type="file"
                       name="photo"
                       required
-                      value={formData.photo}
                     />
                   </div>
                 </>
@@ -885,7 +866,7 @@ const AddMember = () => {
                   type="text"
                   name="relation"
                   required
-                  value={formData.relation}
+                  value={formData.nominee.relation}
                 />
               </div>
 
@@ -900,7 +881,7 @@ const AddMember = () => {
                   type="number"
                   name="share"
                   required
-                  value={formData.share}
+                  value={formData.nominee.share}
                 />
               </div>
 
@@ -914,7 +895,7 @@ const AddMember = () => {
                   id="occupation"
                   type="text"
                   name="occupation"
-                  value={formData.occupation}
+                  value={formData.nominee.occupation}
                 />
               </div>
             </section>
