@@ -98,7 +98,7 @@ const MobileNav = () => {
                 </li>
                 <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
                   {role == "admin" || role == "collector" ? (
-                    <NavLink to={"/deposit"}>
+                    <NavLink to={"/savings"}>
                       <p className="flex items-center p-2 space-x-3 rounded-md">
                         <img
                           className="w-4"

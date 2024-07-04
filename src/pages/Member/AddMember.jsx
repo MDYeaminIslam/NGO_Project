@@ -7,6 +7,7 @@ import useMutationHook from "../../../hooks/useMutationHook";
 import { createMember } from "../../../api/admin";
 import toast from "react-hot-toast";
 import swal from "sweetalert";
+import { useUserType } from "../../../hooks/userContext";
 const birthCertificate = {
   birthCertificateNumber: "",
   photo: "",
@@ -56,6 +57,8 @@ const initialState = {
   },
 };
 const AddMember = () => {
+  const { userDetails } = useUserType(); // Get user details from user context
+  const user = userDetails();
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(createMember, {
       key: ["user"],
@@ -89,7 +92,12 @@ const AddMember = () => {
         ...prev,
         nidDetails: {
           ...prev.nidDetails,
-          [name]: type === "file" ? files[0] : value,
+          [name]:
+            type === "file"
+              ? files[0]
+              : type === "number"
+              ? Number(value)
+              : value,
         },
       }));
     } else {
@@ -97,7 +105,12 @@ const AddMember = () => {
         ...prev,
         birthCertificate: {
           ...prev.birthCertificate,
-          [name]: type === "file" ? files[0] : value,
+          [name]:
+            type === "file"
+              ? files[0]
+              : type === "number"
+              ? Number(value)
+              : value,
         },
       }));
     }
@@ -113,7 +126,12 @@ const AddMember = () => {
           ...prev.nominee,
           nidDetails: {
             ...prev.nominee.nidDetails,
-            [name]: type === "file" ? files[0] : value,
+            [name]:
+              type === "file"
+                ? files[0]
+                : type === "number"
+                ? Number(value)
+                : value,
           },
         },
       }));
@@ -125,7 +143,12 @@ const AddMember = () => {
           ...prev.nominee,
           birthCertificate: {
             ...prev.nominee.birthCertificate,
-            [name]: type === "file" ? files[0] : value,
+            [name]:
+              type === "file"
+                ? files[0]
+                : type === "number"
+                ? Number(value)
+                : value,
           },
         },
       }));
@@ -136,7 +159,8 @@ const AddMember = () => {
     console.log(name, value, files, type);
     setFormData((prev) => ({
       ...prev,
-      [name]: type === "file" ? files[0] : value,
+      [name]:
+        type === "file" ? files[0] : type === "number" ? Number(value) : value,
     }));
   };
 
@@ -180,6 +204,7 @@ const AddMember = () => {
     mock = {
       t1: selectedDocumentType,
       t2: nomineeSelectedType,
+      openedBy: user,
       ...mock,
     };
 

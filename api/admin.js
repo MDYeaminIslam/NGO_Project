@@ -445,12 +445,15 @@ export async function getDepositAccountDetailsById(id) {
 
 //pay loan from deposit account
 export async function payLoanFromDepositAccount(data) {
-  const { depositAccountId, loanAccountId, amount } = data;
+  const { depositAccountId, loanAccountId, amount, payFrom, by } = data;
   const withdrawBody = {
     id: depositAccountId,
     date: new Date(),
     amount: amount,
-    description: "For loan"
+    description: "For loan",
+    payFrom,
+    by
+
   }
   const loanPaymentBody = {
     loanId: loanAccountId,
@@ -458,6 +461,8 @@ export async function payLoanFromDepositAccount(data) {
     addFineAmount: 0,
     fineReason: "",
     payFineAmount: 0,
+    payFrom,
+    by
   };
   const response = await makeWithdrawSavings(withdrawBody);
   const response2 = await payLoanAccount(loanPaymentBody);
