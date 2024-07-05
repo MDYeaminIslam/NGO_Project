@@ -26,12 +26,16 @@ const MemberCards = ({ data }) => {
         nominee,
         branchName,
         samityName,
+        nidDetails,            
     } = data;
-    
 
+
+    const { nidPhotoFront, nidPhotoBack } = nominee.nidDetails;
     const { name: nomineeName, address: nomineeAddress, relation: nomineeRelation, share: nomineeShare, occupation: nomineeOccupation, } = nominee;
     console.log(nominee);
     console.log(data);
+    console.log(nidPhotoBack);
+    console.log(nidPhotoFront);
 
     // react print
     const [print, setPrint] = useState(false)
@@ -168,6 +172,8 @@ const MemberCards = ({ data }) => {
 
                             </tbody>
                         </table>
+
+
                     </div>
 
                 </section >
@@ -183,6 +189,9 @@ const MemberCards = ({ data }) => {
                     <p>Occupation: <br /> <span className="font-normal text-base ">{nomineeOccupation}</span></p>
                 </div> */}
                 <section>
+                    <div className=" ">
+                        <img className=" rounded h-52 object-cover " src={photo} alt="" />
+                    </div>
                     <div className="container mx-auto py-4">
                         <table className="min-w-full bg-base-100 border">
                             <tbody>
@@ -213,6 +222,14 @@ const MemberCards = ({ data }) => {
 
                             </tbody>
                         </table>
+
+                        <div>
+                            <h3 className="font-bold p-4">Nid Photo: </h3>
+                            <div className=" flex gap-4 items-center p-2 ">
+                                <img className=" rounded  h-52  " src={nidPhotoFront} alt="" />
+                                <img className=" rounded  h-52  " src={nidPhotoBack} alt="" />
+                            </div>
+                        </div>
                     </div>
                 </section>
 
