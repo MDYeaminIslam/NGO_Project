@@ -27,6 +27,7 @@ const MemberCards = ({ data }) => {
         branchName,
         samityName,
     } = data;
+    
 
     const { name: nomineeName, address: nomineeAddress, relation: nomineeRelation, share: nomineeShare, occupation: nomineeOccupation, } = nominee;
     console.log(nominee);
@@ -59,7 +60,7 @@ const MemberCards = ({ data }) => {
                 }
                 <div className="flex flex-col md:flex-row gap-4 border-b-4 pb-4">
                     <div className=" ">
-                        {/* <img className=" rounded h-52 object-cover " src={photo} alt="" /> */}
+                        <img className=" rounded h-52 object-cover " src={photo} alt="" />
                     </div>
                     <div className=" space-y-2 p-4 ">
                         <h1 className="md:text-4xl">{name}</h1>
@@ -214,7 +215,8 @@ const MemberCards = ({ data }) => {
                         </table>
                     </div>
                 </section>
-                <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
+
+                {/* <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
                     Details
                 </h1>
                 <section>
@@ -249,7 +251,8 @@ const MemberCards = ({ data }) => {
                             </tbody>
                         </table>
                     </div>
-                </section>
+                </section> */}
+
                 <div className="divider"></div>
 
                 <div className=" flex gap-2 max-w-4xl justify-end "  >
