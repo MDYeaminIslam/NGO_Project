@@ -18,7 +18,7 @@ const useMutationHook = (mutationFn, config = {}) => {
     ...mutation,
     isSuccess: mutation.isSuccess && mutation.data?.status === 200,
     errorMessage: mutation.isError
-      ? mutation.error.response.data.message || "An error occurred"
+      ? mutation?.error?.response?.data?.message || "An error occurred"
       : null,
   };
 };

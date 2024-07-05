@@ -9,9 +9,11 @@ import useMutationHook from "../../../hooks/useMutationHook";
 import toast from "react-hot-toast";
 import { useState } from "react";
 import LoanManagementNav from "./LoanManagementNav/LoanManagementNav";
-import { dateToString } from "../../utils/DateHelper";
 import DrawerBankCashSelector from "../../component/DrawerBankCashSelector";
 import { useUserType } from "../../../hooks/userContext";
+import { LoanDetailsCard } from "./LoanDetailsCard";
+import { LoanTransactionDetailsTable } from "./LoanTransactionDetailsTable";
+import { PayFromDepositAccounts } from "./PayFromDepositAccounts";
 
 const initialData = {
   amount: 0,
@@ -33,6 +35,7 @@ const LoanTransactionPostingDetails = () => {
     queryFn: () => getLoanTransactionDetailsById(id),
     initialData: null,
   });
+  console.log(data);
   const { mutate } = useMutationHook(payLoanAccount, {
     key: [`loan-transaction-${id}`],
     onSuccess: () => {
@@ -61,7 +64,7 @@ const LoanTransactionPostingDetails = () => {
         <LoanManagementNav />
       </section>
       <section>
-        {data ? <Mockdata data={data.loanAccountDetails} /> : null}
+        {data ? <LoanDetailsCard data={data.loanAccountDetails} /> : null}
       </section>
 
       <section className="m-4">
@@ -133,7 +136,12 @@ const LoanTransactionPostingDetails = () => {
         </div>
 
         {data ? (
-          <PayFromDepositAccounts data={data.depositAccounts} loanId={id} />
+          <PayFromDepositAccounts
+            samityId={data?.loanAccountDetails?.samityId}
+            data={data.depositAccounts}
+            loanId={id}
+            user={user}
+          />
         ) : null}
       </section>
       <section className="m-10 w-full md:max-w-5xl mx-auto">
@@ -148,258 +156,12 @@ const LoanTransactionPostingDetails = () => {
 
           {data
             ? data.transactionDetails.map((data, idx) => (
-                <TransactionDetailsTable key={idx} data={data} />
+                <LoanTransactionDetailsTable key={idx} data={data} />
               ))
             : null}
         </table>
       </section>
     </>
-  );
-};
-const DepositAccountCard = ({ data, callBackFn }) => {
-  const { _id, balance } = data;
-
-  return (
-    <section className="max-w-5xl mx-auto p-2">
-      <div
-        className="border-2 flex flex-col md:flex-row md:justify-evenly  mt-8"
-        onClick={() => callBackFn(_id)}
-      >
-        <p className="font-bold m-4">
-          Account Id: <span className="font-bold text-emerald-500">{_id}</span>
-        </p>
-        <p className="font-bold m-4">
-          Total Balance:{" "}
-          <span className="font-bold text-emerald-500">{balance}</span>
-        </p>
-      </div>
-    </section>
-  );
-};
-const PayFromDepositAccounts = ({ data, loanId }) => {
-  const [amount, setAmount] = useState(0);
-  const [id, setId] = useState(null);
-  const { mutate } = useMutationHook(payLoanFromDepositAccount, {
-    key: [`loan-transaction-${loanId}`],
-    onSuccess: () => {
-      toast.success("Done");
-    },
-    onError: (data) => {
-      toast.error(data.response.data.message);
-    },
-  });
-  function handleSubmit(e) {
-    e.preventDefault();
-    const body = {
-      depositAccountId: id,
-      loanAccountId: loanId,
-      amount: amount,
-    };
-    if (!id) {
-      return toast.error("Please Choose A Account");
-    }
-    mutate(body);
-  }
-
-  function handleChange(e) {
-    const { value } = e.target;
-    setAmount(Number(value));
-  }
-
-  return (
-    <div>
-      {data.map((data, idx) => (
-        <DepositAccountCard data={data} key={idx} callBackFn={setId} />
-      ))}
-
-      <div className="m-10 flex flex-col md:flex-row w-full gap-4 max-w-5xl mx-auto p-2">
-        <div className="flex flex-col gap-1 flex-1">
-          <label htmlFor="">Account ID</label>
-          <input
-            disabled
-            placeholder={id}
-            type="number"
-            name="acountid"
-            className="input input-sm hover:border-teal-500 input-bordered flex items-center gap-2"
-          />
-        </div>
-        <div className="flex flex-col gap-1 flex-1">
-          <label htmlFor="">Amount</label>
-          <input
-            type="number"
-            name="amount"
-            onChange={handleChange}
-            className="input input-sm hover:border-teal-500 input-bordered flex items-center gap-2"
-          />
-        </div>
-      </div>
-      <div className="w-full flex justify-center  mt-12">
-        <button
-          className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium  text-white"
-          onClick={handleSubmit}
-        >
-          Pay From Loan
-        </button>
-      </div>
-    </div>
-  );
-};
-const Mockdata = ({ data }) => {
-  const {
-    _id,
-    memberId,
-    paymentTerm,
-    loanAmount,
-    profitPercentage,
-    totalAmount,
-    numberOfInstallment,
-    installmentAmount,
-    openingDate,
-    expiryDate,
-    paid,
-    loanFine,
-    loanFinePaid,
-  } = data;
-
-  return (
-    <div className="max-w-5xl mx-auto">
-      <h1 className="border-b-4  text-gray-600 text-lg pl-6 font-medium  pb-2 pt-1 flex items-center gap-2">
-        <span>
-          <img
-            className="w-8"
-            src="/Admin Dashboard icon/Total members.png"
-            alt=""
-          />
-        </span>{" "}
-        User Details
-      </h1>
-      <div className=" border-b-4 text-base font-medium tracking-wide divide-y-1 space-y-3 grid grid-cols-1 md:grid-cols-2 leading-6 p-6 py-3 bg-teal-50 rounded-md ">
-        <p className="flex items-center gap-2">
-          <span>
-            <img className="w-4" src="/NGO Dashboard icon/Member.png" alt="" />
-          </span>{" "}
-          Member Name : <span className="font-normal pl-2">Mr. Yo </span>
-        </p>
-
-        <p className="flex items-center gap-2">
-          {" "}
-          <img className="w-5" src="/NGO Dashboard icon/report.png" alt="" />
-          Payment Term:{" "}
-          <span className="font-normal text-white rounded px-2 bg-teal-500">
-            {paymentTerm}
-          </span>
-        </p>
-        <p className="flex items-center gap-2">
-          {" "}
-          <img className="w-5" src="/NGO Dashboard icon/payroll.png" alt="" />
-          Loan Amount: <span className="font-normal pl-2">{loanAmount} </span>
-        </p>
-        <p className="flex items-center gap-2">
-          {" "}
-          <img
-            className="w-5"
-            src="/NGO Dashboard icon/bank-building.png"
-            alt=""
-          />
-          Profit Percentage:{" "}
-          <span className="font-normal pl-2">{profitPercentage} %</span>
-        </p>
-        <p className="flex items-center gap-2">
-          {" "}
-          <img
-            className="w-5"
-            src="/NGO Dashboard icon/manage-drawer-cash.png"
-            alt=""
-          />
-          Total Amount : <span className="font-normal pl-2">{totalAmount}</span>
-        </p>
-        <p className="flex items-center gap-2">
-          {" "}
-          <img
-            className="w-5"
-            src="/NGO Dashboard icon/manage-drawer-cash.png"
-            alt=""
-          />
-          Number of Installment :{" "}
-          <span className="font-normal pl-2">{numberOfInstallment}</span>
-        </p>
-        <p className="flex items-center gap-2">
-          {" "}
-          <img
-            className="w-5"
-            src="/NGO Dashboard icon/manage-drawer-cash.png"
-            alt=""
-          />
-          Installment Amount:{" "}
-          <span className="font-normal pl-2">{installmentAmount}</span>
-        </p>
-        <p className="flex items-center gap-2">
-          {" "}
-          <img
-            className="w-5"
-            src="/NGO Dashboard icon/manage-drawer-cash.png"
-            alt=""
-          />
-          Paid: <span className="font-normal pl-2">{paid}</span>
-        </p>
-        <p className="flex items-center gap-2">
-          {" "}
-          <img
-            className="w-5"
-            src="/NGO Dashboard icon/manage-drawer-cash.png"
-            alt=""
-          />
-          Loan Fine: <span className="font-normal pl-2">{loanFine}</span>
-        </p>
-        <p className="flex items-center gap-2">
-          {" "}
-          <img
-            className="w-5"
-            src="/NGO Dashboard icon/manage-drawer-cash.png"
-            alt=""
-          />
-          Loan Fine Paid:{" "}
-          <span className="font-normal pl-2">{loanFinePaid}</span>
-        </p>
-        <p className="flex items-center gap-2 ">
-          <span>
-            <img
-              width="22"
-              height="22"
-              src="https://img.icons8.com/ios/50/calendar--v1.png"
-              alt="calendar--v1"
-            />
-          </span>
-          Opening Date :{" "}
-          <span className="font-normal ">{dateToString(openingDate)} </span>
-        </p>
-      </div>
-    </div>
-  );
-};
-
-const TransactionDetailsTable = ({ data }) => {
-  const {
-    _id,
-    loanId,
-    amount,
-    addFineAmount,
-    fineReason,
-    payFineAmount,
-    createdAt,
-    updatedAt,
-  } = data;
-
-  return (
-    <div className=" w-full">
-      <tr className="px-2 grid grid-cols-2 text-xs md:text-base bg-gray-100  border-b-4   md:grid-cols-5 items-center w-full justify-between text-center py-3">
-        <td>{loanId}</td>
-        <td>{amount}</td>
-        <td className="hidden md:block">{addFineAmount}</td>
-        <td className="hidden md:block">{fineReason}</td>
-        <td className="hidden md:block">{dateToString(createdAt)}</td>
-      </tr>
-    </div>
   );
 };
 

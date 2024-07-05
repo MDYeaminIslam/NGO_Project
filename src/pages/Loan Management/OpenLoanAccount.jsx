@@ -1,5 +1,5 @@
 import LoanManagementNav from "./LoanManagementNav/LoanManagementNav";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import DatePicker from "react-datepicker";
 import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
@@ -79,25 +79,37 @@ const OpenLoanAccount = () => {
       ...prev,
       [name]: type === "number" ? Number(value) : value,
     }));
-    if (name === "profitPercentage") {
-      const { loanAmount } = formData;
-      const profit = loanAmount * (value / 100);
-      const total = Number(loanAmount) + Number(profit);
-      setFormData((prev) => ({ ...prev, totalAmount: total }));
-    } else if (name === "periodOfTimeInMonths") {
-      const { loanAmount, totalAmount, profitPercentage, paymentTerm } =
-        formData;
-      const numberOfInstallment = calculateEmi(totalAmount, paymentTerm, value);
-      const [no_of_installment, emi] = numberOfInstallment;
-      const tempMatureDate = moment().add(value, "months").format("YYYY-MM-DD");
-      setFormData((prev) => ({
-        ...prev,
-        numberOfInstallment: no_of_installment,
-        installmentAmount: emi,
-        expiryDate: tempMatureDate,
-      }));
-    }
   };
+  useMemo(() => {
+    const { loanAmount, profitPercentage } = formData;
+    const profit = loanAmount * (profitPercentage / 100);
+    const total = Number(loanAmount) + Number(profit);
+    setFormData((prev) => ({ ...prev, totalAmount: total }));
+  }, [formData.loanAmount, formData.profitPercentage]);
+
+  useMemo(() => {
+    const { totalAmount, paymentTerm, periodOfTimeInMonths } = formData;
+    const [no_of_installment, emi] = calculateEmi(
+      totalAmount,
+      paymentTerm,
+      periodOfTimeInMonths
+    );
+    const tempMatureDate = moment()
+      .add(periodOfTimeInMonths, "months")
+      .format("YYYY-MM-DD");
+    setFormData((prev) => ({
+      ...prev,
+      numberOfInstallment: no_of_installment,
+      installmentAmount: emi,
+      expiryDate: tempMatureDate,
+    }));
+  }, [
+    formData.totalAmount,
+    formData.paymentTerm,
+    formData.periodOfTimeInMonths,
+    calculateEmi,
+  ]);
+
   // * handleSearchUser
   const handleSearchUser = async (event) => {
     const { value } = event.target;
