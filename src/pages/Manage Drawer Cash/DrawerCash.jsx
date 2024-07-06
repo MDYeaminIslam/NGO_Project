@@ -144,7 +144,7 @@ const DrawerCash = () => {
             <div className=" text-center font-medium m-4 w-fit mx-auto bg-red-500 text-white p-1 rounded-md">
               {isError ? errorMessage : null}
             </div>
-            <div className="w-full flex justify-center  mt-12">
+            <div className="w-full flex justify-center  mt-12 mb-28">
               <button
                 className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
                 type="submit"
@@ -157,9 +157,23 @@ const DrawerCash = () => {
         </section>
       </section>
       {/* Details Section */}
+
+      <div className="md:m-2 xl:m-0">
+        <table className="w-full">
+          <tr className="grid grid-cols-4   text-xs md:text-base bg-teal-700  py-2 text-white md:grid-cols-9 items-center justify-center gap-1 text-center">
+            <th>SL</th>
+            <th className="col-span-2 hidden md:block">Branch Name</th>
+            <th className="col-span-2">Samity Name</th>
+            <th className="col-span-2 hidden md:block">Drawer Cash</th>
+            <th className=" col-span-2">Action</th>
+          </tr>
+
+        </table>
+      </div>
+
       <section>
         {data.length ? (
-          data.map((data, idx) => <DrawerCashCard data={data} key={idx} />)
+          data.map((data, idx) => <DrawerCashCard data={data} idx={idx} key={idx} />)
         ) : (
           <div>No data</div>
         )}
@@ -167,15 +181,19 @@ const DrawerCash = () => {
     </div>
   );
 };
-function DrawerCashCard({ data }) {
+function DrawerCashCard({ data, idx }) {
   const { _id, branchName, samityName, drawerCash } = data;
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-6">
-      <h3 className="text-lg font-semibold mb-2">{branchName}</h3>
-      <p className="text-gray-600 mb-2">{samityName}</p>
-      <p className="text-gray-600">Drawer Cash: {drawerCash}</p>
-      <Link to={`/drawer_cash/${_id}`}>View</Link>
+    <div className="bg-white shadow-md rounded-lg p-0">
+
+      <tr className="grid grid-cols-5 text-xs md:text-base bg-gray-100 border-b-2 md:grid-cols-9 items-center w-full justify-between text-center py-3">
+        <td>{idx + 1}</td>
+        <td className="col-span-2">{branchName}</td>
+        <td className="col-span-2">{samityName}</td>
+        <td className="col-span-2">{drawerCash}</td>
+        <td className="col-span-2"><Link to={`/drawer_cash/${_id}`} className="btn btn-xs md:btn-sm btn-info text-white">View</Link></td>
+      </tr>
     </div>
   );
 }

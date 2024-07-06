@@ -105,7 +105,7 @@ const DrawerCash = () => {
       <section>
         <section className="m-4">
           <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
-            Drawer Cash
+            Bank Cash
           </h1>
           <form className="my-8">
             <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
@@ -157,7 +157,7 @@ const DrawerCash = () => {
             <div className=" text-center font-medium m-4 w-fit mx-auto bg-red-500 text-white p-1 rounded-md">
               {isError ? errorMessage : null}
             </div>
-            <div className="w-full flex justify-center  mt-12">
+            <div className="w-full flex justify-center  mt-12 mb-28">
               <button
                 className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
                 type="submit"
@@ -169,27 +169,52 @@ const DrawerCash = () => {
           </form>
         </section>
       </section>
+
+
+
       {/* Bank Details Card */}
+
+      <div className="md:m-2 xl:m-0">
+        <table className="w-full">
+          <tr className="grid grid-cols-4   text-xs md:text-base bg-teal-700  py-2 text-white md:grid-cols-9 items-center justify-center gap-1 text-center">
+            <th>SL</th>
+            <th className="col-span-2 hidden md:block">Bank Name</th>
+            <th className="col-span-2">Balance</th>
+            <th className="col-span-2 hidden md:block">ID</th>
+            <th className=" col-span-2">Action</th>
+          </tr>
+
+        </table>
+      </div>
+
       {isFetched ? (
         cashDetails.map((data, idx) => (
-          <BankDetailsCard data={data} key={idx} />
+          <BankDetailsCard data={data} id={idx} key={idx} />
         ))
       ) : (
         <div>No data</div>
       )}
     </div>
+
   );
 };
-function BankDetailsCard({ data }) {
+function BankDetailsCard({ data, id }) {
   const { _id, balance, name } = data;
+  console.log(id);
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-6">
-      <h3 className="text-lg font-semibold mb-2">{name}</h3>
-      <p className="text-gray-600 mb-2">Balance: {balance}</p>
-      <p className="text-gray-600">ID: {_id}</p>
-      <Link to={`/bank_cash/${_id}`}>View</Link>
+
+    <div className="bg-white shadow-md rounded-lg p-0">
+
+      <tr className="grid grid-cols-5 text-xs md:text-base bg-gray-100 border-b-2 md:grid-cols-9 items-center w-full justify-between text-center py-3">
+        <td className="font-bold ">{id + 1}</td>
+        <td className="col-span-2">{name}</td>
+        <td className="col-span-2">{balance}</td>
+        <td className="col-span-2">{_id}</td>
+        <td className="col-span-2"><Link to={`/bank_cash/${_id}`} className="btn btn-xs md:btn-sm btn-info text-white">View</Link></td>
+      </tr>
     </div>
+
   );
 }
 export default DrawerCash;
