@@ -9,6 +9,9 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import useMutationHook from "../../../hooks/useMutationHook";
 import toast from "react-hot-toast";
+import BranchSamitySelector from "../../component/branchSamitySelector";
+import BankSelector from "../../component/bankSelector";
+import { useUserType } from "../../../hooks/userContext";
 const initialState = {
   headId: "",
   date: new Date(),
@@ -16,6 +19,10 @@ const initialState = {
 };
 export default function AddIncomeStatement() {
   const [formData, setFormData] = useState(initialState);
+  const { userDetails } = useUserType(); // Get user details from user context
+  const user = userDetails();
+  const [drawerCash, setDrawerCash] = useState(null);
+  const [bankCash, setBankCash] = useState(null);
   const { mutate } = useMutationHook(createIncomeHeadTransaction, {
     onSuccess: () => {
       toast.success("Done!");
@@ -32,6 +39,23 @@ export default function AddIncomeStatement() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    let payFrom = null;
+    if (bankCash) {
+      payFrom = {
+        type: "bank",
+        _id: bankCash.bankId,
+      };
+    } else {
+      payFrom = {
+        type: "drawer",
+        _id: drawerCash.samityId,
+      };
+    }
+    const data = {
+      payFrom: payFrom,
+
+      ...formData,
+    };
     mutate(formData);
   }
 
@@ -47,7 +71,7 @@ export default function AddIncomeStatement() {
         </div>
         <div className="flex flex-col gap-1">
           <label className="font-medium" htmlFor="membership_fee ">
-            DOB (DD/MM/YYYY):
+            Date (DD/MM/YYYY):
           </label>
           <DatePicker
             selected={formData.date}
@@ -70,6 +94,15 @@ export default function AddIncomeStatement() {
             name="amount"
             value={formData.amount}
           />
+        </div>
+        {/* Pay From Section   */}
+        <div className="flex flex-col gap-1 col-span-2">
+          <h1 className="text-xl">Pay From Drawer Cash:</h1>
+          <div className="flex ">
+            <BranchSamitySelector callBackFn={setDrawerCash} />
+          </div>
+          <h1 className="text-xl">Pay From Bank:</h1>
+          <BankSelector callBackFn={setBankCash} />
         </div>
       </section>
       <div className=" max-w-5xl mx-auto p-4 flex items-center justify-center">
