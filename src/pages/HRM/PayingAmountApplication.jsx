@@ -10,7 +10,7 @@ import useMutationHook from "../../../hooks/useMutationHook";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import toast from "react-hot-toast";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 const initialState = {
   employeeId: "",
   reason: "",
@@ -41,6 +41,7 @@ const PayingAmountApplication = () => {
     const { value } = event.target;
     if (value.length >= 11) {
       const userData = await searchEmployeeByPhoneNumber(value);
+      console.log(userData);
       if (userData.length) {
         setShowLoadingIcon(false);
         setSearchedUser(userData[0]);
@@ -53,6 +54,7 @@ const PayingAmountApplication = () => {
       setShowLoadingIcon(true);
     }
   };
+  console.log(searchedUser);
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prev) => {
@@ -74,7 +76,7 @@ const PayingAmountApplication = () => {
 
       <section className="m-4">
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
-          Paying Amount Application
+          Praying Amount Application
         </h1>
         <form className="my-8" action="">
           <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
@@ -86,10 +88,9 @@ const PayingAmountApplication = () => {
                 className="input input-bordered input-sm  hover:border-teal-500  "
                 id="employee_id"
                 name="employeeId"
-                onChange={handleChange}
+                onChange={handleSearchUser}
                 type="text"
                 placeholder="Enter your id here"
-                value={formData.employeeId}
               />
             </div>
 
@@ -156,7 +157,6 @@ const PayingAmountApplication = () => {
                 value={formData.adjustmentAmount}
                 type="number"
                 placeholder="Enter your amount"
-                
               />
             </div>
 

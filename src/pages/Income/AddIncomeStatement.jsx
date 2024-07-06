@@ -53,10 +53,11 @@ export default function AddIncomeStatement() {
     }
     const data = {
       payFrom: payFrom,
-
+      by: user,
       ...formData,
     };
-    mutate(formData);
+    console.log(data);
+    mutate(data);
   }
 
   return (
