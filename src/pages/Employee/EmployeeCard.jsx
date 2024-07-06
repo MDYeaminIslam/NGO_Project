@@ -38,185 +38,215 @@ const EmployeeCard = ({ data }) => {
             <p className="md:text-lg"> NID :{nidNumber}</p>
           </div>
         </div>
-        <div className=" font-bold grid grid-cols-1 md:grid-cols-4 space-y-3 tracking-wide py-4">
-          <p>
-            Father Name: <br />{" "}
-            <span className="font-normal text-base ">{fatherName}</span>
-          </p>
-          <p>
-            Mother Name: <br />{" "}
-            <span className="font-normal text-base ">{motherName}</span>
-          </p>
-          <p>
-            Present Address: <br />{" "}
-            <span className="font-normal text-base ">{presentAddress}</span>
-          </p>
-          <p>
-            Permanent Address: <br />{" "}
-            <span className="font-normal text-base ">{permanentAddress}</span>
-          </p>
-          <p>
-            Education: <br />{" "}
-            <span className="font-normal text-base ">
-              {educationalQualification}
-            </span>
-          </p>
-          <p>
-            Date of Birth: <br />{" "}
-            <span className="font-normal text-base ">
-              {dateToString(dateOfBirth)}
-            </span>
-          </p>
-          <p>
-            Address: <br />{" "}
-            <span className="font-normal text-base ">{presentAddress}</span>
-          </p>
-          <p>
-            Email: <br />{" "}
-            <span className="font-normal text-base ">{email}</span>
-          </p>
-          <p>
-            Emergency Contact: <br />{" "}
-            <span className="font-normal text-base ">
-              {emergencyContactNumber}
-            </span>
-          </p>
-          <p>
-            religion: <br />{" "}
-            <span className="font-normal text-base ">{religion}</span>
-          </p>
-          <p>
-            Spouse Name: <br />{" "}
-            <span className="font-normal text-base ">{spouseName}</span>
-          </p>
-          <p>
-            Spouse Name: <br />{" "}
-            <span className="font-normal text-base ">{spouseName}</span>
-          </p>
-        </div>
+
+        <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
+          Personal Information
+        </h1>
+
+
+        <section>
+
+          <div className="container mx-auto py-4">
+            <table className="min-w-full bg-base-100 border">
+              <tbody>
+                <tr className="border-b  bg-teal-500 text-white ">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Title</td>
+                  <td className="p-2  text-base font-bold" style={{ width: '60%' }}>Description</td>
+                </tr>
+                <tr className="border-b ">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Father Name:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{fatherName}</td>
+                </tr>
+                <tr className="border-b ">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Mother Name:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{motherName}</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Spouse Name:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{spouseName}</td>
+                </tr>
+                <tr className="border-b  ">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Present Address:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{presentAddress}</td>
+                </tr>
+                <tr className="border-b  ">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Permanenet Address:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{permanentAddress}</td>
+                </tr>
+                <tr className="border-b ">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Educational Qualification:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{educationalQualification}</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Date of Birth:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{dateToString(dateOfBirth)}</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Email:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{email}</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Emergency Contact:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{emergencyContactNumber}</td>
+                </tr>
+                <tr className="border-b ">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Religion:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{religion}</td>
+                </tr>
+
+              </tbody>
+            </table>
+
+          </div>
+
+        </section >
+
+
+
+
 
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
           Previous Organization Details
         </h1>
 
-        <div className=" font-bold grid grid-cols-1 md:grid-cols-4 space-y-3 tracking-wide py-4">
-          <p>
-            Name: <br />{" "}
-            <span className="font-normal text-base ">
-              {previousOrganization.name}
-            </span>
-          </p>
-          <p>
-            Address: <br />{" "}
-            <span className="font-normal text-base ">
-              {previousOrganization.address}
-            </span>
-          </p>
-          <p>
-            Joining Date: <br />{" "}
-            <span className="font-normal text-base ">
-              {dateToString(previousOrganization.joiningDate)}
-            </span>
-          </p>
-          <p>
-            Position: <br />{" "}
-            <span className="font-normal text-base ">
-              {previousOrganization.position}
-            </span>
-          </p>
-          <p>
-            Salary: <br />{" "}
-            <span className="font-normal text-base ">
-              {previousOrganization.salary}
-            </span>
-          </p>
-          <p>
-            Switch Reason: <br />{" "}
-            <span className="font-normal text-base ">
-              {previousOrganization.switchReason}
-            </span>
-          </p>
-        </div>
+        <section>
+
+          <div className="container mx-auto py-4">
+            <table className="min-w-full bg-base-100 border">
+              <tbody>
+                <tr className="border-b  bg-teal-500 text-white ">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Title</td>
+                  <td className="p-2  text-base font-bold" style={{ width: '60%' }}>Description</td>
+                </tr>
+                <tr className="border-b ">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Name:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{previousOrganization.name}</td>
+                </tr>
+                <tr className="border-b ">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Address:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{previousOrganization.address}</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Joining Date:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{dateToString(previousOrganization.joiningDate)}</td>
+                </tr>
+                <tr className="border-b ">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Position:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{previousOrganization.position}</td>
+                </tr>
+                <tr className="border-b ">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Salary:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{previousOrganization.salary}</td>
+                </tr>
+                <tr className="border-b ">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Switch Reason:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{previousOrganization.switchReason}</td>
+                </tr>
+
+              </tbody>
+            </table>
+
+          </div>
+
+        </section >
+
+
+
+
+
+
 
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
           Present Position
         </h1>
 
-        <div className=" font-bold grid grid-cols-1 md:grid-cols-4 space-y-3 tracking-wide py-4">
-          <p>
-            Designation: <br />{" "}
-            <span className="font-normal text-base ">
-              {presentPosition.designation}
-            </span>
-          </p>
-          <p>
-            Joining Date: <br />{" "}
-            <span className="font-normal text-base ">
-              {dateToString(presentPosition.dateOfJoining)}
-            </span>
-          </p>
-          <p>
-            Salary Amount: <br />{" "}
-            <span className="font-normal text-base ">
-              {presentPosition.salaryAmount}
-            </span>
-          </p>
-          <p>
-            Mobile Bill: <br />{" "}
-            <span className="font-normal text-base ">
-              {presentPosition.mobileBill}
-            </span>
-          </p>
-          <p>
-            TaDa: <br />{" "}
-            <span className="font-normal text-base ">
-              {presentPosition.taDa}
-            </span>
-          </p>
-          <p>
-            Additional Total: <br />{" "}
-            <span className="font-normal text-base ">
-              {presentPosition.additionalTotal}
-            </span>
-          </p>
-          <p>
-            Employee Security Fund: <br />{" "}
-            <span className="font-normal text-base ">
-              {presentPosition.employeeSecurityFund}
-            </span>
-          </p>
-        </div>
+
+
+
+        <section>
+
+          <div className="container mx-auto py-4">
+            <table className="min-w-full bg-base-100 border">
+              <tbody>
+                <tr className="border-b  bg-teal-500 text-white ">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Title</td>
+                  <td className="p-2  text-base font-bold" style={{ width: '60%' }}>Description</td>
+                </tr>
+                <tr className="border-b ">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Designation:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{presentPosition.designation}</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Joining Date:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{dateToString(presentPosition.dateOfJoining)}</td>
+                </tr>
+                <tr className="border-b ">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Salary Amount:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{presentPosition.salaryAmount}</td>
+                </tr>
+
+                <tr className="border-b ">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Mobile Bill:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{presentPosition.mobileBill}</td>
+                </tr>
+                <tr className="border-b ">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>TA/DA:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{presentPosition.taDa}</td>
+                </tr>
+                <tr className="border-b ">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Additional Total:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{presentPosition.additionalTotal}</td>
+                </tr>
+                <tr className="border-b ">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Employee Security Fund:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{presentPosition.employeeSecurityFund}</td>
+                </tr>
+
+              </tbody>
+            </table>
+
+          </div>
+
+        </section >
+
 
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
           Guarantor Details
         </h1>
 
-        <div className=" font-bold grid grid-cols-1 md:grid-cols-4 space-y-3 tracking-wide py-4">
-          <p>
-            Name: <br />{" "}
-            <span className="font-normal text-base ">
-              {guarantorDetails.name}
-            </span>
-          </p>
-          <p>
-            Address: <br />{" "}
-            <span className="font-normal text-base ">
-              {guarantorDetails.address}
-            </span>
-          </p>
-          <p>
-            Relation: <br />{" "}
-            <span className="font-normal text-base ">
-              {guarantorDetails.relation}
-            </span>
-          </p>
-          <p>
-            Occupation: <br />{" "}
-            <span className="font-normal text-base ">
-              {guarantorDetails.occupation}
-            </span>
-          </p>
-        </div>
+        <section>
+
+          <div className="container mx-auto py-4">
+            <table className="min-w-full bg-base-100 border">
+              <tbody>
+                <tr className="border-b  bg-teal-500 text-white ">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Title</td>
+                  <td className="p-2  text-base font-bold" style={{ width: '60%' }}>Description</td>
+                </tr>
+                <tr className="border-b ">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Name:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{guarantorDetails.name}</td>
+                </tr>
+                <tr className="border-b ">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Address:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{guarantorDetails.address}</td>
+                </tr>
+                <tr className="border-b ">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Relation:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{guarantorDetails.relation}</td>
+                </tr>
+                <tr className="border-b ">
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Occupation:</td>
+                  <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{guarantorDetails.occupation}</td>
+                </tr>
+
+              </tbody>
+            </table>
+
+          </div>
+
+        </section >
+
 
         <div className=" flex justify-end gap-2  py-4 ">
           <button className="btn btn-xs md:btn-sm bg-teal-700 text-white">

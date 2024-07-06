@@ -50,18 +50,18 @@ const EmployeeList = () => {
         <section>
           <div className="max-w-5xl mx-auto bg-teal-700 text-white py-4 ">
             <tr className="grid grid-cols-3 text-xs md:text-base md:grid-cols-5  items-center justify-center gap-1 text-start">
-              <th>employee Name</th>
+              <th>Employee Name</th>
               <th>Phone Number</th>
               <th className="hidden md:block">Email</th>
               <th className="hidden md:block"> Address</th>
-              <th>action</th>
+              <th>Action</th>
             </tr>
           </div>
           <div>
             {employee.length
               ? employee.map((user, key) => (
-                  <EmployeeListView key={key} data={user} />
-                ))
+                <EmployeeListView key={key} data={user} />
+              ))
               : null}
           </div>
         </section>
