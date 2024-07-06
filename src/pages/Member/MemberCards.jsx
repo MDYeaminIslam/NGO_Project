@@ -26,7 +26,7 @@ const MemberCards = ({ data }) => {
         nominee,
         branchName,
         samityName,
-        nidDetails,            
+        nidDetails,
     } = data;
 
 
@@ -76,7 +76,7 @@ const MemberCards = ({ data }) => {
                                 </svg>
                             </span>
                             <span className=" pl-1 font-normal">{mobileNumber}</span></p>
-                        <p className=" font-medium"> NID :<span className="font-normal pl-2">{nidNumber}</span></p>
+                        <p className=" font-medium"> NID:<span className="font-normal pl-2">{nidNumber}</span></p>
                     </div>
                 </div>
                 {/* <div className=" font-bold grid grid-cols-1 md:grid-cols-1 gap-4 py-4 space-y-2 tracking-wide  ">
