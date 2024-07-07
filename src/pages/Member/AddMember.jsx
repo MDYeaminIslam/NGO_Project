@@ -86,7 +86,7 @@ const AddMember = () => {
   }
   function handleChangeUserDocument(e) {
     const { name, value, files, type } = e.target;
-    console.log(name, value);
+
     if (selectedDocumentType === "NID") {
       setFormData((prev) => ({
         ...prev,
