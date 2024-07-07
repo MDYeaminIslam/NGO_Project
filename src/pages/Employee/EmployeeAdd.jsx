@@ -142,7 +142,7 @@ const EmployeeAdd = () => {
             <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="name">
-                  Name:
+                  Employee Name:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -205,6 +205,40 @@ const EmployeeAdd = () => {
                   id="nid_number"
                   type="number"
                   name="nidNumber"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label
+                  className="font-medium"
+                  htmlFor="employee_nid_front_photo"
+                >
+                  NID Photo (Front):
+                </label>
+                <input
+                  onChange={handleChange}
+                  className="input input_bordered  hover:border-teal-500 "
+                  id="employee_nid_front_photo "
+                  type="file"
+                  name="nidPhotoFront"
+                  required
+                />
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label
+                  className="font-medium"
+                  htmlFor="employee_nid_back_photo"
+                >
+                  NID Photo (Back):
+                </label>
+                <input
+                  onChange={handleChange}
+                  className="input input_bordered  hover:border-teal-500 "
+                  id="employee_nid_back_photo "
+                  type="file"
+                  name="nidPhotoBack"
+                  required
                 />
               </div>
 
@@ -376,7 +410,7 @@ const EmployeeAdd = () => {
             <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="name">
-                  Name:
+                  Organization Name:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -606,7 +640,7 @@ const EmployeeAdd = () => {
             <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="name">
-                  Name:
+                  Guarantor Name:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
