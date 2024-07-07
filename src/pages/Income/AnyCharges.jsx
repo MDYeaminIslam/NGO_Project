@@ -51,38 +51,61 @@ const AnyCharges = () => {
           </button>
         </div>
       </section>
+
+
       <section>
         {data
           ? data.incomeHeadTransaction.map((a, idx) => {
-              return (
-                <>
-                  <h1>Head : {a._id}</h1>
-                  <h1>Profit : {a.total}</h1>
-                </>
-              );
-            })
+            return (
+              <>
+                <h1>Head : {a._id}</h1>
+                <h1>Profit : {a.total}</h1>
+              </>
+            );
+          })
           : null}
         {data
           ? data.loanProfit.map((a, idx) => {
-              return (
-                <>
-                  <h1>Head : {a._id}</h1>
-                  <h1>Profit : {a.total}</h1>
-                </>
-              );
-            })
+            return (
+              <>
+                <h1>Head : {a._id}</h1>
+                <h1>Profit : {a.total}</h1>
+              </>
+            );
+          })
           : null}{" "}
         {data
           ? data.memberProfit.map((a, idx) => {
-              return (
-                <>
-                  <h1>Head : {a._id}</h1>
-                  <h1>Profit : {a.total}</h1>
-                </>
-              );
-            })
+            return (
+              <>
+                <h1>Head : {a._id}</h1>
+                <h1>Profit : {a.total}</h1>
+              </>
+            );
+          })
           : null}
       </section>
+
+      <section className="max-w-5xl mx-auto p-2">
+        <div className="max-w-5xl mx-auto bg-teal-700 text-white py-4 md:mt-8 ">
+          <tr className="grid grid-cols-3 text-xs md:text-base md:grid-cols-3  items-center justify-center gap-1 text-start">
+            <th>Serial No</th>
+            <th>Income Head</th>
+            <th>Profit Amount</th>
+          </tr>
+          <tr>
+            <td></td>
+          </tr>
+        </div>
+        {/* <div>
+          {data
+            ? data.data.map((data, idx) => (
+              <SavingAccountListView data={data} key={idx} />
+            ))
+            : null}
+        </div> */}
+      </section>
+
     </div>
   );
 };
