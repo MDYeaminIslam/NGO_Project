@@ -1,16 +1,17 @@
-import { useMemo, useState } from "react";
+import { useState, useMemo } from "react";
 import HRMNav from "./HRMNav/HRMNav";
-import { IconSearch } from "../../../icons/icons";
 import {
   createPrayingAmountApplication,
   searchEmployeeByPhoneNumber,
 } from "../../../api/admin";
-import { MoonLoader } from "react-spinners";
 import useMutationHook from "../../../hooks/useMutationHook";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import toast from "react-hot-toast";
-import swal from 'sweetalert';
+import swal from "sweetalert";
+import DrawerBankCashSelector from "../../component/DrawerBankCashSelector";
+import { useUserType } from "../../../hooks/userContext";
+
 const initialState = {
   employeeId: "",
   reason: "",
@@ -18,10 +19,13 @@ const initialState = {
   adjustmentDuration: 0,
   adjustmentAmount: 0,
   date: new Date(),
+  payFrom: null,
 };
 
 const PayingAmountApplication = () => {
   const [formData, setFormData] = useState(initialState);
+  const { userDetails } = useUserType();
+  const user = userDetails();
   const [showLoadingIcon, setShowLoadingIcon] = useState(false);
   const [searchedUser, setSearchedUser] = useState(null);
   const { mutate, isSuccess, isError, errorMessage, isPending } =
@@ -41,6 +45,7 @@ const PayingAmountApplication = () => {
     const { value } = event.target;
     if (value.length >= 11) {
       const userData = await searchEmployeeByPhoneNumber(value);
+      console.log(userData);
       if (userData.length) {
         setShowLoadingIcon(false);
         setSearchedUser(userData[0]);
@@ -61,9 +66,11 @@ const PayingAmountApplication = () => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    mutate(formData);
-    console.log(formData);
+    const newFormData = {
+      ...formData,
+      by: user,
+    };
+    mutate(newFormData);
   };
 
   return (
@@ -74,7 +81,7 @@ const PayingAmountApplication = () => {
 
       <section className="m-4">
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
-          Paying Amount Application
+          Praying Amount Application
         </h1>
         <form className="my-8" action="">
           <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
@@ -86,10 +93,9 @@ const PayingAmountApplication = () => {
                 className="input input-bordered input-sm  hover:border-teal-500  "
                 id="employee_id"
                 name="employeeId"
-                onChange={handleChange}
+                onChange={handleSearchUser}
                 type="text"
                 placeholder="Enter your id here"
-                value={formData.employeeId}
               />
             </div>
 
@@ -130,6 +136,7 @@ const PayingAmountApplication = () => {
                 value={formData.totalAmount}
               />
             </div>
+
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="adjustment_duration">
                 Adjustment Duration In Month:
@@ -156,10 +163,12 @@ const PayingAmountApplication = () => {
                 value={formData.adjustmentAmount}
                 type="number"
                 placeholder="Enter your amount"
-                
               />
             </div>
-
+            <DrawerBankCashSelector
+              samityId={searchedUser ? searchedUser.samityId : null}
+              callBackFn={setFormData}
+            />
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="reason">
                 Reason:

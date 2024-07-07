@@ -15,9 +15,8 @@ const EmployeeList = () => {
     getAllEmployeeByBranchIdAndSmityId,
     {
       onSuccess: (data) => {
-        console.log(data);
         setEmployee(data.data);
-        setFormData(initalState);
+
       },
     }
   );
@@ -49,19 +48,20 @@ const EmployeeList = () => {
         {/* Local User List */}
         <section>
           <div className="max-w-5xl mx-auto bg-teal-700 text-white py-4 ">
-            <tr className="grid grid-cols-3 text-xs md:text-base md:grid-cols-5  items-center justify-center gap-1 text-start">
-              <th>employee Name</th>
+            <tr className="grid grid-cols-3 text-xs md:text-base md:grid-cols-6  items-center justify-center gap-1 text-start">
+              <th>SL</th>
+              <th>Employee Name</th>
               <th>Phone Number</th>
               <th className="hidden md:block">Email</th>
               <th className="hidden md:block"> Address</th>
-              <th>action</th>
+              <th>Action</th>
             </tr>
           </div>
           <div>
             {employee.length
-              ? employee.map((user, key) => (
-                  <EmployeeListView key={key} data={user} />
-                ))
+              ? employee.map((user, idx) => (
+                <EmployeeListView key={idx} idx={idx} data={user} />
+              ))
               : null}
           </div>
         </section>

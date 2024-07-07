@@ -4,12 +4,17 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import useMutationHook from "../../../hooks/useMutationHook";
 import { createEmployee } from "../../../api/admin";
-import toast from "react-hot-toast";
 import BranchSamitySelector from "../../component/branchSamitySelector";
-
+import { useUserType } from "../../../hooks/userContext";
+const nidDetails = {
+  nidNumber: "",
+  nidPhotoFront: "",
+  nidPhotoBack: "",
+};
 const initialState = {
   name: "",
   fatherName: "",
+  date: new Date(),
   motherName: "",
   presentAddress: "",
   permanentAddress: "",
@@ -19,7 +24,7 @@ const initialState = {
   email: "",
   emergencyContactNumber: "",
   religion: "Islam",
-  nidNumber: "",
+  nidDetails: nidDetails,
   photo: "",
   branchId: "",
   samityId: "",
@@ -45,11 +50,14 @@ const initialState = {
     address: "",
     relation: "",
     occupation: "",
+    nidDetails,
   },
 };
 
 const EmployeeAdd = () => {
   const [formData, setFormData] = useState(initialState);
+  const { userDetails } = useUserType();
+  const user = userDetails();
   const handleChange = (e) => {
     const { name, value, files, type } = e.target;
     console.log(name, value);
@@ -113,18 +121,58 @@ const EmployeeAdd = () => {
       },
     }));
   };
+  function handleChangeEmployeeNidDetails(e) {
+    const { name, value, files, type } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      nidDetails: {
+        ...prev.nidDetails,
+        [name]:
+          type === "file"
+            ? files[0]
+            : type === "number"
+            ? Number(value)
+            : value,
+      },
+    }));
+  }
+  function handleChangeGuarantorNidDetails(e) {
+    const { name, value, files, type } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      guarantorDetails: {
+        ...prev.guarantorDetails,
+        nidDetails: {
+          ...prev.guarantorDetails.nidDetails,
+          [name]:
+            type === "file"
+              ? files[0]
+              : type === "number"
+              ? Number(value)
+              : value,
+        },
+      },
+    }));
+  }
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(createEmployee, {
       onSuccess: () => {
-
-        {/**Rafi */ }
+        {
+          /**Rafi */
+        }
         setFormData(initialState);
         swal("Employee Added Successfully!");
       },
     });
   const handleSubmit = (event) => {
     event.preventDefault();
-    mutate(formData);
+    const newData = {
+      ...formData,
+      by: user,
+    };
+    mutate(newData);
   };
 
   return (
@@ -142,7 +190,7 @@ const EmployeeAdd = () => {
             <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="name">
-                  Name:
+                  Employee Name:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -200,11 +248,45 @@ const EmployeeAdd = () => {
                   NID Number:
                 </label>
                 <input
-                  onChange={handleChange}
+                  onChange={handleChangeEmployeeNidDetails}
                   className="border-2 hover:border-teal-500 rounded "
                   id="nid_number"
                   type="number"
                   name="nidNumber"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label
+                  className="font-medium"
+                  htmlFor="employee_nid_front_photo"
+                >
+                  NID Photo (Front):
+                </label>
+                <input
+                  onChange={handleChangeEmployeeNidDetails}
+                  className="input input_bordered  hover:border-teal-500 "
+                  id="employee_nid_front_photo "
+                  type="file"
+                  name="nidPhotoFront"
+                  required
+                />
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label
+                  className="font-medium"
+                  htmlFor="employee_nid_back_photo"
+                >
+                  NID Photo (Back):
+                </label>
+                <input
+                  onChange={handleChangeEmployeeNidDetails}
+                  className="input input_bordered  hover:border-teal-500 "
+                  id="employee_nid_back_photo "
+                  type="file"
+                  name="nidPhotoBack"
+                  required
                 />
               </div>
 
@@ -336,7 +418,7 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="Attach_Photo ">
-                  Attach Photo:
+                  Employee Photo:
                 </label>
                 <input
                   className="input input_bordered  hover:border-teal-500 "
@@ -376,7 +458,7 @@ const EmployeeAdd = () => {
             <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="name">
-                  Name:
+                  Organization Name:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -404,7 +486,8 @@ const EmployeeAdd = () => {
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="font-medium">Joining Date (DD/MM/YYYY):
+                <label className="font-medium">
+                  Joining Date (DD/MM/YYYY):
                 </label>
                 <DatePicker
                   selected={formData.previousOrganization.joiningDate}
@@ -606,7 +689,7 @@ const EmployeeAdd = () => {
             <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="name">
-                  Name:
+                  Guarantor Name:
                 </label>
                 <input
                   className="input input-bordered input-sm  hover:border-teal-500  "
@@ -631,6 +714,53 @@ const EmployeeAdd = () => {
                   cols="10"
                   rows="1"
                 ></textarea>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label className="font-medium" htmlFor="nid_number">
+                  NID Number:
+                </label>
+                <input
+                  onChange={handleChangeGuarantorNidDetails}
+                  className="border-2 hover:border-teal-500 rounded "
+                  id="nid_number"
+                  type="number"
+                  name="nidNumber"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label
+                  className="font-medium"
+                  htmlFor="employee_nid_front_photo"
+                >
+                  NID Photo (Front):
+                </label>
+                <input
+                  onChange={handleChangeGuarantorNidDetails}
+                  className="input input_bordered  hover:border-teal-500 "
+                  id="employee_nid_front_photo "
+                  type="file"
+                  name="nidPhotoFront"
+                  required
+                />
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label
+                  className="font-medium"
+                  htmlFor="employee_nid_back_photo"
+                >
+                  NID Photo (Back):
+                </label>
+                <input
+                  onChange={handleChangeGuarantorNidDetails}
+                  className="input input_bordered  hover:border-teal-500 "
+                  id="employee_nid_back_photo "
+                  type="file"
+                  name="nidPhotoBack"
+                  required
+                />
               </div>
 
               <div className="flex flex-col gap-1">
