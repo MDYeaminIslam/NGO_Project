@@ -195,12 +195,42 @@ export async function searchDepositAccountByBranchAndSamity(body) {
   return response.data;
 }
 
-//create employee
-export async function createEmployee(data) {
-  const photoUrl = await uploadPhoto(data.photo);
-  data["photo"] = photoUrl;
-  const response = await axiosAdmin.post(`/employee/create`, data);
 
+
+export async function createEmployee(data) {
+  const [
+    photoUrl,
+    nidPhotoFront,
+    nidPhotoBack,
+    guarantorNidPhotoFront,
+    guarantorNidPhotoBack
+  ] = await Promise.all([
+    uploadPhoto(data.photo),
+    uploadPhoto(data.nidDetails.nidPhotoFront),
+    uploadPhoto(data.nidDetails.nidPhotoBack),
+    uploadPhoto(data.guarantorDetails.nidDetails.nidPhotoFront),
+    uploadPhoto(data.guarantorDetails.nidDetails.nidPhotoBack)
+  ]);
+
+  const updatedData = {
+    ...data,
+    photo: photoUrl,
+    nidDetails: {
+      ...data.nidDetails,
+      nidPhotoFront,
+      nidPhotoBack
+    },
+    guarantorDetails: {
+      ...data.guarantorDetails,
+      nidDetails: {
+        ...data.guarantorDetails.nidDetails,
+        nidPhotoFront: guarantorNidPhotoFront,
+        nidPhotoBack: guarantorNidPhotoBack
+      }
+    }
+  };
+
+  const response = await axiosAdmin.post('/employee/create', updatedData);
   return response.data;
 }
 //get empolyee using samity and branch id
