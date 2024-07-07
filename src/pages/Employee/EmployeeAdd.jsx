@@ -370,7 +370,7 @@ const EmployeeAdd = () => {
 
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="Attach_Photo ">
-                  Attach Photo:
+                  Employee Photo:
                 </label>
                 <input
                   className="input input_bordered  hover:border-teal-500 "
