@@ -44,14 +44,14 @@ const LoanPayCardView = ({ data }) => {
             </p>
           </div>
 
-          <div className="flex flex-col flex-wrap md:flex-row  ">
-            <p>
+          <div className="flex flex-col flex-wrap md:flex-row ">
+            <p className="pb-3">
               Total Amount:
-              <span className="font-bold text-emerald-500"> {totalAmount}</span>
+              <span className="font-bold text-emerald-500"> {totalAmount.toFixed(2)}</span>
             </p>
             <p>
               Total Paid:
-              <span className="font-bold text-emerald-500"> {totalPaid}</span>
+              <span className="font-bold text-emerald-500"> {totalPaid.toFixed(2)}</span>
             </p>
           </div>
           <p className="md:col-span-2 mt-1">
@@ -64,7 +64,7 @@ const LoanPayCardView = ({ data }) => {
 
           <div className="card-actions justify-end">
             <p>
-              Created At:
+              Created At: 
               <span className="text-emerald-500">
                 {dateToString(createdAt)}
               </span>

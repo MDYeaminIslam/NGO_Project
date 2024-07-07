@@ -29,6 +29,7 @@ const MemberCards = ({ data }) => {
         nidDetails,            
     } = data;
 
+    
 
     const { nidPhotoFront, nidPhotoBack } = nominee.nidDetails;
     const { name: nomineeName, address: nomineeAddress, relation: nomineeRelation, share: nomineeShare, occupation: nomineeOccupation, } = nominee;
