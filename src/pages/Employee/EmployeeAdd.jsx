@@ -668,6 +668,53 @@ const EmployeeAdd = () => {
               </div>
 
               <div className="flex flex-col gap-1">
+                <label className="font-medium" htmlFor="nid_number">
+                  NID Number:
+                </label>
+                <input
+                  onChange={handleChange}
+                  className="border-2 hover:border-teal-500 rounded "
+                  id="nid_number"
+                  type="number"
+                  name="nidNumber"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label
+                  className="font-medium"
+                  htmlFor="employee_nid_front_photo"
+                >
+                  NID Photo (Front):
+                </label>
+                <input
+                  onChange={handleChange}
+                  className="input input_bordered  hover:border-teal-500 "
+                  id="employee_nid_front_photo "
+                  type="file"
+                  name="nidPhotoFront"
+                  required
+                />
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label
+                  className="font-medium"
+                  htmlFor="employee_nid_back_photo"
+                >
+                  NID Photo (Back):
+                </label>
+                <input
+                  onChange={handleChange}
+                  className="input input_bordered  hover:border-teal-500 "
+                  id="employee_nid_back_photo "
+                  type="file"
+                  name="nidPhotoBack"
+                  required
+                />
+              </div>
+
+              <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="relation">
                   Relation:
                 </label>
