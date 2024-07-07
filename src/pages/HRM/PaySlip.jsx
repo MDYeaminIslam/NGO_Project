@@ -8,7 +8,9 @@ import {
 import { MoonLoader } from "react-spinners";
 import toast from "react-hot-toast";
 import useMutationHook from "../../../hooks/useMutationHook";
-import swal from 'sweetalert';
+import swal from "sweetalert";
+import DrawerBankCashSelector from "../../component/DrawerBankCashSelector";
+import { useUserType } from "../../../hooks/userContext";
 const initialState = {
   employeeId: "",
   branchId: "",
@@ -22,6 +24,7 @@ const initialState = {
   total: 0,
   totalPaid: 0,
   due: 0,
+  payFrom: null,
   deduction: {
     advance: 0,
     ait: 0,
@@ -36,10 +39,11 @@ const PaySlip = () => {
   const [formData, setFormData] = useState(initialState);
   const [showLoadingIcon, setShowLoadingIcon] = useState(false);
   const [searchedUser, setSearchedUser] = useState(null);
+  const { userDetails } = useUserType();
+  const user = userDetails();
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(createMonthlyPaySlipApplication, {
       onSuccess: () => {
-
         swal("Completed!", "Press Ok To Continue", "success");
         setFormData(initialState);
       },
@@ -123,10 +127,15 @@ const PaySlip = () => {
     const totalCalculation = total - totalDeduction;
     setFormData((prev) => ({ ...prev, total: totalCalculation }));
   };
+  console.log(searchedUser);
 
   function finalSubmit(e) {
     e.preventDefault();
-    mutate(formData);
+    const newFormData = {
+      by: user,
+      ...formData,
+    };
+    mutate(newFormData);
   }
 
   return (
@@ -158,7 +167,6 @@ const PaySlip = () => {
                     className="grow  "
                     placeholder="Search"
                     onChange={handleSearchUser}
-
                   />
                   {!showLoadingIcon ? (
                     <IconSearch className="w-6 h-6 opacity-50" />
@@ -263,6 +271,15 @@ const PaySlip = () => {
                   placeholder=""
                 />
               </div>
+              <div className="flex flex-col gap-1">
+                <label className="font-medium">Salary Due:</label>
+                <input
+                  className="input input-bordered input-sm  hover:border-teal-500  "
+                  type="number"
+                  value={searchedUser ? searchedUser.salaryDue : null}
+                  disabled
+                />
+              </div>
             </section>
           </form>
         </section>
@@ -345,15 +362,6 @@ const PaySlip = () => {
                   placeholder=""
                 />
               </div>
-              <div className="flex flex-col gap-1">
-                <label className="font-medium">Salary Due:</label>
-                <input
-                  className="input input-bordered input-sm  hover:border-teal-500  "
-                  type="number"
-                  value={searchedUser ? searchedUser.salaryDue : null}
-                  disabled
-                />
-              </div>
             </section>
           </form>
           <div className="w-fit mx-auto flex justify-center  m-8">
@@ -393,6 +401,10 @@ const PaySlip = () => {
                   type="number"
                 />
               </div>
+              <DrawerBankCashSelector
+                samityId={formData.samityId}
+                callBackFn={setFormData}
+              />
               <div className="flex flex-col gap-1">
                 <label className="font-medium">Due:</label>
                 <input
