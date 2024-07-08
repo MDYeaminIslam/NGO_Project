@@ -41,12 +41,12 @@ const RegPage = () => {
     if (password !== confirmPassword) {
       return toast.error("Password does not match");
     }
-    else if (!/^\d{8}$/.test(password)) {
-      return toast.error("Password must be at least 8 characters");
-    }
-    if (!/^\d{11}$/.test(phoneNumber)) {
-      return toast.error("Phone must be at least 11 characters BD Format");
-    }
+    // else if (!/^\d{8}$/.test(password)) {
+    //   return toast.error("Password must be at least 8 characters");
+    // }
+    // if (!/^\d{11}$/.test(phoneNumber)) {
+    //   return toast.error("Phone must be at least 11 characters BD Format");
+    // }
     mutate(formData);
   }
   return (
