@@ -20,6 +20,7 @@ const initialState = {
     by: { name: "", phone: "", type: "" },
   },
   type: "cashIn",
+  isCapital: true,
 };
 
 const DrawerCash = () => {
@@ -167,13 +168,14 @@ const DrawerCash = () => {
             <th className="col-span-2 hidden md:block">Drawer Cash</th>
             <th className=" col-span-2">Action</th>
           </tr>
-
         </table>
       </div>
 
       <section>
         {data.length ? (
-          data.map((data, idx) => <DrawerCashCard data={data} idx={idx} key={idx} />)
+          data.map((data, idx) => (
+            <DrawerCashCard data={data} idx={idx} key={idx} />
+          ))
         ) : (
           <div>No data</div>
         )}
@@ -186,13 +188,19 @@ function DrawerCashCard({ data, idx }) {
 
   return (
     <div className="bg-white shadow-md rounded-lg p-0">
-
       <tr className="grid grid-cols-5 text-xs md:text-base bg-gray-100 border-b-2 md:grid-cols-9 items-center w-full justify-between text-center py-3">
         <td>{idx + 1}</td>
         <td className="col-span-2">{branchName}</td>
         <td className="col-span-2">{samityName}</td>
         <td className="col-span-2">{drawerCash}</td>
-        <td className="col-span-2"><Link to={`/drawer_cash/${_id}`} className="btn btn-xs md:btn-sm btn-info text-white">View</Link></td>
+        <td className="col-span-2">
+          <Link
+            to={`/drawer_cash/${_id}`}
+            className="btn btn-xs md:btn-sm btn-info text-white"
+          >
+            View
+          </Link>
+        </td>
       </tr>
     </div>
   );

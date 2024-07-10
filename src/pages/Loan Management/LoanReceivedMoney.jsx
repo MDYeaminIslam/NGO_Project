@@ -3,6 +3,9 @@ import LoanManagementNav from "./LoanManagementNav/LoanManagementNav";
 import useMutationHook from "../../../hooks/useMutationHook";
 import { ngoLoansCreate } from "../../../api/admin";
 import toast from "react-hot-toast";
+import BranchSamitySelector from "../../component/branchSamitySelector";
+import BankSelector from "../../component/bankSelector";
+import { useUserType } from "../../../hooks/userContext";
 const initialState = {
   institute: "organization",
   nameOfInstitute: null,
@@ -15,12 +18,18 @@ const initialState = {
   remark: "",
 };
 const LoanReceivedMoney = () => {
+  const [drawerCash, setDrawerCash] = useState(null);
+  const [bankCash, setBankCash] = useState(null);
+  const [cashType, setCashType] = useState("drawer"); // Default cash type
   const [formData, setFormData] = useState(initialState);
+  const { userDetails } = useUserType(); // Get user details from user context
+  const user = userDetails();
   const { mutate, isError, errorMessage } = useMutationHook(ngoLoansCreate, {
     key: ["ngo-loan"],
     onSuccess: () => {
-
-      {/**Rafi */ }
+      {
+        /**Rafi */
+      }
       setFormData(initialState);
       swal("Received Loan Money Successfully!");
     },
@@ -35,7 +44,31 @@ const LoanReceivedMoney = () => {
   };
   function handleSubmit(e) {
     e.preventDefault();
-    mutate(formData);
+    let payFrom = null;
+    if (cashType === "bank") {
+      payFrom = {
+        type: "bank",
+        _id: bankCash?.bankId,
+      };
+    } else {
+      payFrom = {
+        type: "drawer",
+        _id: drawerCash?.samityId,
+      };
+    }
+    const data = {
+      payFrom: payFrom,
+      by: user,
+      ...formData,
+    };
+
+    mutate(data);
+  }
+
+  function handleCashTypeChange(e) {
+    setCashType(e.target.value);
+    setDrawerCash(null);
+    setBankCash(null);
   }
   const totalAmount = useMemo(() => {
     const profit = formData.amount * (formData.interestRate / 100);
@@ -168,6 +201,49 @@ const LoanReceivedMoney = () => {
                 name="remark"
                 onChange={handleChange}
               ></textarea>
+            </div>
+            {/* Send Money Container. */}
+            <div className="col-span-3">
+              <div className="flex flex-col gap-1 mb-10 mt-10">
+                <label className="font-medium" htmlFor="cashType">
+                  Send Money To (Select One):
+                </label>
+                <div className="flex gap-4">
+                  <label className="flex items-center gap-1">
+                    <input
+                      type="radio"
+                      name="cashType"
+                      value="drawer"
+                      checked={cashType === "drawer"}
+                      onChange={handleCashTypeChange}
+                    />
+                    Drawer Cash
+                  </label>
+                  <label className="flex items-center gap-1">
+                    <input
+                      type="radio"
+                      name="cashType"
+                      value="bank"
+                      checked={cashType === "bank"}
+                      onChange={handleCashTypeChange}
+                    />
+                    Bank Cash
+                  </label>
+                </div>
+              </div>
+
+              <div className=" flex flex-row max-w-5xl">
+                {cashType === "drawer" && (
+                  <div className="flex w-full mb-5">
+                    <BranchSamitySelector callBackFn={setDrawerCash} />
+                  </div>
+                )}
+                {cashType === "bank" && (
+                  <div className="w-full">
+                    <BankSelector callBackFn={setBankCash} />
+                  </div>
+                )}
+              </div>
             </div>
           </section>
         </form>

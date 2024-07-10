@@ -23,6 +23,7 @@ const LoanPayDetails = () => {
 
   const [drawerCash, setDrawerCash] = useState(null);
   const [bankCash, setBankCash] = useState(null);
+  const [cashType, setCashType] = useState("drawer");
   const { id } = useParams();
   const { data, isFetched } = useQuery({
     queryKey: [`nog-loan-${id}`],
@@ -47,6 +48,13 @@ const LoanPayDetails = () => {
       [name]: type === "number" ? Number(value) : value,
     }));
   }
+
+  function handleCashTypeChange(e) {
+    setCashType(e.target.value);
+    setDrawerCash(null);
+    setBankCash(null);
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
     const data = {
@@ -75,14 +83,70 @@ const LoanPayDetails = () => {
       </div>
 
       {/* Pay From Section   */}
-      <div>
+
+
+
+      <div className="col-span-3">
+        <div className="flex flex-col gap-1 mb-4 mt-10">
+          <label className="font-medium" htmlFor="cashType">
+            Send Money To (Select One):
+          </label>
+          <div className="flex gap-4">
+            <label className="flex items-center gap-1">
+              <input
+                type="radio"
+                name="cashType"
+                value="drawer"
+                checked={cashType === "drawer"}
+                onChange={handleCashTypeChange}
+              />
+              Drawer Cash
+            </label>
+            <label className="flex items-center gap-1">
+              <input
+                type="radio"
+                name="cashType"
+                value="bank"
+                checked={cashType === "bank"}
+                onChange={handleCashTypeChange}
+              />
+              Bank Cash
+            </label>
+          </div>
+        </div>
+
+        <div className=" flex flex-row max-w-5xl">
+          {cashType === "drawer" && (
+            <div className="flex w-full mb-12">
+              <BranchSamitySelector callBackFn={setDrawerCash} />
+            </div>
+          )}
+          {cashType === "bank" && (
+            <div className="w-full mb-12">
+              <BankSelector callBackFn={setBankCash} />
+            </div>
+          )}
+        </div>
+
+
+
+      </div>
+
+
+
+
+
+
+      {/* <div>
         <h1 className="text-xl">Pay From Drawer Cash</h1>
         <div className="flex ">
           <BranchSamitySelector callBackFn={setDrawerCash} />
         </div>
         <h1>Pay From</h1>
         <BankSelector callBackFn={setBankCash} />
-      </div>
+      </div> */}
+
+
       <div>
         <div className="max-w-5xl mx-auto">
           <div className=" bg-teal-700 text-white py-4 mx-1 rounded-t-md  ">
@@ -97,15 +161,15 @@ const LoanPayDetails = () => {
         </div>
         {isFetched
           ? data.transactionDetails.map((data, idx) => (
-              <LoanPayDetailsList
-                data={data}
-                key={idx}
-                index={idx}
-                drawerCash={drawerCash}
-                bankCash={bankCash}
-                user={user}
-              />
-            ))
+            <LoanPayDetailsList
+              data={data}
+              key={idx}
+              index={idx}
+              drawerCash={drawerCash}
+              bankCash={bankCash}
+              user={user}
+            />
+          ))
           : null}
       </div>
     </div>
