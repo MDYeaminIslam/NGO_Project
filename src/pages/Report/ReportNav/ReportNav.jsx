@@ -41,24 +41,24 @@ const ReportNav = () => {
 
 
                     <li>
-                      <NavLink to={'/asset'}>
-                        <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Asset</p>
-                      </NavLink>
-                    </li>
-
-                    <li>
                       <NavLink to={'/balance_sheet'}>
                         <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Balance Sheet</p>
                       </NavLink>
                     </li>
 
                     <li>
-                      <NavLink to={'/credit'}>
-                        <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Credit</p>
+                      <NavLink to={'/trial_balance_sheet'}>
+                        <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Trial Balance Sheet</p>
                       </NavLink>
                     </li>
 
                     <li>
+                      <NavLink to={'/income_vs_expense'}>
+                        <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Income Vs Expense</p>
+                      </NavLink>
+                    </li>
+
+                    {/* <li>
                       <NavLink to={'/debit'}>
                         <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Debit</p>
                       </NavLink>
@@ -80,7 +80,7 @@ const ReportNav = () => {
                       <NavLink to={'/tds_tax_vat'}>
                         <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">TDX, TAX, VAT</p>
                       </NavLink>
-                    </li>
+                    </li> */}
 
                   </ul>
                 </div>
@@ -93,19 +93,19 @@ const ReportNav = () => {
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4">
 
-                <NavLink to={'/asset'}>
-                  <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Asset</p>
-                </NavLink>
-
                 <NavLink to={'/balance_sheet'}>
                   <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Balance Sheet</p>
                 </NavLink>
 
-                <NavLink to={'/credit'}>
-                  <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Credit</p>
+                <NavLink to={'/trial_balance_sheet'}>
+                  <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Trial Balance Sheet</p>
                 </NavLink>
 
-                <NavLink to={'/debit'}>
+                <NavLink to={'/income_vs_expense'}>
+                  <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Income Vs Expense</p>
+                </NavLink>
+
+                {/* <NavLink to={'/debit'}>
                   <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Debit</p>
                 </NavLink>
 
@@ -119,7 +119,7 @@ const ReportNav = () => {
 
                 <NavLink to={'/tds_tax_vat'}>
                   <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">TDX, TAX, VAT</p>
-                </NavLink>
+                </NavLink> */}
 
               </div>
             </div>

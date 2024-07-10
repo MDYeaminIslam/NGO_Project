@@ -103,6 +103,8 @@ import SamityCashDetails from "../pages/Manage Drawer Cash/SamityCashDetails";
 import BankCashDetails from "../pages/Manage Drawer Cash/BankCashDetails";
 import AddExpenseHead from "../pages/Expense/AddExpenseHead";
 import AddAssetHead from "../pages/Expense/AddAssetHead";
+import TrialBalanceSheet from "../pages/Report/TrialBalanceSheet";
+import IncomeVsExpense from "../pages/Report/IncomeVsExpense";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -908,6 +910,22 @@ const router = createBrowserRouter([
             <TdsTaxVat />
           </AdminRoute>
         ),
+      },
+      {
+        path: "trial_balance_sheet",
+        element: (
+          <AdminRoute roles={[ROLES.Admin]}>
+            <TrialBalanceSheet/>
+          </AdminRoute>
+        )
+      },
+      {
+        path: "income_vs_expense",
+        element: (
+          <AdminRoute roles={[ROLES.Admin]}>
+            <IncomeVsExpense/>
+          </AdminRoute>
+        )
       },
 
       //settings routes

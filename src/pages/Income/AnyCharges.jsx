@@ -19,8 +19,9 @@ const AnyCharges = () => {
     },
   });
   function handleSubmit(event) {
-    event.preventDefault();
-    mutate(date);
+    event.preventD
+     efault();
+    mutate(date)
   }
   // console.log(income);
   //asif
