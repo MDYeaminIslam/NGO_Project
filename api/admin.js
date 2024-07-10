@@ -662,3 +662,13 @@ export async function createAssetExpense(data) {
   const response = await axiosAdmin.post("/asset/add", data);
   return response.data;
 }
+export async function getBalanceSheet(data) {
+  const { from, to } = data;
+  const response = await axiosAdmin.get(`/report/balance_sheet?from=${from}&to=${to}`, data);
+  return response.data.data;
+}
+export async function getIncomeVsExpense(data) {
+  const { from, to } = data;
+  const response = await axiosAdmin.get(`/report/income_vs_expense?from=${from}&to=${to}`, data);
+  return response.data.data;
+}

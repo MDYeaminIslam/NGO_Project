@@ -4,6 +4,8 @@ import { getAllBank } from "../../api/admin";
 
 export default function DrawerBankCashSelector({ samityId, callBackFn }) {
   const [data, setData] = useState([]);
+  const [selectedValue, setSelectedValue] = useState("");
+
   const { data: banks, isFetched } = useQuery({
     queryKey: ["bank"],
     queryFn: getAllBank,
@@ -25,10 +27,11 @@ export default function DrawerBankCashSelector({ samityId, callBackFn }) {
       ];
       setData(ar);
     }
-  }, [isFetched]);
+  }, [isFetched, samityId, banks]);
 
   const handleSelectChange = (event) => {
     const selectedValue = event.target.value;
+    setSelectedValue(selectedValue);
     try {
       const selectedObject = JSON.parse(selectedValue);
       callBackFn((prev) => ({ ...prev, payFrom: selectedObject }));
@@ -44,14 +47,15 @@ export default function DrawerBankCashSelector({ samityId, callBackFn }) {
         From:
       </label>
       <select
+        value={selectedValue}
         onChange={handleSelectChange}
         className="input input-bordered input-sm hover:border-teal-500"
       >
-        <option value="" disabled selected>
+        <option value="" disabled>
           Select Payment
         </option>
-        {data.map((item) => (
-          <option key={item._id} value={JSON.stringify(item)}>
+        {data.map((item, idx) => (
+          <option key={idx} value={JSON.stringify(item)}>
             {item.name}
           </option>
         ))}
