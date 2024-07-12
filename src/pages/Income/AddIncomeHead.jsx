@@ -43,10 +43,14 @@ function AddIncomeHead() {
         </div>
         {/* Income Head List */}
         <section className="mt-4">
-          <div className="grid grid-cols-2 gap-2 ">
+          <div className="grid grid-cols-1 gap-2 ">
 
             {data.length ? (
-              data.map((data, idx) => <div className="bg-teal-500 rounded mb-1 text-white font-medium p-2 text-center " key={idx}>{data.head}</div>)
+              // data.map((data, idx) => <div className="bg-teal-500 rounded mb-1 text-white font-medium p-2 text-center " key={idx}>{data.head}</div>)
+              data.map((data, idx) => <div className=" flex items-center gap-2 m-2" key={idx}>
+                <p className="p-1 px-3 mb-2 w-14 bg-teal-500 text-white">{idx + 1}</p>
+                <p className=" bg-base-200 p-1 pl-4 mb-2 w-full">{data.head}</p>
+              </div>)
             ) : (
               <div className="text-center bg-red-400 p-2 w-full rounded m-4">No data</div>
             )}

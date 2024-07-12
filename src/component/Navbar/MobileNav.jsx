@@ -350,19 +350,19 @@ const MobileNav = () => {
                     <></>
                   )}
                 </li>
-                {/* <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
-                                    {
-                                        role == 'admin' ?
+                <li className="  bg-gray-100 hover:bg-teal-500 hover:text-white rounded-md">
+                  {
+                    role == 'admin' ?
 
-                                            <NavLink to={'/asset'}>
-                                                <p className="flex items-center p-2 space-x-3 rounded-md">
-                                                    <img className="w-4" src="/NGO Dashboard icon/report.png" alt="" />
-                                                    <span>Report</span>
-                                                </p>
-                                            </NavLink> : <></>
-                                    }
+                      <NavLink to={'/balance_sheet'}>
+                        <p className="flex items-center p-2 space-x-3 rounded-md">
+                          <img className="w-4" src="/NGO Dashboard icon/report.png" alt="" />
+                          <span>Report</span>
+                        </p>
+                      </NavLink> : <></>
+                  }
 
-                                </li> */}
+                </li>
               </ul>
               <ul className="pt-4 pb-2 space-y-1 text-sm text-white font-medium">
                 <li>
