@@ -1,6 +1,9 @@
 import React from "react";
 
 const IncomeExpenseTable = ({ data }) => {
+  const isNetIncome = data.netIncome >= 0;
+  const netIncomeAbsolute = Math.abs(data.netIncome);
+
   return (
     <div className="container mx-auto p-6 bg-gray-100">
       <table className="w-full bg-white shadow-md rounded-lg overflow-hidden">
@@ -51,10 +54,20 @@ const IncomeExpenseTable = ({ data }) => {
           </tr>
         </tbody>
         <tfoot>
-          <tr className="bg-red-100 font-bold text-red-700">
-            <td className="px-4 py-2">Net Loss</td>
+          <tr
+            className={
+              isNetIncome
+                ? "bg-green-100 font-bold text-green-700"
+                : "bg-red-100 font-bold text-red-700"
+            }
+          >
+            <td className="px-4 py-2">
+              {isNetIncome ? "Net Income" : "Net Loss"}
+            </td>
             <td className="px-4 py-2 text-right">
-              ({data.netLoss.toLocaleString()} TK)
+              {isNetIncome
+                ? `${netIncomeAbsolute.toLocaleString()} TK`
+                : `(${netIncomeAbsolute.toLocaleString()} TK)`}
             </td>
           </tr>
         </tfoot>

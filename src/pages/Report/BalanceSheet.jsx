@@ -24,6 +24,7 @@ const BalanceSheet = () => {
   }
   const { mutate } = useMutationHook(getBalanceSheet, {
     onSuccess: (data) => {
+      console.log(data);
       setBalanceSheetData(data);
     },
   });

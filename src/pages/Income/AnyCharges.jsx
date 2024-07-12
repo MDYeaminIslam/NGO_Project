@@ -19,9 +19,9 @@ const AnyCharges = () => {
     },
   });
   function handleSubmit(event) {
-    event.preventD
-     efault();
-    mutate(date)
+    event.preventDefault();
+
+    mutate(date);
   }
   // console.log(income);
   //asif
@@ -53,37 +53,36 @@ const AnyCharges = () => {
         </div>
       </section>
 
-
       <section>
         {data
           ? data.incomeHeadTransaction.map((a, idx) => {
-            return (
-              <>
-                <h1>Head : {a._id}</h1>
-                <h1>Profit : {a.total}</h1>
-              </>
-            );
-          })
+              return (
+                <>
+                  <h1>Head : {a._id}</h1>
+                  <h1>Profit : {a.total}</h1>
+                </>
+              );
+            })
           : null}
         {data
           ? data.loanProfit.map((a, idx) => {
-            return (
-              <>
-                <h1>Head : {a._id}</h1>
-                <h1>Profit : {a.total}</h1>
-              </>
-            );
-          })
+              return (
+                <>
+                  <h1>Head : {a._id}</h1>
+                  <h1>Profit : {a.total}</h1>
+                </>
+              );
+            })
           : null}{" "}
         {data
           ? data.memberProfit.map((a, idx) => {
-            return (
-              <>
-                <h1>Head : {a._id}</h1>
-                <h1>Profit : {a.total}</h1>
-              </>
-            );
-          })
+              return (
+                <>
+                  <h1>Head : {a._id}</h1>
+                  <h1>Profit : {a.total}</h1>
+                </>
+              );
+            })
           : null}
       </section>
 
@@ -106,7 +105,6 @@ const AnyCharges = () => {
             : null}
         </div> */}
       </section>
-
     </div>
   );
 };

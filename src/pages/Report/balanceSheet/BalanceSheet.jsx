@@ -1,11 +1,15 @@
 import React from "react";
 
 const BalanceSheetData = ({ data }) => {
-  const formatAmount = (amount) => amount.toLocaleString("en-US") + " TK";
+  const formatAmount = (amount, name) =>
+    name !== "Retained Earnings"
+      ? amount.toLocaleString("en-US") + " TK"
+      : `(${Math.abs(amount).toLocaleString("en-US")}) TK`;
 
   const maxRows = Math.max(
     data.assets.currentAssets.length,
-    data.liabilitiesAndEquity.currentLiabilities.length
+    data.liabilitiesAndEquity.currentLiabilities.length +
+      data.liabilitiesAndEquity.equity.length
   );
 
   return (
@@ -64,10 +68,26 @@ const BalanceSheetData = ({ data }) => {
               <tr key={`fixed-asset-${index}`} className="hover:bg-gray-50">
                 <td className="border px-4 py-2">{asset.name}</td>
                 <td className="border px-4 py-2 text-right">
-                  {formatAmount(asset.amount)}
+                  {formatAmount(asset.amount, asset.name)}
                 </td>
                 <td className="border"></td>
                 <td className="border"></td>
+              </tr>
+            ))}
+            <tr className="bg-gray-100">
+              <td colSpan="2" className="px-4 py-2 font-semibold"></td>
+              <td colSpan="2" className="px-4 py-2 font-semibold">
+                Equity:
+              </td>
+            </tr>
+            {data.liabilitiesAndEquity.equity.map((equity, index) => (
+              <tr key={`equity-${index}`} className="hover:bg-gray-50">
+                <td className="border"></td>
+                <td className="border"></td>
+                <td className="border px-4 py-2">{equity.name}</td>
+                <td className="border px-4 py-2 text-right">
+                  {formatAmount(equity.amount, equity.name)}
+                </td>
               </tr>
             ))}
             <tr className="bg-gray-200 font-bold">
