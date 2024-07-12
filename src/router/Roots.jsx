@@ -915,17 +915,17 @@ const router = createBrowserRouter([
         path: "trial_balance_sheet",
         element: (
           <AdminRoute roles={[ROLES.Admin]}>
-            <TrialBalanceSheet/>
+            <TrialBalanceSheet />
           </AdminRoute>
-        )
+        ),
       },
       {
         path: "income_vs_expense",
         element: (
           <AdminRoute roles={[ROLES.Admin]}>
-            <IncomeVsExpense/>
+            <IncomeVsExpense />
           </AdminRoute>
-        )
+        ),
       },
 
       //settings routes

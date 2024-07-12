@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import useMutationHook from "../../../hooks/useMutationHook";
 import { getIncomeVsExpense } from "../../../api/admin";
+import IncomeExpenseTable from "./IncomeVsExpenses/Table";
 
 const initialState = {
   from: null,
@@ -70,6 +71,7 @@ const IncomeVsExpense = () => {
         </div>
       </section>
       <h1>Income vs Expense</h1>
+      {incomeVsExpense ? <IncomeExpenseTable data={incomeVsExpense} /> : null}
     </div>
   );
 };
