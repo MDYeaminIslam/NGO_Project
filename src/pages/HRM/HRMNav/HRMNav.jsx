@@ -41,7 +41,7 @@ const HRMNav = () => {
                   <ul className="py-2 text-sm text-black" aria-labelledby="dropdownDefaultButton">
 
 
-                    <li>
+                    {/* <li>
                       <NavLink to={'/advance'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Advance</p>
                       </NavLink>
@@ -51,7 +51,7 @@ const HRMNav = () => {
                       <NavLink to={'/attendance'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Attendance</p>
                       </NavLink>
-                    </li>
+                    </li> */}
 
                     {/* <li>
                       <NavLink to={'/extra_bill'}>
@@ -59,11 +59,11 @@ const HRMNav = () => {
                       </NavLink>
                     </li> */}
 
-                    <li>
+                    {/* <li>
                       <NavLink to={'/fixation'}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">Fixation</p>
                       </NavLink>
-                    </li>
+                    </li> */}
 
                     <li>
                       <NavLink to={'/leave_application'}>
@@ -124,6 +124,10 @@ const HRMNav = () => {
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Attendance</p>
                 </NavLink>
 
+                <NavLink to={'/leave_application'}>
+                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Leave Application</p>
+                </NavLink>
+
                 {/* <NavLink to={'/extra_bill'}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Extra Bill</p>
                 </NavLink> */}
@@ -134,13 +138,7 @@ const HRMNav = () => {
                 </Link>
                 }
 
-
-                <NavLink to={'/leave_application'}>
-                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Leave Application</p>
-                </NavLink>
-
                 
-
                 {/* <NavLink to={'/profile'}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Profile</p>
                 </NavLink> */}
