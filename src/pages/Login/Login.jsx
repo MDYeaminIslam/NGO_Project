@@ -49,7 +49,8 @@ const Login = () => {
         <div className="hero  bg-teal-800 w-full" style={minHeightStyle}>
           <div className="hero-content flex flex-col lg:flex-row">
             <div className="text-center lg:text-left w-full md:w-1/2 hidden md:block">
-              <h1 className="text-5xl font-bold text-white">Login now!</h1>
+              <h1 className="text-5xl font-bold text-white mb-8">Audit Based Micro Credit NGO Software</h1>
+              <h1 className="text-3xl font-bold text-white">Login Now!</h1>
               <p className="py-6 text-base-300">
                 <span className="">ATC</span> Tech Limited has been dedicated to
                 providing innovative and sustainable solutions. Our team of
@@ -149,14 +150,14 @@ const Login = () => {
                     Login
                   </button>
                 </div>
-                <div className="form-control mt-1">
+                {/* <div className="form-control mt-1">
                   <Link
                     to={"/auth/registration"}
                     className="btn  bg-emerald-500 hover:bg-teal-700 text-white"
                   >
                     Sign Up
                   </Link>
-                </div>
+                </div> */}
               </form>
             </div>
           </div>

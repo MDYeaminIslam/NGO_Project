@@ -67,7 +67,7 @@ const LoanManagementNav = () => {
                       </NavLink>
                     </li>
 
-                    <li>
+                    {/* <li>
                       <NavLink to={"/loan_received_money"}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
                           Loan Received Money
@@ -89,7 +89,7 @@ const LoanManagementNav = () => {
                           Loan Pay List
                         </p>
                       </NavLink>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
               )}
@@ -115,7 +115,7 @@ const LoanManagementNav = () => {
                   </p>
                 </NavLink>
 
-                <NavLink to={"/loan_received_money"}>
+                {/* <NavLink to={"/loan_received_money"}>
                   <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">
                     Loan Received Money
                   </p>
@@ -131,7 +131,7 @@ const LoanManagementNav = () => {
                   <p className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium">
                     Loan Pay List
                   </p>
-                </NavLink>
+                </NavLink> */}
               </div>
             </div>
           </div>

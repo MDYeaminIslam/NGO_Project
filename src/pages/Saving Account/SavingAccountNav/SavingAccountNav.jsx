@@ -88,13 +88,13 @@ const SavingAccountNav = () => {
                       </NavLink>
                     </li>
 
-                    <li>
+                    {/* <li>
                       <NavLink to={"/closing_account_request"}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
                           Closing Account Request
                         </p>
                       </NavLink>
-                    </li>
+                    </li> */}
 
                     <li>
                       <NavLink to={"/saving_account_list"}>
@@ -142,11 +142,11 @@ const SavingAccountNav = () => {
                   </p>
                 </NavLink>
 
-                <NavLink to={"/closing_account_request"}>
+                {/* <NavLink to={"/closing_account_request"}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                     Closing Account Request
                   </p>
-                </NavLink>
+                </NavLink> */}
 
                 <NavLink to={"/saving_account_list"}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
