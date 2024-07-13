@@ -21,8 +21,10 @@ const EmployeeCard = ({ data }) => {
     previousOrganization,
     presentPosition,
     guarantorDetails,
+    nidDetails,
   } = data;
 
+  console.log(data);
 
   return (
     <div>
@@ -35,7 +37,7 @@ const EmployeeCard = ({ data }) => {
             <h1 className="text-lg md:text-4xl">{name}</h1>
             <p className="md:text-lg">Phone Number: {mobileNumber}</p>
             <p className="font-bold text-green-600">{status}</p>
-            <p className="md:text-lg"> NID :{nidNumber}</p>
+            <p className="md:text-lg"> NID :{nidDetails.nidNumber}</p>
           </div>
         </div>
 
@@ -61,16 +63,16 @@ const EmployeeCard = ({ data }) => {
                   <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Mother Name:</td>
                   <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{motherName}</td>
                 </tr>
-                <tr className="border-b">
+                {/* <tr className="border-b">
                   <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Spouse Name:</td>
                   <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{spouseName}</td>
-                </tr>
+                </tr> */}
                 <tr className="border-b  ">
                   <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Present Address:</td>
                   <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{presentAddress}</td>
                 </tr>
                 <tr className="border-b  ">
-                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Permanenet Address:</td>
+                  <td className="pl-4 p-2 font-bold" style={{ width: '40%' }}>Permanent Address:</td>
                   <td className="p-2 font-normal text-base border-l-2 " style={{ width: '60%' }}>{permanentAddress}</td>
                 </tr>
                 <tr className="border-b ">
@@ -96,6 +98,14 @@ const EmployeeCard = ({ data }) => {
 
               </tbody>
             </table>
+
+            <div>
+              <h3 className="font-bold p-4">Nid Photo: </h3>
+              <div className=" flex gap-4 items-center p-2 ">
+                <img className=" rounded  h-52  " src={nidDetails.nidPhotoFront} alt="" />
+                <img className=" rounded  h-52  " src={nidDetails.nidPhotoBack} alt="" />
+              </div>
+            </div>
 
           </div>
 
@@ -242,6 +252,14 @@ const EmployeeCard = ({ data }) => {
 
               </tbody>
             </table>
+
+            <div>
+              <h3 className="font-bold p-4">Nid Photo: </h3>
+              <div className=" flex gap-4 items-center p-2 ">
+                <img className=" rounded  h-52  " src={guarantorDetails.nidDetails.nidPhotoFront} alt="" />
+                <img className=" rounded  h-52  " src={guarantorDetails.nidDetails.nidPhotoBack} alt="" />
+              </div>
+            </div>
 
           </div>
 
