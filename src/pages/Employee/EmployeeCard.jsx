@@ -42,7 +42,7 @@ const EmployeeCard = ({ data }) => {
         </div>
 
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
-          Personal Information
+          Employee Personal Information
         </h1>
 
 
@@ -100,7 +100,7 @@ const EmployeeCard = ({ data }) => {
             </table>
 
             <div>
-              <h3 className="font-bold p-4">Nid Photo: </h3>
+              <h3 className="font-bold p-4">Employee Nid Photos: </h3>
               <div className=" flex gap-4 items-center p-2 ">
                 <img className=" rounded  h-52  " src={nidDetails.nidPhotoFront} alt="" />
                 <img className=" rounded  h-52  " src={nidDetails.nidPhotoBack} alt="" />
@@ -116,7 +116,7 @@ const EmployeeCard = ({ data }) => {
 
 
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
-          Previous Organization Details
+          Employee Previous Organization Details
         </h1>
 
         <section>
@@ -167,7 +167,7 @@ const EmployeeCard = ({ data }) => {
 
 
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
-          Present Position
+          Employee Present Position
         </h1>
 
 
@@ -221,7 +221,7 @@ const EmployeeCard = ({ data }) => {
 
 
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
-          Guarantor Details
+          Guarantor Information
         </h1>
 
         <section>
@@ -257,7 +257,7 @@ const EmployeeCard = ({ data }) => {
             </table>
 
             <div>
-              <h3 className="font-bold p-4">Nid Photo: </h3>
+              <h3 className="font-bold p-4">Gurantor Nid Photos: </h3>
               <div className=" flex gap-4 items-center p-2 ">
                 <img className=" rounded  h-52  " src={guarantorDetails.nidDetails.nidPhotoFront} alt="" />
                 <img className=" rounded  h-52  " src={guarantorDetails.nidDetails.nidPhotoBack} alt="" />
