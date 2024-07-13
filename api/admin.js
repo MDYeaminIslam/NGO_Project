@@ -664,11 +664,16 @@ export async function createAssetExpense(data) {
 }
 export async function getBalanceSheet(data) {
   const { from, to } = data;
-  const response = await axiosAdmin.get(`/report/balance_sheet?from=${from}&to=${to}`, data);
+  const response = await axiosAdmin.get(`/report/balance_sheet?from=${from}&to=${to}`);
   return response.data.data;
 }
 export async function getIncomeVsExpense(data) {
   const { from, to } = data;
-  const response = await axiosAdmin.get(`/report/income_vs_expense?from=${from}&to=${to}`, data);
+  const response = await axiosAdmin.get(`/report/income_vs_expense?from=${from}&to=${to}`);
   return response.data.data;
+}
+export async function getTrailBalance(data) {
+  const { from, to } = data;
+  const response = await axiosAdmin.get(`/report/trial_balance?from=${from}&to=${to}`);
+  return response.data;
 }
