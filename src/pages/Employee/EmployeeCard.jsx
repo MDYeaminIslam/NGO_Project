@@ -37,7 +37,7 @@ const EmployeeCard = ({ data }) => {
             <h1 className="text-lg md:text-4xl">{name}</h1>
             <p className="md:text-lg">Phone Number: {mobileNumber}</p>
             <p className="font-bold text-green-600">{status}</p>
-            <p className="md:text-lg"> NID :{nidDetails.nidNumber}</p>
+            <p className="md:text-lg"> NID: {nidDetails.nidNumber}</p>
           </div>
         </div>
 
@@ -225,6 +225,9 @@ const EmployeeCard = ({ data }) => {
         </h1>
 
         <section>
+          {/* <div className="">
+            <img className=" w-60 object-cover " src={photo} alt="" />
+          </div> */}
 
           <div className="container mx-auto py-4">
             <table className="min-w-full bg-base-100 border">
