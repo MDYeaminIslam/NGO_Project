@@ -111,7 +111,7 @@ const RegPage = () => {
               className="btn  bg-emerald-500 hover:bg-teal-700 text-white"
               onClick={handleSubmit}
             >
-              Sing Up
+              Sign Up
             </button>
           </div>
         </form>
