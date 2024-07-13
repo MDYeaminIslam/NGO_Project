@@ -109,7 +109,7 @@ const Login = () => {
                       />
                       Collector
                     </label>
-                    <label className="flex items-center gap-1">
+                    {/* <label className="flex items-center gap-1">
                       <input
                         className="radio radio-success"
                         type="radio"
@@ -119,7 +119,7 @@ const Login = () => {
                         onChange={handleChange}
                       />
                       User
-                    </label>
+                    </label> */}
                   </div>
                   <label className="label">
                     <Link
