@@ -1,12 +1,13 @@
 import React from "react";
 
+const formatAmount = (amount) => amount.toLocaleString("en-US") + " TK";
+
 const TrialBalanceTable = ({ data }) => {
-  console.log(data.assets);
   const assetEntries = data.assets.map((item) => ({
     name: item.headName,
     amount: item.totalSum,
   }));
-  console.log(assetEntries);
+
   const debitEntries = [
     { name: "Cash in Hand", amount: data.drawerCash },
     { name: "Cash at Bank", amount: data.bankCash },
@@ -38,65 +39,48 @@ const TrialBalanceTable = ({ data }) => {
   );
 
   return (
-    <div className="overflow-x-auto">
-      <table className="min-w-full bg-white">
-        <thead>
-          <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-            <th className="py-3 px-6 text-left">Account Name</th>
-            <th className="py-3 px-6 text-right">Debit (TK)</th>
-            <th className="py-3 px-6 text-right">Credit (TK)</th>
+    <div className="p-6 rounded-lg shadow-lg">
+      <table className="w-full text-sm text-left">
+        <thead className="text-xs uppercase bg-gray-100">
+          <tr>
+            <th className="px-6 py-3">Account Name</th>
+            <th className="px-6 py-3 text-right">Debit</th>
+            <th className="px-6 py-3 text-right">Credit</th>
           </tr>
         </thead>
-        <tbody className="text-gray-600 text-sm font-light">
+        <tbody>
           {debitEntries.map((entry, index) => (
-            <tr
-              key={`debit-${index}`}
-              className="border-b border-gray-200 hover:bg-gray-100"
-            >
-              <td className="py-3 px-6 text-left whitespace-nowrap">
-                {entry.name}
+            <tr key={`debit-${index}`} className="border-b">
+              <td className="px-6 py-4">{entry.name}</td>
+              <td className="px-6 py-4 text-right">
+                {formatAmount(entry.amount)}
               </td>
-              <td className="py-3 px-6 text-right">
-                {entry.amount.toLocaleString()}
-              </td>
-              <td className="py-3 px-6 text-right"></td>
+              <td className="px-6 py-4 text-right"></td>
             </tr>
           ))}
           {creditEntries.map((entry, index) => (
-            <tr
-              key={`credit-${index}`}
-              className="border-b border-gray-200 hover:bg-gray-100"
-            >
-              <td className="py-3 px-6 text-left whitespace-nowrap">
-                {entry.name}
-              </td>
-              <td className="py-3 px-6 text-right"></td>
-              <td className="py-3 px-6 text-right">
-                {entry.amount.toLocaleString()}
+            <tr key={`credit-${index}`} className="border-b">
+              <td className="px-6 py-4">{entry.name}</td>
+              <td className="px-6 py-4 text-right"></td>
+              <td className="px-6 py-4 text-right">
+                {formatAmount(entry.amount)}
               </td>
             </tr>
           ))}
           {expenseEntries.map((entry, index) => (
-            <tr
-              key={`expense-${index}`}
-              className="border-b border-gray-200 hover:bg-gray-100"
-            >
-              <td className="py-3 px-6 text-left whitespace-nowrap">
-                {entry.name}
+            <tr key={`expense-${index}`} className="border-b">
+              <td className="px-6 py-4">{entry.name}</td>
+              <td className="px-6 py-4 text-right">
+                {formatAmount(entry.amount)}
               </td>
-              <td className="py-3 px-6 text-right">
-                {entry.amount.toLocaleString()}
-              </td>
-              <td className="py-3 px-6 text-right"></td>
+              <td className="px-6 py-4 text-right"></td>
             </tr>
           ))}
-          <tr className="bg-gray-200 font-bold">
-            <td className="py-3 px-6 text-left whitespace-nowrap">TOTAL</td>
-            <td className="py-3 px-6 text-right">
-              {totalDebit.toLocaleString()}
-            </td>
-            <td className="py-3 px-6 text-right">
-              {totalCredit.toLocaleString()}
+          <tr className="font-bold bg-gray-100">
+            <td className="px-6 py-4">TOTAL</td>
+            <td className="px-6 py-4 text-right">{formatAmount(totalDebit)}</td>
+            <td className="px-6 py-4 text-right">
+              {formatAmount(totalCredit)}
             </td>
           </tr>
         </tbody>

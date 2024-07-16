@@ -327,6 +327,7 @@ const OpenLoanAccount = () => {
               <DrawerBankCashSelector
                 samityId={searchedUser ? searchedUser.samityId : null}
                 callBackFn={setFormData}
+                text={"Pay From"}
               />
               <div className="flex flex-col gap-1">
                 <label className="font-medium" htmlFor="gurantor_info">

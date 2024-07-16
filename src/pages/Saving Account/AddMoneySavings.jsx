@@ -67,7 +67,11 @@ function AddMoneySavings({ id, samityId }) {
             />
           </div>
         </div>
-        <DrawerBankCashSelector samityId={samityId} callBackFn={setFormData} />
+        <DrawerBankCashSelector
+          samityId={samityId}
+          callBackFn={setFormData}
+          text={"Add Money To"}
+        />
 
         <div className="w-full flex justify-center  mt-12">
           <button

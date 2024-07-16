@@ -5,11 +5,7 @@ import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
 import { IconSearch } from "../../../icons/icons";
 //Payment Term ==== Profit Withdraw Term
-import {
-  createDepositAccount,
-  createFdrAccount,
-  searchUserByPhoneNumber,
-} from "../../../api/admin";
+import { createFdrAccount, searchUserByPhoneNumber } from "../../../api/admin";
 import { MoonLoader } from "react-spinners";
 import toast from "react-hot-toast";
 import useMutationHook from "../../../hooks/useMutationHook";
@@ -356,6 +352,7 @@ const Deposit = () => {
               </div>
               <DrawerBankCashSelector
                 samityId={searchedUser ? searchedUser.samityId : null}
+                text={"Add Money To"}
                 callBackFn={setFormData}
               />
               <div className="flex flex-col gap-1 md:col-span-3"></div>

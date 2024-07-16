@@ -105,6 +105,8 @@ import AddExpenseHead from "../pages/Expense/AddExpenseHead";
 import AddAssetHead from "../pages/Expense/AddAssetHead";
 import TrialBalanceSheet from "../pages/Report/TrialBalanceSheet";
 import IncomeVsExpense from "../pages/Report/IncomeVsExpense";
+import FdrAccountList from "../pages/Saving Account/FdrAccountList";
+import DpsAccountList from "../pages/Saving Account/DpsAccountList";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -289,6 +291,22 @@ const router = createBrowserRouter([
         element: (
           <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}>
             <SavingAccountList />{" "}
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "fdr_account_list",
+        element: (
+          <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}>
+            <FdrAccountList />{" "}
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "dps_account_list",
+        element: (
+          <AdminRoute roles={[ROLES.Admin, ROLES.Collector]}>
+            <DpsAccountList />{" "}
           </AdminRoute>
         ),
       },

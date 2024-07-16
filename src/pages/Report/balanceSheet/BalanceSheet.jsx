@@ -13,96 +13,100 @@ const BalanceSheetData = ({ data }) => {
   );
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h2 className="text-2xl font-bold mb-4">Balance Sheet</h2>
-      <div className="overflow-x-auto">
-        <table className="w-full bg-white border-collapse">
-          <thead className="bg-gray-800 text-white text-center">
-            <tr>
-              <th className="px-4 py-2 text-left">ASSETS (Debit)</th>
-              <th className="px-4 py-2 text-right">Amount</th>
-              <th className="px-4 py-2 text-left">
-                LIABILITIES & EQUITY (Credit)
-              </th>
-              <th className="px-4 py-2 text-right">Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="bg-gray-100">
-              <td colSpan="2" className="px-4 py-2 font-semibold">
-                Current Assets:
+    <div className="p-6 rounded-lg shadow-lg">
+      <table className="w-full text-sm text-left">
+        <thead className="text-xs uppercase bg-gray-100">
+          <tr>
+            <th className="px-6 py-3">ASSETS (Debit)</th>
+            <th className="px-6 py-3">Amount</th>
+            <th className="px-6 py-3">LIABILITIES & EQUITY (Credit)</th>
+            <th className="px-6 py-3">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="border-b">
+            <td colSpan="2" className="px-6 py-4 font-medium">
+              Current Assets:
+            </td>
+            <td colSpan="2" className="px-6 py-4 font-medium">
+              Current Liabilities:
+            </td>
+          </tr>
+          {data.assets.currentAssets.map((asset, index) => (
+            <tr key={`asset-${index}`} className="border-b">
+              <td className="px-6 py-4">{asset.name}</td>
+              <td className="px-6 py-4">
+                {formatAmount(asset.amount, asset.name)}
               </td>
-              <td colSpan="2" className="px-4 py-2 font-semibold">
-                Current Liabilities:
-              </td>
+              {index < data.liabilitiesAndEquity.currentLiabilities.length && (
+                <>
+                  <td className="px-6 py-4">
+                    {data.liabilitiesAndEquity.currentLiabilities[index].name}
+                  </td>
+                  <td className="px-6 py-4">
+                    {formatAmount(
+                      data.liabilitiesAndEquity.currentLiabilities[index]
+                        .amount,
+                      data.liabilitiesAndEquity.currentLiabilities[index].name
+                    )}
+                  </td>
+                </>
+              )}
             </tr>
-            {Array.from({ length: maxRows }, (_, i) => (
-              <tr key={i} className="hover:bg-gray-50">
-                <td className="border px-4 py-2">
-                  {data.assets.currentAssets[i]?.name || ""}
-                </td>
-                <td className="border px-4 py-2 text-right">
-                  {data.assets.currentAssets[i]
-                    ? formatAmount(data.assets.currentAssets[i].amount)
-                    : ""}
-                </td>
-                <td className="border px-4 py-2">
-                  {data.liabilitiesAndEquity.currentLiabilities[i]?.name || ""}
-                </td>
-                <td className="border px-4 py-2 text-right">
-                  {data.liabilitiesAndEquity.currentLiabilities[i]
-                    ? formatAmount(
-                        data.liabilitiesAndEquity.currentLiabilities[i].amount
-                      )
-                    : ""}
+          ))}
+          <tr className="border-b">
+            <td colSpan="2" className="px-6 py-4 font-medium">
+              Fixed Assets:
+            </td>
+            <td colSpan="2" className="px-6 py-4 font-medium">
+              Equity:
+            </td>
+          </tr>
+          {data.assets.fixedAssets.map((asset, index) => (
+            <tr key={`fixed-asset-${index}`} className="border-b">
+              <td className="px-6 py-4">{asset.name}</td>
+              <td className="px-6 py-4">
+                {formatAmount(asset.amount, asset.name)}
+              </td>
+              {index < data.liabilitiesAndEquity.equity.length && (
+                <>
+                  <td className="px-6 py-4">
+                    {data.liabilitiesAndEquity.equity[index].name}
+                  </td>
+                  <td className="px-6 py-4">
+                    {formatAmount(
+                      data.liabilitiesAndEquity.equity[index].amount,
+                      data.liabilitiesAndEquity.equity[index].name
+                    )}
+                  </td>
+                </>
+              )}
+            </tr>
+          ))}
+          {/* Add any remaining equity items */}
+          {data.liabilitiesAndEquity.equity
+            .slice(data.assets.fixedAssets.length)
+            .map((item, index) => (
+              <tr key={`equity-${index}`} className="border-b">
+                <td colSpan="2"></td>
+                <td className="px-6 py-4">{item.name}</td>
+                <td className="px-6 py-4">
+                  {formatAmount(item.amount, item.name)}
                 </td>
               </tr>
             ))}
-            <tr className="bg-gray-100">
-              <td colSpan="2" className="px-4 py-2 font-semibold">
-                Fixed Assets:
-              </td>
-              <td colSpan="2" className="px-4 py-2 font-semibold"></td>
-            </tr>
-            {data.assets.fixedAssets.map((asset, index) => (
-              <tr key={`fixed-asset-${index}`} className="hover:bg-gray-50">
-                <td className="border px-4 py-2">{asset.name}</td>
-                <td className="border px-4 py-2 text-right">
-                  {formatAmount(asset.amount, asset.name)}
-                </td>
-                <td className="border"></td>
-                <td className="border"></td>
-              </tr>
-            ))}
-            <tr className="bg-gray-100">
-              <td colSpan="2" className="px-4 py-2 font-semibold"></td>
-              <td colSpan="2" className="px-4 py-2 font-semibold">
-                Equity:
-              </td>
-            </tr>
-            {data.liabilitiesAndEquity.equity.map((equity, index) => (
-              <tr key={`equity-${index}`} className="hover:bg-gray-50">
-                <td className="border"></td>
-                <td className="border"></td>
-                <td className="border px-4 py-2">{equity.name}</td>
-                <td className="border px-4 py-2 text-right">
-                  {formatAmount(equity.amount, equity.name)}
-                </td>
-              </tr>
-            ))}
-            <tr className="bg-gray-200 font-bold">
-              <td className="border px-4 py-2">TOTAL</td>
-              <td className="border px-4 py-2 text-right">
-                {formatAmount(data.assets.total)}
-              </td>
-              <td className="border px-4 py-2">TOTAL</td>
-              <td className="border px-4 py-2 text-right">
-                {formatAmount(data.liabilitiesAndEquity.total)}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+          <tr className="font-bold bg-gray-100">
+            <td className="px-6 py-4">TOTAL</td>
+            <td className="px-6 py-4">
+              {formatAmount(data.assets.total, "Total")}
+            </td>
+            <td className="px-6 py-4">TOTAL</td>
+            <td className="px-6 py-4">
+              {formatAmount(data.liabilitiesAndEquity.total, "Total")}
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };

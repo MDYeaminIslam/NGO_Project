@@ -35,7 +35,6 @@ const LoanTransactionPostingDetails = () => {
     queryFn: () => getLoanTransactionDetailsById(id),
     initialData: null,
   });
-  console.log(data);
   const { mutate } = useMutationHook(payLoanAccount, {
     key: [`loan-transaction-${id}`],
     onSuccess: () => {
@@ -116,6 +115,7 @@ const LoanTransactionPostingDetails = () => {
           <DrawerBankCashSelector
             samityId={data?.loanAccountDetails?.samityId}
             callBackFn={setFormData}
+            text="Add Money To"
           />
 
           <div className="w-full flex justify-center  mt-12">

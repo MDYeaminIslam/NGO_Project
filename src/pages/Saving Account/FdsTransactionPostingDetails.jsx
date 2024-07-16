@@ -46,6 +46,7 @@ const FdrTransactionPostingDetails = () => {
         <DrawerBankCashSelector
           samityId={data.length ? data[0].samityId : null}
           callBackFn={setFormData}
+          text={"Pay From"}
         />
       </section>
       <section>

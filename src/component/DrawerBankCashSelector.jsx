@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getAllBank } from "../../api/admin";
 
-export default function DrawerBankCashSelector({ samityId, callBackFn }) {
+export default function DrawerBankCashSelector({ samityId, callBackFn, text }) {
   const [data, setData] = useState([]);
   const [selectedValue, setSelectedValue] = useState("");
 
@@ -44,7 +44,7 @@ export default function DrawerBankCashSelector({ samityId, callBackFn }) {
   return (
     <div className="flex flex-col gap-1 w-full">
       <label className="font-medium" htmlFor="name">
-        From:
+        {`${text} :`}
       </label>
       <select
         value={selectedValue}

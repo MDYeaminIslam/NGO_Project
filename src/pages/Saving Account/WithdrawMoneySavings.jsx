@@ -68,7 +68,11 @@ function WithdrawMoneySavings({ id, samityId }) {
             />
           </div>
         </div>
-        <DrawerBankCashSelector samityId={samityId} callBackFn={setFormData} />
+        <DrawerBankCashSelector
+          samityId={samityId}
+          callBackFn={setFormData}
+          text={"Withdraw From"}
+        />
         <div className="w-full flex justify-center  mt-12">
           <button
             className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium  text-white"

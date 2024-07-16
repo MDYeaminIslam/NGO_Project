@@ -17,23 +17,25 @@ const MembersList = () => {
   const { data } = useQuery({
     queryKey: ["member-list"],
     queryFn: () => getLocalUsersByBranchIdAndSmityId(formData),
-    enabled: formData.branchId && formData.samityId ? true : false,
+    enabled: !!formData.branchId && !!formData.samityId,
     initialData: null,
   });
   useEffect(() => {
     const branchId = searchParams.get("branchId");
     const samityId = searchParams.get("samityId");
-    console.log(branchId, samityId);
     if (branchId && samityId) {
       setFormData({ branchId, samityId });
     }
+  }, [searchParams]);
+  useEffect(() => {
     if (formData.branchId && formData.samityId) {
       setSearchParams({
         branchId: formData.branchId,
         samityId: formData.samityId,
       });
     }
-  }, []);
+  }, [formData, setSearchParams]);
+
   return (
     <div>
       <section>
@@ -65,8 +67,8 @@ const MembersList = () => {
 
               {data
                 ? data.data.map((user, key) => (
-                  <ListView key={key} data={user} idx={key} />
-                ))
+                    <ListView key={key} data={user} idx={key} />
+                  ))
                 : null}
             </table>
           </div>

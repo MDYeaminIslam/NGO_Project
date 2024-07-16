@@ -503,7 +503,7 @@ const AddMember = () => {
                 onChange={handleChange}
                 className="input input-bordered input-sm  hover:border-teal-500"
                 id="mobile_number"
-                type="number"
+                type="text"
                 placeholder="+880"
                 name="mobileNumber"
                 required
@@ -735,7 +735,7 @@ const AddMember = () => {
                   onChange={handleChangeNominie}
                   className="input input-bordered input-sm  hover:border-teal-500"
                   id="phone_number"
-                  type="number"
+                  type="text"
                   name="phoneNumber"
                   required
                   value={formData.nominee.phoneNumber}

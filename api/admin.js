@@ -190,7 +190,22 @@ export async function searchLoanAccount(number) {
 export async function searchDepositAccountByBranchAndSamity(body) {
   const { branchId, samityId } = body;
   const response = await axiosAdmin.get(
-    `/deposit/list?branchId=${branchId}&samityId=${samityId}`
+    `/savings/list?branchId=${branchId}&samityId=${samityId}`
+  );
+  return response.data;
+}
+
+export async function searchFdrAccountByBranchAndSamity(body) {
+  const { branchId, samityId } = body;
+  const response = await axiosAdmin.get(
+    `/fdr/list?branchId=${branchId}&samityId=${samityId}`
+  );
+  return response.data;
+}
+export async function searchDpsAccountByBranchAndSamity(body) {
+  const { branchId, samityId } = body;
+  const response = await axiosAdmin.get(
+    `/dps/list?branchId=${branchId}&samityId=${samityId}`
   );
   return response.data;
 }
@@ -488,6 +503,7 @@ export async function payLoanFromDepositAccount(data) {
   const loanPaymentBody = {
     loanId: loanAccountId,
     amount: amount,
+    date: new Date(),
     addFineAmount: 0,
     fineReason: "",
     payFineAmount: 0,

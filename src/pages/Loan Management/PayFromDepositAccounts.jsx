@@ -2,6 +2,7 @@ import { useState } from "react";
 import useMutationHook from "../../../hooks/useMutationHook";
 import { payLoanFromDepositAccount } from "../../../api/admin";
 import DrawerBankCashSelector from "../../component/DrawerBankCashSelector";
+import toast from "react-hot-toast";
 const initialState = {
   payFrom: null,
 };
@@ -65,7 +66,11 @@ export const PayFromDepositAccounts = ({ data, loanId, user, samityId }) => {
           />
         </div>
       </div>
-      <DrawerBankCashSelector samityId={samityId} callBackFn={setFormData} />
+      <DrawerBankCashSelector
+        samityId={samityId}
+        callBackFn={setFormData}
+        text={"Add Money To"}
+      />
       <div className="w-full flex justify-center  mt-12">
         <button
           className="bg-teal-600 hover:bg-teal-700 px-20 py-2 rounded font-medium  text-white"

@@ -103,6 +103,20 @@ const SavingAccountNav = () => {
                         </p>
                       </NavLink>
                     </li>
+                    <li>
+                      <NavLink to={"/fdr_account_list"}>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
+                          FDR Account List
+                        </p>
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to={"/dps_account_list"}>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
+                          Saving Account List
+                        </p>
+                      </NavLink>
+                    </li>
                   </ul>
                 </div>
               )}
@@ -151,6 +165,16 @@ const SavingAccountNav = () => {
                 <NavLink to={"/saving_account_list"}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                     Saving Account List
+                  </p>
+                </NavLink>
+                <NavLink to={"/fdr_account_list"}>
+                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    FDR Account List
+                  </p>
+                </NavLink>
+                <NavLink to={"/dps_account_list"}>
+                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    DPS Account List
                   </p>
                 </NavLink>
               </div>

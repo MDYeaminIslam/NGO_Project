@@ -1,15 +1,20 @@
 import React from "react";
 
+const formatAmount = (amount, isNegative = false) =>
+  isNegative
+    ? `(${Math.abs(amount).toLocaleString("en-US")}) TK`
+    : `${amount.toLocaleString("en-US")} TK`;
+
 const IncomeExpenseTable = ({ data }) => {
   const isNetIncome = data.netIncome >= 0;
   const netIncomeAbsolute = Math.abs(data.netIncome);
 
   return (
-    <div className="container mx-auto p-6 bg-gray-100">
-      <table className="w-full bg-white shadow-md rounded-lg overflow-hidden">
-        <thead className="bg-gray-800 text-white">
+    <div className="p-6 rounded-lg shadow-lg">
+      <table className="w-full text-sm text-left">
+        <thead className="text-xs uppercase bg-gray-100">
           <tr>
-            <th className="px-4 py-2 text-left" colSpan="2">
+            <th className="px-6 py-3" colSpan="2">
               INCOME
             </th>
           </tr>
@@ -17,22 +22,20 @@ const IncomeExpenseTable = ({ data }) => {
         <tbody>
           {Object.entries(data.income.items).map(([key, value], index) => (
             <tr key={index} className="border-b">
-              <td className="px-4 py-2">{key}</td>
-              <td className="px-4 py-2 text-right">
-                {value.toLocaleString()} TK
-              </td>
+              <td className="px-6 py-4">{key}</td>
+              <td className="px-6 py-4 text-right">{formatAmount(value)}</td>
             </tr>
           ))}
-          <tr className="bg-gray-200 font-bold">
-            <td className="px-4 py-2">Total Income</td>
-            <td className="px-4 py-2 text-right">
-              {data.income.total.toLocaleString()} TK
+          <tr className="font-bold bg-gray-100">
+            <td className="px-6 py-4">Total Income</td>
+            <td className="px-6 py-4 text-right">
+              {formatAmount(data.income.total)}
             </td>
           </tr>
         </tbody>
-        <thead className="bg-gray-800 text-white">
+        <thead className="text-xs uppercase bg-gray-100">
           <tr>
-            <th className="px-4 py-2 text-left" colSpan="2">
+            <th className="px-6 py-3" colSpan="2">
               EXPENSES
             </th>
           </tr>
@@ -40,34 +43,30 @@ const IncomeExpenseTable = ({ data }) => {
         <tbody>
           {data.expenses.items.map((item, index) => (
             <tr key={index} className="border-b">
-              <td className="px-4 py-2">{item.name}</td>
-              <td className="px-4 py-2 text-right">
-                {item.amount.toLocaleString()} TK
+              <td className="px-6 py-4">{item.name}</td>
+              <td className="px-6 py-4 text-right">
+                {formatAmount(item.amount)}
               </td>
             </tr>
           ))}
-          <tr className="bg-gray-200 font-bold">
-            <td className="px-4 py-2">Total Expenses</td>
-            <td className="px-4 py-2 text-right">
-              {data.expenses.total.toLocaleString()} TK
+          <tr className="font-bold bg-gray-100">
+            <td className="px-6 py-4">Total Expenses</td>
+            <td className="px-6 py-4 text-right">
+              {formatAmount(data.expenses.total)}
             </td>
           </tr>
         </tbody>
         <tfoot>
           <tr
-            className={
-              isNetIncome
-                ? "bg-green-100 font-bold text-green-700"
-                : "bg-red-100 font-bold text-red-700"
-            }
+            className={`font-bold ${
+              isNetIncome ? "text-green-700" : "text-red-700"
+            }`}
           >
-            <td className="px-4 py-2">
+            <td className="px-6 py-4">
               {isNetIncome ? "Net Income" : "Net Loss"}
             </td>
-            <td className="px-4 py-2 text-right">
-              {isNetIncome
-                ? `${netIncomeAbsolute.toLocaleString()} TK`
-                : `(${netIncomeAbsolute.toLocaleString()} TK)`}
+            <td className="px-6 py-4 text-right">
+              {formatAmount(netIncomeAbsolute, !isNetIncome)}
             </td>
           </tr>
         </tfoot>
