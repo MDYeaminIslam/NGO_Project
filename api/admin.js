@@ -693,3 +693,7 @@ export async function getTrailBalance(data) {
   const response = await axiosAdmin.get(`/report/trial_balance?from=${from}&to=${to}`);
   return response.data;
 }
+export async function createDonationTransaction(data) {
+  const response = await axiosAdmin.post(`/donation/create`, data);
+  return response.data;
+}

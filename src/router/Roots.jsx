@@ -107,6 +107,8 @@ import TrialBalanceSheet from "../pages/Report/TrialBalanceSheet";
 import IncomeVsExpense from "../pages/Report/IncomeVsExpense";
 import FdrAccountList from "../pages/Saving Account/FdrAccountList";
 import DpsAccountList from "../pages/Saving Account/DpsAccountList";
+import AddDonationHead from "../pages/Income/AddDonationHead";
+import AddDonationStatement from "../pages/Income/AddDonationStatement";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -550,6 +552,15 @@ const router = createBrowserRouter([
         element: (
           <AdminRoute roles={[ROLES.Admin]}>
             <AddIncomeHead />
+          </AdminRoute>
+        ),
+      },
+
+      {
+        path: "donation_head_statement",
+        element: (
+          <AdminRoute roles={[ROLES.Admin]}>
+            <AddDonationStatement />
           </AdminRoute>
         ),
       },

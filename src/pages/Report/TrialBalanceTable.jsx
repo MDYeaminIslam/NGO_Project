@@ -12,12 +12,12 @@ const TrialBalanceTable = ({ data }) => {
     { name: "Cash in Hand", amount: data.drawerCash },
     { name: "Cash at Bank", amount: data.bankCash },
     { name: "Loans Receivable", amount: data.loanReceiveAble },
-    { name: "Membership and Form Fees", amount: data.userFromAndMemberShipFee },
     ...assetEntries,
   ];
 
   const creditEntries = [
     { name: "Member Savings Accounts", amount: data.savings },
+    { name: "Membership and Form Fees", amount: data.userFromAndMemberShipFee },
     { name: "FDR Accounts", amount: data.fdr },
     { name: "DPS Accounts", amount: data.dps },
     { name: "Employee Security Fund", amount: data.employeeSecurityFund },

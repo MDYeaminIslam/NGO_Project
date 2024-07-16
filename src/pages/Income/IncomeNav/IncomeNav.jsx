@@ -50,14 +50,21 @@ function BranchesNav() {
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to={"/income_head"}>
+                      <NavLink to={"/income_head_statement"}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
-                          Add Income Head
+                          Add Income Statement
                         </p>
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to={"/income_head_statement"}>
+                      <NavLink to={"/donation_head_statement"}>
+                        <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
+                          Add Donation Statement
+                        </p>
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to={"/income_head"}>
                         <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
                           Add Income Head
                         </p>
@@ -75,14 +82,19 @@ function BranchesNav() {
                     Income Status
                   </p>
                 </NavLink>
-                <NavLink to={"/income_head"}>
-                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                    Add Income Head
-                  </p>
-                </NavLink>
                 <NavLink to={"/income_head_statement"}>
                   <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                     Add Income Statement
+                  </p>
+                </NavLink>
+                <NavLink to={"/donation_head_statement"}>
+                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    Add Donation Statement
+                  </p>
+                </NavLink>
+                <NavLink to={"/income_head"}>
+                  <p className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    Add Income Head
                   </p>
                 </NavLink>
               </div>

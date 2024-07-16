@@ -4,6 +4,8 @@ const BalanceSheetData = ({ data }) => {
   const formatAmount = (amount, name) =>
     name !== "Retained Earnings"
       ? amount.toLocaleString("en-US") + " TK"
+      : amount >= 0
+      ? `${Math.abs(amount).toLocaleString("en-US")} TK`
       : `(${Math.abs(amount).toLocaleString("en-US")}) TK`;
 
   const maxRows = Math.max(
