@@ -69,6 +69,7 @@ const MonthlyExpense = () => {
             <DrawerBankCashSelector
               callBackFn={setFormData}
               samityId={formData.samityId}
+              text={"Pay From"}
             />
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="date">

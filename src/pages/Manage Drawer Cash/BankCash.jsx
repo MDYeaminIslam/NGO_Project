@@ -19,6 +19,7 @@ import { Link } from "react-router-dom";
 const initialState = {
   amount: 0,
   bankId: "",
+  isCapital: true,
   transactionDetails: {
     date: new Date(),
     sourceDetails: "bank cash",
@@ -170,8 +171,6 @@ const DrawerCash = () => {
         </section>
       </section>
 
-
-
       {/* Bank Details Card */}
 
       <div className="md:m-2 xl:m-0">
@@ -183,7 +182,6 @@ const DrawerCash = () => {
             <th className="col-span-2 hidden md:block">ID</th>
             <th className=" col-span-2">Action</th>
           </tr>
-
         </table>
       </div>
 
@@ -195,7 +193,6 @@ const DrawerCash = () => {
         <div>No data</div>
       )}
     </div>
-
   );
 };
 function BankDetailsCard({ data, id }) {
@@ -203,18 +200,22 @@ function BankDetailsCard({ data, id }) {
   console.log(id);
 
   return (
-
     <div className="bg-white shadow-md rounded-lg p-0">
-
       <tr className="grid grid-cols-5 text-xs md:text-base bg-gray-100 border-b-2 md:grid-cols-9 items-center w-full justify-between text-center py-3">
         <td className="font-bold ">{id + 1}</td>
         <td className="col-span-2">{name}</td>
         <td className="col-span-2">{balance}</td>
         <td className="col-span-2">{_id}</td>
-        <td className="col-span-2"><Link to={`/bank_cash/${_id}`} className="btn btn-xs md:btn-sm btn-info text-white">View</Link></td>
+        <td className="col-span-2">
+          <Link
+            to={`/bank_cash/${_id}`}
+            className="btn btn-xs md:btn-sm btn-info text-white"
+          >
+            View
+          </Link>
+        </td>
       </tr>
     </div>
-
   );
 }
 export default DrawerCash;

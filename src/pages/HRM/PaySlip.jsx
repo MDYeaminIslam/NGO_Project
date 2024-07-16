@@ -404,6 +404,7 @@ const PaySlip = () => {
               <DrawerBankCashSelector
                 samityId={formData.samityId}
                 callBackFn={setFormData}
+                text={"Pay From"}
               />
               <div className="flex flex-col gap-1">
                 <label className="font-medium">Due:</label>
