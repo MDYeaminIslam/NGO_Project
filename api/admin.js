@@ -317,7 +317,7 @@ export async function getAllBank() {
 // add drawerToBank transaction
 export async function addDrawerToBank(data) {
   const response = await axiosAdmin.post(
-    "/bank/money-add",
+    "/bank/transfer",
     data
   );
   return response.data;

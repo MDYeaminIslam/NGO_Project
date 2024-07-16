@@ -5,19 +5,21 @@ import BranchSamitySelector from "../../component/branchSamitySelector";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import useMutationHook from "../../../hooks/useMutationHook";
-import toast from "react-hot-toast";
 import { addDrawerToBank } from "../../../api/admin";
+import { useUserType } from "../../../hooks/userContext";
 const initialState = {
   branchId: "",
   samityId: "",
   bankId: "",
   amount: "",
-  type: "cashIn",
+  type: "dTob",
   date: new Date(),
 };
 
 const DrawerCashtoBank = () => {
   const [formData, setFormData] = useState(initialState);
+  const { userDetails } = useUserType();
+  const user = userDetails();
   const { mutate, isError, errorMessage, isPending } = useMutationHook(
     addDrawerToBank,
     {
@@ -42,7 +44,11 @@ const DrawerCashtoBank = () => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    mutate(formData);
+    const newFormData = {
+      ...formData,
+      by: user,
+    };
+    mutate(newFormData);
   };
 
   return (
@@ -68,7 +74,6 @@ const DrawerCashtoBank = () => {
                   onChange={handleChangeDate}
                   className=" hover:border-teal-500 rounded  w-full  input input-bordered input-sm"
                   dateFormat="dd/MM/yyyy"
-                  
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -85,8 +90,8 @@ const DrawerCashtoBank = () => {
                   <option disabled defaultValue>
                     --Select--
                   </option>
-                  <option value="cashIn">From Drawer To Bank</option>
-                  <option value="cashOut">From Bank To Drawer</option>
+                  <option value="dTob">From Drawer To Bank</option>
+                  <option value="bTod">From Bank To Drawer</option>
                 </select>
               </div>
               <div className="flex flex-col gap-1">
