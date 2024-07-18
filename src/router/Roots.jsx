@@ -42,13 +42,12 @@ import BranchSubNavbar from "../pages/Branches/BranchSubNavbar";
 import SamityList from "../pages/Branches/SamityList";
 import DrawerCash from "../pages/Manage Drawer Cash/DrawerCash";
 import DrawerCashtoBank from "../pages/Manage Drawer Cash/DrawerCashtoBank";
-import Upcoming from "../pages/Liabilities/Upcoming";
 import Asset from "../pages/Report/Asset";
 import BalanceSheet from "../pages/Report/BalanceSheet";
 import Credit from "../pages/Report/Credit";
 import Debit from "../pages/Report/Debit";
 import DebitvsCredit from "../pages/Report/DebitvsCredit";
-import Liabilities from "../pages/Report/Liabilities";
+import Liabilities from "../pages/Liabilities/Liabilities";
 import TdsTaxVat from "../pages/Report/TdsTaxVat";
 import GeneralSettings from "../pages/Setting General/GeneralSettings";
 import TransactionnPosting from "../pages/Saving Account/TransactionnPosting";
@@ -107,8 +106,9 @@ import TrialBalanceSheet from "../pages/Report/TrialBalanceSheet";
 import IncomeVsExpense from "../pages/Report/IncomeVsExpense";
 import FdrAccountList from "../pages/Saving Account/FdrAccountList";
 import DpsAccountList from "../pages/Saving Account/DpsAccountList";
-import AddDonationHead from "../pages/Income/AddDonationHead";
 import AddDonationStatement from "../pages/Income/AddDonationStatement";
+import AddExpenseLiability from "../pages/Liabilities/AddExpenseLiability";
+import AddAssetLiability from "../pages/Liabilities/AddAssetLiability";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -875,10 +875,27 @@ const router = createBrowserRouter([
 
       //Liabilities routes
       {
-        path: "upcoming",
+        path: "liabilities",
         element: (
           <AdminRoute roles={[ROLES.Admin]}>
-            <Upcoming />
+            <Liabilities />
+          </AdminRoute>
+        ),
+      },
+
+      {
+        path: "add_expense_liability",
+        element: (
+          <AdminRoute roles={[ROLES.Admin]}>
+            <AddExpenseLiability />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "add_asset_liability",
+        element: (
+          <AdminRoute roles={[ROLES.Admin]}>
+            <AddAssetLiability />
           </AdminRoute>
         ),
       },

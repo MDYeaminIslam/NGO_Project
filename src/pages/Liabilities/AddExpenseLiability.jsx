@@ -1,26 +1,23 @@
+import LiabilitiesNav from "./LiabilitiesNav/LiabilitiesNav";
 import BranchSamitySelector from "../../component/branchSamitySelector";
-import ExpenseNav from "./ExpenseNav/ExpenseNav";
-import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import useMutationHook from "../../../hooks/useMutationHook";
-import { addMonthlyExpense } from "../../../api/admin";
-import ExpenseHeadSelector from "./ExpenseHeadSelector";
+import ExpenseHeadSelector from "../Expense/ExpenseHeadSelector";
 import { useUserType } from "../../../hooks/userContext";
-import DrawerBankCashSelector from "../../component/DrawerBankCashSelector";
+import { useState } from "react";
+import { createExpenseLiability } from "../../../api/admin";
+import toast from "react-hot-toast";
 const initialState = {
   branchId: "",
   samityId: "",
   date: new Date(),
   headId: "",
-  amount: "",
-  remarks: "",
-  payFrom: null,
+  amount: null,
 };
-
-const MonthlyExpense = () => {
+export default function AddExpenseLiability() {
   const [formData, setFormData] = useState(initialState);
-  const { userDetails } = useUserType(); // Get user details from user context
+  const { userDetails } = useUserType();
   const user = userDetails();
   const handleChange = (event) => {
     const { name, value, type } = event.target;
@@ -34,14 +31,16 @@ const MonthlyExpense = () => {
       date: new Date(date),
     }));
   };
-
-  const { mutate, isSuccess, isError, errorMessage, isPending } =
-    useMutationHook(addMonthlyExpense, {
-      onSuccess: () => {
-        setFormData(initialState);
-        swal("Monthly Expense Added Successfully!");
-      },
-    });
+  const { mutate } = useMutationHook(createExpenseLiability, {
+    key: ["expense-liability"],
+    onSuccess: () => {
+      toast.success("Expense Liability Added Successfully");
+    },
+    onError: (error) => {
+      console.log(error.response.data.message);
+      toast.error(error.response.data.message);
+    },
+  });
   const handleSubmit = (event) => {
     event.preventDefault();
     const newData = {
@@ -50,11 +49,10 @@ const MonthlyExpense = () => {
     };
     mutate(newData);
   };
-
   return (
     <div>
       <section>
-        <ExpenseNav />
+        <LiabilitiesNav />
       </section>
       <section className="m-4">
         <h1 className="text-xl font-bold text-start max-w-5xl mx-auto  pt-4 border-b-4 pb-2 ">
@@ -64,11 +62,7 @@ const MonthlyExpense = () => {
           <section className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4">
             <BranchSamitySelector callBackFn={setFormData} />
             <ExpenseHeadSelector callBackFn={setFormData} />
-            <DrawerBankCashSelector
-              callBackFn={setFormData}
-              samityId={formData.samityId}
-              text={"Pay From"}
-            />
+
             <div className="flex flex-col gap-1">
               <label className="font-medium" htmlFor="date">
                 Date(DD/MM/YYYY):
@@ -94,23 +88,8 @@ const MonthlyExpense = () => {
                 placeholder="Enter Amount"
               />
             </div>
-
-            <div className="flex flex-col gap-1">
-              <label className="font-medium" htmlFor="remarks">
-                {" "}
-                Remarks :
-              </label>
-              <textarea
-                className="input input-bordered hover:border-teal-500 "
-                id="remarks"
-                name="remarks"
-                onChange={handleChange}
-                cols="10"
-                rows="1"
-              ></textarea>
-            </div>
           </section>
-          {isError ? errorMessage : null}
+          {/* {isError ? errorMessage : null} */}
           <div className="w-full flex justify-center  mt-12">
             <button
               className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
@@ -124,6 +103,4 @@ const MonthlyExpense = () => {
       </section>
     </div>
   );
-};
-
-export default MonthlyExpense;
+}

@@ -27,8 +27,6 @@ const DrawerCash = () => {
   const [formData, setFormData] = useState(initialState); // Initialize form data state with initial values
   const { userDetails } = useUserType(); // Custom hook to get user details based on user type
   const user = userDetails(); // Get the current user details
-  console.log(user); // Log user details for debugging
-
   const { mutate, isSuccess, isError, errorMessage, isPending } =
     useMutationHook(addDrawerCashInOut, {
       // Custom hook for handling mutations
@@ -83,7 +81,6 @@ const DrawerCash = () => {
     queryFn: drawerCashDetails, // Function to fetch drawer cash details
     initialData: [], // Initial data for the query
   });
-  console.log(data);
 
   return (
     <div>

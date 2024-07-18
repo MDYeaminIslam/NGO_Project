@@ -416,11 +416,7 @@ export async function ngoLoanPayment(data) {
   return response.data;
 }
 //ngo liabilities
-export async function ngoLiability() {
-  const response = await axiosAdmin.get("/liabilities/details");
-  console.log(response.data);
-  return response.data.data;
-}
+
 
 //create employee leave application
 export async function employeeLeaveApplication(data) {
@@ -695,5 +691,13 @@ export async function getTrailBalance(data) {
 }
 export async function createDonationTransaction(data) {
   const response = await axiosAdmin.post(`/donation/create`, data);
+  return response.data;
+}
+export async function createExpenseLiability(data) {
+  const response = await axiosAdmin.post(`/liabilities/expense/create`, data);
+  return response.data;
+}
+export async function createAssetLiability(data) {
+  const response = await axiosAdmin.post(`/liabilities/asset/create`, data);
   return response.data;
 }
