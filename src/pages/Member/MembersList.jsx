@@ -6,13 +6,13 @@ import { getLocalUsersByBranchIdAndSmityId } from "../../../api/admin";
 import ListView from "../../component/ListView";
 import { useSearchParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-const initalState = {
+const initialState = {
   branchId: null,
   samityId: null,
 };
 
 const MembersList = () => {
-  const [formData, setFormData] = useState(initalState);
+  const [formData, setFormData] = useState(initialState);
   let [searchParams, setSearchParams] = useSearchParams();
   const { data } = useQuery({
     queryKey: ["member-list"],

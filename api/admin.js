@@ -701,3 +701,17 @@ export async function createAssetLiability(data) {
   const response = await axiosAdmin.post(`/liabilities/asset/create`, data);
   return response.data;
 }
+export async function getExpenseLiabilityByBranchIdAndSmityId(data) {
+  const { branchId, samityId } = data;
+  const response = await axiosAdmin.get(
+    `/liabilities/expense/list?branchId=${branchId}&samityId=${samityId}`
+  );
+  return response.data;
+}
+export async function getAssetLiabilityByBranchIdAndSmityId(data) {
+  const { branchId, samityId } = data;
+  const response = await axiosAdmin.get(
+    `/liabilities/asset/list?branchId=${branchId}&samityId=${samityId}`
+  );
+  return response.data;
+}

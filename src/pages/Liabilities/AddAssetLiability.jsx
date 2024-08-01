@@ -20,7 +20,7 @@ const initialState = {
   remarks: "",
   total: 0,
   headId: "",
-  appreciation: "",
+  appreciation: 0,
   depreciation: "",
 };
 
@@ -56,15 +56,18 @@ export default function AddAssetLiability() {
       date: new Date(date),
     }));
   };
-  const { mutate } = useMutationHook(createAssetLiability, {
-    key: ["asset-liability"],
-    onSuccess: () => {
-      setFormData(initialState);
-    },
-    onError: (data) => {
-      console.log(data);
-    },
-  });
+  const { mutate, isError, errorMessage } = useMutationHook(
+    createAssetLiability,
+    {
+      key: ["asset-liability"],
+      onSuccess: () => {
+        setFormData(initialState);
+      },
+      onError: (data) => {
+        console.log(data);
+      },
+    }
+  );
   const handleSubmit = (event) => {
     event.preventDefault();
     const newData = {
@@ -230,7 +233,7 @@ export default function AddAssetLiability() {
             </div>
           </section>
 
-          {/* {isError ? errorMessage : null} */}
+          {isError ? errorMessage : null}
           <div className="w-full flex justify-center  mt-12">
             <button
               className="bg-teal-600 hover:bg-teal-700 px-10 py-2 rounded font-medium     text-white"
