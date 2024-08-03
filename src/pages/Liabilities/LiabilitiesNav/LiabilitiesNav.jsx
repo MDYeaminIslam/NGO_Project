@@ -44,9 +44,16 @@ const LiabilitiesNav = () => {
                     aria-labelledby="dropdownDefaultButton"
                   >
                     <li>
-                      <NavLink to={"/liabilities"}>
+                      <NavLink to={"/liabilities/expense"}>
                         <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
-                          Liabilities
+                          Expense Liabilities
+                        </p>
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to={"/liabilities/asset"}>
+                        <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-normal">
+                          Asset Liabilities
                         </p>
                       </NavLink>
                     </li>
@@ -73,9 +80,14 @@ const LiabilitiesNav = () => {
 
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4">
-                <NavLink to={"/liabilities"}>
+                <NavLink to={"/liabilities/expense"}>
                   <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                    Liabilities
+                    Expense Liabilities
+                  </p>
+                </NavLink>
+                <NavLink to={"/liabilities/asset"}>
+                  <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    Asset Liabilities
                   </p>
                 </NavLink>
 
@@ -90,22 +102,6 @@ const LiabilitiesNav = () => {
                     Add Asset Liability
                   </p>
                 </NavLink>
-
-                {/* <NavLink to={'/debit'}>
-                  <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Debit</p>
-                </NavLink>
-
-                <NavLink to={'/debit_vs_credit'}>
-                  <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Debit vs Credit</p>
-                </NavLink>
-
-                <NavLink to={'/liabilities'}>
-                  <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Liabilities</p>
-                </NavLink>
-
-                <NavLink to={'/tds_tax_vat'}>
-                  <p className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">TDX, TAX, VAT</p>
-                </NavLink> */}
               </div>
             </div>
           </div>

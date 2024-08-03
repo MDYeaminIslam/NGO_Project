@@ -47,7 +47,6 @@ import BalanceSheet from "../pages/Report/BalanceSheet";
 import Credit from "../pages/Report/Credit";
 import Debit from "../pages/Report/Debit";
 import DebitvsCredit from "../pages/Report/DebitvsCredit";
-import Liabilities from "../pages/Liabilities/Liabilities";
 import TdsTaxVat from "../pages/Report/TdsTaxVat";
 import GeneralSettings from "../pages/Setting General/GeneralSettings";
 import TransactionnPosting from "../pages/Saving Account/TransactionnPosting";
@@ -109,6 +108,8 @@ import DpsAccountList from "../pages/Saving Account/DpsAccountList";
 import AddDonationStatement from "../pages/Income/AddDonationStatement";
 import AddExpenseLiability from "../pages/Liabilities/AddExpenseLiability";
 import AddAssetLiability from "../pages/Liabilities/AddAssetLiability";
+import PayExpenseLiabilities from "../pages/Liabilities/PayLiabilites/PayExpenseLiabilities";
+import PayAssetLiabilities from "../pages/Liabilities/PayLiabilites/PayAssetLiabilities";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -875,10 +876,18 @@ const router = createBrowserRouter([
 
       //Liabilities routes
       {
-        path: "liabilities",
+        path: "liabilities/expense",
         element: (
           <AdminRoute roles={[ROLES.Admin]}>
-            <Liabilities />
+            <PayExpenseLiabilities />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "liabilities/asset",
+        element: (
+          <AdminRoute roles={[ROLES.Admin]}>
+            <PayAssetLiabilities />
           </AdminRoute>
         ),
       },
@@ -941,14 +950,7 @@ const router = createBrowserRouter([
           </AdminRoute>
         ),
       },
-      {
-        path: "liabilities",
-        element: (
-          <AdminRoute roles={[ROLES.Admin]}>
-            <Liabilities />
-          </AdminRoute>
-        ),
-      },
+
       {
         path: "tds_tax_vat",
         element: (

@@ -713,5 +713,41 @@ export async function getAssetLiabilityByBranchIdAndSmityId(data) {
   const response = await axiosAdmin.get(
     `/liabilities/asset/list?branchId=${branchId}&samityId=${samityId}`
   );
+  console.log(response.data);
   return response.data;
+}
+export async function payExpenseLiability2(data) {
+
+  const response = await axiosAdmin.post(
+    `/liabilities/expense/pay`, data
+  );
+  return response.data;
+}
+export async function payExpenseLiability(data) {
+
+  const expenseId = data._id;
+  const date = data.date;
+  delete data._id;
+  delete data.head;
+  const expenseResponse = await addMonthlyExpense(data);
+  const response = await payExpenseLiability2({ expenseId, date });
+  return true;
+}
+
+//createAssetExpense
+export async function payAssetLiability2(id) {
+
+  const response = await axiosAdmin.get(
+    `/liabilities/asset/pay/${id}`
+  );
+  return response.data;
+
+}
+export async function payAssetLiability(data) {
+  const { _id, head, ...other } = data;
+  delete data._id;
+  delete data.head;
+  const assetLiability = await createAssetExpense(other);
+  const response = await payAssetLiability2(_id);
+  return true;
 }
