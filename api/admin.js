@@ -716,11 +716,9 @@ export async function getAssetLiabilityByBranchIdAndSmityId(data) {
   console.log(response.data);
   return response.data;
 }
-export async function payExpenseLiability2(data) {
+export async function payExpenseLiability2(id) {
 
-  const response = await axiosAdmin.post(
-    `/liabilities/expense/pay`, data
-  );
+  const response = await axiosAdmin.get(`/liabilities/expense/pay/${id}`);
   return response.data;
 }
 export async function payExpenseLiability(data) {
@@ -730,7 +728,7 @@ export async function payExpenseLiability(data) {
   delete data._id;
   delete data.head;
   const expenseResponse = await addMonthlyExpense(data);
-  const response = await payExpenseLiability2({ expenseId, date });
+  const response = await payExpenseLiability2(expenseId);
   return true;
 }
 

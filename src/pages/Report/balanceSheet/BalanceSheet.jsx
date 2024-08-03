@@ -1,6 +1,8 @@
 import React from "react";
 
 const BalanceSheetData = ({ data }) => {
+  console.log(data);
+
   const formatAmount = (amount, name) =>
     name !== "Retained Earnings"
       ? amount.toLocaleString("en-US") + " TK"
@@ -10,8 +12,7 @@ const BalanceSheetData = ({ data }) => {
 
   const maxRows = Math.max(
     data.assets.currentAssets.length,
-    data.liabilitiesAndEquity.currentLiabilities.length +
-      data.liabilitiesAndEquity.equity.length
+    data.liabilitiesAndEquity.currentLiabilities.length
   );
 
   return (
@@ -34,26 +35,35 @@ const BalanceSheetData = ({ data }) => {
               Current Liabilities:
             </td>
           </tr>
-          {data.assets.currentAssets.map((asset, index) => (
-            <tr key={`asset-${index}`} className="border-b">
-              <td className="px-6 py-4">{asset.name}</td>
+          {Array.from({ length: maxRows }).map((_, index) => (
+            <tr key={`row-${index}`} className="border-b">
               <td className="px-6 py-4">
-                {formatAmount(asset.amount, asset.name)}
+                {data.assets.currentAssets[index]
+                  ? data.assets.currentAssets[index].name
+                  : ""}
               </td>
-              {index < data.liabilitiesAndEquity.currentLiabilities.length && (
-                <>
-                  <td className="px-6 py-4">
-                    {data.liabilitiesAndEquity.currentLiabilities[index].name}
-                  </td>
-                  <td className="px-6 py-4">
-                    {formatAmount(
+              <td className="px-6 py-4">
+                {data.assets.currentAssets[index]
+                  ? formatAmount(
+                      data.assets.currentAssets[index].amount,
+                      data.assets.currentAssets[index].name
+                    )
+                  : ""}
+              </td>
+              <td className="px-6 py-4">
+                {data.liabilitiesAndEquity.currentLiabilities[index]
+                  ? data.liabilitiesAndEquity.currentLiabilities[index].name
+                  : ""}
+              </td>
+              <td className="px-6 py-4">
+                {data.liabilitiesAndEquity.currentLiabilities[index]
+                  ? formatAmount(
                       data.liabilitiesAndEquity.currentLiabilities[index]
                         .amount,
                       data.liabilitiesAndEquity.currentLiabilities[index].name
-                    )}
-                  </td>
-                </>
-              )}
+                    )
+                  : ""}
+              </td>
             </tr>
           ))}
           <tr className="border-b">
@@ -85,7 +95,6 @@ const BalanceSheetData = ({ data }) => {
               )}
             </tr>
           ))}
-          {/* Add any remaining equity items */}
           {data.liabilitiesAndEquity.equity
             .slice(data.assets.fixedAssets.length)
             .map((item, index) => (
