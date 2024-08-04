@@ -10,9 +10,22 @@ const BalanceSheetData = ({ data }) => {
       ? `${Math.abs(amount).toLocaleString("en-US")} TK`
       : `(${Math.abs(amount).toLocaleString("en-US")}) TK`;
 
-  const maxRows = Math.max(
-    data.assets.currentAssets.length,
-    data.liabilitiesAndEquity.currentLiabilities.length
+  const renderSection = (title, items) => (
+    <>
+      <tr className="border-b">
+        <td colSpan="2" className="px-6 py-4 font-medium">
+          {title}:
+        </td>
+      </tr>
+      {items.map((item, index) => (
+        <tr key={`${title}-${index}`} className="border-b">
+          <td className="px-6 py-4">{item.name}</td>
+          <td className="px-6 py-4 text-right">
+            {formatAmount(item.amount, item.name)}
+          </td>
+        </tr>
+      ))}
+    </>
   );
 
   return (
@@ -20,99 +33,45 @@ const BalanceSheetData = ({ data }) => {
       <table className="w-full text-sm text-left">
         <thead className="text-xs uppercase bg-gray-100">
           <tr>
-            <th className="px-6 py-3">ASSETS (Debit)</th>
-            <th className="px-6 py-3">Amount</th>
-            <th className="px-6 py-3">LIABILITIES & EQUITY (Credit)</th>
-            <th className="px-6 py-3">Amount</th>
+            <th className="px-6 py-3">ASSETS (DEBIT)</th>
+            <th className="px-6 py-3 text-right">AMOUNT</th>
+            <th className="px-6 py-3">LIABILITIES & EQUITY (CREDIT)</th>
+            <th className="px-6 py-3 text-right">AMOUNT</th>
           </tr>
         </thead>
         <tbody>
-          <tr className="border-b">
-            <td colSpan="2" className="px-6 py-4 font-medium">
-              Current Assets:
+          <tr>
+            <td colSpan="2" className="align-top">
+              <table className="w-full">
+                <tbody>
+                  {renderSection("Current Assets", data.assets.currentAssets)}
+                  {renderSection("Fixed Assets", data.assets.fixedAssets)}
+                  {renderSection(
+                    "Provision of Expenses",
+                    data.assets.provisionOfExpenses
+                  )}
+                </tbody>
+              </table>
             </td>
-            <td colSpan="2" className="px-6 py-4 font-medium">
-              Current Liabilities:
-            </td>
-          </tr>
-          {Array.from({ length: maxRows }).map((_, index) => (
-            <tr key={`row-${index}`} className="border-b">
-              <td className="px-6 py-4">
-                {data.assets.currentAssets[index]
-                  ? data.assets.currentAssets[index].name
-                  : ""}
-              </td>
-              <td className="px-6 py-4">
-                {data.assets.currentAssets[index]
-                  ? formatAmount(
-                      data.assets.currentAssets[index].amount,
-                      data.assets.currentAssets[index].name
-                    )
-                  : ""}
-              </td>
-              <td className="px-6 py-4">
-                {data.liabilitiesAndEquity.currentLiabilities[index]
-                  ? data.liabilitiesAndEquity.currentLiabilities[index].name
-                  : ""}
-              </td>
-              <td className="px-6 py-4">
-                {data.liabilitiesAndEquity.currentLiabilities[index]
-                  ? formatAmount(
-                      data.liabilitiesAndEquity.currentLiabilities[index]
-                        .amount,
-                      data.liabilitiesAndEquity.currentLiabilities[index].name
-                    )
-                  : ""}
-              </td>
-            </tr>
-          ))}
-          <tr className="border-b">
-            <td colSpan="2" className="px-6 py-4 font-medium">
-              Fixed Assets:
-            </td>
-            <td colSpan="2" className="px-6 py-4 font-medium">
-              Equity:
+            <td colSpan="2" className="align-top">
+              <table className="w-full">
+                <tbody>
+                  {renderSection(
+                    "Current Liabilities",
+                    data.liabilitiesAndEquity.currentLiabilities
+                  )}
+                  {renderSection("Equity", data.liabilitiesAndEquity.equity)}
+                </tbody>
+              </table>
             </td>
           </tr>
-          {data.assets.fixedAssets.map((asset, index) => (
-            <tr key={`fixed-asset-${index}`} className="border-b">
-              <td className="px-6 py-4">{asset.name}</td>
-              <td className="px-6 py-4">
-                {formatAmount(asset.amount, asset.name)}
-              </td>
-              {index < data.liabilitiesAndEquity.equity.length && (
-                <>
-                  <td className="px-6 py-4">
-                    {data.liabilitiesAndEquity.equity[index].name}
-                  </td>
-                  <td className="px-6 py-4">
-                    {formatAmount(
-                      data.liabilitiesAndEquity.equity[index].amount,
-                      data.liabilitiesAndEquity.equity[index].name
-                    )}
-                  </td>
-                </>
-              )}
-            </tr>
-          ))}
-          {data.liabilitiesAndEquity.equity
-            .slice(data.assets.fixedAssets.length)
-            .map((item, index) => (
-              <tr key={`equity-${index}`} className="border-b">
-                <td colSpan="2"></td>
-                <td className="px-6 py-4">{item.name}</td>
-                <td className="px-6 py-4">
-                  {formatAmount(item.amount, item.name)}
-                </td>
-              </tr>
-            ))}
           <tr className="font-bold bg-gray-100">
             <td className="px-6 py-4">TOTAL</td>
-            <td className="px-6 py-4">
+            <td className="px-6 py-4 text-right">
               {formatAmount(data.assets.total, "Total")}
             </td>
             <td className="px-6 py-4">TOTAL</td>
-            <td className="px-6 py-4">
+            <td className="px-6 py-4 text-right">
               {formatAmount(data.liabilitiesAndEquity.total, "Total")}
             </td>
           </tr>

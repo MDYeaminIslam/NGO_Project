@@ -3,8 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import BranchSamitySelector from "../../component/branchSamitySelector";
 import ExpenseNav from "./ExpenseNav/ExpenseNav";
-
-import { getAllExpenses } from "../../../api/admin";
+import { getAllExpenses, getAllAssets } from "../../../api/admin";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { dateToString } from "../../utils/DateHelper";
@@ -16,10 +15,10 @@ const initialState = {
   to: null,
 };
 
-const AllExpense = () => {
+const AllAsset = () => {
   const [formData, setFormData] = useState(initialState);
   const [searchParams, setSearchParams] = useSearchParams();
-  const { data, error } = useQuery({
+  const { data } = useQuery({
     queryKey: [
       "expense-list",
       formData.branchId,
@@ -27,11 +26,10 @@ const AllExpense = () => {
       formData.from,
       formData.to,
     ],
-    queryFn: () => getAllExpenses(formData),
+    queryFn: () => getAllAssets(formData),
     enabled: !!formData.branchId && !!formData.samityId,
     initialData: null,
   });
-
   console.log(data);
 
   function handleChangeFrom(date) {
@@ -76,7 +74,7 @@ const AllExpense = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-8 pb-2 border-b-4 border-teal-500">
-          All Expenses
+          All Assets
         </h1>
 
         <div>
@@ -118,10 +116,10 @@ const AllExpense = () => {
         </div>
 
         {data && data.length ? (
-          <ExpenseList data={data} />
+          <AssetTable data={data} />
         ) : (
           <div className="text-center py-12 bg-white shadow-md rounded-lg mt-4">
-            <p className="text-gray-500 text-lg">No expenses found.</p>
+            <p className="text-gray-500 text-lg">No Assets found.</p>
           </div>
         )}
       </div>
@@ -129,7 +127,7 @@ const AllExpense = () => {
   );
 };
 
-const ExpenseList = ({ data }) => {
+const AssetTable = ({ data }) => {
   return (
     <div className="overflow-x-auto mt-4">
       <table className="min-w-full divide-y divide-gray-200">
@@ -145,7 +143,13 @@ const ExpenseList = ({ data }) => {
               Head Name
             </th>
             <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-              Amount
+              Unit Amount
+            </th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+              Unit Price
+            </th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+              Total
             </th>
             <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
               By
@@ -165,7 +169,13 @@ const ExpenseList = ({ data }) => {
                 {item.headName}
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                {item.amount}
+                {item.unitAmount}
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                {item.unitPrice}
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                {item.total}
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-sm ">
                 <Link
@@ -183,5 +193,4 @@ const ExpenseList = ({ data }) => {
   );
 };
 
-export default AllExpense;
-//className="text-teal-600 hover:text-teal-900"
+export default AllAsset;

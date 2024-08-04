@@ -297,9 +297,16 @@ export async function createPurchaseExpense(data) {
 }
 // get all expense list
 export async function getAllExpenses(data) {
-  const { branchId, samityId, type } = data;
+  const { branchId, samityId, from, to } = data;
   const response = await axiosAdmin.get(
-    `/expense/all?branchId=${branchId}&samityId=${samityId}&type=${type}`
+    `/expense/all?branchId=${branchId}&samityId=${samityId}&from=${from}&to=${to}`
+  );
+  return response.data.data;
+}
+export async function getAllAssets(data) {
+  const { branchId, samityId, from, to } = data;
+  const response = await axiosAdmin.get(
+    `/asset/all?branchId=${branchId}&samityId=${samityId}&from=${from}&to=${to}`
   );
   return response.data.data;
 }
@@ -363,14 +370,6 @@ export async function createMonthlyPaySlipApplication(data) {
 export async function addAsset(data) {
   const response = await axiosAdmin.post("/asset/add", data);
   return response.data;
-}
-//get all assets
-export async function getAllAssets(data) {
-  const { branchId, samityId } = data;
-  const response = await axiosAdmin.get(
-    `/asset/all?branchId=${branchId}&samityId=${samityId}`
-  );
-  return response.data.data;
 }
 
 //get income

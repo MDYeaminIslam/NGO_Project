@@ -110,6 +110,7 @@ import AddExpenseLiability from "../pages/Liabilities/AddExpenseLiability";
 import AddAssetLiability from "../pages/Liabilities/AddAssetLiability";
 import PayExpenseLiabilities from "../pages/Liabilities/PayLiabilites/PayExpenseLiabilities";
 import PayAssetLiabilities from "../pages/Liabilities/PayLiabilites/PayAssetLiabilities";
+import AllAsset from "../pages/Expense/AllAsset";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -461,6 +462,14 @@ const router = createBrowserRouter([
         element: (
           <AdminRoute roles={[ROLES.Admin]}>
             <AllExpense />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "all_asset",
+        element: (
+          <AdminRoute roles={[ROLES.Admin]}>
+            <AllAsset />
           </AdminRoute>
         ),
       },
